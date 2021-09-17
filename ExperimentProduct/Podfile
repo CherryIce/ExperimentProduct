@@ -1,0 +1,102 @@
+
+platform :ios, '9.0'
+
+use_frameworks!
+
+# 适配各个iOS版本 pod库最好指定最低版本
+
+target 'ExperimentProduct' do
+
+# 网络
+pod 'Moya/RxSwift'
+
+# 解析 JSON数据
+#pod 'SwiftyJSON'
+
+# json对象映射为model对象
+#pod 'Argo'
+#pod 'ObjectMapper'
+
+# 下拉刷新
+#pod 'DGElasticPullToRefresh'
+
+# 自动布局框架
+#pod 'SnapKit'
+
+# 集Animation和UI与一身
+#pod 'MaterialKit'
+
+# 图片加载、缓存
+#pod 'Kingfisher'
+
+# 消息及应用通知组件
+#pod 'Whisper'
+
+# 很多漂亮的加载指示器
+#pod 'NVActivityIndicatorView'
+
+# 图片选择器
+#pod 'ImagePicker'
+
+# 社会化分享框架
+#pod 'MonkeyKing'
+
+# 引导页
+#pod "RazzleDazzle"
+
+# 操作指南、新手教程
+#pod 'Instructions'
+
+# 转场动画
+#pod 'StarWars'
+
+# 数字变形过渡动画，用于金额数字变动或者时间
+#pod 'NumberMorphView'
+
+# 自定义的进度加载动画
+#pod 'FillableLoaders'
+
+# 创建动态的table-view forms
+#pod 'Eureka'
+
+# 拥有很多种特性的label
+#pod 'LTMorphingLabel'
+
+# 支持Hashtags、Mentions、Links响应事件
+#pod 'ActiveLabel'
+
+# TextField
+#pod 'TextFieldEffects'
+#pod 'SkyFloatingLabelTextField'
+
+# TextView
+#pod 'NextGrowingTextView'
+
+# NSAttributedString
+#pod 'TextAttributes'
+
+# Gif
+#pod 'Gifu'
+
+# 日志
+pod 'XCGLogger'
+
+# 代码风格检查
+pod 'SwiftLint'
+
+# 异步功能
+#pod 'PromiseKit'
+#pod "AsyncSwift"
+
+# App内购
+#pod 'SwiftyStoreKit'
+
+# 动画库
+#pod 'IBAnimatable'
+#pod 'EasyAnimation'
+#pod 'Advance'
+#pod 'PeekPop'
+
+
+end
+
