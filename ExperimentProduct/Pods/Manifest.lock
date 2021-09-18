@@ -1,5 +1,6 @@
 PODS:
   - Alamofire (4.9.1)
+  - Differentiator (3.1.0)
   - Moya/Core (13.0.1):
     - Alamofire (~> 4.1)
     - Result (~> 4.1)
@@ -10,8 +11,17 @@ PODS:
     - ObjcExceptionBridging/ObjcExceptionBridging (= 1.0.1)
   - ObjcExceptionBridging/ObjcExceptionBridging (1.0.1)
   - Result (4.1.0)
+  - RxCocoa (4.5.0):
+    - RxSwift (>= 4.4.2, ~> 4.4)
+  - RxDataSources (3.1.0):
+    - Differentiator (~> 3.0)
+    - RxCocoa (~> 4.0)
+    - RxSwift (~> 4.0)
   - RxSwift (4.5.0)
+  - SnapKit (4.2.0)
   - SwiftLint (0.44.0)
+  - SwiftyJSON (5.0.0)
+  - TYPagerController (2.1.2)
   - XCGLogger (7.0.1):
     - XCGLogger/Core (= 7.0.1)
   - XCGLogger/Core (7.0.1):
@@ -19,28 +29,45 @@ PODS:
 
 DEPENDENCIES:
   - Moya/RxSwift
+  - RxCocoa
+  - RxDataSources (~> 3.0)
+  - SnapKit
   - SwiftLint
+  - SwiftyJSON
+  - TYPagerController
   - XCGLogger
 
 SPEC REPOS:
   trunk:
     - Alamofire
+    - Differentiator
     - Moya
     - ObjcExceptionBridging
     - Result
+    - RxCocoa
+    - RxDataSources
     - RxSwift
+    - SnapKit
     - SwiftLint
+    - SwiftyJSON
+    - TYPagerController
     - XCGLogger
 
 SPEC CHECKSUMS:
   Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
+  Differentiator: be49ca3408f0ecfc761e4c7763d20c62be01b9ad
   Moya: f4a4b80ff2f8a4ffc208dfb31cd91636622fee6e
   ObjcExceptionBridging: c30e00eb3700467e695faeea30e26e18bd445001
   Result: bd966fac789cc6c1563440b348ab2598cc24d5c7
+  RxCocoa: cbf70265dc65a981d4ac982e513c10cf23df24a0
+  RxDataSources: a843bad90c29817f5923ec8163f4af2de084ceb3
   RxSwift: f172070dfd1a93d70a9ab97a5a01166206e1c575
+  SnapKit: fe8a619752f3f27075cc9a90244d75c6c3f27e2a
   SwiftLint: e96c0a8c770c7ebbc4d36c55baf9096bb65c4584
+  SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
+  TYPagerController: 262556ecef99986d26ed77fb1288a198ed42f4af
   XCGLogger: 1943831ef907df55108b0b18657953f868de973b
 
-PODFILE CHECKSUM: db1bca91ffeb4dae582482d2bbed0752b28bc408
+PODFILE CHECKSUM: 65ec77b6970cb2444f6795df82399fefcaa26d0c
 
 COCOAPODS: 1.10.0

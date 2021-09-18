@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SnapKit
 
 class RPBaseViewController: UIViewController {
 
@@ -14,17 +15,16 @@ class RPBaseViewController: UIViewController {
 
         // Do any additional setup after loading the vie
         self.view.backgroundColor = RPColor.MainViewBgColor
+        //解决往上偏移导航栏高度问题
+        self.extendedLayoutIncludesOpaqueBars = true
+        self .edgesForExtendedLayout = UIRectEdge . init (rawValue: 0 )
+        //防止以上方法导致需要透明的导航栏变黑
+        self.navigationController?.navigationBar.isTranslucent = false
+        self.tabBarController?.tabBar.isTranslucent = false
+        //iOS 11以上需要...
+        if #available(iOS 11.0, *) {
+            
+        }
+        
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

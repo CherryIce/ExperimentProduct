@@ -1,5 +1,5 @@
 
-platform :ios, '9.0'
+platform :ios, '8.0'
 
 use_frameworks!
 
@@ -10,8 +10,12 @@ target 'ExperimentProduct' do
 # 网络
 pod 'Moya/RxSwift'
 
+pod 'RxCocoa'
+
+pod 'RxDataSources', '~> 3.0'  # RxSwift中用于设置UITableView/UICollectionView data sources
+
 # 解析 JSON数据
-#pod 'SwiftyJSON'
+pod 'SwiftyJSON'
 
 # json对象映射为model对象
 #pod 'Argo'
@@ -21,7 +25,10 @@ pod 'Moya/RxSwift'
 #pod 'DGElasticPullToRefresh'
 
 # 自动布局框架
-#pod 'SnapKit'
+pod 'SnapKit'
+
+# 分页控制器
+pod 'TYPagerController'
 
 # 集Animation和UI与一身
 #pod 'MaterialKit'

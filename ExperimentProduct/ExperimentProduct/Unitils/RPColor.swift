@@ -8,16 +8,28 @@
 import UIKit
 
 class RPColor: UIColor {
-    
+    //主色调
     open class var  MainColor:UIColor {
         get{
             return UIColor.init(hexString: "#FF7700")
         }
     }
-    
+    //常用视图背景色
     open class var  MainViewBgColor:UIColor {
         get{
             return UIColor.init(hexString: "#FCFCFC")
+        }
+    }
+    //常用分割线颜色
+    open class var Separator:UIColor {
+        get {
+            return UIColor.init(hexString: "#F3F3F5")
+        }
+    }
+    //浅色
+    open class var ShallowColor:UIColor {
+        get {
+            return UIColor.init(hexString: "#F5F5F7")
         }
     }
     
