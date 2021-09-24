@@ -9,7 +9,7 @@ import UIKit
 
 let cellID = "RPExploreViewCellIdentifier"
 
-class RPExploreViewController: RPBaseViewController , UITableViewDelegate, UITableViewDataSource {
+class RPExploreViewController: RPBaseViewController {
     
     //tableView
     var tableView = UITableView()
@@ -99,8 +99,9 @@ class RPExploreViewController: RPBaseViewController , UITableViewDelegate, UITab
         
         return String(predicateLetter.evaluate(with: firstStr) ? firstStr : "#")
     }
-    
-    
+}
+
+extension RPExploreViewController: UITableViewDelegate, UITableViewDataSource {
     //MARK: - 返回多少组
     func numberOfSections(in tableView: UITableView) -> Int {
         return sectionTitles.count
@@ -141,6 +142,4 @@ class RPExploreViewController: RPBaseViewController , UITableViewDelegate, UITab
     func sectionIndexTitles(for tableView: UITableView) -> [String]? {
         return sectionTitles
     }
-    
-    
 }

@@ -10,6 +10,8 @@ import RxSwift
 import RxCocoa
 import RxDataSources
 
+//fix bug:https://github.com/ReactiveX/RxSwift/issues/2081
+
 class RPMineViewController: RPBaseViewController {
     
     private let disposeBag = DisposeBag()

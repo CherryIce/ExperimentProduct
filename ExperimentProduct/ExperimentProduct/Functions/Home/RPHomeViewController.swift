@@ -7,7 +7,7 @@
 
 import UIKit
 
-class RPHomeViewController: RPBaseViewController , UITableViewDelegate, UITableViewDataSource {
+class RPHomeViewController: RPBaseViewController {
     
     //tableView
     var tableView = UITableView()
@@ -64,7 +64,9 @@ class RPHomeViewController: RPBaseViewController , UITableViewDelegate, UITableV
         //设置可编辑、不可编辑
         tableView.setEditing(sender.isSelected, animated: true)
     }
-    
+}
+
+extension RPHomeViewController: UITableViewDelegate, UITableViewDataSource {
     //MARK: - 返回多少行
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return dataList.count
