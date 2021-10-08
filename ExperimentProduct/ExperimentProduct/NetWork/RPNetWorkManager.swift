@@ -57,6 +57,9 @@ class RPNetWorkManager: NSObject {
 
 enum NewsMoya {
     case news(_ offset: String)
+    case login(moblie:String,password:String)
+    case register(moblie:String,code:String)
+    case forgetPassword(moblie:String,code:String,newpassword:String)
 }
 
 
@@ -66,7 +69,17 @@ extension NewsMoya: TargetType {
     }
     
     var path: String {
-        return "/dlist/article/dynamic"
+        switch self {
+        case .news:
+            return "/dlist/article/dynamic"
+        case .login:
+            return ""
+        case .register:
+            return ""
+        case .forgetPassword:
+            return ""
+        }
+        
     }
     
     var method: HTTPMethod {
@@ -82,7 +95,20 @@ extension NewsMoya: TargetType {
         case let .news(offset):
             let parameters = ["from": "T1348649079062", "devId": "H71eTNJGhoHeNbKnjt0%2FX2k6hFppOjLRQVQYN2Jjzkk3BZuTjJ4PDLtGGUMSK%2B55", "version": "54.6", "spever": "false", "net": "wifi", "ts": "\(Date().timeStamp)", "sign": "BWGagUrUhlZUMPTqLxc2PSPJUoVaDp7JSdYzqUAy9WZ48ErR02zJ6%2FKXOnxX046I", "encryption": "1", "canal": "appstore", "offset": offset, "size": "10", "fn": "3"]
             return .requestParameters(parameters: parameters, encoding: URLEncoding.default)
+            
+        case .login(moblie: let moblie, password: let password):
+            let paramters = ["moblie":moblie,"password":password]
+            return.requestParameters(parameters: paramters, encoding:URLEncoding.default )
+            
+        case .register(moblie: let moblie, code: let code):
+            let paramters = ["moblie":moblie,"code":code]
+            return.requestParameters(parameters: paramters, encoding:URLEncoding.default )
+            
+        case .forgetPassword(moblie: let moblie, code: let code, newpassword: let newpassword):
+            let paramters = ["moblie":moblie,"code":code,"newpassword":newpassword]
+            return.requestParameters(parameters: paramters, encoding:URLEncoding.default )
         }
+        
     }
     
     var headers: [String : String]? {
