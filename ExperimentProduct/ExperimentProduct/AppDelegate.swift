@@ -17,7 +17,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         window = UIWindow.init(frame: UIScreen.main.bounds)
         window?.makeKeyAndVisible()
-        window?.rootViewController = RPMainTabBarViewController.init()
+        
+        
+        let token = UserDefaults.standard.object(forKey: "token")
+        if (token != nil) {
+            window?.rootViewController = RPMainTabBarViewController.init()
+        }else{
+            window?.rootViewController = RPLoginViewController.init()
+        }
         
         return true
     }

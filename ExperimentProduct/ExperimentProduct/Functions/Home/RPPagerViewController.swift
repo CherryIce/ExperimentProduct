@@ -12,8 +12,8 @@ class RPPagerViewController: RPBaseViewController {
     
     lazy var tabBar = TYTabPagerBar()
     lazy var pagerController = TYPagerController()
-    
-    lazy var datas = [String]()
+    lazy var pageTitles = [String]()
+    lazy var pageControllers: NSMutableArray = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,8 +55,9 @@ class RPPagerViewController: RPBaseViewController {
     
     func loadData() {
         var i = 0
-        while i < 20 {
-            self.datas.append("Tab \(i)")
+        while i < 4 {
+            self.pageTitles.append("Tab \(i)")
+            self.pageControllers .add(RPPageIndexViewController())
             i += 1
         }
         self.reloadData()
@@ -76,16 +77,16 @@ class RPPagerViewController: RPBaseViewController {
 extension RPPagerViewController: TYTabPagerBarDataSource, TYTabPagerBarDelegate {
     func pagerTabBar(_ pagerTabBar: TYTabPagerBar, cellForItemAt index: Int) -> UICollectionViewCell & TYTabPagerBarCellProtocol {
         let cell = pagerTabBar.dequeueReusableCell(withReuseIdentifier: NSStringFromClass(TYTabPagerBarCell.classForCoder()), for: index)
-        cell.titleLabel.text = self.datas[index]
+        cell.titleLabel.text = self.pageTitles[index]
         return cell
     }
     
     func numberOfItemsInPagerTabBar() -> Int {
-        return self.datas.count
+        return self.pageTitles.count
     }
     
     func pagerTabBar(_ pagerTabBar: TYTabPagerBar, widthForItemAt index: Int) -> CGFloat {
-        let title = self.datas[index]
+        let title = self.pageTitles[index]
         return pagerTabBar.cellWidth(forTitle: title)
     }
     
@@ -96,13 +97,12 @@ extension RPPagerViewController: TYTabPagerBarDataSource, TYTabPagerBarDelegate 
 
 extension RPPagerViewController: TYPagerControllerDataSource, TYPagerControllerDelegate {
     func numberOfControllersInPagerController() -> Int {
-        return self.datas.count
+        return self.pageControllers.count
     }
     
     func pagerController(_ pagerController: TYPagerController, controllerFor index: Int, prefetching: Bool) -> UIViewController {
-        let vc = UIViewController()
-        vc.view.backgroundColor = UIColor(red: CGFloat(arc4random()%255)/255.0, green: CGFloat(arc4random()%255)/255.0, blue: CGFloat(arc4random()%255)/255.0, alpha: 1)
-        return vc
+        let vc = self.pageControllers[index]
+        return vc as! RPPageIndexViewController
     }
     
     func pagerController(_ pagerController: TYPagerController, transitionFrom fromIndex: Int, to toIndex: Int, animated: Bool) {

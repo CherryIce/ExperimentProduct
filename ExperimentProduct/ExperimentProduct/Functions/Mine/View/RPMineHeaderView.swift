@@ -9,8 +9,6 @@ import UIKit
 
 class RPMineHeaderView: UIView {
     
-    
-    
     var headImageButton = UIButton()
     
     var userNameLabel = UILabel()

@@ -8,6 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		2166DC66B9F847E1819F25B4 /* Pods_ExperimentProduct.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8D472A6AE1416EF6DBD857D /* Pods_ExperimentProduct.framework */; };
+		4A1DEBD72713DF3A00149FD8 /* RPPageIndexViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1DEBD62713DF3A00149FD8 /* RPPageIndexViewController.swift */; };
+		4A1DEBF92714326700149FD8 /* RPLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1DEBF82714326700149FD8 /* RPLoginViewController.swift */; };
+		4A1DEBFE2714328500149FD8 /* RPRegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1DEBFD2714328500149FD8 /* RPRegisterViewController.swift */; };
+		4A1DEC03271432ED00149FD8 /* RPPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1DEC02271432ED00149FD8 /* RPPasswordViewController.swift */; };
+		4A1DEC0D2715158F00149FD8 /* RPLoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1DEC0C2715158F00149FD8 /* RPLoginView.swift */; };
+		4A1DEC6F27156CA400149FD8 /* RPTextFiled.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1DEC6E27156CA400149FD8 /* RPTextFiled.swift */; };
 		4A547BD626F44898005F00B5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A547BD526F44898005F00B5 /* AppDelegate.swift */; };
 		4A547BDA26F44898005F00B5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A547BD926F44898005F00B5 /* ViewController.swift */; };
 		4A547BDD26F44898005F00B5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A547BDB26F44898005F00B5 /* Main.storyboard */; };
@@ -55,6 +61,12 @@
 
 /* Begin PBXFileReference section */
 		0414B7CB156727DB213F2A44 /* Pods-ExperimentProduct.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ExperimentProduct.debug.xcconfig"; path = "Target Support Files/Pods-ExperimentProduct/Pods-ExperimentProduct.debug.xcconfig"; sourceTree = "<group>"; };
+		4A1DEBD62713DF3A00149FD8 /* RPPageIndexViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPPageIndexViewController.swift; sourceTree = "<group>"; };
+		4A1DEBF82714326700149FD8 /* RPLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPLoginViewController.swift; sourceTree = "<group>"; };
+		4A1DEBFD2714328500149FD8 /* RPRegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPRegisterViewController.swift; sourceTree = "<group>"; };
+		4A1DEC02271432ED00149FD8 /* RPPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPPasswordViewController.swift; sourceTree = "<group>"; };
+		4A1DEC0C2715158F00149FD8 /* RPLoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPLoginView.swift; sourceTree = "<group>"; };
+		4A1DEC6E27156CA400149FD8 /* RPTextFiled.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPTextFiled.swift; sourceTree = "<group>"; };
 		4A547BD226F44898005F00B5 /* ExperimentProduct.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ExperimentProduct.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A547BD526F44898005F00B5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4A547BD926F44898005F00B5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -117,6 +129,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4A1DEBDB2713E06F00149FD8 /* views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = views;
+			sourceTree = "<group>";
+		};
+		4A1DEBF42714323F00149FD8 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				4A1DEC0B2715157900149FD8 /* views */,
+				4A1DEBF82714326700149FD8 /* RPLoginViewController.swift */,
+				4A1DEBFD2714328500149FD8 /* RPRegisterViewController.swift */,
+				4A1DEC02271432ED00149FD8 /* RPPasswordViewController.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		4A1DEC0B2715157900149FD8 /* views */ = {
+			isa = PBXGroup;
+			children = (
+				4A1DEC0C2715158F00149FD8 /* RPLoginView.swift */,
+			);
+			path = views;
+			sourceTree = "<group>";
+		};
 		4A547BC926F44898005F00B5 = {
 			isa = PBXGroup;
 			children = (
@@ -188,6 +226,7 @@
 		4A547C4826F484F0005F00B5 /* Functions */ = {
 			isa = PBXGroup;
 			children = (
+				4A1DEBF42714323F00149FD8 /* Login */,
 				4AD802B126F585A6000F3B3A /* Home */,
 				4A7EDAAF26F5910C00C8FC55 /* Explore */,
 				4A7EDB0026F5CB5500C8FC55 /* Find */,
@@ -202,6 +241,7 @@
 				4A547C7126F48D19005F00B5 /* RPColor.swift */,
 				4AD802AC26F57565000F3B3A /* RPImage.swift */,
 				4A7EDAFB26F5C0DB00C8FC55 /* RPTools.swift */,
+				4A1DEC6E27156CA400149FD8 /* RPTextFiled.swift */,
 			);
 			path = Unitils;
 			sourceTree = "<group>";
@@ -295,8 +335,10 @@
 		4AD802B126F585A6000F3B3A /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				4A1DEBDB2713E06F00149FD8 /* views */,
 				4A547C4926F48528005F00B5 /* RPHomeViewController.swift */,
 				4AD802B226F585FF000F3B3A /* RPPagerViewController.swift */,
+				4A1DEBD62713DF3A00149FD8 /* RPPageIndexViewController.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -495,15 +537,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				4A547BDA26F44898005F00B5 /* ViewController.swift in Sources */,
+				4A1DEC6F27156CA400149FD8 /* RPTextFiled.swift in Sources */,
 				4A547C7226F48D19005F00B5 /* RPColor.swift in Sources */,
+				4A1DEBF92714326700149FD8 /* RPLoginViewController.swift in Sources */,
+				4A1DEBD72713DF3A00149FD8 /* RPPageIndexViewController.swift in Sources */,
+				4A1DEBFE2714328500149FD8 /* RPRegisterViewController.swift in Sources */,
 				4A547C3926F482D9005F00B5 /* RPNavigationController.swift in Sources */,
 				4A547C4126F484DD005F00B5 /* RPBaseViewController.swift in Sources */,
 				4A547C5C26F485A5005F00B5 /* RPMineViewController.swift in Sources */,
 				4A547BD626F44898005F00B5 /* AppDelegate.swift in Sources */,
 				4A547C8226F49739005F00B5 /* ImageVIewExtension.swift in Sources */,
+				4A1DEC0D2715158F00149FD8 /* RPLoginView.swift in Sources */,
 				4A7EDB6526F5E2B300C8FC55 /* RPUserInfoViewModel.swift in Sources */,
 				4A7EDB7426F5E6FC00C8FC55 /* RPNetWorkManager.swift in Sources */,
 				4A7EDB6D26F5E2C800C8FC55 /* RPUserInfoModel.swift in Sources */,
+				4A1DEC03271432ED00149FD8 /* RPPasswordViewController.swift in Sources */,
 				4A547C3326F47EF3005F00B5 /* RPMainTabBarViewController.swift in Sources */,
 				4AD802AD26F57565000F3B3A /* RPImage.swift in Sources */,
 				4A7EDAB326F5915600C8FC55 /* RPExploreViewCell.swift in Sources */,

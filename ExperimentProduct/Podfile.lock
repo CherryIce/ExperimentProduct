@@ -1,4 +1,5 @@
 PODS:
+  - ActiveLabel (1.0.1)
   - Alamofire (4.9.1)
   - Differentiator (3.1.0)
   - Moya/Core (13.0.1):
@@ -28,6 +29,7 @@ PODS:
     - ObjcExceptionBridging
 
 DEPENDENCIES:
+  - ActiveLabel
   - Moya/RxSwift
   - RxCocoa
   - RxDataSources (~> 3.0)
@@ -39,6 +41,7 @@ DEPENDENCIES:
 
 SPEC REPOS:
   trunk:
+    - ActiveLabel
     - Alamofire
     - Differentiator
     - Moya
@@ -54,6 +57,7 @@ SPEC REPOS:
     - XCGLogger
 
 SPEC CHECKSUMS:
+  ActiveLabel: b8b2396fe25308d563601437d6605bf691c3b5db
   Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
   Differentiator: be49ca3408f0ecfc761e4c7763d20c62be01b9ad
   Moya: f4a4b80ff2f8a4ffc208dfb31cd91636622fee6e
@@ -68,6 +72,6 @@ SPEC CHECKSUMS:
   TYPagerController: 262556ecef99986d26ed77fb1288a198ed42f4af
   XCGLogger: 1943831ef907df55108b0b18657953f868de973b
 
-PODFILE CHECKSUM: 65ec77b6970cb2444f6795df82399fefcaa26d0c
+PODFILE CHECKSUM: b921b696f62b4d529b1628f75f462815b8e4f65d
 
-COCOAPODS: 1.10.0
+COCOAPODS: 1.11.2

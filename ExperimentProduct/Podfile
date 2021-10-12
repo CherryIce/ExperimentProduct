@@ -1,5 +1,5 @@
 
-platform :ios, '8.0'
+platform :ios, '9.0'
 
 use_frameworks!
 
@@ -70,7 +70,7 @@ pod 'TYPagerController'
 #pod 'LTMorphingLabel'
 
 # 支持Hashtags、Mentions、Links响应事件
-#pod 'ActiveLabel'
+pod 'ActiveLabel'
 
 # TextField
 #pod 'TextFieldEffects'
