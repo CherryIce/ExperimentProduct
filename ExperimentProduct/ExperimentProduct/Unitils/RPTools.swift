@@ -31,3 +31,12 @@ class RPTools: NSObject {
     }
 
 }
+
+extension UIView {
+    func layercornerRadius(cornerRadius:CGFloat) {
+        let layer = self.layer;
+        layer.masksToBounds = true;
+        layer.cornerRadius = cornerRadius
+        layer.masksToBounds = false;
+    }
+}

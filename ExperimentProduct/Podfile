@@ -104,6 +104,8 @@ pod 'SwiftLint'
 #pod 'Advance'
 #pod 'PeekPop'
 
+# 键盘管理
+pod 'IQKeyboardManagerSwift'
 
 end
 

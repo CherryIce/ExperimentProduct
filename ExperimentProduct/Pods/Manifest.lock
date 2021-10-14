@@ -2,6 +2,7 @@ PODS:
   - ActiveLabel (1.0.1)
   - Alamofire (4.9.1)
   - Differentiator (3.1.0)
+  - IQKeyboardManagerSwift (6.5.6)
   - Moya/Core (13.0.1):
     - Alamofire (~> 4.1)
     - Result (~> 4.1)
@@ -30,6 +31,7 @@ PODS:
 
 DEPENDENCIES:
   - ActiveLabel
+  - IQKeyboardManagerSwift
   - Moya/RxSwift
   - RxCocoa
   - RxDataSources (~> 3.0)
@@ -44,6 +46,7 @@ SPEC REPOS:
     - ActiveLabel
     - Alamofire
     - Differentiator
+    - IQKeyboardManagerSwift
     - Moya
     - ObjcExceptionBridging
     - Result
@@ -60,6 +63,7 @@ SPEC CHECKSUMS:
   ActiveLabel: b8b2396fe25308d563601437d6605bf691c3b5db
   Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
   Differentiator: be49ca3408f0ecfc761e4c7763d20c62be01b9ad
+  IQKeyboardManagerSwift: c7df9d2deb356c04522f5c4b7b6e4ce4d8ed94fe
   Moya: f4a4b80ff2f8a4ffc208dfb31cd91636622fee6e
   ObjcExceptionBridging: c30e00eb3700467e695faeea30e26e18bd445001
   Result: bd966fac789cc6c1563440b348ab2598cc24d5c7
@@ -72,6 +76,6 @@ SPEC CHECKSUMS:
   TYPagerController: 262556ecef99986d26ed77fb1288a198ed42f4af
   XCGLogger: 1943831ef907df55108b0b18657953f868de973b
 
-PODFILE CHECKSUM: b921b696f62b4d529b1628f75f462815b8e4f65d
+PODFILE CHECKSUM: 9ce70c4d049c966e88f487d983a7acc5f477bff3
 
 COCOAPODS: 1.11.2
