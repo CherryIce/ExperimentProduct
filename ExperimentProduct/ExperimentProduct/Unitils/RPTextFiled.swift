@@ -10,7 +10,7 @@ import UIKit
 public enum RPTextFiledType : Int {
     case common = 0
     case loginPhone = 1
-    case right = 2
+    case loginPw = 2
 }
 
 class RPTextFiled: UIView {
@@ -24,13 +24,16 @@ class RPTextFiled: UIView {
             break
         case .loginPhone:
 //            textField.backgroundColor = .purple
-            textField.placeholderColor = .lightGray
-            textField.borderActiveColor = .red
-            textField.borderInactiveColor = .orange
+            textField.placeholderColor = UIColor.init(hexString: "#999999")
+//            textField.borderActiveColor = .red
+            textField.borderInactiveColor = UIColor.init(hexString: "#E5E5E5")
             textField.leftViewWithImgName(imgName: "phone", size: CGSize.init(width: 19, height: 19))
             break
-        case .right:
-            textField.rightViewWithImgName(imgName: "", size: CGSize.init(width: 19, height: 19))
+        case .loginPw:
+            textField.leftViewWithImgName(imgName: "lock", size: CGSize.init(width: 19, height: 19))
+            textField.placeholderColor = UIColor.init(hexString: "#999999")
+            textField.borderInactiveColor = UIColor.init(hexString: "#E5E5E5")
+            textField.rightViewWithImgName(imgName: "eye", size: CGSize.init(width: 19, height: 19))
             break
         }
     }

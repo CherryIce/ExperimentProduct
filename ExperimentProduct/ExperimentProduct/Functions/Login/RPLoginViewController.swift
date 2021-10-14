@@ -17,6 +17,7 @@ class RPLoginViewController: RPBaseViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        self.view.backgroundColor = .white
         creatRightItem()
         setUI()
     }
@@ -26,8 +27,8 @@ class RPLoginViewController: RPBaseViewController {
         rightBtn.setTitle("密码登录", for: .normal)
         rightBtn.titleLabel?.font = UIFont.systemFont(ofSize: 15)
         rightBtn.setTitleColor(UIColor.init(hexString: "#333333"), for: .normal)
-        rightBtn.rx.tap.subscribe(onNext:{ [weak self] in
-                print("xxxxxxd")
+        rightBtn.rx.tap.subscribe(onNext:{ event in
+            self.navigationController?.pushViewController(RPOrignalLoginViewController.init(), animated: true)
         })
         .disposed(by: disposeBag)
         
@@ -79,7 +80,7 @@ class RPLoginViewController: RPBaseViewController {
         verifyButton.layercornerRadius(cornerRadius: 8)
         self.view.addSubview(verifyButton)
         
-        verifyButton.rx.tap.subscribe(onNext:{ [weak self] in
+        verifyButton.rx.tap.subscribe(onNext:{ event in
             print("获取验证码")
         })
         .disposed(by: disposeBag)

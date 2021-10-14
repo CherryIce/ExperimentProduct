@@ -170,9 +170,9 @@ import UIKit
         default:
             break
         }
-        if self.leftView != nil {
-            originX += self.leftView?.frame.size.width ?? 0
-        }
+//        if self.leftView != nil {
+//            originX += self.leftView?.frame.size.width ?? 0
+//        }
         placeholderLabel.frame = CGRect(x: originX,
                                         y: (textRect.height - placeholderLabel.bounds.height)/2,
                                         width: placeholderLabel.bounds.width,
@@ -191,11 +191,31 @@ import UIKit
         if self.leftView != nil {
             dx += self.leftView?.frame.size.width ?? 0
         }
-        return bounds.offsetBy(dx: dx, dy: textFieldInsets.y)
+        var rx = CGFloat.init(0)
+        if self.rightView != nil {
+            rx = self.rightView?.frame.size.width ?? 0
+        }
+        return CGRect.init(x: dx+bounds.minX,
+                           y: textFieldInsets.y+bounds.minY,
+                           width: (bounds.width-(dx+bounds.minX)-rx),
+                           height: bounds.height)
+//        return bounds.offsetBy(dx: dx, dy: textFieldInsets.y)
     }
     
     override open func textRect(forBounds bounds: CGRect) -> CGRect {
-        return bounds.offsetBy(dx: textFieldInsets.x, dy: textFieldInsets.y)
+        var dx = textFieldInsets.x
+        if self.leftView != nil {
+            dx += self.leftView?.frame.size.width ?? 0
+        }
+        var rx = CGFloat.init(0)
+        if self.rightView != nil {
+            rx = self.rightView?.frame.size.width ?? 0
+        }
+        return CGRect.init(x: dx+bounds.minX,
+                           y: textFieldInsets.y+bounds.minY,
+                           width: (bounds.width-(dx+bounds.minX)-rx),
+                           height: bounds.height)
+//        return bounds.offsetBy(dx: dx, dy: textFieldInsets.y)
     }
     
 }
