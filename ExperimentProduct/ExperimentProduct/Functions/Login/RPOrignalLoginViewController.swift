@@ -6,8 +6,15 @@
 //
 
 import UIKit
+import RxSwift
 
 class RPOrignalLoginViewController: RPBaseViewController {
+    
+    var loginButton = UIButton()
+    var phoneTextFiled = RPTextFiled()
+    var pwTextFiled = RPTextFiled()
+    var phoneStr = String()
+    var pwStr = String()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,7 +37,7 @@ class RPOrignalLoginViewController: RPBaseViewController {
             make.top.equalTo(RPTools.NAV_HEIGHT)
         }
         
-        let phoneTextFiled = RPTextFiled.init()
+        phoneTextFiled = RPTextFiled.init()
         self.view.addSubview(phoneTextFiled)
         
         phoneTextFiled.snp.makeConstraints { (make) in
@@ -40,10 +47,10 @@ class RPOrignalLoginViewController: RPBaseViewController {
             make.height.equalTo(45)
         }
         
-        phoneTextFiled.setPlaceholder("请输入手机号码")
-        phoneTextFiled.setType(.loginPhone)
+        phoneTextFiled.placeholder("请输入手机号码")
+        phoneTextFiled.type = .loginPhone
         
-        let pwTextFiled = RPTextFiled.init()
+        pwTextFiled = RPTextFiled.init()
         self.view.addSubview(pwTextFiled)
         
         pwTextFiled.snp.makeConstraints { (make) in
@@ -53,9 +60,52 @@ class RPOrignalLoginViewController: RPBaseViewController {
             make.height.equalTo(45)
         }
         
-        pwTextFiled.setPlaceholder("请输入6-12位密码")
-        pwTextFiled.setType(.loginPw)
+        pwTextFiled.placeholder("请输入6-12位密码")
+        pwTextFiled.type = .loginPw
         
+        loginButton = UIButton.init(type: .custom)
+        loginButton.setTitle("登录", for: .normal)
+        loginButton.backgroundColor = UIColor.init(hexString: "#E5E5E5")
+        loginButton.setTitleColor(.white, for: .normal)
+        loginButton.titleLabel?.font = UIFont.systemFont(ofSize: 16)
+        loginButton.layercornerRadius(cornerRadius: 8)
+        self.view.addSubview(loginButton)
+        
+        loginButton.snp.makeConstraints { (make) in
+            make.left.equalToSuperview().offset(35)
+            make.right.equalToSuperview().offset(-35)
+            make.top.greaterThanOrEqualTo(pwTextFiled.snp_bottom).offset(30)
+            make.height.equalTo(47)
+        }
+        
+        loginButton.addTarget(self, action: #selector(loginButtonClick), for: .touchUpInside)
+        
+        phoneTextFiled.callBackFunction {[weak self] (textFiled) in
+            self?.phoneStr = textFiled.text ?? ""
+            self?.buttonEnableJungle()
+        }
+        pwTextFiled.callBackFunction {[weak self] (textFiled) in
+            self?.pwStr = textFiled.text ?? ""
+            self?.buttonEnableJungle()
+        }
     }
 
+    func buttonEnableJungle() {
+        if (self.phoneStr.count == 11 && (self.pwStr.count <= 12 && self.pwStr.count >= 6)) {
+            loginButton.backgroundColor = RPColor.MainColor
+            loginButton.isEnabled = true
+        }else{
+            loginButton.backgroundColor = UIColor.init(hexString: "#E5E5E5")
+            loginButton.isEnabled = false
+        }
+    }
+    
+    @objc func loginButtonClick() {
+        //瞎搞
+        let value1 = pwStr.md5
+        let value2 = phoneStr + value1
+        let value3 = value2.md5
+        UserDefaults.standard.setValue(value3, forKey: "token")
+        UIApplication.shared.keyWindow?.rootViewController = RPMainTabBarViewController.init()
+    }
 }

@@ -15,6 +15,8 @@
 		4A3A9F892717CEEC00C032C8 /* TextFieldEffects.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3A9F882717CEEC00C032C8 /* TextFieldEffects.swift */; };
 		4A3A9F8E2717CF0B00C032C8 /* HoshiTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3A9F8D2717CF0B00C032C8 /* HoshiTextField.swift */; };
 		4A3A9FBF27182B8000C032C8 /* RPOrignalLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3A9FBE27182B8000C032C8 /* RPOrignalLoginViewController.swift */; };
+		4A3A9FCC2719564800C032C8 /* RPTableViewAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3A9FCB2719564800C032C8 /* RPTableViewAdapter.swift */; };
+		4A3A9FD4271962D600C032C8 /* RPYaCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3A9FD3271962D600C032C8 /* RPYaCell.swift */; };
 		4A547BD626F44898005F00B5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A547BD526F44898005F00B5 /* AppDelegate.swift */; };
 		4A547BDA26F44898005F00B5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A547BD926F44898005F00B5 /* ViewController.swift */; };
 		4A547BDD26F44898005F00B5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A547BDB26F44898005F00B5 /* Main.storyboard */; };
@@ -69,6 +71,8 @@
 		4A3A9F882717CEEC00C032C8 /* TextFieldEffects.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFieldEffects.swift; sourceTree = "<group>"; };
 		4A3A9F8D2717CF0B00C032C8 /* HoshiTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HoshiTextField.swift; sourceTree = "<group>"; };
 		4A3A9FBE27182B8000C032C8 /* RPOrignalLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPOrignalLoginViewController.swift; sourceTree = "<group>"; };
+		4A3A9FCB2719564800C032C8 /* RPTableViewAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPTableViewAdapter.swift; sourceTree = "<group>"; };
+		4A3A9FD3271962D600C032C8 /* RPYaCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPYaCell.swift; sourceTree = "<group>"; };
 		4A547BD226F44898005F00B5 /* ExperimentProduct.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ExperimentProduct.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A547BD526F44898005F00B5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4A547BD926F44898005F00B5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -165,6 +169,14 @@
 			path = TextfiledHelper;
 			sourceTree = "<group>";
 		};
+		4A3A9FCA271955D800C032C8 /* Adapter */ = {
+			isa = PBXGroup;
+			children = (
+				4A3A9FCB2719564800C032C8 /* RPTableViewAdapter.swift */,
+			);
+			path = Adapter;
+			sourceTree = "<group>";
+		};
 		4A547BC926F44898005F00B5 = {
 			isa = PBXGroup;
 			children = (
@@ -190,6 +202,7 @@
 		4A547BD426F44898005F00B5 /* ExperimentProduct */ = {
 			isa = PBXGroup;
 			children = (
+				4A3A9FCA271955D800C032C8 /* Adapter */,
 				4A7EDB7226F5E53200C8FC55 /* NetWork */,
 				4A547C7D26F49718005F00B5 /* Thrid */,
 				4A547C7026F48CDD005F00B5 /* Unitils */,
@@ -295,6 +308,7 @@
 		4A7EDB0026F5CB5500C8FC55 /* Find */ = {
 			isa = PBXGroup;
 			children = (
+				4A3A9FD3271962D600C032C8 /* RPYaCell.swift */,
 				4A547C5626F48595005F00B5 /* RPFindViewController.swift */,
 			);
 			path = Find;
@@ -549,9 +563,11 @@
 			files = (
 				4A547BDA26F44898005F00B5 /* ViewController.swift in Sources */,
 				4A1DEC6F27156CA400149FD8 /* RPTextFiled.swift in Sources */,
+				4A3A9FD4271962D600C032C8 /* RPYaCell.swift in Sources */,
 				4A547C7226F48D19005F00B5 /* RPColor.swift in Sources */,
 				4A1DEBF92714326700149FD8 /* RPLoginViewController.swift in Sources */,
 				4A1DEBD72713DF3A00149FD8 /* RPPageIndexViewController.swift in Sources */,
+				4A3A9FCC2719564800C032C8 /* RPTableViewAdapter.swift in Sources */,
 				4A547C3926F482D9005F00B5 /* RPNavigationController.swift in Sources */,
 				4A547C4126F484DD005F00B5 /* RPBaseViewController.swift in Sources */,
 				4A3A9F892717CEEC00C032C8 /* TextFieldEffects.swift in Sources */,

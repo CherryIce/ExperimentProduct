@@ -15,34 +15,63 @@ public enum RPTextFiledType : Int {
 
 class RPTextFiled: UIView {
     
-    var textField = HoshiTextField()
+    private var textField = HoshiTextField()
+    //闭包
+    public typealias TextFieldCompletionHandler = (_ textFiled: HoshiTextField)->()
+    public var blockTextFieldDidChange: TextFieldCompletionHandler?
+    
+    //输入框类型
+    public var type: RPTextFiledType{
+        didSet {
+            adjsutUIType()
+        }
+    }
+    
+    //输入长度最大限制
+    public var maxLength: Int{
+        didSet {
+            
+        }
+    }
+    
+    //回调闭包
+    func callBackFunction ( block: @escaping (_ textFiled: HoshiTextField) -> Void ) {
+        blockTextFieldDidChange = block
+    }
    
-    func setType(_ type: RPTextFiledType) {
+    //根据类型适配UI
+    private func adjsutUIType() {
         switch type {
         case .common:
             
             break
         case .loginPhone:
 //            textField.backgroundColor = .purple
+            self.maxLength = 11
             textField.placeholderColor = UIColor.init(hexString: "#999999")
 //            textField.borderActiveColor = .red
             textField.borderInactiveColor = UIColor.init(hexString: "#E5E5E5")
             textField.leftViewWithImgName(imgName: "phone", size: CGSize.init(width: 19, height: 19))
             break
         case .loginPw:
+            self.maxLength = 12
             textField.leftViewWithImgName(imgName: "lock", size: CGSize.init(width: 19, height: 19))
             textField.placeholderColor = UIColor.init(hexString: "#999999")
             textField.borderInactiveColor = UIColor.init(hexString: "#E5E5E5")
-            textField.rightViewWithImgName(imgName: "eye", size: CGSize.init(width: 19, height: 19))
+            textField.isSecureTextEntry = true
+            rightViewWithImgName(imgName: "eye_hide",selectedImageName: "eye", size: CGSize.init(width: 19, height: 19))
             break
         }
     }
     
-    func setPlaceholder(_ placeholder:String){
+    //提示语
+    func placeholder(_ placeholder:String){
         textField.placeholder = placeholder
     }
     
     override init(frame: CGRect) {
+        self.maxLength = 0
+        self.type = .common
         super.init(frame: frame)
         
         textField = HoshiTextField.init()
@@ -53,6 +82,47 @@ class RPTextFiled: UIView {
         textField.snp.makeConstraints { (make) in
             make.left.right.top.bottom.equalToSuperview()
         }
+        //监听长度变化
+        textField.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
+    }
+    
+    //文本变化拦截
+    @objc func textFieldDidChange(textField: UITextField) {
+        let text = textField.text
+        let textLength = Int.init(text?.count ?? 0)
+        if maxLength > 0 {
+            if  textLength  > maxLength {
+                textField.text = String(text?.prefix(maxLength) ??  "")
+            }
+        }
+        if (blockTextFieldDidChange != nil) {
+            blockTextFieldDidChange?(textField as! HoshiTextField)
+        }
+        switch type {
+        case .common:
+            break
+        case .loginPhone:
+            break
+        case .loginPw:
+            break
+        }
+    }
+    
+    //设置textfield rightView
+    func rightViewWithImgName(imgName:String,selectedImageName:String , size:CGSize){
+        let buttonV = UIButton.init(type: .custom)
+        buttonV.frame = CGRect(x: 0, y: 0, width: size.width+20, height: self.frame.height)
+        buttonV.setImage(UIImage.init(named: imgName), for: .normal)
+        buttonV.setImage(UIImage.init(named: selectedImageName), for: .selected)
+        textField.rightViewMode = UITextField.ViewMode.always
+        textField.rightView = buttonV
+        
+        buttonV.addTarget(self, action: #selector(changeValue), for: .touchUpInside)
+    }
+    
+    @objc func changeValue(sender:UIButton) {
+        sender.isSelected = !sender.isSelected
+        textField.isSecureTextEntry = !sender.isSelected
     }
     
     required init?(coder: NSCoder) {
@@ -70,16 +140,5 @@ extension UITextField{
         imgV.contentMode = UIView.ContentMode.left;
         imgV.image = UIImage.init(named: imgName)
         self.leftView = containerView
-    }
-    
-    func rightViewWithImgName(imgName:String , size:CGSize){
-        let containerView = UIView(frame: CGRect(x: 0, y: 0, width: size.width+20, height: self.frame.height))
-        let y  = (self.frame.height - size.height)/2;
-        let buttonV = UIButton.init(type: .custom)
-        buttonV.frame = CGRect(x: 10, y: y, width: size.width, height: size.height)
-        buttonV.setImage(UIImage.init(named: imgName), for: .normal)
-        containerView.addSubview(buttonV)
-        self.rightViewMode = UITextField.ViewMode.always
-        self.rightView = containerView
     }
 }

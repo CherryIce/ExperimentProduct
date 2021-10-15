@@ -47,8 +47,8 @@ class RPLoginViewController: RPBaseViewController {
             make.height.equalTo(45)
         }
         
-        textField.setPlaceholder("请输入手机号码")
-        textField.setType(.loginPhone)
+        textField.placeholder("请输入手机号码")
+        textField.type = .loginPhone
         
         let logoView = UIImageView.init(image: RPImage.init(color: RPColor.init(hexString:"#FFF3E6"))?.roundedCornerImageWithCornerRadius(4))
         self.view.addSubview(logoView)
@@ -74,9 +74,9 @@ class RPLoginViewController: RPBaseViewController {
         
         let verifyButton = UIButton.init(type: .custom)
         verifyButton.setTitle("获取验证码", for: .normal)
-        verifyButton.backgroundColor = UIColor.orange
+        verifyButton.backgroundColor = RPColor.MainColor
         verifyButton.setTitleColor(.white, for: .normal)
-        verifyButton.titleLabel?.font = UIFont.systemFont(ofSize: 13)
+        verifyButton.titleLabel?.font = UIFont.systemFont(ofSize: 16)
         verifyButton.layercornerRadius(cornerRadius: 8)
         self.view.addSubview(verifyButton)
         
@@ -89,7 +89,7 @@ class RPLoginViewController: RPBaseViewController {
             make.left.equalToSuperview().offset(35)
             make.right.equalToSuperview().offset(-35)
             make.top.greaterThanOrEqualTo(textField.snp_bottom).offset(30)
-            make.height.equalTo(44)
+            make.height.equalTo(47)
         }
         
         let protocolLabel = ActiveLabel()
@@ -98,7 +98,7 @@ class RPLoginViewController: RPBaseViewController {
         protocolLabel.numberOfLines = 2
         protocolLabel.text = "点击注册按钮，即表示您同意《阴间论坛用户使用协议》"
         protocolLabel.font = UIFont.systemFont(ofSize: 14)
-        protocolLabel.customColor[customType] = UIColor.blue
+        protocolLabel.customColor[customType] = RPColor.MainColor
         protocolLabel.textColor = UIColor.black
         protocolLabel.handleCustomTap(for: customType, handler: { (customType) in
             print("《阴间论坛用户使用协议》")
