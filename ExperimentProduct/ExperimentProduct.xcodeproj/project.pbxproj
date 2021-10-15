@@ -17,6 +17,8 @@
 		4A3A9FBF27182B8000C032C8 /* RPOrignalLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3A9FBE27182B8000C032C8 /* RPOrignalLoginViewController.swift */; };
 		4A3A9FCC2719564800C032C8 /* RPTableViewAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3A9FCB2719564800C032C8 /* RPTableViewAdapter.swift */; };
 		4A3A9FD4271962D600C032C8 /* RPYaCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3A9FD3271962D600C032C8 /* RPYaCell.swift */; };
+		4A3A9FFD271982C700C032C8 /* RPPostersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3A9FFC271982C700C032C8 /* RPPostersViewController.swift */; };
+		4A3AA005271984E700C032C8 /* RPCollectionViewAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3AA004271984E700C032C8 /* RPCollectionViewAdapter.swift */; };
 		4A547BD626F44898005F00B5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A547BD526F44898005F00B5 /* AppDelegate.swift */; };
 		4A547BDA26F44898005F00B5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A547BD926F44898005F00B5 /* ViewController.swift */; };
 		4A547BDD26F44898005F00B5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A547BDB26F44898005F00B5 /* Main.storyboard */; };
@@ -73,6 +75,8 @@
 		4A3A9FBE27182B8000C032C8 /* RPOrignalLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPOrignalLoginViewController.swift; sourceTree = "<group>"; };
 		4A3A9FCB2719564800C032C8 /* RPTableViewAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPTableViewAdapter.swift; sourceTree = "<group>"; };
 		4A3A9FD3271962D600C032C8 /* RPYaCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPYaCell.swift; sourceTree = "<group>"; };
+		4A3A9FFC271982C700C032C8 /* RPPostersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPPostersViewController.swift; sourceTree = "<group>"; };
+		4A3AA004271984E700C032C8 /* RPCollectionViewAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPCollectionViewAdapter.swift; sourceTree = "<group>"; };
 		4A547BD226F44898005F00B5 /* ExperimentProduct.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ExperimentProduct.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A547BD526F44898005F00B5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4A547BD926F44898005F00B5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -173,8 +177,17 @@
 			isa = PBXGroup;
 			children = (
 				4A3A9FCB2719564800C032C8 /* RPTableViewAdapter.swift */,
+				4A3AA004271984E700C032C8 /* RPCollectionViewAdapter.swift */,
 			);
 			path = Adapter;
+			sourceTree = "<group>";
+		};
+		4A3A9FFB2719829200C032C8 /* views */ = {
+			isa = PBXGroup;
+			children = (
+				4A3A9FD3271962D600C032C8 /* RPYaCell.swift */,
+			);
+			path = views;
 			sourceTree = "<group>";
 		};
 		4A547BC926F44898005F00B5 = {
@@ -308,8 +321,9 @@
 		4A7EDB0026F5CB5500C8FC55 /* Find */ = {
 			isa = PBXGroup;
 			children = (
-				4A3A9FD3271962D600C032C8 /* RPYaCell.swift */,
+				4A3A9FFB2719829200C032C8 /* views */,
 				4A547C5626F48595005F00B5 /* RPFindViewController.swift */,
+				4A3A9FFC271982C700C032C8 /* RPPostersViewController.swift */,
 			);
 			path = Find;
 			sourceTree = "<group>";
@@ -576,6 +590,7 @@
 				4A547C8226F49739005F00B5 /* ImageVIewExtension.swift in Sources */,
 				4A7EDB6526F5E2B300C8FC55 /* RPUserInfoViewModel.swift in Sources */,
 				4A7EDB7426F5E6FC00C8FC55 /* RPNetWorkManager.swift in Sources */,
+				4A3A9FFD271982C700C032C8 /* RPPostersViewController.swift in Sources */,
 				4A3A9FBF27182B8000C032C8 /* RPOrignalLoginViewController.swift in Sources */,
 				4A3A9F8E2717CF0B00C032C8 /* HoshiTextField.swift in Sources */,
 				4A7EDB6D26F5E2C800C8FC55 /* RPUserInfoModel.swift in Sources */,
@@ -588,6 +603,7 @@
 				4A547C5226F4858A005F00B5 /* RPExploreViewController.swift in Sources */,
 				4A547C5726F48595005F00B5 /* RPFindViewController.swift in Sources */,
 				4AD802B326F585FF000F3B3A /* RPPagerViewController.swift in Sources */,
+				4A3AA005271984E700C032C8 /* RPCollectionViewAdapter.swift in Sources */,
 				4A547C8126F49739005F00B5 /* ImageHelper.swift in Sources */,
 				4A7EDB0726F5CECA00C8FC55 /* RPMineHeaderView.swift in Sources */,
 			);
