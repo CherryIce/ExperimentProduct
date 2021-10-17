@@ -2,7 +2,7 @@
 //  RPMineViewController.swift
 //  ExperimentProduct
 //
-//  Created by YuMao on 2021/9/17.
+//  Created by hubin on 2021/9/17.
 //
 
 import UIKit
@@ -48,7 +48,7 @@ class RPMineViewController: RPBaseViewController {
         
         tableView.rx.modelSelected(RPUserInfoModel.self).subscribe(onNext: { (item) in
             print(item)
-            self.navigationController?.pushViewController(RPPagerViewController.init(), animated: true)
+            self.navigationController?.pushViewController(RPPostersViewController.init(), animated: true)
         }).disposed(by: disposeBag)
         
         output.drive(tableView.rx.items(dataSource: dataSource))

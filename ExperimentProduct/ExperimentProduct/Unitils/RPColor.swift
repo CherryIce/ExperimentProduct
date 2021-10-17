@@ -2,7 +2,7 @@
 //  RPColor.swift
 //  ExperimentProduct
 //
-//  Created by YuMao on 2021/9/17.
+//  Created by hubin on 2021/9/17.
 //
 
 import UIKit
@@ -32,7 +32,12 @@ class RPColor: UIColor {
             return UIColor.init(hexString: "#F5F5F7")
         }
     }
-    
+    //随机色
+    open class var RandomColor:UIColor {
+        get {
+            return UIColor(red: CGFloat(arc4random()%255)/255.0, green: CGFloat(arc4random()%255)/255.0, blue: CGFloat(arc4random()%255)/255.0, alpha: 1)
+        }
+    }
 }
 
 extension UIColor {

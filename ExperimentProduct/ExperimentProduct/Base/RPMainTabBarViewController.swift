@@ -2,7 +2,7 @@
 //  RPMainTabBarViewController.swift
 //  ExperimentProduct
 //
-//  Created by YuMao on 2021/9/17.
+//  Created by hubin on 2021/9/17.
 //
 
 import UIKit
@@ -16,6 +16,12 @@ class RPMainTabBarViewController: UITabBarController {
         //隐藏tabbar上面的黑线
         self.tabBar.backgroundImage = UIImage(color: .white)
         self.tabBar.shadowImage = UIImage.init()
+        self.tabBar.isTranslucent = false
+        if #available(iOS 13.0, *) {
+            let dict = {[NSAttributedString.Key.foregroundColor:RPColor.MainColor]}()
+            let tabBarAppearance = UITabBarAppearance.init()
+            tabBarAppearance.stackedLayoutAppearance.selected.titleTextAttributes = dict
+        }
     }
     
     func addAllChildsControllors() {

@@ -2,7 +2,7 @@
 //  ExperimentProductUITests.swift
 //  ExperimentProductUITests
 //
-//  Created by YuMao on 2021/9/17.
+//  Created by hubin on 2021/9/17.
 //
 
 import XCTest

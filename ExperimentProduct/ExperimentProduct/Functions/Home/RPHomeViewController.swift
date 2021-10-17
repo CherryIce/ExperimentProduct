@@ -2,7 +2,7 @@
 //  RPHomeViewController.swift
 //  ExperimentProduct
 //
-//  Created by YuMao on 2021/9/17.
+//  Created by hubin on 2021/9/17.
 //
 
 import UIKit
@@ -87,8 +87,7 @@ extension RPHomeViewController: UITableViewDelegate, UITableViewDataSource {
     
     //MARK: - 点击cell
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.navigationController?.pushViewController(RPPagerViewController.init(), animated: true)
-//        print(dataList[indexPath.row])
+        self.navigationController?.pushViewController(RPYaViewController.init(), animated: true)
     }
     
     //MARK: - 使cell的分割线与屏幕两端对齐

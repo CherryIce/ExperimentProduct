@@ -2,7 +2,7 @@
 //  RPYaCell.swift
 //  ExperimentProduct
 //
-//  Created by YuMao on 2021/10/15.
+//  Created by hubin on 2021/10/15.
 //
 
 import UIKit
@@ -10,6 +10,7 @@ import UIKit
 class RPYaCell: UITableViewCell {
     
     weak var delegate:RPTableViewCellEventDelegate?
+    var indexPath = IndexPath()
     var dict = String()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -35,8 +36,11 @@ class RPYaCell: UITableViewCell {
 }
 
 extension RPYaCell:RPCellDataDelegate {
-    func setData(data: RPCellDataItem, delegate: RPTableViewCellEventDelegate) {
+    func setData(data: RPTableViewCellItem,
+                 delegate: RPTableViewCellEventDelegate,
+                 indexPath:IndexPath) {
         self.delegate = delegate
+        self.indexPath = indexPath
         if data.cellData is String {
             dict = data.cellData as! String
             self.textLabel?.text = dict

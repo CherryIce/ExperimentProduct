@@ -2,7 +2,7 @@
 //  RPExploreViewCell.swift
 //  ExperimentProduct
 //
-//  Created by YuMao on 2021/9/18.
+//  Created by hubin on 2021/9/18.
 //
 
 import UIKit

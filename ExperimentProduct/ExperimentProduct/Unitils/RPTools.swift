@@ -2,7 +2,7 @@
 //  RPTools.swift
 //  ExperimentProduct
 //
-//  Created by YuMao on 2021/9/18.
+//  Created by hubin on 2021/9/18.
 //
 
 import UIKit
@@ -12,6 +12,8 @@ let SCREEN_WIDTH = UIScreen.main.bounds.size.width
 let SCREEN_HEIGHT = UIScreen.main.bounds.size.height
 
 class RPTools: NSObject {
+    
+    static let shared = RPTools()
     
     //导航栏高度
     open class var NAV_HEIGHT : CGFloat {

@@ -2,7 +2,7 @@
 //  RPNavigationController.swift
 //  ExperimentProduct
 //
-//  Created by YuMao on 2021/9/17.
+//  Created by hubin on 2021/9/17.
 //
 
 import UIKit
@@ -26,6 +26,7 @@ class RPNavigationController: UINavigationController ,UINavigationControllerDele
         let dict = {[NSAttributedString.Key.foregroundColor:RPColor.black,NSAttributedString.Key.font:UIFont.systemFont(ofSize: 16)]}()
         self.navigationBar.titleTextAttributes = dict
         //        self.navigationBar.barStyle = .black
+        self.delegate = self
     }
     
     // 重写此方法让 preferredStatusBarStyle 响应
@@ -51,8 +52,17 @@ class RPNavigationController: UINavigationController ,UINavigationControllerDele
     func navigationController(_ navigationController: UINavigationController, didShow viewController: UIViewController, animated: Bool) {
     }
     
-    func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool) {
-        
+    func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool){
+        let hiddenVcs = ["RPFindViewController"]
+        let identifier = NSStringFromClass(type(of: viewController)).components(separatedBy: ".").last ?? ""
+        if hiddenVcs.contains(identifier) {
+            navigationController.setNavigationBarHidden(true, animated: true)
+        }else{
+            if navigationController is UIImagePickerController {
+                return
+            }
+            navigationController.setNavigationBarHidden(false, animated: true)
+        }
     }
     
     @objc func leftClick() {
