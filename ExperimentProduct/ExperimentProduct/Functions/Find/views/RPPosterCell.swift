@@ -9,7 +9,7 @@ import UIKit
 
 class RPPosterCell: UICollectionViewCell {
     
-    weak var delegate:RPCollectionViewCellEventDelegate?
+    weak var delegate:RPListViewCellEventDelegate?
     var model = RPPosterModel()
     private var indexPath = IndexPath()
     
@@ -33,15 +33,16 @@ class RPPosterCell: UICollectionViewCell {
     
 }
 
-extension RPPosterCell:RPCollectionViewCellDataDelegate {
-    func setData(data: RPCollectionViewCellItem,
-                 delegate: RPCollectionViewCellEventDelegate,
-                 indexPath:IndexPath) {
+extension RPPosterCell:RPListCellDataDelegate {
+    func setCellData(cellData: AnyObject, delegate: RPListViewCellEventDelegate, indexPath: IndexPath) {
         self.delegate = delegate
         self.indexPath = indexPath
-        if data.cellData is RPPosterModel {
-            model = data.cellData as! RPPosterModel
-            posterImgView.backgroundColor = RPColor.RandomColor
+        if cellData is RPCollectionViewCellItem {
+            let xx = cellData as! RPCollectionViewCellItem
+            if xx.cellData is RPPosterModel {
+                model = xx.cellData as! RPPosterModel
+                posterImgView.backgroundColor = RPColor.RandomColor
+            }
         }
     }
 }

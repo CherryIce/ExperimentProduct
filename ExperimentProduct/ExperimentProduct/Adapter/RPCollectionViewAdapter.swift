@@ -7,33 +7,7 @@
 
 import UIKit
 
-//创建cell事件协议
-protocol RPCollectionViewCellEventDelegate:NSObjectProtocol
-{
-    //点击cell
-    func didSelectCollectionView(_ collectionView: UICollectionView,
-                                 indexPath: IndexPath,
-                                 sectionData:RPCollectionViewSectionItem,
-                                 cellData:RPCollectionViewCellItem)
-}
-
-//将协议里的可选方法放这里实现一遍就行了
-extension RPCollectionViewCellEventDelegate {
-    func didSelectCollectionView(_ collectionView: UICollectionView,
-                                 indexPath: IndexPath,
-                                 sectionData:RPCollectionViewSectionItem,
-                                 cellData:RPCollectionViewCellItem) {
-        
-    }
-}
-
-//构建数据类型协议
-protocol RPCollectionViewCellDataDelegate:NSObjectProtocol
-{
-    func setData(data:RPCollectionViewCellItem,delegate:RPCollectionViewCellEventDelegate,indexPath:IndexPath)
-}
-
-class RPCollectionViewAdapter: NSObject {
+class RPCollectionViewAdapter: NSObject  {
     //数据源
     public var dataSourceArray: [AnyObject]{
         didSet {
@@ -41,8 +15,10 @@ class RPCollectionViewAdapter: NSObject {
         }
     }
     
-    //事件代理
-    weak var delegate:RPCollectionViewCellEventDelegate?
+    //cell事件代理
+    weak var c_delegate:RPListViewCellEventDelegate?
+    //section事件代理
+    weak var s_delegate:RPListViewSectionEventDelegate?
     
     lazy var reuseSet: NSMutableSet = {
         var reuseSet = NSMutableSet.init()
@@ -96,7 +72,7 @@ class RPCollectionViewAdapter: NSObject {
     }
 }
 
-extension RPCollectionViewAdapter:UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout,RPCollectionViewCellEventDelegate {
+extension RPCollectionViewAdapter:UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout {
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         if isExistedSectionDatas{
@@ -125,7 +101,7 @@ extension RPCollectionViewAdapter:UICollectionViewDelegate,UICollectionViewDataS
         }
         let identifier = reuseIdentifierForCellClass(cellClass: item.cellClass, collectionView: collectionView)
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath)
-        (cell as! RPCollectionViewCellDataDelegate).setData(data: item, delegate: self,indexPath: indexPath)
+        (cell as! RPListCellDataDelegate).setCellData(cellData: item, delegate: self, indexPath: indexPath)
         return cell
     }
     
@@ -140,8 +116,8 @@ extension RPCollectionViewAdapter:UICollectionViewDelegate,UICollectionViewDataS
             item = dataSourceArray[indexPath.row] as! RPCollectionViewCellItem
         }
         //调用代理方法
-        if delegate != nil{
-            delegate?.didSelectCollectionView(collectionView, indexPath: indexPath, sectionData: sectionDatas, cellData: item)
+        if c_delegate != nil{
+            c_delegate?.didSelectListView(collectionView, indexPath: indexPath, sectionData: sectionDatas, cellData: item)
         }
     }
     
@@ -168,6 +144,10 @@ extension RPCollectionViewAdapter:UICollectionViewDelegate,UICollectionViewDataS
         }
         return item.cellSize
     }
+}
+
+extension RPCollectionViewAdapter: RPListViewCellEventDelegate {
+    
 }
 
 class RPCollectionViewSectionItem: NSObject {

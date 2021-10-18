@@ -11,7 +11,7 @@ class RPNewsLinkCell: UICollectionViewCell {
     
     @IBOutlet weak var tableView: UITableView!
     
-    weak var delegate:RPCollectionViewCellEventDelegate?
+    weak var delegate:RPListViewCellEventDelegate?
     private var indexPath = IndexPath()
     var datas = NSArray()
     
@@ -26,20 +26,21 @@ class RPNewsLinkCell: UICollectionViewCell {
 
 }
 
-extension RPNewsLinkCell:RPCollectionViewCellDataDelegate {
-    func setData(data: RPCollectionViewCellItem,
-                 delegate: RPCollectionViewCellEventDelegate,
-                 indexPath:IndexPath) {
+extension RPNewsLinkCell:RPListCellDataDelegate {
+    func setCellData(cellData: AnyObject, delegate: RPListViewCellEventDelegate, indexPath: IndexPath) {
         self.delegate = delegate
         self.indexPath = indexPath
-        if data.cellData is RPPosterModel {
-            datas = ["🐰", "秃子", "鹰酱", "毛熊", "棒子", "脚盆鸡", "高卢鸡", "狗大户"]
-            tableView.reloadData()
+        if cellData is RPCollectionViewCellItem {
+            let xx = cellData as! RPCollectionViewCellItem
+            if xx.cellData is RPPosterModel {
+                datas = ["🐰", "秃子", "鹰酱", "毛熊", "棒子", "脚盆鸡", "高卢鸡", "狗大户"]
+                tableView.reloadData()
+            }
         }
     }
 }
 
-extension RPNewsLinkCell:UITableViewDelegate,UITableViewDataSource,RPTableViewCellEventDelegate {
+extension RPNewsLinkCell:UITableViewDelegate,UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return datas.count

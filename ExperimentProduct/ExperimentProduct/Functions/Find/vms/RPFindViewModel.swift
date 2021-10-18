@@ -43,5 +43,7 @@ class RPFindViewModel: NSObject {
             arr.add(item)
         }
         success(arr)
+        
+//        failed(NSError.init())
     }
 }

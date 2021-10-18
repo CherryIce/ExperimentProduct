@@ -20,7 +20,7 @@ class RPYaViewController: RPBaseViewController {
         // Do any additional setup after loading the view.
         self.title = "试试适配器"
         createTableViewUI()
-        adapter.delegate = self
+        adapter.c_delegate = self
         loadData()
     }
     
@@ -48,8 +48,8 @@ class RPYaViewController: RPBaseViewController {
     }
 }
 
-extension RPYaViewController : RPTableViewCellEventDelegate {
-    func didSelectTableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath,sectionData:RPTableViewSectionItem,cellData:RPTableViewCellItem) {
+extension RPYaViewController : RPListViewCellEventDelegate {
+    func didSelectListView(_ listView: UIScrollView,indexPath:IndexPath,sectionData:AnyObject,cellData:AnyObject) {
         self.navigationController?.pushViewController(RPPostersViewController.init(), animated: true)
     }
 }

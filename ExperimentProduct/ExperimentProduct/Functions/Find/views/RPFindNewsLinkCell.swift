@@ -119,7 +119,7 @@ extension RPFindNewsLinkCell:UICollectionViewDelegate,UICollectionViewDataSource
         let item = datas[indexPath.row] as! RPCollectionViewCellItem
         let identifier = RPCollectionViewAdapter.init().reuseIdentifierForCellClass(cellClass: item.cellClass, collectionView: collectionView)
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath)
-        (cell as! RPCollectionViewCellDataDelegate).setData(data: item, delegate: self,indexPath: indexPath)
+        (cell as! RPListCellDataDelegate).setCellData(cellData: item, delegate: self, indexPath: indexPath)
         return cell
     }
     
@@ -182,11 +182,8 @@ extension RPFindNewsLinkCell:UIScrollViewDelegate {
     }
 }
 
-extension RPFindNewsLinkCell : RPCollectionViewCellEventDelegate {
-    func didSelectCollectionView(_ collectionView: UICollectionView,
-                                 indexPath: IndexPath,
-                                 sectionData:RPCollectionViewSectionItem,
-                                 cellData:RPCollectionViewCellItem) {
+extension RPFindNewsLinkCell : RPListViewCellEventDelegate {
+    func didSelectListView(_ listView: UIScrollView, indexPath: IndexPath, sectionData: AnyObject, cellData: AnyObject) {
         //collectionView点击cell回调
     }
 }

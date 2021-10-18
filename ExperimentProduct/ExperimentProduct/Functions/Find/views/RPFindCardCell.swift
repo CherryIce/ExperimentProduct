@@ -11,7 +11,7 @@ class RPFindCardCell: UICollectionViewCell {
     
     @IBOutlet weak var collectionView: UICollectionView!
     
-    weak var delegate:RPCollectionViewCellEventDelegate?
+    weak var delegate:RPListViewCellEventDelegate?
     private var indexPath = IndexPath()
     var datas = NSArray()
     
@@ -26,20 +26,21 @@ class RPFindCardCell: UICollectionViewCell {
 
 }
 
-extension RPFindCardCell:RPCollectionViewCellDataDelegate {
-    func setData(data: RPCollectionViewCellItem,
-                 delegate: RPCollectionViewCellEventDelegate,
-                 indexPath:IndexPath) {
+extension RPFindCardCell:RPListCellDataDelegate {
+    func setCellData(cellData:AnyObject,delegate:RPListViewCellEventDelegate,indexPath:IndexPath) {
         self.delegate = delegate
         self.indexPath = indexPath
-        if data.cellData is RPPosterModel {
-            datas = ["🐰", "秃子", "鹰酱", "毛熊", "棒子", "脚盆鸡", "高卢鸡", "狗大户"]
-            collectionView.reloadData()
+        if cellData is RPCollectionViewCellItem {
+            let xx = cellData as! RPCollectionViewCellItem
+            if xx.cellData is RPPosterModel {
+                datas = ["🐰", "秃子", "鹰酱", "毛熊", "棒子", "脚盆鸡", "高卢鸡", "狗大户"]
+                collectionView.reloadData()
+            }
         }
     }
 }
 
-extension RPFindCardCell:UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout,RPCollectionViewCellEventDelegate {
+extension RPFindCardCell:UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout {
     //cell数量
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return datas.count

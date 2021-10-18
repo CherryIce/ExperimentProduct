@@ -34,7 +34,7 @@ class RPFindHeaderView: UIView{
         collectionView.dataSource = adapter
         self.addSubview(collectionView)
         
-        adapter.delegate = self
+        adapter.c_delegate = self
         
         collectionView.snp.makeConstraints { (make) in
             make.left.right.bottom.equalToSuperview()
@@ -75,11 +75,8 @@ class RPFindHeaderView: UIView{
     }
 }
 
-extension RPFindHeaderView : RPCollectionViewCellEventDelegate {
-    func didSelectCollectionView(_ collectionView: UICollectionView,
-                                 indexPath: IndexPath,
-                                 sectionData:RPCollectionViewSectionItem,
-                                 cellData:RPCollectionViewCellItem) {
+extension RPFindHeaderView : RPListViewCellEventDelegate {
+    func didSelectListView(_ listView: UIScrollView,indexPath:IndexPath,sectionData:AnyObject,cellData:AnyObject) {
         if delegate != nil {
             delegate?.clickLabelNeedFix(indexPath.item, data: cellData)
         }

@@ -9,7 +9,7 @@ import UIKit
 
 class RPYaCell: UITableViewCell {
     
-    weak var delegate:RPTableViewCellEventDelegate?
+    weak var delegate:RPListViewCellEventDelegate?
     var indexPath = IndexPath()
     var dict = String()
     
@@ -35,16 +35,18 @@ class RPYaCell: UITableViewCell {
 
 }
 
-extension RPYaCell:RPCellDataDelegate {
-    func setData(data: RPTableViewCellItem,
-                 delegate: RPTableViewCellEventDelegate,
-                 indexPath:IndexPath) {
+extension RPYaCell:RPListCellDataDelegate {
+    
+    func setCellData(cellData: AnyObject, delegate: RPListViewCellEventDelegate, indexPath: IndexPath) {
         self.delegate = delegate
         self.indexPath = indexPath
-        if data.cellData is String {
-            dict = data.cellData as! String
-            self.textLabel?.text = dict
-            self.imageView?.image = UIImage.init(color: RPColor.ShallowColor)?.roundedCornerImageWithCornerRadius(8)
+        if cellData is RPTableViewCellItem {
+            let xx = cellData as! RPTableViewCellItem
+            if xx.cellData is String {
+                dict = xx.cellData as! String
+                self.textLabel?.text = dict
+                self.imageView?.image = UIImage.init(color: RPColor.ShallowColor)?.roundedCornerImageWithCornerRadius(8)
+            }
         }
     }
 }

@@ -6,25 +6,40 @@
 //
 
 import UIKit
+//import UITableView+HBEmpty
 
-//创建cell事件协议
-protocol RPTableViewCellEventDelegate:NSObjectProtocol
+//表格类section操作类事件协议
+protocol RPListViewSectionEventDelegate:NSObjectProtocol
 {
-    //回调方法 传一个String类型的值
-    func didSelectTableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath,sectionData:RPTableViewSectionItem,cellData:RPTableViewCellItem)
+    
 }
 
 //将协议里的可选方法放这里实现一遍就行了
-extension RPTableViewCellEventDelegate {
-    func didSelectTableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath,sectionData:RPTableViewSectionItem,cellData:RPTableViewCellItem) {
-        
-    }
+extension RPListViewSectionEventDelegate {
+    
+}
+
+//表格类cell操作类事件协议
+protocol RPListViewCellEventDelegate:NSObjectProtocol
+{
+    func didSelectListView(_ listView: UIScrollView,indexPath:IndexPath,sectionData:AnyObject,cellData:AnyObject)
+}
+
+//将协议里的可选方法放这里实现一遍就行了
+extension RPListViewCellEventDelegate {
+    func didSelectListView(_ listView: UIScrollView,indexPath:IndexPath,sectionData:AnyObject,cellData:AnyObject) {}
 }
 
 //构建数据类型协议
-protocol RPCellDataDelegate:NSObjectProtocol
+protocol RPListCellDataDelegate:NSObjectProtocol
 {
-    func setData(data:RPTableViewCellItem,delegate:RPTableViewCellEventDelegate,indexPath:IndexPath)
+    func setSectionData(sectionData:AnyObject,delegate:RPListViewSectionEventDelegate,section:Int)
+    func setCellData(cellData:AnyObject,delegate:RPListViewCellEventDelegate,indexPath:IndexPath)
+}
+
+extension RPListCellDataDelegate {
+    func setSectionData(sectionData:AnyObject,delegate:RPListViewSectionEventDelegate,section:Int){}
+    func setCellData(cellData:AnyObject,delegate:RPListViewCellEventDelegate,indexPath:IndexPath){}
 }
 
 class RPTableViewAdapter: NSObject {
@@ -36,8 +51,10 @@ class RPTableViewAdapter: NSObject {
         }
     }
     
-    //事件代理
-    weak var delegate:RPTableViewCellEventDelegate?
+    //cell事件代理
+    weak var c_delegate:RPListViewCellEventDelegate?
+    //section事件代理
+    weak var s_delegate:RPListViewSectionEventDelegate?
     
     lazy var reuseSet: NSMutableSet = {
         var reuseSet = NSMutableSet.init()
@@ -67,7 +84,7 @@ class RPTableViewAdapter: NSObject {
     }
 }
 
-extension RPTableViewAdapter:UITableViewDelegate,UITableViewDataSource,RPTableViewCellEventDelegate {
+extension RPTableViewAdapter:UITableViewDelegate,UITableViewDataSource,RPListViewCellEventDelegate {
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return dataSourceArray.count
@@ -83,7 +100,7 @@ extension RPTableViewAdapter:UITableViewDelegate,UITableViewDataSource,RPTableVi
         let item = sectionItem.cellDatas[indexPath.row]
         let identifier = reuseIdentifierForCellClass(cellClass: item.cellClass, tableView: tableView)
         let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath)
-        (cell as! RPCellDataDelegate).setData(data: item, delegate: self, indexPath: indexPath)
+        (cell as! RPListCellDataDelegate).setCellData(cellData: item, delegate: self, indexPath: indexPath)
         return cell
     }
     
@@ -91,8 +108,8 @@ extension RPTableViewAdapter:UITableViewDelegate,UITableViewDataSource,RPTableVi
         let sectionItem = dataSourceArray[indexPath.section]
         let item = sectionItem.cellDatas[indexPath.row]
         //调用代理方法
-        if delegate != nil{
-            delegate?.didSelectTableView(tableView, didSelectRowAt: indexPath,sectionData: sectionItem,cellData: item)
+        if c_delegate != nil{
+            c_delegate?.didSelectListView(tableView, indexPath: indexPath, sectionData: sectionItem, cellData: item)
         }
     }
     

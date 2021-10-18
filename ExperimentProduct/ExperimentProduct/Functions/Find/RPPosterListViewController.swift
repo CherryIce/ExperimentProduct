@@ -28,7 +28,7 @@ class RPPosterListViewController: RPBaseViewController {
         // Do any additional setup after loading the view.
 
         pageIndex = 1
-        adapter.delegate = self
+        adapter.c_delegate = self
         initUI()
         refreshUI()
         
@@ -77,11 +77,8 @@ class RPPosterListViewController: RPBaseViewController {
     }
 }
 
-extension RPPosterListViewController : RPCollectionViewCellEventDelegate {
-    func didSelectCollectionView(_ collectionView: UICollectionView,
-                                 indexPath: IndexPath,
-                                 sectionData:RPCollectionViewSectionItem,
-                                 cellData:RPCollectionViewCellItem) {
+extension RPPosterListViewController : RPListViewCellEventDelegate {
+    func didSelectListView(_ listView: UIScrollView, indexPath: IndexPath, sectionData: AnyObject, cellData: AnyObject) {
         
     }
 }

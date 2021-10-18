@@ -42,6 +42,7 @@
 		4A7EDB6526F5E2B300C8FC55 /* RPUserInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A7EDB6426F5E2B300C8FC55 /* RPUserInfoViewModel.swift */; };
 		4A7EDB6D26F5E2C800C8FC55 /* RPUserInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A7EDB6C26F5E2C800C8FC55 /* RPUserInfoModel.swift */; };
 		4A7EDB7426F5E6FC00C8FC55 /* RPNetWorkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A7EDB7326F5E6FC00C8FC55 /* RPNetWorkManager.swift */; };
+		4A8F2147271D715800A249B6 /* UITableView+HBEmpty.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A8F2145271D715800A249B6 /* UITableView+HBEmpty.m */; };
 		4AD802AD26F57565000F3B3A /* RPImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AD802AC26F57565000F3B3A /* RPImage.swift */; };
 		554FE83E271BCFF7005E82C7 /* RPFindCardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554FE83C271BCFF7005E82C7 /* RPFindCardCell.swift */; };
 		554FE83F271BCFF7005E82C7 /* RPFindCardCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 554FE83D271BCFF7005E82C7 /* RPFindCardCell.xib */; };
@@ -119,6 +120,10 @@
 		4A7EDB6426F5E2B300C8FC55 /* RPUserInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPUserInfoViewModel.swift; sourceTree = "<group>"; };
 		4A7EDB6C26F5E2C800C8FC55 /* RPUserInfoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPUserInfoModel.swift; sourceTree = "<group>"; };
 		4A7EDB7326F5E6FC00C8FC55 /* RPNetWorkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPNetWorkManager.swift; sourceTree = "<group>"; };
+		4A8F2139271D711C00A249B6 /* ExperimentProduct-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ExperimentProduct-Bridging-Header.h"; sourceTree = "<group>"; };
+		4A8F2144271D715800A249B6 /* HBEmptyProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HBEmptyProtocol.h; sourceTree = "<group>"; };
+		4A8F2145271D715800A249B6 /* UITableView+HBEmpty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+HBEmpty.m"; sourceTree = "<group>"; };
+		4A8F2146271D715800A249B6 /* UITableView+HBEmpty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+HBEmpty.h"; sourceTree = "<group>"; };
 		4AD802AC26F57565000F3B3A /* RPImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPImage.swift; sourceTree = "<group>"; };
 		554FE83C271BCFF7005E82C7 /* RPFindCardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPFindCardCell.swift; sourceTree = "<group>"; };
 		554FE83D271BCFF7005E82C7 /* RPFindCardCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RPFindCardCell.xib; sourceTree = "<group>"; };
@@ -249,6 +254,7 @@
 		4A547BD426F44898005F00B5 /* ExperimentProduct */ = {
 			isa = PBXGroup;
 			children = (
+				4A8F20E8271D6ED500A249B6 /* oc */,
 				4A3A9FCA271955D800C032C8 /* Adapter */,
 				4A7EDB7226F5E53200C8FC55 /* NetWork */,
 				4A547C7D26F49718005F00B5 /* Thrid */,
@@ -409,6 +415,25 @@
 			path = NetWork;
 			sourceTree = "<group>";
 		};
+		4A8F20E8271D6ED500A249B6 /* oc */ = {
+			isa = PBXGroup;
+			children = (
+				4A8F2143271D715800A249B6 /* HBEmptyClass */,
+				4A8F2139271D711C00A249B6 /* ExperimentProduct-Bridging-Header.h */,
+			);
+			path = oc;
+			sourceTree = "<group>";
+		};
+		4A8F2143271D715800A249B6 /* HBEmptyClass */ = {
+			isa = PBXGroup;
+			children = (
+				4A8F2144271D715800A249B6 /* HBEmptyProtocol.h */,
+				4A8F2146271D715800A249B6 /* UITableView+HBEmpty.h */,
+				4A8F2145271D715800A249B6 /* UITableView+HBEmpty.m */,
+			);
+			path = HBEmptyClass;
+			sourceTree = "<group>";
+		};
 		4AD802B126F585A6000F3B3A /* Home */ = {
 			isa = PBXGroup;
 			children = (
@@ -524,6 +549,7 @@
 				TargetAttributes = {
 					4A547BD126F44898005F00B5 = {
 						CreatedOnToolsVersion = 12.4;
+						LastSwiftMigration = 1240;
 					};
 					4A547BE726F44899005F00B5 = {
 						CreatedOnToolsVersion = 12.4;
@@ -640,6 +666,7 @@
 				558D3567271AA90000E03B5F /* RPPosterViewModel.swift in Sources */,
 				4A1DEBF92714326700149FD8 /* RPLoginViewController.swift in Sources */,
 				4A3A9FCC2719564800C032C8 /* RPTableViewAdapter.swift in Sources */,
+				4A8F2147271D715800A249B6 /* UITableView+HBEmpty.m in Sources */,
 				4A547C3926F482D9005F00B5 /* RPNavigationController.swift in Sources */,
 				4A547C4126F484DD005F00B5 /* RPBaseViewController.swift in Sources */,
 				4A3A9F892717CEEC00C032C8 /* TextFieldEffects.swift in Sources */,
@@ -850,7 +877,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = ExperimentProduct/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
@@ -860,6 +889,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = doman.ExperimentProduct;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "ExperimentProduct/oc/ExperimentProduct-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -871,7 +902,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = ExperimentProduct/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
@@ -881,6 +914,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = doman.ExperimentProduct;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "ExperimentProduct/oc/ExperimentProduct-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
