@@ -155,13 +155,13 @@ extension RPFindViewController: RPFindHeaderViewDelegate {
     }
 }
 
-extension RPFindViewController : HBEmptyDelegate {
-    func makePlaceHolderView() -> UIView! {
-        let v = UIView.init(frame: CGRect.init(x: 0, y: 0, width: SCREEN_WIDTH, height: 100))
-        v.backgroundColor = UIColor.red
-        return v
-    }
-}
+//extension RPFindViewController : HBEmptyDelegate {
+//    func makePlaceHolderView() -> UIView! {
+//        let v = UIView.init(frame: CGRect.init(x: 0, y: 0, width: SCREEN_WIDTH, height: 100))
+//        v.backgroundColor = UIColor.red
+//        return v
+//    }
+//}
 
 /** .plain模式
 extension RPFindViewController: UIScrollViewDelegate {

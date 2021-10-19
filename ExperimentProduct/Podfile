@@ -45,9 +45,6 @@ pod 'TYPagerController'
 # 社会化分享框架
 #pod 'MonkeyKing'
 
-# 引导页
-#pod "RazzleDazzle"
-
 # 操作指南、新手教程
 #pod 'Instructions'
 

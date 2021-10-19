@@ -17,19 +17,33 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         
         IQKeyboardManager.shared.enable = true
+        ToastManager.shared.isTapToDismissEnabled = true
+        ToastManager.shared.isQueueEnabled = true
         
         window = UIWindow.init(frame: UIScreen.main.bounds)
         window?.makeKeyAndVisible()
         
-        
-        let token = UserDefaults.standard.object(forKey: "token")
+        jungleEnter()
+        return true
+    }
+    
+    func jungleEnter() {
+        let lastVersion = UserDefaults.standard.string(forKey: kLastVersionKey)
+        let currentVersion = Bundle.main.infoDictionary!["CFBundleShortVersionString"] as! String
+        if lastVersion != currentVersion {
+            window?.rootViewController = RPGuideViewController.init()
+        }else{
+            setMainRoot()
+        }
+    }
+    
+    func setMainRoot() {
+        let token = UserDefaults.standard.object(forKey: kTokenExpDateTime)
         if (token != nil) {
             window?.rootViewController = RPMainTabBarViewController.init()
         }else{
             window?.rootViewController = RPNavigationController.init(rootViewController: RPLoginViewController.init())
         }
-        
-        return true
     }
 }
 

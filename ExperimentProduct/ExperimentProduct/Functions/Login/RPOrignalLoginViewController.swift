@@ -15,6 +15,7 @@ class RPOrignalLoginViewController: RPBaseViewController {
     var pwTextFiled = RPTextFiled()
     var phoneStr = String()
     var pwStr = String()
+    var forgetButton = UIButton()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -63,6 +64,20 @@ class RPOrignalLoginViewController: RPBaseViewController {
         pwTextFiled.placeholder("请输入6-12位密码")
         pwTextFiled.type = .loginPw
         
+        forgetButton = UIButton.init(type: .custom)
+        forgetButton.setTitle("忘记密码", for: .normal)
+        forgetButton.setTitleColor(UIColor.init(hexString: "#666666"), for: .normal)
+        forgetButton.titleLabel?.font = UIFont.systemFont(ofSize: 13)
+        self.view.addSubview(forgetButton)
+        
+        forgetButton.addTarget(self, action: #selector(forgetButtonClick), for: .touchUpInside)
+        
+        forgetButton.snp.makeConstraints { (make) in
+            make.right.equalTo(pwTextFiled.snp_right)
+            make.top.greaterThanOrEqualTo(pwTextFiled.snp_bottom).offset(10)
+            make.height.equalTo(30)
+        }
+        
         loginButton = UIButton.init(type: .custom)
         loginButton.setTitle("登录", for: .normal)
         loginButton.backgroundColor = UIColor.init(hexString: "#E5E5E5")
@@ -74,7 +89,7 @@ class RPOrignalLoginViewController: RPBaseViewController {
         loginButton.snp.makeConstraints { (make) in
             make.left.equalToSuperview().offset(35)
             make.right.equalToSuperview().offset(-35)
-            make.top.greaterThanOrEqualTo(pwTextFiled.snp_bottom).offset(30)
+            make.top.greaterThanOrEqualTo(forgetButton.snp_bottom).offset(20)
             make.height.equalTo(47)
         }
         
@@ -105,7 +120,15 @@ class RPOrignalLoginViewController: RPBaseViewController {
         let value1 = pwStr.md5
         let value2 = phoneStr + value1
         let value3 = value2.md5
-        UserDefaults.standard.setValue(value3, forKey: "token")
-        UIApplication.shared.keyWindow?.rootViewController = RPMainTabBarViewController.init()
+        UserDefaults.standard.setValue(value3, forKey: kTokenExpDateTime)
+        UserDefaults.standard.synchronize()
+        let window = UIApplication.shared.windows.first
+        window?.rootViewController = RPMainTabBarViewController.init()
+    }
+    
+    @objc func forgetButtonClick() {
+        let ctl = RPPasswordViewController.init()
+        ctl.type = .change
+        self.navigationController?.pushViewController(ctl, animated: true)
     }
 }

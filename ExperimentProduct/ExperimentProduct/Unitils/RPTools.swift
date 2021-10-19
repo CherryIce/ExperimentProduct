@@ -10,10 +10,11 @@ import CommonCrypto
 
 let SCREEN_WIDTH = UIScreen.main.bounds.size.width
 let SCREEN_HEIGHT = UIScreen.main.bounds.size.height
+let kLastVersionKey = "kLastVersionKey"
+let kTokenExpDateTime = "kTokenExpDateTime"
+
 
 class RPTools: NSObject {
-    
-    static let shared = RPTools()
     
     //导航栏高度
     open class var NAV_HEIGHT : CGFloat {
@@ -32,6 +33,21 @@ class RPTools: NSObject {
             }
         }
     }
+    
+    //totast样式
+    open class var RPToastStyle : ToastStyle {
+        get {
+            var style = ToastStyle()
+            style.messageFont = UIFont.systemFont(ofSize: 14)
+            style.messageColor = .white
+            style.messageAlignment = .center
+            style.backgroundColor = UIColor.black.withAlphaComponent(0.5)
+            style.cornerRadius = 4
+            style.horizontalPadding = 15
+            style.verticalPadding = 15
+            return style
+        }
+    }
 
 }
 
@@ -40,6 +56,14 @@ extension UIView {
         let layer = self.layer;
         layer.masksToBounds = true;
         layer.cornerRadius = cornerRadius
+        layer.masksToBounds = false;
+    }
+    
+    func layercornerBorder(borderWidth:CGFloat,borderColor:UIColor) {
+        let layer = self.layer;
+        layer.masksToBounds = true;
+        layer.borderWidth = borderWidth
+        layer.borderColor = borderColor.cgColor
         layer.masksToBounds = false;
     }
 }
