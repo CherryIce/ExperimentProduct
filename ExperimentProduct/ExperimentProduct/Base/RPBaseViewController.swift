@@ -9,6 +9,8 @@ import UIKit
 import SnapKit
 
 class RPBaseViewController: UIViewController {
+    
+    var isFirst: Bool = true
 
     override func viewDidLoad() {
         super.viewDidLoad()

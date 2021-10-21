@@ -3,6 +3,8 @@ platform :ios, '9.0'
 
 use_frameworks!
 
+# pod install --verbose --no-repo-update
+
 # 适配各个iOS版本 pod库最好指定最低版本
 
 target 'ExperimentProduct' do
@@ -100,6 +102,15 @@ pod 'SwiftLint'
 
 # 键盘管理
 pod 'IQKeyboardManagerSwift'
+
+# 空白页 对于tableHeaderView或则tableFooterView处理不到位
+pod 'EmptyKit'
+
+# 骨架动画
+pod 'TABAnimated'
+
+# 上下拉刷新
+pod "ESPullToRefresh"
 
 end
 

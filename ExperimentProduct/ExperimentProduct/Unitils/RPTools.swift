@@ -48,6 +48,13 @@ class RPTools: NSObject {
             return style
         }
     }
+    
+    //通过文件名获取png图片
+    public static func getPngImage(forResource: String) -> UIImage {
+        let path = Bundle.main.path(forResource: forResource, ofType: "png")!
+        let image = RPImage.init(contentsOfFile: path)!
+        return image
+    }
 
 }
 

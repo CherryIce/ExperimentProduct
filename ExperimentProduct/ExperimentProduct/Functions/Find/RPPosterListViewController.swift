@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import EmptyKit
+import TABAnimated
 
 class RPPosterListViewController: RPBaseViewController {
     
@@ -30,9 +32,7 @@ class RPPosterListViewController: RPBaseViewController {
         pageIndex = 1
         adapter.c_delegate = self
         initUI()
-        refreshUI()
-        
-        NotificationCenter.default.addObserver(self, selector: #selector(refreshUI), name: NSNotification.Name(rawValue: "xxxx"), object: nil)
+        configuration()
     }
     
     func initUI () {
@@ -44,17 +44,59 @@ class RPPosterListViewController: RPBaseViewController {
         collectionView.backgroundColor = UIColor.clear
         self.view.addSubview(collectionView)
         
+        collectionView.ept.delegate = self
+        collectionView.ept.dataSource = self
+        
         collectionView.snp.makeConstraints { (make) in
             make.left.top.right.bottom.equalToSuperview()
         }
+        
+        let width = (SCREEN_WIDTH - 16*4)/3
+        let height = width*3/2
+        collectionView.tabAnimated = TABCollectionAnimated.init(cellClass: RPPosterCell.self, cellSize: CGSize.init(width: width, height: height))
+        collectionView.tabAnimated?.canLoadAgain = true
     }
     
-    @objc func refreshUI () {
+    private func configuration() {
+        //开启动画
+        collectionView.tab_startAnimation { [weak self] in
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+                self?.refreshUI()
+            }
+        }
+        
+        //下拉刷新
+        collectionView.refreshIdentifier = "RPRefreshHeader"
+        collectionView.expiredTimeInterval = 20.0
+        collectionView.es.addPullToRefresh(animator: RPRefreshHeader.init(frame: CGRect.zero)) { [weak self] in
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+                self?.pageIndex = 1
+                self?.refreshUI()
+            }
+        }
+        
+        //上拉加载
+        collectionView.es.addInfiniteScrolling(animator: RPRefreshFooter.init(frame: CGRect.zero)) { [weak self] in
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+                self?.refreshUI()
+            }
+        }
+    }
+    
+    func refreshUI () {
         viewModel.getPosterLists(params: NSDictionary.init()) { (datas) in
+            collectionView.es.stopPullToRefresh()
+            collectionView.es.stopLoadingMore()
             if pageIndex == 1 {
                 dataArray = NSMutableArray.init(array: datas)
                 adapter.dataSourceArray = dataArray as [AnyObject]
-                collectionView.reloadData()
+                if self.isFirst {
+                    // 停止动画,并刷新数据
+                    collectionView.tab_endAnimationEaseOut()
+                    self.isFirst = false
+                }else{
+                    collectionView.reloadData()
+                }
                 pageIndex += 1
             }else{
                 let indexPaths = NSMutableArray.init()
@@ -62,6 +104,9 @@ class RPPosterListViewController: RPBaseViewController {
                     dataArray.add(datas[i])
                     let indexPath = NSIndexPath.init(row: dataArray.count-1, section: 0)
                     indexPaths.add(indexPath)
+                }
+                if pageIndex >= 2 {
+                    collectionView.es.noticeNoMoreData()
                 }
                 adapter.dataSourceArray = dataArray as [AnyObject]
                 if indexPaths.count > 0 {
@@ -80,5 +125,46 @@ class RPPosterListViewController: RPBaseViewController {
 extension RPPosterListViewController : RPListViewCellEventDelegate {
     func didSelectListView(_ listView: UIScrollView, indexPath: IndexPath, sectionData: AnyObject, cellData: AnyObject) {
         
+    }
+}
+
+extension RPPosterListViewController: EmptyDataSource {
+    
+    func imageForEmpty(in view: UIView) -> UIImage? {
+        return UIImage(named: "empty_data_bill")
+    }
+
+    func titleForEmpty(in view: UIView) -> NSAttributedString? {
+        let title = "no data"
+        let font = UIFont.systemFont(ofSize: 14)
+        let attributes: [NSAttributedString.Key : Any] = [.foregroundColor: UIColor.black, .font: font]
+        return NSAttributedString(string: title, attributes: attributes)
+    }
+
+    func buttonTitleForEmpty(forState state: UIControl.State, in view: UIView) -> NSAttributedString? {
+        let title = "reload again"
+        let font = UIFont.systemFont(ofSize: 17)
+        let attributes: [NSAttributedString.Key : Any] = [.foregroundColor: UIColor.white, .font: font]
+        return NSAttributedString(string: title, attributes: attributes)
+    }
+
+    func buttonBackgroundColorForEmpty(in view: UIView) -> UIColor {
+        return UIColor.blue
+    }
+    
+    func prepareButtonForEmpty(in view: UIView, button: UIButton) {
+        button.layer.cornerRadius = 6
+        button.layer.masksToBounds = true
+    }
+}
+
+extension RPPosterListViewController: EmptyDelegate {
+   
+    func emptyButton(_ button: UIButton, tappedIn view: UIView) {
+        print( #function, #line, type(of: self))
+    }
+    
+    func emptyView(_ emptyView: UIView, tappedIn view: UIView) {
+        print( #function, #line, type(of: self))
     }
 }

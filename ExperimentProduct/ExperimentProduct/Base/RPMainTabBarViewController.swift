@@ -18,7 +18,7 @@ class RPMainTabBarViewController: UITabBarController {
         self.tabBar.shadowImage = UIImage.init()
         self.tabBar.isTranslucent = false
         if #available(iOS 13.0, *) {
-            let dict = {[NSAttributedString.Key.foregroundColor:RPColor.MainColor]}()
+            let dict = {[NSAttributedString.Key.foregroundColor:UIColor.init(hexString: "#13227a")]}()
             let tabBarAppearance = UITabBarAppearance.init()
             tabBarAppearance.stackedLayoutAppearance.selected.titleTextAttributes = dict
         }
@@ -26,21 +26,21 @@ class RPMainTabBarViewController: UITabBarController {
     
     func addAllChildsControllors() {
         
-        addOneChildVC(childVC:RPHomeViewController(), title:"首页", imageNormal:UIImage(imageLiteralResourceName:"icon_nor_shouy"), imageSelect: UIImage(named:"icon_pre_shouy"))
+        addOneChildVC(childVC:RPHomeViewController(),title:"首页",imageName: "home")
         
-        addOneChildVC(childVC:RPExploreViewController(), title:"探索", imageNormal:UIImage(imageLiteralResourceName:"icon_nor_find"), imageSelect: UIImage(named:"icon_pre_find"))
+        addOneChildVC(childVC:RPExploreViewController(),title:"通讯录",imageName: "friend")
         
-        addOneChildVC(childVC:RPFindViewController(), title:"发现", imageNormal:UIImage(imageLiteralResourceName:"icon_nor_xiaox"), imageSelect: UIImage(named:"icon_pre_xiaox"))
+        addOneChildVC(childVC:RPFindViewController(), title:"发现", imageName: "find")
         
-        addOneChildVC(childVC:RPMineViewController(), title:"我的", imageNormal:UIImage(imageLiteralResourceName:"icon_nor_my"), imageSelect: UIImage(named:"icon_pre_my"))
+        addOneChildVC(childVC:RPMineViewController(), title:"我", imageName: "mine")
     }
     
-    func addOneChildVC(childVC: RPBaseViewController, title: String?, imageNormal: UIImage?, imageSelect:UIImage?) {
+    func addOneChildVC(childVC: RPBaseViewController, title: String?, imageName: String) {
         childVC.tabBarItem.title = title
         childVC.title = title
-        childVC.tabBarItem.setTitleTextAttributes([NSAttributedString.Key.foregroundColor:RPColor.MainColor], for: .selected)
-        childVC.tabBarItem.image = imageNormal?.withRenderingMode(.alwaysOriginal)
-        childVC.tabBarItem.selectedImage = imageSelect?.withRenderingMode(.alwaysOriginal)
+        childVC.tabBarItem.setTitleTextAttributes([NSAttributedString.Key.foregroundColor:UIColor.init(hexString: "#13227a")], for: .selected)
+        childVC.tabBarItem.image = RPTools.getPngImage(forResource:imageName+"_nor@2x").withRenderingMode(.alwaysOriginal)
+        childVC.tabBarItem.selectedImage = RPTools.getPngImage(forResource:imageName+"_selected@2x").withRenderingMode(.alwaysOriginal)
         let navVC = RPNavigationController(rootViewController: childVC)
         self.addChild(navVC)
     }

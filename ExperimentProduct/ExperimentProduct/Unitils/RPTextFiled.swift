@@ -52,6 +52,7 @@ class RPTextFiled: UIView {
 //            textField.borderActiveColor = .red
             textField.borderInactiveColor = UIColor.init(hexString: "#E5E5E5")
             textField.leftViewWithImgName(imgName: "phone", size: CGSize.init(width: 19, height: 19))
+            textField.keyboardType = .numberPad
             break
         case .loginPw:
             self.maxLength = 12
