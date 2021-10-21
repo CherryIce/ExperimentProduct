@@ -22,5 +22,6 @@ class RPYaViewModel: NSObject {
             item.cellDatas.append(cellItem)
         }
         success([item])
+//        failed(NSError.init())
     }
 }

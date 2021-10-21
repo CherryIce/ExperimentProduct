@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import EmptyKit
 import TABAnimated
 
 class RPPosterListViewController: RPBaseViewController {
@@ -43,9 +42,6 @@ class RPPosterListViewController: RPBaseViewController {
         collectionView.dataSource = adapter
         collectionView.backgroundColor = UIColor.clear
         self.view.addSubview(collectionView)
-        
-        collectionView.ept.delegate = self
-        collectionView.ept.dataSource = self
         
         collectionView.snp.makeConstraints { (make) in
             make.left.top.right.bottom.equalToSuperview()
@@ -117,7 +113,13 @@ class RPPosterListViewController: RPBaseViewController {
                 }
             }
         } failed: { (error) in
-            
+            if self.isFirst {
+                // 停止动画,并刷新数据
+                collectionView.tab_endAnimationEaseOut()
+                self.isFirst = false
+            }else{
+                collectionView.reloadData()
+            }
         }
     }
 }
@@ -125,46 +127,5 @@ class RPPosterListViewController: RPBaseViewController {
 extension RPPosterListViewController : RPListViewCellEventDelegate {
     func didSelectListView(_ listView: UIScrollView, indexPath: IndexPath, sectionData: AnyObject, cellData: AnyObject) {
         
-    }
-}
-
-extension RPPosterListViewController: EmptyDataSource {
-    
-    func imageForEmpty(in view: UIView) -> UIImage? {
-        return UIImage(named: "empty_data_bill")
-    }
-
-    func titleForEmpty(in view: UIView) -> NSAttributedString? {
-        let title = "no data"
-        let font = UIFont.systemFont(ofSize: 14)
-        let attributes: [NSAttributedString.Key : Any] = [.foregroundColor: UIColor.black, .font: font]
-        return NSAttributedString(string: title, attributes: attributes)
-    }
-
-    func buttonTitleForEmpty(forState state: UIControl.State, in view: UIView) -> NSAttributedString? {
-        let title = "reload again"
-        let font = UIFont.systemFont(ofSize: 17)
-        let attributes: [NSAttributedString.Key : Any] = [.foregroundColor: UIColor.white, .font: font]
-        return NSAttributedString(string: title, attributes: attributes)
-    }
-
-    func buttonBackgroundColorForEmpty(in view: UIView) -> UIColor {
-        return UIColor.blue
-    }
-    
-    func prepareButtonForEmpty(in view: UIView, button: UIButton) {
-        button.layer.cornerRadius = 6
-        button.layer.masksToBounds = true
-    }
-}
-
-extension RPPosterListViewController: EmptyDelegate {
-   
-    func emptyButton(_ button: UIButton, tappedIn view: UIView) {
-        print( #function, #line, type(of: self))
-    }
-    
-    func emptyView(_ emptyView: UIView, tappedIn view: UIView) {
-        print( #function, #line, type(of: self))
     }
 }

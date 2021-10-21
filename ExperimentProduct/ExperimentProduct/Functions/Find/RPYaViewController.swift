@@ -32,6 +32,8 @@ class RPYaViewController: RPBaseViewController {
         tableView.tableFooterView = UIView()
         self.view.addSubview(tableView)
         
+        tableView.hb_ept.delegate = self
+        
         tableView.snp.makeConstraints { (make) in
             make.left.top.right.bottom.equalToSuperview()
         }
@@ -44,6 +46,7 @@ class RPYaViewController: RPBaseViewController {
             tableView.reloadData()
         } failed: { (error) in
             print("请求失败了")
+            tableView.reloadData()
         }
     }
 }
@@ -51,5 +54,14 @@ class RPYaViewController: RPBaseViewController {
 extension RPYaViewController : RPListViewCellEventDelegate {
     func didSelectListView(_ listView: UIScrollView,indexPath:IndexPath,sectionData:AnyObject,cellData:AnyObject) {
         self.navigationController?.pushViewController(RPPostersViewController.init(), animated: true)
+    }
+}
+
+extension RPYaViewController: HBEmptyDelegate {
+    
+    func customViewForEmpty() -> UIView? {
+        let v = RPEmptyView.init(frame: self.view.bounds)
+        v.type = .normal_no_data
+        return v
     }
 }

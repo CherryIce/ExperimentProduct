@@ -33,5 +33,7 @@ class RPPosterViewModel: NSObject {
             tt.add(item)
         }
         success(tt)
+        
+//        failed(NSError.init())
     }
 }
