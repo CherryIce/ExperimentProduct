@@ -2,7 +2,7 @@
 //  RPEmptyView.swift
 //  ExperimentProduct
 //
-//  Created by YuMao on 2021/10/21.
+//  Created by hubin on 2021/10/21.
 //
 
 import UIKit
@@ -92,7 +92,16 @@ class RPEmptyView: UIView {
         self.addSubview(tipsLabel)
         
         reloadBtn = UIButton.init(type: .custom)
+        reloadBtn.titleLabel?.font = UIFont.systemFont(ofSize: 14)
+        reloadBtn.addTarget(self, action: #selector(clickButton), for: .touchUpInside)
+        reloadBtn.setTitle("重新加载", for: .normal)
         self.addSubview(reloadBtn)
+    }
+    
+    @objc func clickButton() {
+        if (blockButtonClick != nil) {
+            blockButtonClick?()
+        }
     }
     
     required init?(coder: NSCoder) {

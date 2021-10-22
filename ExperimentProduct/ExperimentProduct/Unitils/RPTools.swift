@@ -12,7 +12,7 @@ let SCREEN_WIDTH = UIScreen.main.bounds.size.width
 let SCREEN_HEIGHT = UIScreen.main.bounds.size.height
 let kLastVersionKey = "kLastVersionKey"
 let kTokenExpDateTime = "kTokenExpDateTime"
-
+let kADLaunchCacheKey = "kADLaunchCacheKey"
 
 class RPTools: NSObject {
     
@@ -56,6 +56,11 @@ class RPTools: NSObject {
         return image
     }
 
+    //获取缓存地址
+    public static func getCache() -> DVCache? {
+        let cache: DVCache? = DVCache.init(name: "/RPCache")
+        return cache
+    }
 }
 
 extension UIView {

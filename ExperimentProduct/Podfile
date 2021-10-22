@@ -106,14 +106,17 @@ pod 'IQKeyboardManagerSwift'
 # 空白页 对于tableHeaderView或则tableFooterView处理不到位
 # pod 'EmptyKit'
 
-# 自己写的一个空白页 貌似直接导入通过桥接文件才有效 ┭┮﹏┭┮
-# pod 'HBEmpty'
-
 # 骨架动画
 pod 'TABAnimated'
 
 # 上下拉刷新
 pod "ESPullToRefresh"
+
+# cache
+#pod 'YYCache'
+
+# 启动广告 是个oc库 还有依赖库
+#pod 'XHLaunchAd'
 
 end
 

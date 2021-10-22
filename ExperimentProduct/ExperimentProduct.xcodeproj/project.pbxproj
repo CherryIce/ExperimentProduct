@@ -12,6 +12,11 @@
 		4A0220D927216DC10045CA4B /* HBEmpty+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A0220D627216DC10045CA4B /* HBEmpty+Extensions.swift */; };
 		4A0220DA27216DC10045CA4B /* HBEmptyDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A0220D727216DC10045CA4B /* HBEmptyDelegate.swift */; };
 		4A0220E127216FDD0045CA4B /* RPEmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A0220E027216FDD0045CA4B /* RPEmptyView.swift */; };
+		4A022195272293B60045CA4B /* DVMemoryCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A022191272293B50045CA4B /* DVMemoryCache.swift */; };
+		4A022196272293B60045CA4B /* DVCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A022192272293B60045CA4B /* DVCache.swift */; };
+		4A022197272293B60045CA4B /* DVKVStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A022193272293B60045CA4B /* DVKVStorage.swift */; };
+		4A022198272293B60045CA4B /* DVDiskCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A022194272293B60045CA4B /* DVDiskCache.swift */; };
+		4A0221BF2722A35F0045CA4B /* RPLaunchAdManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A0221BE2722A35F0045CA4B /* RPLaunchAdManager.swift */; };
 		4A1DEBF92714326700149FD8 /* RPLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1DEBF82714326700149FD8 /* RPLoginViewController.swift */; };
 		4A1DEC03271432ED00149FD8 /* RPPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1DEC02271432ED00149FD8 /* RPPasswordViewController.swift */; };
 		4A1DEC6F27156CA400149FD8 /* RPTextFiled.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1DEC6E27156CA400149FD8 /* RPTextFiled.swift */; };
@@ -118,6 +123,11 @@
 		4A0220D627216DC10045CA4B /* HBEmpty+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "HBEmpty+Extensions.swift"; sourceTree = "<group>"; };
 		4A0220D727216DC10045CA4B /* HBEmptyDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HBEmptyDelegate.swift; sourceTree = "<group>"; };
 		4A0220E027216FDD0045CA4B /* RPEmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPEmptyView.swift; sourceTree = "<group>"; };
+		4A022191272293B50045CA4B /* DVMemoryCache.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DVMemoryCache.swift; sourceTree = "<group>"; };
+		4A022192272293B60045CA4B /* DVCache.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DVCache.swift; sourceTree = "<group>"; };
+		4A022193272293B60045CA4B /* DVKVStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DVKVStorage.swift; sourceTree = "<group>"; };
+		4A022194272293B60045CA4B /* DVDiskCache.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DVDiskCache.swift; sourceTree = "<group>"; };
+		4A0221BE2722A35F0045CA4B /* RPLaunchAdManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPLaunchAdManager.swift; sourceTree = "<group>"; };
 		4A1DEBF82714326700149FD8 /* RPLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPLoginViewController.swift; sourceTree = "<group>"; };
 		4A1DEC02271432ED00149FD8 /* RPPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPPasswordViewController.swift; sourceTree = "<group>"; };
 		4A1DEC6E27156CA400149FD8 /* RPTextFiled.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPTextFiled.swift; sourceTree = "<group>"; };
@@ -245,6 +255,25 @@
 			path = EmptyHelper;
 			sourceTree = "<group>";
 		};
+		4A022190272293A40045CA4B /* Cache */ = {
+			isa = PBXGroup;
+			children = (
+				4A022192272293B60045CA4B /* DVCache.swift */,
+				4A022194272293B60045CA4B /* DVDiskCache.swift */,
+				4A022193272293B60045CA4B /* DVKVStorage.swift */,
+				4A022191272293B50045CA4B /* DVMemoryCache.swift */,
+			);
+			path = Cache;
+			sourceTree = "<group>";
+		};
+		4A0221BD2722A18F0045CA4B /* LaunchAd */ = {
+			isa = PBXGroup;
+			children = (
+				4A0221BE2722A35F0045CA4B /* RPLaunchAdManager.swift */,
+			);
+			path = LaunchAd;
+			sourceTree = "<group>";
+		};
 		4A1DEBDB2713E06F00149FD8 /* views */ = {
 			isa = PBXGroup;
 			children = (
@@ -331,6 +360,7 @@
 		4A547BD426F44898005F00B5 /* ExperimentProduct */ = {
 			isa = PBXGroup;
 			children = (
+				4A022190272293A40045CA4B /* Cache */,
 				4A8F21DB271EB58B00A249B6 /* Resource */,
 				4A3A9FCA271955D800C032C8 /* Adapter */,
 				4A7EDB7226F5E53200C8FC55 /* NetWork */,
@@ -391,6 +421,7 @@
 		4A547C7026F48CDD005F00B5 /* Unitils */ = {
 			isa = PBXGroup;
 			children = (
+				4A0221BD2722A18F0045CA4B /* LaunchAd */,
 				4A547C7126F48D19005F00B5 /* RPColor.swift */,
 				4AD802AC26F57565000F3B3A /* RPImage.swift */,
 				4A7EDAFB26F5C0DB00C8FC55 /* RPTools.swift */,
@@ -818,10 +849,12 @@
 				4A547BDA26F44898005F00B5 /* ViewController.swift in Sources */,
 				4A0220D827216DC10045CA4B /* HBEmpty.swift in Sources */,
 				4A1DEC6F27156CA400149FD8 /* RPTextFiled.swift in Sources */,
+				4A022197272293B60045CA4B /* DVKVStorage.swift in Sources */,
 				4A3A9FD4271962D600C032C8 /* RPYaCell.swift in Sources */,
 				4A8F23D2271FFEA600A249B6 /* NVActivityIndicatorAnimationBallClipRotateMultiple.swift in Sources */,
 				4A547C7226F48D19005F00B5 /* RPColor.swift in Sources */,
 				558D3567271AA90000E03B5F /* RPPosterViewModel.swift in Sources */,
+				4A022196272293B60045CA4B /* DVCache.swift in Sources */,
 				4A8F23EC271FFEA600A249B6 /* NVActivityIndicatorAnimationBallSpinFadeLoader.swift in Sources */,
 				4A8F21C4271E9DBC00A249B6 /* RPGuideViewController.swift in Sources */,
 				4A1DEBF92714326700149FD8 /* RPLoginViewController.swift in Sources */,
@@ -839,13 +872,16 @@
 				554FE844271BD389005E82C7 /* RPFindHeaderView.swift in Sources */,
 				4A547BD626F44898005F00B5 /* AppDelegate.swift in Sources */,
 				4A8F23D0271FFEA600A249B6 /* NVActivityIndicatorAnimationBallGridPulse.swift in Sources */,
+				4A0221BF2722A35F0045CA4B /* RPLaunchAdManager.swift in Sources */,
 				4A8F23EE271FFEA600A249B6 /* NVActivityIndicatorAnimationLineScalePulseOutRapid.swift in Sources */,
 				4A547C8226F49739005F00B5 /* ImageVIewExtension.swift in Sources */,
+				4A022195272293B60045CA4B /* DVMemoryCache.swift in Sources */,
 				4A7EDB6526F5E2B300C8FC55 /* RPUserInfoViewModel.swift in Sources */,
 				4A7EDB7426F5E6FC00C8FC55 /* RPNetWorkManager.swift in Sources */,
 				4A8F23EF271FFEA600A249B6 /* NVActivityIndicatorAnimationBallPulseRise.swift in Sources */,
 				4A3A9FFD271982C700C032C8 /* RPPostersViewController.swift in Sources */,
 				4A8F23E3271FFEA600A249B6 /* NVActivityIndicatorAnimationAudioEqualizer.swift in Sources */,
+				4A022198272293B60045CA4B /* DVDiskCache.swift in Sources */,
 				558D359E271B25B800E03B5F /* RPNewsLinkCell.swift in Sources */,
 				4A3A9FBF27182B8000C032C8 /* RPOrignalLoginViewController.swift in Sources */,
 				4A3A9F8E2717CF0B00C032C8 /* HoshiTextField.swift in Sources */,

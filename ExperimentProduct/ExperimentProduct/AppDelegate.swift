@@ -32,6 +32,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if lastVersion != currentVersion {
             window?.rootViewController = RPGuideViewController.init()
         }else{
+            RPLaunchAdManager.shared.setLauchAd()
             setMainRoot()
         }
     }

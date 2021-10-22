@@ -30,6 +30,7 @@ PODS:
     - XCGLogger/Core (= 7.0.1)
   - XCGLogger/Core (7.0.1):
     - ObjcExceptionBridging
+  - YYCache (1.0.4)
 
 DEPENDENCIES:
   - ActiveLabel
@@ -44,6 +45,7 @@ DEPENDENCIES:
   - TABAnimated
   - TYPagerController
   - XCGLogger
+  - YYCache
 
 SPEC REPOS:
   trunk:
@@ -64,6 +66,7 @@ SPEC REPOS:
     - TABAnimated
     - TYPagerController
     - XCGLogger
+    - YYCache
 
 SPEC CHECKSUMS:
   ActiveLabel: b8b2396fe25308d563601437d6605bf691c3b5db
@@ -83,7 +86,8 @@ SPEC CHECKSUMS:
   TABAnimated: 55d2ec5370f9211fc127c94079e2a1b54af27409
   TYPagerController: 262556ecef99986d26ed77fb1288a198ed42f4af
   XCGLogger: 1943831ef907df55108b0b18657953f868de973b
+  YYCache: 8105b6638f5e849296c71f331ff83891a4942952
 
-PODFILE CHECKSUM: 41aa232003e72ee18bfedd98a58f954c766e2b3e
+PODFILE CHECKSUM: 4808d8d9e7b88f66ae3ae732a8be2d4bfedd4c61
 
 COCOAPODS: 1.11.2
