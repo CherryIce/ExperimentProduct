@@ -7,6 +7,7 @@
 
 import UIKit
 import CommonCrypto
+import YYCache
 
 let SCREEN_WIDTH = UIScreen.main.bounds.size.width
 let SCREEN_HEIGHT = UIScreen.main.bounds.size.height
@@ -57,8 +58,8 @@ class RPTools: NSObject {
     }
 
     //获取缓存地址
-    public static func getCache() -> DVCache? {
-        let cache: DVCache? = DVCache.init(name: "/RPCache")
+    public static func getCache() -> YYCache? {
+        let cache = YYCache.init(name: "/RPCache")
         return cache
     }
 }

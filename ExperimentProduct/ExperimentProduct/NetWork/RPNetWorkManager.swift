@@ -15,7 +15,7 @@ class RPNetWorkManager: NSObject {
     
     static let shared = RPNetWorkManager()
     
-    private let provider = MoyaProvider<NewsMoya>()
+    let provider = MoyaProvider<NewsMoya>()
     
     func getNews(_ offset: String) -> Observable<[SettingSection]> {
         return Observable<[SettingSection]>.create ({ observable in
@@ -60,12 +60,21 @@ enum NewsMoya {
     case login(moblie:String,password:String)
     case register(moblie:String,code:String)
     case forgetPassword(moblie:String,code:String,newpassword:String)
+    case adLaunch
 }
 
 
 extension NewsMoya: TargetType {
     var baseURL: URL {
-        return URL(string: "https://c.m.163.com")!
+        switch self {
+        case .news(_):return URL(string: "https://c.m.163.com")!
+        case .login(moblie: _, password: _),
+             .register(moblie: _, code:  _),
+             .forgetPassword(moblie: _, code: _, newpassword: _):
+            return URL(string: "https://c.m.163.com")!
+        case .adLaunch:
+            return URL(string: "https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fimg1.doubanio.com%2Fview%2Frichtext%2Flarge%2Fpublic%2Fp122617578.jpg&refer=http%3A%2F%2Fimg1.doubanio.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1637733990&t=44048b827eb4c729ce27ecd49539d78c")!
+        }
     }
     
     var path: String {
@@ -78,12 +87,20 @@ extension NewsMoya: TargetType {
             return ""
         case .forgetPassword:
             return ""
+        case .adLaunch:
+            return""
         }
         
     }
     
     var method: HTTPMethod {
-        return .get
+        switch self {
+        case .news(_),.adLaunch:return .get
+        case .login(moblie: _, password: _),
+             .register(moblie: _, code:  _),
+             .forgetPassword(moblie: _, code: _, newpassword: _):
+            return.post
+        }
     }
     
     var sampleData: Data {
@@ -107,6 +124,8 @@ extension NewsMoya: TargetType {
         case .forgetPassword(moblie: let moblie, code: let code, newpassword: let newpassword):
             let paramters = ["moblie":moblie,"code":code,"newpassword":newpassword]
             return.requestParameters(parameters: paramters, encoding:URLEncoding.default )
+        case.adLaunch:
+            return .requestPlain
         }
         
     }

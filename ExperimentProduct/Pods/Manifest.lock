@@ -26,6 +26,7 @@ PODS:
   - SwiftyJSON (5.0.0)
   - TABAnimated (2.6.2)
   - TYPagerController (2.1.2)
+  - TZImagePickerController (3.6.6)
   - XCGLogger (7.0.1):
     - XCGLogger/Core (= 7.0.1)
   - XCGLogger/Core (7.0.1):
@@ -44,6 +45,7 @@ DEPENDENCIES:
   - SwiftyJSON
   - TABAnimated
   - TYPagerController
+  - TZImagePickerController
   - XCGLogger
   - YYCache
 
@@ -65,6 +67,7 @@ SPEC REPOS:
     - SwiftyJSON
     - TABAnimated
     - TYPagerController
+    - TZImagePickerController
     - XCGLogger
     - YYCache
 
@@ -85,9 +88,10 @@ SPEC CHECKSUMS:
   SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
   TABAnimated: 55d2ec5370f9211fc127c94079e2a1b54af27409
   TYPagerController: 262556ecef99986d26ed77fb1288a198ed42f4af
+  TZImagePickerController: edf61b8e87f26e3e445aa50eb66254bd7f4859db
   XCGLogger: 1943831ef907df55108b0b18657953f868de973b
   YYCache: 8105b6638f5e849296c71f331ff83891a4942952
 
-PODFILE CHECKSUM: 4808d8d9e7b88f66ae3ae732a8be2d4bfedd4c61
+PODFILE CHECKSUM: bff119d1ea71af7e2a83769a0d3337895b4234a7
 
 COCOAPODS: 1.11.2

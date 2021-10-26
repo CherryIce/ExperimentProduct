@@ -9,6 +9,7 @@ import UIKit
 import RxSwift
 import RxCocoa
 import RxDataSources
+import TZImagePickerController
 
 //fix bug:https://github.com/ReactiveX/RxSwift/issues/2081
 
@@ -62,8 +63,70 @@ class RPMineViewController: RPBaseViewController {
         headerView = RPMineHeaderView.init(frame: CGRect.init(x: 0, y: 0, width: SCREEN_WIDTH, height: RPTools.IS_IPHONEX ? 120 : 100))
         
         headerView.headImageButton.rx.tap.bind {
-            print("点击事件------")
+            self.doImage()
         }.disposed(by: disposeBag)
+    }
+    
+    func doImage() {
+        let alertC = UIAlertController.init(title: nil, message: nil, preferredStyle: .actionSheet)
+        alertC.addAction(UIAlertAction.init(title: "拍照", style: .default, handler: { (action) in
+            self.requestCameraPermission()
+        }))
+        alertC.addAction(UIAlertAction.init(title: "从相册中选", style: .default, handler: { (action) in
+            self.requestPhotoPermission()
+        }))
+        alertC.addAction(UIAlertAction.init(title: "取消", style: .cancel, handler: nil))
+        self.present(alertC, animated: true, completion: nil)
+    }
+    
+    //请求相机权限
+    func requestCameraPermission() {
+        RPPermissions.request(.camera) { (status) in
+            switch status {
+            case .unknown,.restricted,.denied:
+                //去设置
+                break
+            case .notDetermined:
+                self.requestCameraPermission()
+                break
+            case .authorized,.provisional:
+//                let imagePickerController = TZImagePickerController.init(maxImagesCount: 1, columnNumber: 1, delegate: self)!
+//                self.present(imagePickerController, animated: true, completion: nil)
+                break
+            case .noSupport:
+                //设备不支持
+                self.navigationController?.view.makeToast("设备不支持",
+                                                          duration: 3.0,
+                                                          position: .top,
+                                                          style: RPTools.RPToastStyle)
+                break
+            }
+        }
+    }
+    
+    //请求相册权限
+    func requestPhotoPermission() {
+        RPPermissions.request(.photoLibrary) { (status) in
+            switch status {
+            case .unknown,.restricted,.denied:
+                //去设置
+                break
+            case .notDetermined:
+                self.requestCameraPermission()
+                break
+            case .authorized,.provisional:
+                let imagePickerController = TZImagePickerController.init(maxImagesCount: 1, columnNumber: 1, delegate: self)!
+                self.present(imagePickerController, animated: true, completion: nil)
+                break
+            case .noSupport:
+                //设备不支持
+                self.navigationController?.view.makeToast("设备不支持",
+                                                          duration: 3.0,
+                                                          position: .top,
+                                                          style: RPTools.RPToastStyle)
+                break
+            }
+        }
     }
     
     //MARK: - 实例化tableView
@@ -93,4 +156,8 @@ class RPMineViewController: RPBaseViewController {
         super.viewWillDisappear(animated)
         self.navigationController?.navigationBar.isHidden = false
     }
+}
+
+extension RPMineViewController: TZImagePickerControllerDelegate {
+    
 }
