@@ -115,18 +115,17 @@ extension RPHomeViewController: UITableViewDelegate, UITableViewDataSource {
     //MARK: - 删除单元格
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            print("要删除\(dataList[indexPath.row])")
-            
-            //提示
-            let alertC = UIAlertController.init(title: "温馨提示", message: "确定要删除\(dataList[indexPath.row])？", preferredStyle: .alert)
-            alertC.addAction(UIAlertAction.init(title: "确定", style: .destructive, handler: { (UIAlertAction) in
-                self.dataList.removeObject(at: indexPath.row)
-                tableView.reloadData()
-            }))
-            
-            alertC.addAction(UIAlertAction.init(title: "取消", style: .cancel, handler: nil))
-            
-            present(alertC, animated: true, completion: nil)
+            let alert = RPAlertViewController.init(title: "温馨提示", message: "确定要删除\(self.dataList[indexPath.row])？", cancel: "取消", confirm: "确定") { (index) in
+                if index == 1 {
+                    self.dataList.removeObject(at: indexPath.row)
+                    tableView.reloadData()
+                }
+            }
+            alert.titleColor = .red
+            alert.msgColor = .black
+            alert.cancelColor = .blue
+            alert.confirmColor = .red
+            self.present(alert, animated: true,completion: nil)
         }
         
         if editingStyle == .insert {

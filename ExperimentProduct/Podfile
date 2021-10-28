@@ -44,6 +44,8 @@ pod 'TYPagerController'
 # 图片选择器
 #pod 'ImagePicker'
 pod 'TZImagePickerController'
+# 图片裁剪
+pod 'JPImageresizerView'
 
 # 社会化分享框架
 #pod 'MonkeyKing'

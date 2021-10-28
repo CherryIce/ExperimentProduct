@@ -23,6 +23,8 @@
 		4A3A9FD4271962D600C032C8 /* RPYaCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3A9FD3271962D600C032C8 /* RPYaCell.swift */; };
 		4A3A9FFD271982C700C032C8 /* RPPostersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3A9FFC271982C700C032C8 /* RPPostersViewController.swift */; };
 		4A3AA005271984E700C032C8 /* RPCollectionViewAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3AA004271984E700C032C8 /* RPCollectionViewAdapter.swift */; };
+		4A4B72F5272A7C9800821756 /* RPAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4B72F3272A7C9800821756 /* RPAlertViewController.swift */; };
+		4A4B72F6272A7C9800821756 /* RPAlertViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4A4B72F4272A7C9800821756 /* RPAlertViewController.xib */; };
 		4A547BD626F44898005F00B5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A547BD526F44898005F00B5 /* AppDelegate.swift */; };
 		4A547BDA26F44898005F00B5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A547BD926F44898005F00B5 /* ViewController.swift */; };
 		4A547BDD26F44898005F00B5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A547BDB26F44898005F00B5 /* Main.storyboard */; };
@@ -81,6 +83,10 @@
 		4A976BDF272698DA008DF042 /* RPWkwebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A976BDE272698DA008DF042 /* RPWkwebViewController.swift */; };
 		4A976BE62726A27B008DF042 /* RPTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A976BE52726A27B008DF042 /* RPTimer.swift */; };
 		4A976C402727F655008DF042 /* RPPermissions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A976C3F2727F655008DF042 /* RPPermissions.swift */; };
+		4A976CBD2729067A008DF042 /* UUTailoringImgViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A976CBB2729067A008DF042 /* UUTailoringImgViewController.swift */; };
+		4A976CBE2729067A008DF042 /* UUTakePhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A976CBC2729067A008DF042 /* UUTakePhoto.swift */; };
+		4A976CDC27293975008DF042 /* RPNewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A976CDB27293975008DF042 /* RPNewsViewController.swift */; };
+		4A976CE127293C1F008DF042 /* RPActionSheetController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A976CE027293C1F008DF042 /* RPActionSheetController.swift */; };
 		4AD802AD26F57565000F3B3A /* RPImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AD802AC26F57565000F3B3A /* RPImage.swift */; };
 		554FE83E271BCFF7005E82C7 /* RPFindCardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554FE83C271BCFF7005E82C7 /* RPFindCardCell.swift */; };
 		554FE83F271BCFF7005E82C7 /* RPFindCardCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 554FE83D271BCFF7005E82C7 /* RPFindCardCell.xib */; };
@@ -133,6 +139,8 @@
 		4A3A9FD3271962D600C032C8 /* RPYaCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPYaCell.swift; sourceTree = "<group>"; };
 		4A3A9FFC271982C700C032C8 /* RPPostersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPPostersViewController.swift; sourceTree = "<group>"; };
 		4A3AA004271984E700C032C8 /* RPCollectionViewAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPCollectionViewAdapter.swift; sourceTree = "<group>"; };
+		4A4B72F3272A7C9800821756 /* RPAlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPAlertViewController.swift; sourceTree = "<group>"; };
+		4A4B72F4272A7C9800821756 /* RPAlertViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RPAlertViewController.xib; sourceTree = "<group>"; };
 		4A547BD226F44898005F00B5 /* ExperimentProduct.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ExperimentProduct.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A547BD526F44898005F00B5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4A547BD926F44898005F00B5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -197,6 +205,10 @@
 		4A976BDE272698DA008DF042 /* RPWkwebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPWkwebViewController.swift; sourceTree = "<group>"; };
 		4A976BE52726A27B008DF042 /* RPTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPTimer.swift; sourceTree = "<group>"; };
 		4A976C3F2727F655008DF042 /* RPPermissions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPPermissions.swift; sourceTree = "<group>"; };
+		4A976CBB2729067A008DF042 /* UUTailoringImgViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UUTailoringImgViewController.swift; sourceTree = "<group>"; };
+		4A976CBC2729067A008DF042 /* UUTakePhoto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UUTakePhoto.swift; sourceTree = "<group>"; };
+		4A976CDB27293975008DF042 /* RPNewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPNewsViewController.swift; sourceTree = "<group>"; };
+		4A976CE027293C1F008DF042 /* RPActionSheetController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPActionSheetController.swift; sourceTree = "<group>"; };
 		4AD802AC26F57565000F3B3A /* RPImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPImage.swift; sourceTree = "<group>"; };
 		554FE83C271BCFF7005E82C7 /* RPFindCardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPFindCardCell.swift; sourceTree = "<group>"; };
 		554FE83D271BCFF7005E82C7 /* RPFindCardCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RPFindCardCell.xib; sourceTree = "<group>"; };
@@ -322,6 +334,16 @@
 			path = views;
 			sourceTree = "<group>";
 		};
+		4A4B72F2272A7C8100821756 /* Alert */ = {
+			isa = PBXGroup;
+			children = (
+				4A976CE027293C1F008DF042 /* RPActionSheetController.swift */,
+				4A4B72F3272A7C9800821756 /* RPAlertViewController.swift */,
+				4A4B72F4272A7C9800821756 /* RPAlertViewController.xib */,
+			);
+			path = Alert;
+			sourceTree = "<group>";
+		};
 		4A547BC926F44898005F00B5 = {
 			isa = PBXGroup;
 			children = (
@@ -408,6 +430,7 @@
 		4A547C7026F48CDD005F00B5 /* Unitils */ = {
 			isa = PBXGroup;
 			children = (
+				4A4B72F2272A7C8100821756 /* Alert */,
 				4A0221BD2722A18F0045CA4B /* LaunchAd */,
 				4A547C7126F48D19005F00B5 /* RPColor.swift */,
 				4AD802AC26F57565000F3B3A /* RPImage.swift */,
@@ -423,6 +446,7 @@
 		4A547C7D26F49718005F00B5 /* Thrid */ = {
 			isa = PBXGroup;
 			children = (
+				4A976CBA27290659008DF042 /* RPTakePhoto */,
 				4A0220D427216DA40045CA4B /* EmptyHelper */,
 				4A8F23A7271FFE6E00A249B6 /* NVActivityIndicatorView */,
 				4A8F239B271FFC9200A249B6 /* Refresh */,
@@ -481,6 +505,7 @@
 				4A7EDB6226F5E0AF00C8FC55 /* Model */,
 				4A7EDB0226F5CB7D00C8FC55 /* View */,
 				4A547C5B26F485A5005F00B5 /* RPMineViewController.swift */,
+				4A976CDB27293975008DF042 /* RPNewsViewController.swift */,
 			);
 			path = Mine;
 			sourceTree = "<group>";
@@ -596,6 +621,15 @@
 				4A8F23CA271FFEA600A249B6 /* NVActivityIndicatorAnimationBallPulseRise.swift */,
 			);
 			path = Animations;
+			sourceTree = "<group>";
+		};
+		4A976CBA27290659008DF042 /* RPTakePhoto */ = {
+			isa = PBXGroup;
+			children = (
+				4A976CBC2729067A008DF042 /* UUTakePhoto.swift */,
+				4A976CBB2729067A008DF042 /* UUTailoringImgViewController.swift */,
+			);
+			path = RPTakePhoto;
 			sourceTree = "<group>";
 		};
 		4AD802B126F585A6000F3B3A /* Home */ = {
@@ -765,6 +799,7 @@
 				4A8F223E271FA7D800A249B6 /* find_selected@2x.png in Resources */,
 				4A8F21E9271EBBED00A249B6 /* 003.png in Resources */,
 				558D359F271B25B800E03B5F /* RPNewsLinkCell.xib in Resources */,
+				4A4B72F6272A7C9800821756 /* RPAlertViewController.xib in Resources */,
 				4A8F21EB271EBBED00A249B6 /* 002.png in Resources */,
 				4A8F2242271FA7D800A249B6 /* friend_nor@2x.png in Resources */,
 				558D3585271AE5CE00E03B5F /* RPFindNewsLinkCell.xib in Resources */,
@@ -841,11 +876,14 @@
 				4A1DEC6F27156CA400149FD8 /* RPTextFiled.swift in Sources */,
 				4A3A9FD4271962D600C032C8 /* RPYaCell.swift in Sources */,
 				4A8F23D2271FFEA600A249B6 /* NVActivityIndicatorAnimationBallClipRotateMultiple.swift in Sources */,
+				4A976CBE2729067A008DF042 /* UUTakePhoto.swift in Sources */,
 				4A976BE62726A27B008DF042 /* RPTimer.swift in Sources */,
+				4A976CE127293C1F008DF042 /* RPActionSheetController.swift in Sources */,
 				4A547C7226F48D19005F00B5 /* RPColor.swift in Sources */,
 				4A976C402727F655008DF042 /* RPPermissions.swift in Sources */,
 				558D3567271AA90000E03B5F /* RPPosterViewModel.swift in Sources */,
 				4A8F23EC271FFEA600A249B6 /* NVActivityIndicatorAnimationBallSpinFadeLoader.swift in Sources */,
+				4A976CBD2729067A008DF042 /* UUTailoringImgViewController.swift in Sources */,
 				4A8F21C4271E9DBC00A249B6 /* RPGuideViewController.swift in Sources */,
 				4A1DEBF92714326700149FD8 /* RPLoginViewController.swift in Sources */,
 				4A3A9FCC2719564800C032C8 /* RPTableViewAdapter.swift in Sources */,
@@ -864,6 +902,7 @@
 				4A8F23D0271FFEA600A249B6 /* NVActivityIndicatorAnimationBallGridPulse.swift in Sources */,
 				4A0221BF2722A35F0045CA4B /* RPLaunchAdManager.swift in Sources */,
 				4A8F23EE271FFEA600A249B6 /* NVActivityIndicatorAnimationLineScalePulseOutRapid.swift in Sources */,
+				4A4B72F5272A7C9800821756 /* RPAlertViewController.swift in Sources */,
 				4A547C8226F49739005F00B5 /* ImageVIewExtension.swift in Sources */,
 				4A7EDB6526F5E2B300C8FC55 /* RPUserInfoViewModel.swift in Sources */,
 				4A7EDB7426F5E6FC00C8FC55 /* RPNetWorkManager.swift in Sources */,
@@ -891,6 +930,7 @@
 				4A7EDAB326F5915600C8FC55 /* RPExploreViewCell.swift in Sources */,
 				4A547C4A26F48528005F00B5 /* RPHomeViewController.swift in Sources */,
 				4A7EDAFC26F5C0DC00C8FC55 /* RPTools.swift in Sources */,
+				4A976CDC27293975008DF042 /* RPNewsViewController.swift in Sources */,
 				4A8F23D4271FFEA600A249B6 /* NVActivityIndicatorAnimationBallDoubleBounce.swift in Sources */,
 				4A547C5226F4858A005F00B5 /* RPExploreViewController.swift in Sources */,
 				4A547C5726F48595005F00B5 /* RPFindViewController.swift in Sources */,

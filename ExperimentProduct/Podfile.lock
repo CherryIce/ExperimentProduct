@@ -4,6 +4,7 @@ PODS:
   - Differentiator (3.1.0)
   - ESPullToRefresh (2.9.3)
   - IQKeyboardManagerSwift (6.5.6)
+  - JPImageresizerView (1.9.4)
   - Moya/Core (13.0.1):
     - Alamofire (~> 4.1)
     - Result (~> 4.1)
@@ -37,6 +38,7 @@ DEPENDENCIES:
   - ActiveLabel
   - ESPullToRefresh
   - IQKeyboardManagerSwift
+  - JPImageresizerView
   - Moya/RxSwift
   - RxCocoa
   - RxDataSources (~> 3.0)
@@ -56,6 +58,7 @@ SPEC REPOS:
     - Differentiator
     - ESPullToRefresh
     - IQKeyboardManagerSwift
+    - JPImageresizerView
     - Moya
     - ObjcExceptionBridging
     - Result
@@ -77,6 +80,7 @@ SPEC CHECKSUMS:
   Differentiator: be49ca3408f0ecfc761e4c7763d20c62be01b9ad
   ESPullToRefresh: 0d68daa602b343c81753a1b95e09fd0bfcddfd40
   IQKeyboardManagerSwift: c7df9d2deb356c04522f5c4b7b6e4ce4d8ed94fe
+  JPImageresizerView: 6d8ddd0569f15be391e619da82d40af31266b34c
   Moya: f4a4b80ff2f8a4ffc208dfb31cd91636622fee6e
   ObjcExceptionBridging: c30e00eb3700467e695faeea30e26e18bd445001
   Result: bd966fac789cc6c1563440b348ab2598cc24d5c7
@@ -92,6 +96,6 @@ SPEC CHECKSUMS:
   XCGLogger: 1943831ef907df55108b0b18657953f868de973b
   YYCache: 8105b6638f5e849296c71f331ff83891a4942952
 
-PODFILE CHECKSUM: bff119d1ea71af7e2a83769a0d3337895b4234a7
+PODFILE CHECKSUM: a6820791ccd9b07a2f1f332475e230e8b681ad85
 
 COCOAPODS: 1.11.2

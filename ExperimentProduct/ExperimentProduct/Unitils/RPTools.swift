@@ -35,6 +35,17 @@ class RPTools: NSObject {
         }
     }
     
+    //底部空隙
+    open class var BottomPadding : CGFloat {
+        get {
+            if IS_IPHONEX {
+                return  32
+            }else{
+                return 0
+            }
+        }
+    }
+    
     //totast样式
     open class var RPToastStyle : ToastStyle {
         get {
@@ -62,6 +73,12 @@ class RPTools: NSObject {
         let cache = YYCache.init(name: "/RPCache")
         return cache
     }
+    
+    //计算字符串宽高
+    class func calculateTextSize(_ text:String,size:CGSize,font:UIFont) -> CGSize  {
+        let rect: CGRect = text.boundingRect(with: size, options: NSStringDrawingOptions.init(rawValue: 0) , attributes: [NSAttributedString.Key.font:font], context: nil) as CGRect
+        return rect.size
+    }
 }
 
 extension UIView {
@@ -78,6 +95,14 @@ extension UIView {
         layer.borderWidth = borderWidth
         layer.borderColor = borderColor.cgColor
         layer.masksToBounds = false;
+    }
+    
+    func layerRoundedRect(byRoundingCorners corners: UIRectCorner, cornerRadii: CGSize){
+        let maskPath = UIBezierPath.init(roundedRect: self.bounds, byRoundingCorners: corners, cornerRadii: cornerRadii)
+        let maskLayer = CAShapeLayer.init()
+        maskLayer.frame = self.bounds
+        maskLayer.path = maskPath.cgPath
+        self.layer.mask = maskLayer
     }
 }
 

@@ -32,8 +32,9 @@ class RPMineHeaderView: UIView {
         descrLabel.font = UIFont.systemFont(ofSize: 12)
         self.addSubview(descrLabel)
         
+//        headImageButton.snp.setLabel("001")
         headImageButton.snp.makeConstraints { (make) in
-            make.top.equalTo(RPTools.IS_IPHONEX ? 40 : 30)
+            make.top.equalTo(RPTools.IS_IPHONEX ? 80 : 60)
             make.left.equalToSuperview().offset(16)
             make.width.height.equalTo(50)
         }
