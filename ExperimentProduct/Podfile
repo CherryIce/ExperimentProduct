@@ -47,9 +47,6 @@ pod 'TZImagePickerController'
 # 图片裁剪
 pod 'JPImageresizerView'
 
-# 社会化分享框架
-#pod 'MonkeyKing'
-
 # 操作指南、新手教程
 #pod 'Instructions'
 
@@ -62,12 +59,6 @@ pod 'JPImageresizerView'
 # 自定义的进度加载动画
 #pod 'FillableLoaders'
 
-# 创建动态的table-view forms
-#pod 'Eureka'
-
-# 拥有很多种特性的label
-#pod 'LTMorphingLabel'
-
 # 支持Hashtags、Mentions、Links响应事件
 pod 'ActiveLabel'
 
@@ -75,33 +66,11 @@ pod 'ActiveLabel'
 #pod 'TextFieldEffects'
 #pod 'SkyFloatingLabelTextField'
 
-# TextView
-#pod 'NextGrowingTextView'
-
-# NSAttributedString
-#pod 'TextAttributes'
-
-# Gif
-#pod 'Gifu'
-
 # 日志
 pod 'XCGLogger'
 
 # 代码风格检查
 pod 'SwiftLint'
-
-# 异步功能
-#pod 'PromiseKit'
-#pod "AsyncSwift"
-
-# App内购
-#pod 'SwiftyStoreKit'
-
-# 动画库
-#pod 'IBAnimatable'
-#pod 'EasyAnimation'
-#pod 'Advance'
-#pod 'PeekPop'
 
 # 键盘管理
 pod 'IQKeyboardManagerSwift'

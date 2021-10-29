@@ -27,18 +27,22 @@ class RPExploreViewController: RPBaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        createTableViewUI()
+        
         //原始数据
         dataList = ["兔子", "秃子", "鹰酱", "毛熊", "猫", "棒子", "脚盆鸡", "高卢鸡", "狗大户", "骆驼", "沙某", "河马", "Big D", "Apple"]
-        
         //数据处理
         createResultDict()
-        
+    }
+    
+    func createTableViewUI() {
         //tableVIew
         tableView = UITableView.init(frame: self.view.bounds, style: .plain)
         tableView.delegate = self
         tableView.dataSource = self
         //去掉多余的分割线
         tableView.tableFooterView = UIView()
+        tableView.separatorColor = RPColor.Separator
         //注册cell
         tableView.register(UINib(nibName: "RPExploreViewCell", bundle: nil), forCellReuseIdentifier: cellID)
         self.view.addSubview(tableView)

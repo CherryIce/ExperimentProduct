@@ -22,25 +22,9 @@ class RPPostersViewController: RPBaseViewController {
         // Do any additional setup after loading the view.
         self.title = "展业海报"
         
-        creatNavRightItem()
         addTabPagerBar()
         addPagerController()
         loadData()
-    }
-    
-    @objc func editAction() {
-        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "xxxx"), object: nil)
-    }
-    
-    func creatNavRightItem() {
-        let editBtn = UIButton.init(type: .custom)
-        editBtn.frame = CGRect.init(x: 0, y: 0, width: 30, height: 30)
-        editBtn.setTitle("模拟", for:.normal)
-        editBtn.setTitleColor(RPColor.MainColor, for: .normal)
-        editBtn.setTitleColor(RPColor.red, for: .selected)
-        editBtn.titleLabel?.font = UIFont.systemFont(ofSize: 15)
-        editBtn.addTarget(self, action: #selector(editAction), for: .touchUpInside)
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem.init(customView: editBtn)
     }
     
     func addTabPagerBar() {

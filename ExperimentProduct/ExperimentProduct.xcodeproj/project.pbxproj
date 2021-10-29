@@ -25,6 +25,8 @@
 		4A3AA005271984E700C032C8 /* RPCollectionViewAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3AA004271984E700C032C8 /* RPCollectionViewAdapter.swift */; };
 		4A4B72F5272A7C9800821756 /* RPAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4B72F3272A7C9800821756 /* RPAlertViewController.swift */; };
 		4A4B72F6272A7C9800821756 /* RPAlertViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4A4B72F4272A7C9800821756 /* RPAlertViewController.xib */; };
+		4A4B72FC272A93A200821756 /* RPShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4B72FA272A93A200821756 /* RPShareViewController.swift */; };
+		4A4B72FD272A93A200821756 /* RPShareViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4A4B72FB272A93A200821756 /* RPShareViewController.xib */; };
 		4A547BD626F44898005F00B5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A547BD526F44898005F00B5 /* AppDelegate.swift */; };
 		4A547BDA26F44898005F00B5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A547BD926F44898005F00B5 /* ViewController.swift */; };
 		4A547BDD26F44898005F00B5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A547BDB26F44898005F00B5 /* Main.storyboard */; };
@@ -42,6 +44,16 @@
 		4A547C7226F48D19005F00B5 /* RPColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A547C7126F48D19005F00B5 /* RPColor.swift */; };
 		4A547C8126F49739005F00B5 /* ImageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A547C7F26F49739005F00B5 /* ImageHelper.swift */; };
 		4A547C8226F49739005F00B5 /* ImageVIewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A547C8026F49739005F00B5 /* ImageVIewExtension.swift */; };
+		4A5969E7272B8960003ECB14 /* wechat@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A5969E5272B8960003ECB14 /* wechat@2x.png */; };
+		4A5969E8272B8960003ECB14 /* wechat@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A5969E6272B8960003ECB14 /* wechat@3x.png */; };
+		4A5969EE272B8978003ECB14 /* wechat_circle@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A5969EC272B8978003ECB14 /* wechat_circle@2x.png */; };
+		4A5969EF272B8978003ECB14 /* wechat_circle@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A5969ED272B8978003ECB14 /* wechat_circle@3x.png */; };
+		4A596A3A272BCA0D003ECB14 /* RPNiceCollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A596A39272BCA0D003ECB14 /* RPNiceCollectionViewLayout.swift */; };
+		4A596A42272BCF1E003ECB14 /* RPSortViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A596A41272BCF1E003ECB14 /* RPSortViewController.swift */; };
+		4A596A48272BD2CA003ECB14 /* RPNiceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A596A47272BD2CA003ECB14 /* RPNiceViewModel.swift */; };
+		4A596A5A272BF00F003ECB14 /* RPNiceViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A596A58272BF00F003ECB14 /* RPNiceViewCell.swift */; };
+		4A596A5B272BF00F003ECB14 /* RPNiceViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4A596A59272BF00F003ECB14 /* RPNiceViewCell.xib */; };
+		4A596A61272BF2E4003ECB14 /* RPNiceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A596A60272BF2E4003ECB14 /* RPNiceModel.swift */; };
 		4A7EDAB326F5915600C8FC55 /* RPExploreViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A7EDAB126F5915600C8FC55 /* RPExploreViewCell.swift */; };
 		4A7EDAB426F5915600C8FC55 /* RPExploreViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4A7EDAB226F5915600C8FC55 /* RPExploreViewCell.xib */; };
 		4A7EDAFC26F5C0DC00C8FC55 /* RPTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A7EDAFB26F5C0DB00C8FC55 /* RPTools.swift */; };
@@ -141,6 +153,8 @@
 		4A3AA004271984E700C032C8 /* RPCollectionViewAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPCollectionViewAdapter.swift; sourceTree = "<group>"; };
 		4A4B72F3272A7C9800821756 /* RPAlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPAlertViewController.swift; sourceTree = "<group>"; };
 		4A4B72F4272A7C9800821756 /* RPAlertViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RPAlertViewController.xib; sourceTree = "<group>"; };
+		4A4B72FA272A93A200821756 /* RPShareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPShareViewController.swift; sourceTree = "<group>"; };
+		4A4B72FB272A93A200821756 /* RPShareViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RPShareViewController.xib; sourceTree = "<group>"; };
 		4A547BD226F44898005F00B5 /* ExperimentProduct.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ExperimentProduct.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A547BD526F44898005F00B5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4A547BD926F44898005F00B5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -164,6 +178,16 @@
 		4A547C7126F48D19005F00B5 /* RPColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPColor.swift; sourceTree = "<group>"; };
 		4A547C7F26F49739005F00B5 /* ImageHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageHelper.swift; sourceTree = "<group>"; };
 		4A547C8026F49739005F00B5 /* ImageVIewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageVIewExtension.swift; sourceTree = "<group>"; };
+		4A5969E5272B8960003ECB14 /* wechat@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "wechat@2x.png"; sourceTree = "<group>"; };
+		4A5969E6272B8960003ECB14 /* wechat@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "wechat@3x.png"; sourceTree = "<group>"; };
+		4A5969EC272B8978003ECB14 /* wechat_circle@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "wechat_circle@2x.png"; sourceTree = "<group>"; };
+		4A5969ED272B8978003ECB14 /* wechat_circle@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "wechat_circle@3x.png"; sourceTree = "<group>"; };
+		4A596A39272BCA0D003ECB14 /* RPNiceCollectionViewLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPNiceCollectionViewLayout.swift; sourceTree = "<group>"; };
+		4A596A41272BCF1E003ECB14 /* RPSortViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPSortViewController.swift; sourceTree = "<group>"; };
+		4A596A47272BD2CA003ECB14 /* RPNiceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPNiceViewModel.swift; sourceTree = "<group>"; };
+		4A596A58272BF00F003ECB14 /* RPNiceViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPNiceViewCell.swift; sourceTree = "<group>"; };
+		4A596A59272BF00F003ECB14 /* RPNiceViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RPNiceViewCell.xib; sourceTree = "<group>"; };
+		4A596A60272BF2E4003ECB14 /* RPNiceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPNiceModel.swift; sourceTree = "<group>"; };
 		4A7EDAB126F5915600C8FC55 /* RPExploreViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPExploreViewCell.swift; sourceTree = "<group>"; };
 		4A7EDAB226F5915600C8FC55 /* RPExploreViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RPExploreViewCell.xib; sourceTree = "<group>"; };
 		4A7EDAFB26F5C0DB00C8FC55 /* RPTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPTools.swift; sourceTree = "<group>"; };
@@ -276,6 +300,7 @@
 		4A1DEBDB2713E06F00149FD8 /* views */ = {
 			isa = PBXGroup;
 			children = (
+				4A596A38272BC9BC003ECB14 /* water_flow_layout */,
 			);
 			path = views;
 			sourceTree = "<group>";
@@ -340,8 +365,21 @@
 				4A976CE027293C1F008DF042 /* RPActionSheetController.swift */,
 				4A4B72F3272A7C9800821756 /* RPAlertViewController.swift */,
 				4A4B72F4272A7C9800821756 /* RPAlertViewController.xib */,
+				4A4B72FA272A93A200821756 /* RPShareViewController.swift */,
+				4A4B72FB272A93A200821756 /* RPShareViewController.xib */,
 			);
 			path = Alert;
+			sourceTree = "<group>";
+		};
+		4A4B7301272AA8DF00821756 /* share */ = {
+			isa = PBXGroup;
+			children = (
+				4A5969EC272B8978003ECB14 /* wechat_circle@2x.png */,
+				4A5969ED272B8978003ECB14 /* wechat_circle@3x.png */,
+				4A5969E5272B8960003ECB14 /* wechat@2x.png */,
+				4A5969E6272B8960003ECB14 /* wechat@3x.png */,
+			);
+			path = share;
 			sourceTree = "<group>";
 		};
 		4A547BC926F44898005F00B5 = {
@@ -466,6 +504,32 @@
 			path = ImageHelper;
 			sourceTree = "<group>";
 		};
+		4A596A38272BC9BC003ECB14 /* water_flow_layout */ = {
+			isa = PBXGroup;
+			children = (
+				4A596A39272BCA0D003ECB14 /* RPNiceCollectionViewLayout.swift */,
+				4A596A58272BF00F003ECB14 /* RPNiceViewCell.swift */,
+				4A596A59272BF00F003ECB14 /* RPNiceViewCell.xib */,
+			);
+			path = water_flow_layout;
+			sourceTree = "<group>";
+		};
+		4A596A46272BD2B2003ECB14 /* viewmodel */ = {
+			isa = PBXGroup;
+			children = (
+				4A596A47272BD2CA003ECB14 /* RPNiceViewModel.swift */,
+			);
+			path = viewmodel;
+			sourceTree = "<group>";
+		};
+		4A596A5F272BF2CE003ECB14 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				4A596A60272BF2E4003ECB14 /* RPNiceModel.swift */,
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
 		4A7EDAAF26F5910C00C8FC55 /* Explore */ = {
 			isa = PBXGroup;
 			children = (
@@ -545,6 +609,7 @@
 		4A8F21DB271EB58B00A249B6 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				4A4B7301272AA8DF00821756 /* share */,
 				4A8F2235271FA7D800A249B6 /* tabbar */,
 				4A8F21E5271EBBE100A249B6 /* guide */,
 			);
@@ -635,8 +700,11 @@
 		4AD802B126F585A6000F3B3A /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				4A596A5F272BF2CE003ECB14 /* model */,
+				4A596A46272BD2B2003ECB14 /* viewmodel */,
 				4A1DEBDB2713E06F00149FD8 /* views */,
 				4A547C4926F48528005F00B5 /* RPHomeViewController.swift */,
+				4A596A41272BCF1E003ECB14 /* RPSortViewController.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -786,23 +854,29 @@
 			files = (
 				4A8F21EA271EBBED00A249B6 /* 001.png in Resources */,
 				4A547BE226F44899005F00B5 /* LaunchScreen.storyboard in Resources */,
+				4A5969EE272B8978003ECB14 /* wechat_circle@2x.png in Resources */,
 				4A8F2244271FA7D800A249B6 /* home_selected@2x.png in Resources */,
 				4A8F223F271FA7D800A249B6 /* mine_selected@2x.png in Resources */,
 				4A8F2243271FA7D800A249B6 /* mine_nor@2x.png in Resources */,
 				4A547BDF26F44899005F00B5 /* Assets.xcassets in Resources */,
 				4A8F2240271FA7D800A249B6 /* friend_selected@2x.png in Resources */,
+				4A5969E8272B8960003ECB14 /* wechat@3x.png in Resources */,
 				4A7EDAB426F5915600C8FC55 /* RPExploreViewCell.xib in Resources */,
 				4A547BDD26F44898005F00B5 /* Main.storyboard in Resources */,
+				4A5969E7272B8960003ECB14 /* wechat@2x.png in Resources */,
 				4A8F2241271FA7D800A249B6 /* home_nor@2x.png in Resources */,
+				4A4B72FD272A93A200821756 /* RPShareViewController.xib in Resources */,
 				554FE83F271BCFF7005E82C7 /* RPFindCardCell.xib in Resources */,
 				4A8F2245271FA7D800A249B6 /* find_nor@2x.png in Resources */,
 				4A8F223E271FA7D800A249B6 /* find_selected@2x.png in Resources */,
 				4A8F21E9271EBBED00A249B6 /* 003.png in Resources */,
 				558D359F271B25B800E03B5F /* RPNewsLinkCell.xib in Resources */,
 				4A4B72F6272A7C9800821756 /* RPAlertViewController.xib in Resources */,
+				4A596A5B272BF00F003ECB14 /* RPNiceViewCell.xib in Resources */,
 				4A8F21EB271EBBED00A249B6 /* 002.png in Resources */,
 				4A8F2242271FA7D800A249B6 /* friend_nor@2x.png in Resources */,
 				558D3585271AE5CE00E03B5F /* RPFindNewsLinkCell.xib in Resources */,
+				4A5969EF272B8978003ECB14 /* wechat_circle@3x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -886,6 +960,7 @@
 				4A976CBD2729067A008DF042 /* UUTailoringImgViewController.swift in Sources */,
 				4A8F21C4271E9DBC00A249B6 /* RPGuideViewController.swift in Sources */,
 				4A1DEBF92714326700149FD8 /* RPLoginViewController.swift in Sources */,
+				4A596A48272BD2CA003ECB14 /* RPNiceViewModel.swift in Sources */,
 				4A3A9FCC2719564800C032C8 /* RPTableViewAdapter.swift in Sources */,
 				4A8F23E9271FFEA600A249B6 /* NVActivityIndicatorAnimationPacman.swift in Sources */,
 				4A547C3926F482D9005F00B5 /* RPNavigationController.swift in Sources */,
@@ -898,11 +973,14 @@
 				4A8F23DD271FFEA600A249B6 /* NVActivityIndicatorAnimationBallClipRotatePulse.swift in Sources */,
 				4A547C5C26F485A5005F00B5 /* RPMineViewController.swift in Sources */,
 				554FE844271BD389005E82C7 /* RPFindHeaderView.swift in Sources */,
+				4A596A61272BF2E4003ECB14 /* RPNiceModel.swift in Sources */,
 				4A547BD626F44898005F00B5 /* AppDelegate.swift in Sources */,
 				4A8F23D0271FFEA600A249B6 /* NVActivityIndicatorAnimationBallGridPulse.swift in Sources */,
 				4A0221BF2722A35F0045CA4B /* RPLaunchAdManager.swift in Sources */,
 				4A8F23EE271FFEA600A249B6 /* NVActivityIndicatorAnimationLineScalePulseOutRapid.swift in Sources */,
+				4A596A42272BCF1E003ECB14 /* RPSortViewController.swift in Sources */,
 				4A4B72F5272A7C9800821756 /* RPAlertViewController.swift in Sources */,
+				4A596A3A272BCA0D003ECB14 /* RPNiceCollectionViewLayout.swift in Sources */,
 				4A547C8226F49739005F00B5 /* ImageVIewExtension.swift in Sources */,
 				4A7EDB6526F5E2B300C8FC55 /* RPUserInfoViewModel.swift in Sources */,
 				4A7EDB7426F5E6FC00C8FC55 /* RPNetWorkManager.swift in Sources */,
@@ -915,6 +993,7 @@
 				4A8F23CE271FFEA600A249B6 /* NVActivityIndicatorAnimationDelegate.swift in Sources */,
 				4A8F21D7271EA9A200A249B6 /* RPGuideCell.swift in Sources */,
 				4A0220DA27216DC10045CA4B /* HBEmptyDelegate.swift in Sources */,
+				4A596A5A272BF00F003ECB14 /* RPNiceViewCell.swift in Sources */,
 				558D3584271AE5CE00E03B5F /* RPFindNewsLinkCell.swift in Sources */,
 				4A8F243927200AF500A249B6 /* RPRefreshFooter.swift in Sources */,
 				558D3548271A77E400E03B5F /* RPPosterCell.swift in Sources */,
@@ -923,6 +1002,7 @@
 				4A1DEC03271432ED00149FD8 /* RPPasswordViewController.swift in Sources */,
 				558D356C271ABC4C00E03B5F /* RPFindViewModel.swift in Sources */,
 				558D354E271A784900E03B5F /* RPPosterModel.swift in Sources */,
+				4A4B72FC272A93A200821756 /* RPShareViewController.swift in Sources */,
 				4A8F23F1271FFEA600A249B6 /* NVActivityIndicatorShape.swift in Sources */,
 				4A8F23E6271FFEA600A249B6 /* NVActivityIndicatorAnimationBallScaleMultiple.swift in Sources */,
 				4A547C3326F47EF3005F00B5 /* RPMainTabBarViewController.swift in Sources */,

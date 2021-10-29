@@ -9,140 +9,106 @@ import UIKit
 
 class RPHomeViewController: RPBaseViewController {
     
-    //tableView
-    var tableView = UITableView()
-    
-    var editBtn = UIButton()
-    
-    //数据
-    var dataList: NSMutableArray = []
-    
+    private var pageIndex = 1
+    private lazy var dataArray = [RPNiceModel]()
+    private lazy var collectionView = UICollectionView()
+    private lazy var viewModel  = RPNiceViewModel()
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        //右上角编辑按钮
-        creatNavRightItem()
-        
-        //数据
-        dataList = NSMutableArray.init(array: ["🐰", "秃子", "鹰酱", "毛熊", "棒子", "脚盆鸡", "高卢鸡", "狗大户", "🐫", "沙某", "河马"])
-        
-        //UI
-        createTableViewUI()
+        initUI()
+        configuration()
+        refreshUI()
     }
     
-    func creatNavRightItem() {
-        editBtn = UIButton.init(type: .custom)
-        editBtn.frame = CGRect.init(x: 0, y: 0, width: 30, height: 30)
-        editBtn.setTitle("编辑", for:.normal)
-        editBtn.setTitle("完成", for: .selected)
-        editBtn.setTitleColor(RPColor.MainColor, for: .normal)
-        editBtn.setTitleColor(RPColor.red, for: .selected)
-        editBtn.titleLabel?.font = UIFont.systemFont(ofSize: 15)
-        editBtn.addTarget(self, action: #selector(editAction), for: .touchUpInside)
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem.init(customView: editBtn)
+    func initUI () {
+        let flowLayout = RPNiceCollectionViewLayout.init()
+        flowLayout.delegate = self
+        collectionView = UICollectionView.init(frame: CGRect.zero, collectionViewLayout: flowLayout)
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        collectionView.backgroundColor = UIColor.clear
+        collectionView.showsVerticalScrollIndicator = false
+        self.view.addSubview(collectionView)
+        
+        collectionView.snp.makeConstraints { (make) in
+            make.left.top.right.bottom.equalToSuperview()
+        }
     }
     
-    //MARK: - 实例化tableView
-    func createTableViewUI() {
-        tableView = UITableView.init(frame: self.view.bounds, style: .plain)
-        tableView.delegate = self
-        tableView.dataSource = self
-        //注册cell
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cellID")
-        //去除分割线
-//        tableView.separatorStyle = .none
-        tableView.separatorColor = RPColor.Separator
-        //去掉多余的分割线
-        tableView.tableFooterView = UIView()
-        tableView.rowHeight = 60
-        self.view.addSubview(tableView)
+    private func configuration() {
+        //下拉刷新
+        collectionView.refreshIdentifier = "RPRefreshHeader"
+        collectionView.expiredTimeInterval = 20.0
+        collectionView.es.addPullToRefresh(animator: RPRefreshHeader.init(frame: CGRect.zero)) { [weak self] in
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+                self?.pageIndex = 1
+                self?.refreshUI()
+            }
+        }
+        
+        //上拉加载
+        collectionView.es.addInfiniteScrolling(animator: RPRefreshFooter.init(frame: CGRect.zero)) { [weak self] in
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+                self?.refreshUI()
+            }
+        }
     }
     
-    //MARK: - 编辑
-    @objc func editAction(sender:UIButton) {
-        sender.isSelected = !sender.isSelected
-        //设置可编辑、不可编辑
-        tableView.setEditing(sender.isSelected, animated: true)
+    func refreshUI () {
+        viewModel.getNicesLists(params: NSDictionary.init()) { (datas) in
+            collectionView.es.stopPullToRefresh()
+            collectionView.es.stopLoadingMore()
+            if pageIndex == 1 {
+                collectionView.es.resetNoMoreData()
+                dataArray = datas as! [RPNiceModel]
+                collectionView.reloadData()
+                pageIndex += 1
+            }else{
+                let indexPaths = NSMutableArray.init()
+                for i in 0 ..< datas.count {
+                    dataArray.append(datas[i] as! RPNiceModel)
+                    let indexPath = NSIndexPath.init(row: dataArray.count-1, section: 0)
+                    indexPaths.add(indexPath)
+                }
+                if pageIndex >= 10 {
+                    collectionView.es.noticeNoMoreData()
+                }
+                pageIndex += 1
+                if indexPaths.count > 0 {
+                    collectionView.insertItems(at: indexPaths as! [IndexPath])
+                    UIView.performWithoutAnimation {
+                        collectionView.reloadItems(at: indexPaths as! [IndexPath])
+                    }
+                }
+            }
+        } failed: { (error) in
+            //collectionView.reloadData()
+        }
     }
+    
 }
 
-extension RPHomeViewController: UITableViewDelegate, UITableViewDataSource {
-    //MARK: - 返回多少行
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return dataList.count
+extension RPHomeViewController : UICollectionViewDelegate,UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return self.dataArray.count
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cellID", for: indexPath)
-        
-        cell.textLabel?.text = dataList[indexPath.row] as? String
-        cell.selectionStyle = .none
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell : RPNiceViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: RPCollectionViewAdapter.init().reuseIdentifierForCellClass(cellClass: RPNiceViewCell.self, collectionView: collectionView), for: indexPath) as! RPNiceViewCell
+        cell.model = self.dataArray[indexPath.item]
         return cell
     }
     
-//    //MARK: - 行高
-//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-//        return 60
-//    }
-    
-    //MARK: - 点击cell
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.navigationController?.pushViewController(RPYaViewController.init(), animated: true)
-    }
-    
-    //MARK: - 使cell的分割线与屏幕两端对齐
-    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        if cell.responds(to: #selector(setter: UITableViewCell.separatorInset)) {
-            cell.separatorInset = .zero
-        }
-        if cell.responds(to: #selector(setter: UITableViewCell.layoutMargins)) {
-            cell.layoutMargins = .zero
-        }
-    }
-    
-    //MARK: - 设置编辑样式
-    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
-        //编辑的时候返回带有选择按钮的样式
-        //        return UITableViewCell.EditingStyle(rawValue: UITableViewCell.EditingStyle.RawValue(UInt8(UITableViewCell.EditingStyle.insert.rawValue) | UInt8(UITableViewCell.EditingStyle.delete.rawValue)))!
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-        //添加
-        //        return .insert
-        
-        //删除
-        return .delete
-    }
-    
-    //MARK: - 删除单元格
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            let alert = RPAlertViewController.init(title: "温馨提示", message: "确定要删除\(self.dataList[indexPath.row])？", cancel: "取消", confirm: "确定") { (index) in
-                if index == 1 {
-                    self.dataList.removeObject(at: indexPath.row)
-                    tableView.reloadData()
-                }
-            }
-            alert.titleColor = .red
-            alert.msgColor = .black
-            alert.cancelColor = .blue
-            alert.confirmColor = .red
-            self.present(alert, animated: true,completion: nil)
-        }
-        
-        if editingStyle == .insert {
-            print("增加")
-        }
-    }
-    
-    //MARK: - 允许排序
-    func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        return true
-    }
-    
-    //MARK: - 排序
-    func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
-        
-        tableView.moveRow(at: sourceIndexPath, to: destinationIndexPath)
-        dataList.exchangeObject(at: sourceIndexPath.row, withObjectAt: destinationIndexPath.row)
-        tableView.reloadData()
     }
 }
+
+extension RPHomeViewController : RPNiceCollectionViewLayoutDelegate {
+    func waterFlowLayout(layout: RPNiceCollectionViewLayout, indexPath: NSIndexPath, itemWidth: CGFloat) -> CGFloat {
+        let item : RPNiceModel = self.dataArray[indexPath.item]
+        return item.cellH
+    }
+}
+
+

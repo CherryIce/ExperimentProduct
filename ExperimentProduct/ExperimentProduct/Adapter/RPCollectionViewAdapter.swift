@@ -121,8 +121,17 @@ extension RPCollectionViewAdapter:UICollectionViewDelegate,UICollectionViewDataS
         }
     }
     
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+        if isExistedSectionDatas {
+            let sectionDatas = dataSourceArray[section] as! RPCollectionViewSectionItem
+            return CGSize.init(width: collectionView.frame.size.width, height: sectionDatas.sectionHeaderH)
+        }
+        return CGSize.zero
+        
+    }
+    
     //返回自定义HeadView或者FootView，我这里以headview为例
-    private func collectionView(collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, atIndexPath indexPath: NSIndexPath) -> UICollectionReusableView{
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView{
         if isExistedSectionDatas {
             let sectionDatas = dataSourceArray[indexPath.section] as! RPCollectionViewSectionItem
             if kind == UICollectionView.elementKindSectionHeader{
