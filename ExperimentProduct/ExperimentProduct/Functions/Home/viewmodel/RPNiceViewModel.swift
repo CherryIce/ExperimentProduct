@@ -16,9 +16,10 @@ class RPNiceViewModel: NSObject {
         let tt = NSMutableArray.init()
         for _ in 0...10 {
             let width:CGFloat = CGFloat(arc4random()%100 + 300)
-            let height:CGFloat = CGFloat(arc4random()%100 + 80)
+            let height:CGFloat = CGFloat(arc4random()%100 + 250)
             let item = RPNiceModel.init()
-            item.converUrl = ""
+            item.imgs = ["https://nim-nosdn.netease.im/MTY2Nzk0NTU=/bmltYV8xMzgzOTQ1OTEyM18xNTk3OTkwOTE0NjU4XzNlYTcwYjRiLWJiZjAtNDExOS1hOTBkLTAxYTgyNGJjYTVmOA==","https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=1734913275,3830009060&fm=26&gp=0.jpg","https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=2189728697,1720975443&fm=26&gp=0.jpg"]
+            item.converUrl = item.imgs.first!
             item.content = "just so so , bala bala"
             item.converW = width
             item.converH = height

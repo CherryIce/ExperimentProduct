@@ -9,6 +9,8 @@ import UIKit
 
 class RPNiceModel: NSObject {
     var converUrl = ""
+    var imgs = [String]()
+    
     var content = ""
     var headImgUrl = ""
     var userName = ""

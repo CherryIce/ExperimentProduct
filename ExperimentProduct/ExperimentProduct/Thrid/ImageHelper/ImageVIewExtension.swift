@@ -44,11 +44,14 @@ public extension UIImageView {
     }
     
     func setImageWithURL(_ url: String, placeholder: UIImage, fadeIn: Bool = true, closure: ((_ image: UIImage?) -> ())? = nil) {
-        if RPTools.getCache()?.object(forKey: url) != nil {
-            self.image = RPTools.getCache()?.object(forKey: url) as? UIImage
+        let cahce =  RPCache.shared.cache
+        if cahce?.object(forKey: url) != nil {
+            self.image = cahce?.object(forKey: url) as? UIImage
         }else{
             self.imageFromURL(url, placeholder: placeholder, fadeIn: fadeIn, shouldCacheImage: false) { (image) in
-                RPTools.getCache()?.setObject(image, forKey: url)
+                DispatchQueue.main.async {
+                    cahce?.setObject(image, forKey: url)
+                }
             }
         }
     }

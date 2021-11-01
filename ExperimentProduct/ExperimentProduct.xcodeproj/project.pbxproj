@@ -27,6 +27,11 @@
 		4A4B72F6272A7C9800821756 /* RPAlertViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4A4B72F4272A7C9800821756 /* RPAlertViewController.xib */; };
 		4A4B72FC272A93A200821756 /* RPShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4B72FA272A93A200821756 /* RPShareViewController.swift */; };
 		4A4B72FD272A93A200821756 /* RPShareViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4A4B72FB272A93A200821756 /* RPShareViewController.xib */; };
+		4A530B4B272F7AE600DD495E /* RPDynamicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A530B4A272F7AE600DD495E /* RPDynamicViewController.swift */; };
+		4A530B5C272F875E00DD495E /* RPAnimatedTransitions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A530B5B272F875E00DD495E /* RPAnimatedTransitions.swift */; };
+		4A530B8E272FC0F600DD495E /* RPPicturesDynamicView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A530B8D272FC0F600DD495E /* RPPicturesDynamicView.swift */; };
+		4A530B93272FC10F00DD495E /* RPVideoDynamicView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A530B92272FC10F00DD495E /* RPVideoDynamicView.swift */; };
+		4A530B98272FD27E00DD495E /* RPCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A530B97272FD27E00DD495E /* RPCache.swift */; };
 		4A547BD626F44898005F00B5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A547BD526F44898005F00B5 /* AppDelegate.swift */; };
 		4A547BDA26F44898005F00B5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A547BD926F44898005F00B5 /* ViewController.swift */; };
 		4A547BDD26F44898005F00B5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A547BDB26F44898005F00B5 /* Main.storyboard */; };
@@ -155,6 +160,11 @@
 		4A4B72F4272A7C9800821756 /* RPAlertViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RPAlertViewController.xib; sourceTree = "<group>"; };
 		4A4B72FA272A93A200821756 /* RPShareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPShareViewController.swift; sourceTree = "<group>"; };
 		4A4B72FB272A93A200821756 /* RPShareViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RPShareViewController.xib; sourceTree = "<group>"; };
+		4A530B4A272F7AE600DD495E /* RPDynamicViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPDynamicViewController.swift; sourceTree = "<group>"; };
+		4A530B5B272F875E00DD495E /* RPAnimatedTransitions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPAnimatedTransitions.swift; sourceTree = "<group>"; };
+		4A530B8D272FC0F600DD495E /* RPPicturesDynamicView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPPicturesDynamicView.swift; sourceTree = "<group>"; };
+		4A530B92272FC10F00DD495E /* RPVideoDynamicView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPVideoDynamicView.swift; sourceTree = "<group>"; };
+		4A530B97272FD27E00DD495E /* RPCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPCache.swift; sourceTree = "<group>"; };
 		4A547BD226F44898005F00B5 /* ExperimentProduct.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ExperimentProduct.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A547BD526F44898005F00B5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4A547BD926F44898005F00B5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -301,6 +311,8 @@
 			isa = PBXGroup;
 			children = (
 				4A596A38272BC9BC003ECB14 /* water_flow_layout */,
+				4A530B8D272FC0F600DD495E /* RPPicturesDynamicView.swift */,
+				4A530B92272FC10F00DD495E /* RPVideoDynamicView.swift */,
 			);
 			path = views;
 			sourceTree = "<group>";
@@ -380,6 +392,14 @@
 				4A5969E6272B8960003ECB14 /* wechat@3x.png */,
 			);
 			path = share;
+			sourceTree = "<group>";
+		};
+		4A530B4F272F7F4200DD495E /* AnimatedTransitions */ = {
+			isa = PBXGroup;
+			children = (
+				4A530B5B272F875E00DD495E /* RPAnimatedTransitions.swift */,
+			);
+			path = AnimatedTransitions;
 			sourceTree = "<group>";
 		};
 		4A547BC926F44898005F00B5 = {
@@ -473,6 +493,7 @@
 				4A547C7126F48D19005F00B5 /* RPColor.swift */,
 				4AD802AC26F57565000F3B3A /* RPImage.swift */,
 				4A7EDAFB26F5C0DB00C8FC55 /* RPTools.swift */,
+				4A530B97272FD27E00DD495E /* RPCache.swift */,
 				4A1DEC6E27156CA400149FD8 /* RPTextFiled.swift */,
 				4A0220E027216FDD0045CA4B /* RPEmptyView.swift */,
 				4A976BE52726A27B008DF042 /* RPTimer.swift */,
@@ -700,10 +721,12 @@
 		4AD802B126F585A6000F3B3A /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				4A530B4F272F7F4200DD495E /* AnimatedTransitions */,
 				4A596A5F272BF2CE003ECB14 /* model */,
 				4A596A46272BD2B2003ECB14 /* viewmodel */,
 				4A1DEBDB2713E06F00149FD8 /* views */,
 				4A547C4926F48528005F00B5 /* RPHomeViewController.swift */,
+				4A530B4A272F7AE600DD495E /* RPDynamicViewController.swift */,
 				4A596A41272BCF1E003ECB14 /* RPSortViewController.swift */,
 			);
 			path = Home;
@@ -943,8 +966,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4A530B93272FC10F00DD495E /* RPVideoDynamicView.swift in Sources */,
 				4A0220E127216FDD0045CA4B /* RPEmptyView.swift in Sources */,
 				4A547BDA26F44898005F00B5 /* ViewController.swift in Sources */,
+				4A530B8E272FC0F600DD495E /* RPPicturesDynamicView.swift in Sources */,
 				4A0220D827216DC10045CA4B /* HBEmpty.swift in Sources */,
 				4A976BDF272698DA008DF042 /* RPWkwebViewController.swift in Sources */,
 				4A1DEC6F27156CA400149FD8 /* RPTextFiled.swift in Sources */,
@@ -974,6 +999,7 @@
 				4A547C5C26F485A5005F00B5 /* RPMineViewController.swift in Sources */,
 				554FE844271BD389005E82C7 /* RPFindHeaderView.swift in Sources */,
 				4A596A61272BF2E4003ECB14 /* RPNiceModel.swift in Sources */,
+				4A530B5C272F875E00DD495E /* RPAnimatedTransitions.swift in Sources */,
 				4A547BD626F44898005F00B5 /* AppDelegate.swift in Sources */,
 				4A8F23D0271FFEA600A249B6 /* NVActivityIndicatorAnimationBallGridPulse.swift in Sources */,
 				4A0221BF2722A35F0045CA4B /* RPLaunchAdManager.swift in Sources */,
@@ -984,6 +1010,7 @@
 				4A547C8226F49739005F00B5 /* ImageVIewExtension.swift in Sources */,
 				4A7EDB6526F5E2B300C8FC55 /* RPUserInfoViewModel.swift in Sources */,
 				4A7EDB7426F5E6FC00C8FC55 /* RPNetWorkManager.swift in Sources */,
+				4A530B98272FD27E00DD495E /* RPCache.swift in Sources */,
 				4A8F23EF271FFEA600A249B6 /* NVActivityIndicatorAnimationBallPulseRise.swift in Sources */,
 				4A3A9FFD271982C700C032C8 /* RPPostersViewController.swift in Sources */,
 				4A8F23E3271FFEA600A249B6 /* NVActivityIndicatorAnimationAudioEqualizer.swift in Sources */,
@@ -1001,6 +1028,7 @@
 				4A7EDB6D26F5E2C800C8FC55 /* RPUserInfoModel.swift in Sources */,
 				4A1DEC03271432ED00149FD8 /* RPPasswordViewController.swift in Sources */,
 				558D356C271ABC4C00E03B5F /* RPFindViewModel.swift in Sources */,
+				4A530B4B272F7AE600DD495E /* RPDynamicViewController.swift in Sources */,
 				558D354E271A784900E03B5F /* RPPosterModel.swift in Sources */,
 				4A4B72FC272A93A200821756 /* RPShareViewController.swift in Sources */,
 				4A8F23F1271FFEA600A249B6 /* NVActivityIndicatorShape.swift in Sources */,

@@ -7,7 +7,6 @@
 
 import UIKit
 import CommonCrypto
-import YYCache
 
 let SCREEN_WIDTH = UIScreen.main.bounds.size.width
 let SCREEN_HEIGHT = UIScreen.main.bounds.size.height
@@ -67,17 +66,50 @@ class RPTools: NSObject {
         let image = RPImage.init(contentsOfFile: path)!
         return image
     }
-
-    //获取缓存地址
-    public static func getCache() -> YYCache? {
-        let cache = YYCache.init(name: "/RPCache")
-        return cache
-    }
     
     //计算字符串宽高
     class func calculateTextSize(_ text:String,size:CGSize,font:UIFont) -> CGSize  {
         let rect: CGRect = text.boundingRect(with: size, options: NSStringDrawingOptions.init(rawValue: 0) , attributes: [NSAttributedString.Key.font:font], context: nil) as CGRect
         return rect.size
+    }
+    
+    //控制器获取
+    open class var topViewController: UIViewController? {
+        return topViewController(of: UIApplication.shared.keyWindow?.rootViewController)
+    }
+    
+    open class func topViewController(of viewController: UIViewController?) -> UIViewController? {
+        // presented view controller
+        if let presentedViewController = viewController?.presentedViewController {
+            return self.topViewController(of: presentedViewController)
+        }
+        
+        // UITabBarController
+        if let tabBarController = viewController as? UITabBarController,
+            let selectedViewController = tabBarController.selectedViewController {
+            return self.topViewController(of: selectedViewController)
+        }
+        
+        // UINavigationController
+        if let navigationController = viewController as? UINavigationController,
+            let visibleViewController = navigationController.visibleViewController {
+            return self.topViewController(of: visibleViewController)
+        }
+        
+        // UIPageController
+        if let pageViewController = viewController as? UIPageViewController,
+            pageViewController.viewControllers?.count == 1 {
+            return self.topViewController(of: pageViewController.viewControllers?.first)
+        }
+        
+        // child view controller
+        for subview in viewController?.view?.subviews ?? [] {
+            if let childViewController = subview.next as? UIViewController {
+                return self.topViewController(of: childViewController)
+            }
+        }
+        
+        return viewController
     }
 }
 

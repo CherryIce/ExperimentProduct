@@ -39,7 +39,7 @@ class RPLaunchAdManager: NSObject {
         imgV.addGestureRecognizer(pan)
         window.addSubview(imgV)
         
-        let object = RPTools.getCache()?.object(forKey: kADLaunchCacheKey)
+        let object = RPCache.shared.cache?.object(forKey: kADLaunchCacheKey)
         if object != nil {
             timer.cancel()
             creatButton()
@@ -52,9 +52,9 @@ class RPLaunchAdManager: NSObject {
         //        };
         imgV.imageFromURL("https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fimg1.doubanio.com%2Fview%2Frichtext%2Flarge%2Fpublic%2Fp122617578.jpg&refer=http%3A%2F%2Fimg1.doubanio.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1637733990&t=44048b827eb4c729ce27ecd49539d78c", placeholder: imgV.imageFromLaunchScreen()!, fadeIn: true, shouldCacheImage: false) { (image) in
             if image == nil {
-                RPTools.getCache()?.removeObject(forKey: kADLaunchCacheKey)
+                RPCache.shared.cache?.removeObject(forKey: kADLaunchCacheKey)
             }else{
-                RPTools.getCache()?.setObject(image, forKey: kADLaunchCacheKey, with: nil)
+                RPCache.shared.cache?.setObject(image, forKey: kADLaunchCacheKey, with: nil)
                 //开始广告
                 timer.cancel()
                 self.creatButton()
