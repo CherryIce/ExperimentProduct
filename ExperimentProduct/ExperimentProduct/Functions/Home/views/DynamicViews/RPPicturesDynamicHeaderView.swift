@@ -1,28 +1,30 @@
 //
-//  RPPicturesDynamicView.swift
+//  RPPicturesDynamicHeaderView.swift
 //  ExperimentProduct
 //
-//  Created by hubin on 2021/11/1.
+//  Created by hubin on 2021/11/3.
 //
 
 import UIKit
 
-class RPPicturesDynamicView: UIView {
-    
+class RPPicturesDynamicHeaderView: UIView {
+    weak var delegate:RPDynamicViewEventDelegate?
     lazy var collectionView = UICollectionView()
     lazy var pageControl = UIPageControl()
-    var model:RPNiceModel{
+//    lazy var titleLabel = UILabel()
+//    lazy var descrLabel = UILabel()
+    var dataArray = [String]() {
         didSet {
             self.collectionView.reloadData()
         }
     }
 
     override init(frame: CGRect) {
-        self.model = RPNiceModel.init()
+        self.dataArray = []
         super.init(frame: frame)
         creatUI()
     }
-    
+
     func creatUI() {
         let layout = UICollectionViewFlowLayout.init()
         layout.itemSize = CGSize.init(width: SCREEN_WIDTH, height: SCREEN_WIDTH)
@@ -39,66 +41,60 @@ class RPPicturesDynamicView: UIView {
         collectionView.backgroundColor = self.backgroundColor
         self.addSubview(collectionView)
         
+        if #available(iOS 11, *) {
+            collectionView.contentInsetAdjustmentBehavior = .never
+        }
+
         pageControl = UIPageControl.init()
         pageControl.isUserInteractionEnabled = false
         pageControl.hidesForSinglePage = true
-        pageControl.currentPageIndicatorTintColor = RPColor.MainColor
-        pageControl.pageIndicatorTintColor = RPColor.ShallowColor
+        pageControl.currentPageIndicatorTintColor = .red
+        pageControl.pageIndicatorTintColor = RPColor.Separator
         self.addSubview(pageControl)
+
+//        titleLabel = UILabel.init()
+//        self.addSubview(titleLabel)
+//
+//        descrLabel = UILabel.init()
+//        self.addSubview(descrLabel)
     }
 
     override func layoutSubviews() {
         super.layoutSubviews()
-        
-        collectionView.frame = CGRect.init(x: 0, y: 0, width: SCREEN_WIDTH, height: SCREEN_WIDTH)
-        pageControl.numberOfPages = model.imgs.count
-        let size = pageControl.size(forNumberOfPages: model.imgs.count)
+        collectionView.frame = bounds
+        pageControl.numberOfPages = dataArray.count
+        let size = pageControl.size(forNumberOfPages: dataArray.count)
         pageControl.frame.size = size
         pageControl.center.x = self.bounds.size.width * 0.5
-        pageControl.frame.origin.y = collectionView.frame.maxY - 30
+        pageControl.frame.origin.y = collectionView.frame.maxY - 20
     }
-    
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 }
 
-extension RPPicturesDynamicView:UICollectionViewDelegate,UICollectionViewDataSource,UIScrollViewDelegate{
-    
+extension RPPicturesDynamicHeaderView:UICollectionViewDelegate,UICollectionViewDataSource,UIScrollViewDelegate{
+
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return model.imgs.count
+        return dataArray.count
     }
-    
+
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let identifier = RPCollectionViewAdapter.init().reuseIdentifierForCellClass(cellClass: RPPicturesDynamicCell.self, collectionView: collectionView)
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath) as! RPPicturesDynamicCell
-        cell.imgV.setImageWithURL(model.imgs[indexPath.item], placeholder: UIImage.init(color: RPColor.RandomColor)!)
+        cell.imgV.setImageWithURL(dataArray[indexPath.item], placeholder: UIImage.init(color: RPColor.RandomColor)!)
         return cell
     }
-    
+
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if self.delegate != nil {
+            self.delegate?.clickEventCallBack(.browser, indexPath.item)
+        }
+    }
+
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let current = scrollView.contentOffset.x / scrollView.frame.size.width
         pageControl.currentPage = lroundf(Float(current))
-    }
-}
-
-class RPPicturesDynamicCell: UICollectionViewCell {
-    var imgV = UIImageView()
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        
-        imgV = UIImageView.init()
-        imgV.contentMode = .scaleAspectFill//scaleAspectFit
-        self.addSubview(imgV)
-    }
-    
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        
-        imgV.frame = self.bounds
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
     }
 }

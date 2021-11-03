@@ -8,8 +8,8 @@
 import UIKit
 import TYPagerController
 
-class RPFindNewsLinkCell: UITableViewCell{
-    
+class RPFindNewsLinkCell: UITableViewCell, RPListViewCellEventDelegate{
+    weak var delegate:RPListViewCellEventDelegate?
     var indexPath = IndexPath()
     var datas = NSArray()
     var fromIndex = Int()
@@ -54,9 +54,11 @@ class RPFindNewsLinkCell: UITableViewCell{
     }
     
     func setData(data: RPTableViewCellItem,
+                 delegate:RPListViewCellEventDelegate,
                  titles: [String],
                  indexPath:IndexPath) {
         self.indexPath = indexPath
+        self.delegate = delegate
         if data.cellData is NSArray {
             datas = data.cellData as! NSArray
             
@@ -71,6 +73,11 @@ class RPFindNewsLinkCell: UITableViewCell{
         // Configure the view for the selected state
     }
     
+    func didSelectListView(_ listView: UIScrollView, indexPath: IndexPath, sectionData: AnyObject?, cellData: AnyObject?) {
+        if self.delegate != nil {
+            self.delegate?.didSelectListView(listView, indexPath: indexPath, sectionData: sectionData, cellData: cellData)
+        }
+    }
 }
 
 extension RPFindNewsLinkCell:TYTabPagerBarDataSource, TYTabPagerBarDelegate {
@@ -121,11 +128,6 @@ extension RPFindNewsLinkCell:UICollectionViewDelegate,UICollectionViewDataSource
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath)
         (cell as! RPListCellDataDelegate).setCellData(cellData: item, delegate: self, indexPath: indexPath)
         return cell
-    }
-    
-    //cell点击
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -179,11 +181,5 @@ extension RPFindNewsLinkCell:UIScrollViewDelegate {
         }else{
             collectionView.scrollToItem(at: indexP, at:UICollectionView.ScrollPosition.centeredHorizontally , animated: false)
         }
-    }
-}
-
-extension RPFindNewsLinkCell : RPListViewCellEventDelegate {
-    func didSelectListView(_ listView: UIScrollView, indexPath: IndexPath, sectionData: AnyObject, cellData: AnyObject) {
-        //collectionView点击cell回调
     }
 }

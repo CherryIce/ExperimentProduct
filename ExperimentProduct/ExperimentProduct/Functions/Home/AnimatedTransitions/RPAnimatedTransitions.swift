@@ -16,14 +16,6 @@ class RPDynamicAnimatedTransitions: UIPercentDrivenInteractiveTransition {
     var type = RPDynamicAnimatedTransitionsType.present
     var durations:TimeInterval = 0.5
     
-    func snapshot(_ view:UIView) -> UIImage? {
-        UIGraphicsBeginImageContextWithOptions(view.bounds.size, true, UIScreen.main.scale)
-        view.drawHierarchy(in: view.bounds, afterScreenUpdates: false)
-        let image = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
-        return image
-    }
-    
     func scaleAspectFitImageViewWithImage(_ image:UIImage) -> CGSize {
         var  imageSize = image.size
         
@@ -77,7 +69,7 @@ extension RPDynamicAnimatedTransitions : UIViewControllerAnimatedTransitioning {
                 let tt:UIImageView = view as! UIImageView
                 presentingImageView.image = tt.image
             }else{
-                presentingImageView.image = self.snapshot(view!)
+                presentingImageView.image = RPTools.snapshot(view!)
             }
             presentingImageView.contentMode = view!.contentMode
             presentingImageView.clipsToBounds = view!.clipsToBounds
@@ -96,8 +88,8 @@ extension RPDynamicAnimatedTransitions : UIViewControllerAnimatedTransitioning {
                     //图片类型的
                     presentingImageView.frame = CGRect.init(x:0, y: RPTools.NAV_HEIGHT, width: SCREEN_WIDTH, height: SCREEN_WIDTH)
                 }else{
-                    //视频类型的
-                    
+                    //视频类型的 应该是按封面图比对应屏幕显示的区域计算来的
+                    presentingImageView.frame = CGRect.init(x:0, y: RPTools.NAV_HEIGHT, width: SCREEN_WIDTH, height: SCREEN_HEIGHT)
                 }
             } completion: { (finished) in
                 toViewController.view.alpha = 1

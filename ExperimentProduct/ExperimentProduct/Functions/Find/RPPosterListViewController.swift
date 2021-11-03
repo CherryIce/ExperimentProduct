@@ -125,7 +125,7 @@ class RPPosterListViewController: RPBaseViewController {
 }
 
 extension RPPosterListViewController : RPListViewCellEventDelegate {
-    func didSelectListView(_ listView: UIScrollView, indexPath: IndexPath, sectionData: AnyObject, cellData: AnyObject) {
+    func didSelectListView(_ listView: UIScrollView, indexPath: IndexPath, sectionData: AnyObject?, cellData: AnyObject?) {
         
     }
 }

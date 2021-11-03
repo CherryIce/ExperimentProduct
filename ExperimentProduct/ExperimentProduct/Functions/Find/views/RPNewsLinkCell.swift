@@ -49,6 +49,7 @@ extension RPNewsLinkCell:UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 //        let item = datas[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: String(describing:UITableViewCell.self), for: indexPath)
+        cell.selectionStyle = .none
         cell.textLabel?.text = datas[indexPath.row] as? String
         return cell
     }
@@ -61,6 +62,8 @@ extension RPNewsLinkCell:UITableViewDelegate,UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        if self.delegate != nil {
+            self.delegate?.didSelectListView(tableView, indexPath: indexPath, sectionData: nil, cellData: nil)
+        }
     }
 }

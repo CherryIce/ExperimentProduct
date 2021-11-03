@@ -9,12 +9,12 @@ import UIKit
 
 protocol RPFindHeaderViewDelegate:NSObjectProtocol
 {
-    func clickLabelNeedFix(_ index:Int,data:AnyObject)
+    func clickLabelNeedFix(_ index:Int,data:AnyObject?)
 }
 
 //将协议里的可选方法放这里实现一遍就行了
 extension RPFindHeaderViewDelegate {
-    func clickLabelNeedFix(_ index:Int,data:AnyObject) {
+    func clickLabelNeedFix(_ index:Int,data:AnyObject?) {
         
     }
 }
@@ -76,7 +76,7 @@ class RPFindHeaderView: UIView{
 }
 
 extension RPFindHeaderView : RPListViewCellEventDelegate {
-    func didSelectListView(_ listView: UIScrollView,indexPath:IndexPath,sectionData:AnyObject,cellData:AnyObject) {
+    func didSelectListView(_ listView: UIScrollView,indexPath:IndexPath,sectionData:AnyObject?,cellData:AnyObject?) {
         if delegate != nil {
             delegate?.clickLabelNeedFix(indexPath.item, data: cellData)
         }

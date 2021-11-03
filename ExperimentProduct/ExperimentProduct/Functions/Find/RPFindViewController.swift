@@ -113,7 +113,7 @@ extension RPFindViewController:UITableViewDelegate,UITableViewDataSource {
         let sectionItem = dataList[indexPath.section] as! RPTableViewSectionItem
         let item = sectionItem.cellDatas[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: String(describing:RPFindNewsLinkCell.self), for: indexPath)
-        (cell as! RPFindNewsLinkCell).setData(data: item, titles: sectionItem.sectionHeaderData as! [String], indexPath: indexPath)
+        (cell as! RPFindNewsLinkCell).setData(data: item, delegate:self,titles: sectionItem.sectionHeaderData as! [String], indexPath: indexPath)
         return cell
     }
 
@@ -150,8 +150,24 @@ extension RPFindViewController:UITableViewDelegate,UITableViewDataSource {
 }
 
 extension RPFindViewController: RPFindHeaderViewDelegate {
-    func clickLabelNeedFix(_ index:Int,data:AnyObject) {
+    func clickLabelNeedFix(_ index:Int,data:AnyObject?) {
         self.navigationController?.pushViewController(RPYaViewController.init(), animated: true)
+    }
+}
+
+extension RPFindViewController: RPListViewCellEventDelegate {
+    func didSelectListView(_ listView: UIScrollView, indexPath: IndexPath, sectionData: AnyObject?, cellData: AnyObject?) {
+        
+        let alert = RPAlertViewController.init(title: "温馨提示", message: "阿拉索阿拉索", cancel: "取消", confirm: "确定") { (index) in
+            if index == 1 {
+                
+            }
+        }
+        alert.titleColor = .red
+        alert.msgColor = .black
+        alert.cancelColor = .blue
+        alert.confirmColor = .red
+        self.present(alert, animated: true,completion: nil)
     }
 }
 

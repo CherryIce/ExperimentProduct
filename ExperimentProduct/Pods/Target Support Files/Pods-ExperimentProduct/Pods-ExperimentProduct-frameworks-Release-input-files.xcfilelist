@@ -1,10 +1,14 @@
 ${PODS_ROOT}/Target Support Files/Pods-ExperimentProduct/Pods-ExperimentProduct-frameworks.sh
 ${BUILT_PRODUCTS_DIR}/ActiveLabel/ActiveLabel.framework
 ${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework
+${BUILT_PRODUCTS_DIR}/CocoaAsyncSocket/CocoaAsyncSocket.framework
 ${BUILT_PRODUCTS_DIR}/Differentiator/Differentiator.framework
 ${BUILT_PRODUCTS_DIR}/ESPullToRefresh/ESPullToRefresh.framework
 ${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework
 ${BUILT_PRODUCTS_DIR}/JPImageresizerView/JPImageresizerView.framework
+${BUILT_PRODUCTS_DIR}/JXPhotoBrowser/JXPhotoBrowser.framework
+${BUILT_PRODUCTS_DIR}/KTVCocoaHTTPServer/KTVCocoaHTTPServer.framework
+${BUILT_PRODUCTS_DIR}/KTVHTTPCache/KTVHTTPCache.framework
 ${BUILT_PRODUCTS_DIR}/Moya/Moya.framework
 ${BUILT_PRODUCTS_DIR}/ObjcExceptionBridging/ObjcExceptionBridging.framework
 ${BUILT_PRODUCTS_DIR}/Result/Result.framework

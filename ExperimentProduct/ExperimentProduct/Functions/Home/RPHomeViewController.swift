@@ -101,7 +101,8 @@ extension RPHomeViewController : UICollectionViewDelegate,UICollectionViewDataSo
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let cell = collectionView.cellForItem(at: indexPath) as! RPNiceViewCell
-        let ctl = RPDynamicViewController.init(dynamicType: .pictures,model:self.dataArray[indexPath.item])
+        let type = indexPath.item%2 == 0 ? RPDynamicViewControllerType.pictures : RPDynamicViewControllerType.video
+        let ctl = RPDynamicViewController.init(dynamicType: type,model:self.dataArray[indexPath.item])
         ctl.transitionView = cell.converImgV
         self.customPresent(ctl, animated: true)
     }

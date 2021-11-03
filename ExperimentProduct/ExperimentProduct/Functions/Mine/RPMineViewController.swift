@@ -160,12 +160,8 @@ extension RPMineViewController:UUTakePhotoDelegate {
 }
 
 extension RPMineViewController : RPListViewCellEventDelegate {
-    func didSelectListView(_ listView: UIScrollView,indexPath:IndexPath,sectionData:AnyObject,cellData:AnyObject) {
-//        self.navigationController?.pushViewController(RPNewsViewController.init(), animated: true)
-        let share = RPShareViewController.init(title: nil, dataArray: [[RPShareItem.shareToWeChat(),RPShareItem.shareToWechatCircle()]]) { (indexPath) in
-            log.debug(indexPath)
-        }
-        self.present(share, animated: true, completion: nil)
+    func didSelectListView(_ listView: UIScrollView,indexPath:IndexPath,sectionData:AnyObject?,cellData:AnyObject?) {
+        self.navigationController?.pushViewController(RPNewsViewController.init(), animated: true)
     }
 }
 

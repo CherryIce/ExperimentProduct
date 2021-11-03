@@ -22,12 +22,12 @@ extension RPListViewSectionEventDelegate {
 //表格类cell操作类事件协议
 protocol RPListViewCellEventDelegate:NSObjectProtocol
 {
-    func didSelectListView(_ listView: UIScrollView,indexPath:IndexPath,sectionData:AnyObject,cellData:AnyObject)
+    func didSelectListView(_ listView: UIScrollView,indexPath:IndexPath,sectionData:AnyObject?,cellData:AnyObject?)
 }
 
 //将协议里的可选方法放这里实现一遍就行了
 extension RPListViewCellEventDelegate {
-    func didSelectListView(_ listView: UIScrollView,indexPath:IndexPath,sectionData:AnyObject,cellData:AnyObject) {}
+    func didSelectListView(_ listView: UIScrollView,indexPath:IndexPath,sectionData:AnyObject?,cellData:AnyObject?) {}
 }
 
 //构建数据类型协议

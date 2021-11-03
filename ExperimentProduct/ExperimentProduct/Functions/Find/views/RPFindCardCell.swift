@@ -57,6 +57,9 @@ extension RPFindCardCell:UICollectionViewDelegate,UICollectionViewDataSource,UIC
     //cell点击
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         //调用代理方法
+        if self.delegate != nil {
+            self.delegate?.didSelectListView(collectionView, indexPath: indexPath, sectionData: nil, cellData: nil)
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

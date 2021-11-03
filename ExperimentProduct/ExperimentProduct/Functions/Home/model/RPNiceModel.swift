@@ -2,7 +2,7 @@
 //  RPNiceModel.swift
 //  ExperimentProduct
 //
-//  Created by YuMao on 2021/10/29.
+//  Created by hubin on 2021/10/29.
 //
 
 import UIKit
@@ -11,6 +11,7 @@ class RPNiceModel: NSObject {
     var converUrl = ""
     var imgs = [String]()
     
+    var title = ""
     var content = ""
     var headImgUrl = ""
     var userName = ""

@@ -73,6 +73,15 @@ class RPTools: NSObject {
         return rect.size
     }
     
+    //view -> image
+    class func snapshot(_ view:UIView) -> UIImage? {
+        UIGraphicsBeginImageContextWithOptions(view.bounds.size, true, UIScreen.main.scale)
+        view.drawHierarchy(in: view.bounds, afterScreenUpdates: false)
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return image
+    }
+    
     //控制器获取
     open class var topViewController: UIViewController? {
         return topViewController(of: UIApplication.shared.keyWindow?.rootViewController)

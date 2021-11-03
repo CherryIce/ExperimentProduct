@@ -39,6 +39,12 @@ class RPGuideViewController: RPBaseViewController {
         collectionView.backgroundColor = view.backgroundColor;
         self.view.addSubview(collectionView)
         
+        if #available(iOS 11, *) {
+            collectionView.contentInsetAdjustmentBehavior = .never
+        }else{
+            self.automaticallyAdjustsScrollViewInsets = false
+        }
+        
         collectionView.snp.makeConstraints { (make) in
             make.left.top.right.bottom.equalToSuperview()
         }

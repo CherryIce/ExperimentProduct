@@ -2,7 +2,7 @@
 //  RPNiceViewModel.swift
 //  ExperimentProduct
 //
-//  Created by YuMao on 2021/10/29.
+//  Created by hubin on 2021/10/29.
 //
 
 import UIKit

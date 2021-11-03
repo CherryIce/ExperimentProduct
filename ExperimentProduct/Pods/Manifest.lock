@@ -1,10 +1,16 @@
 PODS:
   - ActiveLabel (1.0.1)
   - Alamofire (4.9.1)
+  - CocoaAsyncSocket (7.6.5)
   - Differentiator (3.1.0)
   - ESPullToRefresh (2.9.3)
   - IQKeyboardManagerSwift (6.5.6)
   - JPImageresizerView (1.9.4)
+  - JXPhotoBrowser (3.1.3)
+  - KTVCocoaHTTPServer (1.0.0):
+    - CocoaAsyncSocket
+  - KTVHTTPCache (2.0.1):
+    - KTVCocoaHTTPServer
   - Moya/Core (13.0.1):
     - Alamofire (~> 4.1)
     - Result (~> 4.1)
@@ -39,6 +45,8 @@ DEPENDENCIES:
   - ESPullToRefresh
   - IQKeyboardManagerSwift
   - JPImageresizerView
+  - JXPhotoBrowser
+  - KTVHTTPCache (~> 2.0)
   - Moya/RxSwift
   - RxCocoa
   - RxDataSources (~> 3.0)
@@ -55,10 +63,14 @@ SPEC REPOS:
   trunk:
     - ActiveLabel
     - Alamofire
+    - CocoaAsyncSocket
     - Differentiator
     - ESPullToRefresh
     - IQKeyboardManagerSwift
     - JPImageresizerView
+    - JXPhotoBrowser
+    - KTVCocoaHTTPServer
+    - KTVHTTPCache
     - Moya
     - ObjcExceptionBridging
     - Result
@@ -77,10 +89,14 @@ SPEC REPOS:
 SPEC CHECKSUMS:
   ActiveLabel: b8b2396fe25308d563601437d6605bf691c3b5db
   Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
+  CocoaAsyncSocket: 065fd1e645c7abab64f7a6a2007a48038fdc6a99
   Differentiator: be49ca3408f0ecfc761e4c7763d20c62be01b9ad
   ESPullToRefresh: 0d68daa602b343c81753a1b95e09fd0bfcddfd40
   IQKeyboardManagerSwift: c7df9d2deb356c04522f5c4b7b6e4ce4d8ed94fe
   JPImageresizerView: 6d8ddd0569f15be391e619da82d40af31266b34c
+  JXPhotoBrowser: d32e94e1226d43bf5ed83164e3f5b651fed625e0
+  KTVCocoaHTTPServer: df8d7b861e603ff8037e9b2138aca2563a6b768d
+  KTVHTTPCache: 588c3eb16f6bd1e6fde1e230dabfb7bd4e490a4d
   Moya: f4a4b80ff2f8a4ffc208dfb31cd91636622fee6e
   ObjcExceptionBridging: c30e00eb3700467e695faeea30e26e18bd445001
   Result: bd966fac789cc6c1563440b348ab2598cc24d5c7
@@ -96,6 +112,6 @@ SPEC CHECKSUMS:
   XCGLogger: 1943831ef907df55108b0b18657953f868de973b
   YYCache: 8105b6638f5e849296c71f331ff83891a4942952
 
-PODFILE CHECKSUM: a6820791ccd9b07a2f1f332475e230e8b681ad85
+PODFILE CHECKSUM: cd80feda2e125f0ea76218e87faabd00d9df9b0d
 
 COCOAPODS: 1.11.2
