@@ -10,20 +10,19 @@ import UIKit
 protocol RPFindHeaderViewDelegate:NSObjectProtocol
 {
     func clickLabelNeedFix(_ index:Int,data:AnyObject?)
+    func clickBannerNeedFix(_ index:Int)
 }
 
 //将协议里的可选方法放这里实现一遍就行了
 extension RPFindHeaderViewDelegate {
-    func clickLabelNeedFix(_ index:Int,data:AnyObject?) {
-        
-    }
+    func clickLabelNeedFix(_ index:Int,data:AnyObject?) {}
 }
 
 class RPFindHeaderView: UIView{
     
     weak var delegate:RPFindHeaderViewDelegate?
     
-    var bannerView = UIView()
+    var bannerView = RPCycleView()
     
     lazy var collectionView :UICollectionView = {
         let flowLayout = UICollectionViewFlowLayout.init()
@@ -67,6 +66,15 @@ class RPFindHeaderView: UIView{
     override init(frame: CGRect) {
         dataSourceArray = []
         super.init(frame: frame)
+        
+        bannerView = RPCycleView.init()
+        bannerView.delegate = self
+        bannerView.pictures = ["https://nim-nosdn.netease.im/MTY2Nzk0NTU=/bmltYV8xMzgzOTQ1OTEyM18xNTk3OTkwOTE0NjU4XzNlYTcwYjRiLWJiZjAtNDExOS1hOTBkLTAxYTgyNGJjYTVmOA==","https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=1734913275,3830009060&fm=26&gp=0.jpg","https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=2189728697,1720975443&fm=26&gp=0.jpg"]
+        self.addSubview(bannerView)
+        bannerView.snp.makeConstraints { (make) in
+            make.left.right.top.equalToSuperview()
+            make.bottom.equalToSuperview().offset(-90)
+        }
     }
     
     required init?(coder: NSCoder) {
@@ -81,4 +89,24 @@ extension RPFindHeaderView : RPListViewCellEventDelegate {
             delegate?.clickLabelNeedFix(indexPath.item, data: cellData)
         }
     }
+}
+
+extension RPFindHeaderView: RPCycleViewDelegate {
+    
+    func didSelectItemAt(cycleView: RPCycleView, index: Int) {
+        if delegate != nil {
+            delegate?.clickBannerNeedFix(index)
+        }
+    }
+    
+    func autoScrollingItemAt(cycleView: RPCycleView, index: Int) {
+        
+    }
+    
+//    func cycleView(cycleView: RPCycleView, collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell? {
+//        let identifier =  RPCollectionViewAdapter.init().reuseIdentifierForCellClass(cellClass:RPCycleViewCell.self, collectionView: collectionView)
+//        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath) as! RPCycleViewCell
+//        cell.setCellData(pictures[indexPath.item % pictures.count], placeholderImage: placeholderImage)
+//        return cell
+//    }
 }

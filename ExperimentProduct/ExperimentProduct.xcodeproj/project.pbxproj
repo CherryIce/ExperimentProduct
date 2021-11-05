@@ -16,6 +16,10 @@
 		4A1DEBF92714326700149FD8 /* RPLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1DEBF82714326700149FD8 /* RPLoginViewController.swift */; };
 		4A1DEC03271432ED00149FD8 /* RPPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1DEC02271432ED00149FD8 /* RPPasswordViewController.swift */; };
 		4A1DEC6F27156CA400149FD8 /* RPTextFiled.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1DEC6E27156CA400149FD8 /* RPTextFiled.swift */; };
+		4A37EE882734BF4200E1F288 /* RPTopicModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A37EE872734BF4200E1F288 /* RPTopicModel.swift */; };
+		4A37EE912734CEA600E1F288 /* RPTopViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A37EE8F2734CEA600E1F288 /* RPTopViewCell.swift */; };
+		4A37EE922734CEA600E1F288 /* RPTopViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4A37EE902734CEA600E1F288 /* RPTopViewCell.xib */; };
+		4A37EE9F2734E1AF00E1F288 /* RPTopicViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A37EE9E2734E1AF00E1F288 /* RPTopicViewModel.swift */; };
 		4A3A5C94273263D500F5E2ED /* back_white@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A3A5C92273263D500F5E2ED /* back_white@2x.png */; };
 		4A3A5C95273263D500F5E2ED /* share_white@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A3A5C93273263D500F5E2ED /* share_white@2x.png */; };
 		4A3A5CB72732760200F5E2ED /* RPVideoDynamicCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3A5CB62732760200F5E2ED /* RPVideoDynamicCell.swift */; };
@@ -115,6 +119,8 @@
 		4A976CDC27293975008DF042 /* RPNewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A976CDB27293975008DF042 /* RPNewsViewController.swift */; };
 		4A976CE127293C1F008DF042 /* RPActionSheetController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A976CE027293C1F008DF042 /* RPActionSheetController.swift */; };
 		4AD802AD26F57565000F3B3A /* RPImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AD802AC26F57565000F3B3A /* RPImage.swift */; };
+		4ADBEBF927337B5C00F73B6D /* RPCycleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ADBEBF827337B5C00F73B6D /* RPCycleView.swift */; };
+		4ADBEC092733CDC300F73B6D /* RPTopicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ADBEC082733CDC300F73B6D /* RPTopicViewController.swift */; };
 		554FE83E271BCFF7005E82C7 /* RPFindCardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554FE83C271BCFF7005E82C7 /* RPFindCardCell.swift */; };
 		554FE83F271BCFF7005E82C7 /* RPFindCardCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 554FE83D271BCFF7005E82C7 /* RPFindCardCell.xib */; };
 		554FE844271BD389005E82C7 /* RPFindHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554FE843271BD389005E82C7 /* RPFindHeaderView.swift */; };
@@ -159,6 +165,10 @@
 		4A1DEBF82714326700149FD8 /* RPLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPLoginViewController.swift; sourceTree = "<group>"; };
 		4A1DEC02271432ED00149FD8 /* RPPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPPasswordViewController.swift; sourceTree = "<group>"; };
 		4A1DEC6E27156CA400149FD8 /* RPTextFiled.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPTextFiled.swift; sourceTree = "<group>"; };
+		4A37EE872734BF4200E1F288 /* RPTopicModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPTopicModel.swift; sourceTree = "<group>"; };
+		4A37EE8F2734CEA600E1F288 /* RPTopViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPTopViewCell.swift; sourceTree = "<group>"; };
+		4A37EE902734CEA600E1F288 /* RPTopViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RPTopViewCell.xib; sourceTree = "<group>"; };
+		4A37EE9E2734E1AF00E1F288 /* RPTopicViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPTopicViewModel.swift; sourceTree = "<group>"; };
 		4A3A5C92273263D500F5E2ED /* back_white@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "back_white@2x.png"; sourceTree = "<group>"; };
 		4A3A5C93273263D500F5E2ED /* share_white@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "share_white@2x.png"; sourceTree = "<group>"; };
 		4A3A5CB62732760200F5E2ED /* RPVideoDynamicCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPVideoDynamicCell.swift; sourceTree = "<group>"; };
@@ -264,6 +274,8 @@
 		4A976CDB27293975008DF042 /* RPNewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPNewsViewController.swift; sourceTree = "<group>"; };
 		4A976CE027293C1F008DF042 /* RPActionSheetController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPActionSheetController.swift; sourceTree = "<group>"; };
 		4AD802AC26F57565000F3B3A /* RPImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPImage.swift; sourceTree = "<group>"; };
+		4ADBEBF827337B5C00F73B6D /* RPCycleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPCycleView.swift; sourceTree = "<group>"; };
+		4ADBEC082733CDC300F73B6D /* RPTopicViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPTopicViewController.swift; sourceTree = "<group>"; };
 		554FE83C271BCFF7005E82C7 /* RPFindCardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPFindCardCell.swift; sourceTree = "<group>"; };
 		554FE83D271BCFF7005E82C7 /* RPFindCardCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RPFindCardCell.xib; sourceTree = "<group>"; };
 		554FE843271BD389005E82C7 /* RPFindHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPFindHeaderView.swift; sourceTree = "<group>"; };
@@ -393,6 +405,7 @@
 		4A3A9FFB2719829200C032C8 /* views */ = {
 			isa = PBXGroup;
 			children = (
+				4ADBEC132733E2FE00F73B6D /* TopicView */,
 				4A3A9FD3271962D600C032C8 /* RPYaCell.swift */,
 				558D3547271A77E400E03B5F /* RPPosterCell.swift */,
 				554FE843271BD389005E82C7 /* RPFindHeaderView.swift */,
@@ -543,6 +556,7 @@
 		4A547C7D26F49718005F00B5 /* Thrid */ = {
 			isa = PBXGroup;
 			children = (
+				4ADBEBF727337B2E00F73B6D /* CycleView */,
 				4A976CBA27290659008DF042 /* RPTakePhoto */,
 				4A0220D427216DA40045CA4B /* EmptyHelper */,
 				4A8F23A7271FFE6E00A249B6 /* NVActivityIndicatorView */,
@@ -617,6 +631,7 @@
 				558D3558271A9E4300E03B5F /* RPYaViewController.swift */,
 				4A3A9FFC271982C700C032C8 /* RPPostersViewController.swift */,
 				558D3542271A750B00E03B5F /* RPPosterListViewController.swift */,
+				4ADBEC082733CDC300F73B6D /* RPTopicViewController.swift */,
 			);
 			path = Find;
 			sourceTree = "<group>";
@@ -770,11 +785,29 @@
 			path = Home;
 			sourceTree = "<group>";
 		};
+		4ADBEBF727337B2E00F73B6D /* CycleView */ = {
+			isa = PBXGroup;
+			children = (
+				4ADBEBF827337B5C00F73B6D /* RPCycleView.swift */,
+			);
+			path = CycleView;
+			sourceTree = "<group>";
+		};
+		4ADBEC132733E2FE00F73B6D /* TopicView */ = {
+			isa = PBXGroup;
+			children = (
+				4A37EE8F2734CEA600E1F288 /* RPTopViewCell.swift */,
+				4A37EE902734CEA600E1F288 /* RPTopViewCell.xib */,
+			);
+			path = TopicView;
+			sourceTree = "<group>";
+		};
 		558D354C271A783000E03B5F /* models */ = {
 			isa = PBXGroup;
 			children = (
 				558D354D271A784900E03B5F /* RPPosterModel.swift */,
 				558D357D271ADBB400E03B5F /* RPFindModel.swift */,
+				4A37EE872734BF4200E1F288 /* RPTopicModel.swift */,
 			);
 			path = models;
 			sourceTree = "<group>";
@@ -785,6 +818,7 @@
 				558D355E271AA00B00E03B5F /* RPYaViewModel.swift */,
 				558D3566271AA90000E03B5F /* RPPosterViewModel.swift */,
 				558D356B271ABC4C00E03B5F /* RPFindViewModel.swift */,
+				4A37EE9E2734E1AF00E1F288 /* RPTopicViewModel.swift */,
 			);
 			path = vms;
 			sourceTree = "<group>";
@@ -923,6 +957,7 @@
 				4A547BDF26F44899005F00B5 /* Assets.xcassets in Resources */,
 				4A8F2240271FA7D800A249B6 /* friend_selected@2x.png in Resources */,
 				4A5969E8272B8960003ECB14 /* wechat@3x.png in Resources */,
+				4A37EE922734CEA600E1F288 /* RPTopViewCell.xib in Resources */,
 				4A7EDAB426F5915600C8FC55 /* RPExploreViewCell.xib in Resources */,
 				4A530BA42730E2B400DD495E /* share@2x.png in Resources */,
 				4A547BDD26F44898005F00B5 /* Main.storyboard in Resources */,
@@ -1040,6 +1075,7 @@
 				554FE83E271BCFF7005E82C7 /* RPFindCardCell.swift in Sources */,
 				4A8F23DD271FFEA600A249B6 /* NVActivityIndicatorAnimationBallClipRotatePulse.swift in Sources */,
 				4A547C5C26F485A5005F00B5 /* RPMineViewController.swift in Sources */,
+				4A37EE882734BF4200E1F288 /* RPTopicModel.swift in Sources */,
 				4A3A5CBC2732764000F5E2ED /* RPDynamicVideoPlyerContainerView.swift in Sources */,
 				554FE844271BD389005E82C7 /* RPFindHeaderView.swift in Sources */,
 				4A596A61272BF2E4003ECB14 /* RPNiceModel.swift in Sources */,
@@ -1062,9 +1098,11 @@
 				558D359E271B25B800E03B5F /* RPNewsLinkCell.swift in Sources */,
 				4A3A9FBF27182B8000C032C8 /* RPOrignalLoginViewController.swift in Sources */,
 				4A3A9F8E2717CF0B00C032C8 /* HoshiTextField.swift in Sources */,
+				4A37EE912734CEA600E1F288 /* RPTopViewCell.swift in Sources */,
 				4A3A5CB72732760200F5E2ED /* RPVideoDynamicCell.swift in Sources */,
 				4A8F23CE271FFEA600A249B6 /* NVActivityIndicatorAnimationDelegate.swift in Sources */,
 				4A8F21D7271EA9A200A249B6 /* RPGuideCell.swift in Sources */,
+				4ADBEBF927337B5C00F73B6D /* RPCycleView.swift in Sources */,
 				4A0220DA27216DC10045CA4B /* HBEmptyDelegate.swift in Sources */,
 				4A596A5A272BF00F003ECB14 /* RPNiceViewCell.swift in Sources */,
 				558D3584271AE5CE00E03B5F /* RPFindNewsLinkCell.swift in Sources */,
@@ -1083,6 +1121,7 @@
 				4A8F23E6271FFEA600A249B6 /* NVActivityIndicatorAnimationBallScaleMultiple.swift in Sources */,
 				4A547C3326F47EF3005F00B5 /* RPMainTabBarViewController.swift in Sources */,
 				4AD802AD26F57565000F3B3A /* RPImage.swift in Sources */,
+				4ADBEC092733CDC300F73B6D /* RPTopicViewController.swift in Sources */,
 				4A7EDAB326F5915600C8FC55 /* RPExploreViewCell.swift in Sources */,
 				4A547C4A26F48528005F00B5 /* RPHomeViewController.swift in Sources */,
 				4A7EDAFC26F5C0DC00C8FC55 /* RPTools.swift in Sources */,
@@ -1098,6 +1137,7 @@
 				4A3AA005271984E700C032C8 /* RPCollectionViewAdapter.swift in Sources */,
 				4A8F2206271ECC0700A249B6 /* Toast.swift in Sources */,
 				4A547C8126F49739005F00B5 /* ImageHelper.swift in Sources */,
+				4A37EE9F2734E1AF00E1F288 /* RPTopicViewModel.swift in Sources */,
 				4A7EDB0726F5CECA00C8FC55 /* RPMineHeaderView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

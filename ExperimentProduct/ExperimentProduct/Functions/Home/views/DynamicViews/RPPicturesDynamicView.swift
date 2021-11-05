@@ -17,6 +17,7 @@ class RPPicturesDynamicView: UIView {
     lazy var scrollView = UIScrollView()
     lazy var headerView = RPPicturesDynamicHeaderView()
     lazy var tableView = UITableView()
+    weak var container:RPDynamicViewController?
     var model = RPNiceModel() {
         didSet {
             headerView.dataArray = model.imgs
@@ -77,16 +78,18 @@ class RPPicturesDynamicView: UIView {
         switch pan.state {
         case .began:
             imageView.isHidden = false
-            imageView.image = RPTools.snapshot(tableView)
+            imageView.image = RPTools.snapshot((container?.view)!)
+            container!.topView.isHidden = true
             tableView.isHidden = true
             beganFrame = imageView.frame
             beganTouch = pan.location(in: scrollView)
         case .changed:
             let result = panResult(pan)
             imageView.frame = result.frame
-            self.superview!.alpha = result.scale * result.scale
+            container!.view.alpha = result.scale * result.scale
         case .ended, .cancelled:
             imageView.isHidden = true
+            container!.topView.isHidden = false
             tableView.isHidden = false
             imageView.frame = panResult(pan).frame
             let isDown = pan.velocity(in: self).y > 0
@@ -95,7 +98,7 @@ class RPPicturesDynamicView: UIView {
                     self.delegate?.clickEventCallBack(.dismiss,0)
                 }
             } else {
-                self.superview!.alpha = 1.0
+                container!.view.alpha = 1.0
                 imageView.frame = self.bounds
             }
         default:

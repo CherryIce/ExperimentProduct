@@ -17,6 +17,7 @@ class RPBaseViewController: UIViewController {
 
         // Do any additional setup after loading the vie
         self.view.backgroundColor = RPColor.MainViewBgColor
+        self.automaticallyAdjustsScrollViewInsets = false
         //解决往上偏移导航栏高度问题
         self.extendedLayoutIncludesOpaqueBars = true
         self .edgesForExtendedLayout = UIRectEdge . init (rawValue: 0 )

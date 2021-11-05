@@ -12,6 +12,7 @@ class RPDynamicViewController: RPBaseViewController {
     
     var transitionView:UIView?
     var type:RPDynamicViewControllerType = .pictures
+    var topView = RPDynamicTopView()
     private lazy var pictureMainView = RPPicturesDynamicView()
     private lazy var videoMainView = RPVideoDynamicView()
     var model = RPNiceModel()
@@ -31,11 +32,12 @@ class RPDynamicViewController: RPBaseViewController {
     func initUI()  {
         switch type {
         case .pictures:
-            let topView = RPDynamicTopView.init(frame: CGRect.init(x: 0, y: 0, width: SCREEN_WIDTH, height: RPTools.NAV_HEIGHT))
+            topView = RPDynamicTopView.init(frame: CGRect.init(x: 0, y: 0, width: SCREEN_WIDTH, height: RPTools.NAV_HEIGHT))
             topView.delegate = self
             self.view.addSubview(topView)
             pictureMainView = RPPicturesDynamicView.init(frame: CGRect.init(x: 0, y: RPTools.NAV_HEIGHT, width: SCREEN_WIDTH, height: SCREEN_HEIGHT - RPTools.NAV_HEIGHT))
             pictureMainView.delegate = self
+            pictureMainView.container = self
             pictureMainView.model = model
             self.view.addSubview(pictureMainView)
             break

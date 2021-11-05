@@ -94,7 +94,7 @@ class RPFindViewController: RPBaseViewController {
     }
     
     @objc func searchMore() {
-        
+        self.navigationController?.pushViewController(RPYaViewController.init(), animated: true)
     }
 }
 
@@ -150,24 +150,20 @@ extension RPFindViewController:UITableViewDelegate,UITableViewDataSource {
 }
 
 extension RPFindViewController: RPFindHeaderViewDelegate {
+    func clickBannerNeedFix(_ index: Int) {
+        let ctl = RPWkwebViewController.init()
+        ctl.urlString = "https://www.baidu.com"
+        self.navigationController?.pushViewController(ctl, animated: true)
+    }
+    
     func clickLabelNeedFix(_ index:Int,data:AnyObject?) {
-        self.navigationController?.pushViewController(RPYaViewController.init(), animated: true)
+        self.navigationController?.pushViewController(RPTopicViewController.init(), animated: true)
     }
 }
 
 extension RPFindViewController: RPListViewCellEventDelegate {
     func didSelectListView(_ listView: UIScrollView, indexPath: IndexPath, sectionData: AnyObject?, cellData: AnyObject?) {
-        
-        let alert = RPAlertViewController.init(title: "温馨提示", message: "阿拉索阿拉索", cancel: "取消", confirm: "确定") { (index) in
-            if index == 1 {
-                
-            }
-        }
-        alert.titleColor = .red
-        alert.msgColor = .black
-        alert.cancelColor = .blue
-        alert.confirmColor = .red
-        self.present(alert, animated: true,completion: nil)
+        self.navigationController?.pushViewController(RPYaViewController.init(), animated: true)
     }
 }
 

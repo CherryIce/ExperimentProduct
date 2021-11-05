@@ -52,7 +52,7 @@ class RPYaViewController: RPBaseViewController {
 }
 
 extension RPYaViewController : RPListViewCellEventDelegate {
-    private func didSelectListView(_ listView: UIScrollView,indexPath:IndexPath,sectionData:AnyObject,cellData:AnyObject) {
+    func didSelectListView(_ listView: UIScrollView,indexPath:IndexPath,sectionData:AnyObject?,cellData:AnyObject?) {
         self.navigationController?.pushViewController(RPPostersViewController.init(), animated: true)
     }
 }

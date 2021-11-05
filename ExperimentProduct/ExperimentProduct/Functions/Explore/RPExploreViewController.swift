@@ -147,4 +147,17 @@ extension RPExploreViewController: UITableViewDelegate, UITableViewDataSource {
     func sectionIndexTitles(for tableView: UITableView) -> [String]? {
         return sectionTitles
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let alert = RPAlertViewController.init(title: "温馨提示", message: "阿拉索阿拉索", cancel: "取消", confirm: "确定") { (index) in
+            if index == 1 {
+                
+            }
+        }
+        alert.titleColor = .red
+        alert.msgColor = .black
+        alert.cancelColor = .blue
+        alert.confirmColor = .red
+        self.present(alert, animated: true,completion: nil)
+    }
 }
