@@ -6,7 +6,7 @@
 //
 
 import UIKit
-//import HandyJSON
+import HandyJSON
 
 //The hard thing to do and the right thing to do are usually the same thing.
 //正确的事情，往往并不容易做到。
@@ -25,10 +25,10 @@ enum RPTopicType {
     case article
 }
 
-class RPTopicModel: NSObject {
+class RPTopicModel: HandyJSON {
     var author = RPPersonModel()
     var text = ""
-    var images = [RPImageModel]()
+    var images: [RPImageModel]! = []
     var video = RPVideoModel()
     var artic = RPArticleModel()
     var location = ""
@@ -50,125 +50,48 @@ class RPTopicModel: NSObject {
     var cellH:CGFloat = 0 // 当前cell的总高度
     var photoCellSize:CGSize = .zero //布局大小 仅限于图片视频类型使用
     
-    override init() {
-        super.init()
-    }
-    
-    convenience init(dict: NSDictionary) {
-        self.init()
-        if dict.object(forKey: "author") != nil{
-            let dic = dict["author"] as! NSDictionary
-            let model = RPPersonModel.init()
-            model.userName = dic["userName"] as? String ?? ""
-            model.userId = dic["userId"] as? String ?? ""
-            model.headIconUrl = dic["headIconUrl"] as? String ?? ""
-            author = model
-        }
-        text = dict["text"] as? String ?? ""
-        location = dict["location"] as? String ?? ""
-        publishTime = dict["publishTime"] as? String ?? ""
-        from = dict["from"] as? String ?? ""
-        permission = dict["permission"] as? Int ?? 0
-        
-        if dict.object(forKey: "video") != nil{
-            let videoDic = dict["video"] as! NSDictionary
-            let tv = RPVideoModel.init()
-            tv.converUrl = videoDic["converUrl"] as? String ?? ""
-            tv.videoPath = videoDic["videoPath"] as? String ?? ""
-            tv.width = videoDic["width"] as? CGFloat ?? 0
-            tv.height = videoDic["height"] as? CGFloat ?? 0
-            video = tv
-        }
-        
-        if dict.object(forKey: "article") != nil {
-            let videoDic = dict["article"] as! NSDictionary
-            let tv = RPArticleModel.init()
-            tv.converUrl = videoDic["converUrl"] as? String ?? ""
-            tv.url = videoDic["url"] as? String ?? ""
-            tv.title = videoDic["title"] as? String ?? ""
-            artic = tv
-        }
-        
-        if dict.object(forKey: "images") != nil {
-            let oneDicts = dict["images"] as? [NSDictionary]
-            let tempArr_1 = NSMutableArray()
-            for item in oneDicts! {
-                let modelOne = RPImageModel.init()
-                modelOne.url = item["url"] as? String ?? ""
-                modelOne.width = item["width"] as? CGFloat ?? 0
-                modelOne.height = item["height"] as? CGFloat ?? 0
-                tempArr_1.add(modelOne)
-            }
-            images = tempArr_1 as! [RPImageModel]
-        }
-        
-//        if dict.object(forKey: "likes") != nil {
-//            let oneDicts2 = dict["likes"] as? [NSDictionary]
-//            let tempArr_2 = NSMutableArray()
-//            for item in oneDicts2! {
-//                let modelOne = RPPersonModel.init()
-//                modelOne.userName = item["userName"] as? String ?? ""
-//                modelOne.userId = item["userId"] as? String ?? ""
-//                modelOne.headIconUrl = item["headIconUrl"] as? String ?? ""
-//                tempArr_2.add(modelOne)
-//            }
-//            likes = (tempArr_2 as? [RPPersonModel])!
-//        }
-        
-//        if dict.object(forKey: "comments") != nil{
-//            let oneDicts3 = dict["comments"] as? [NSDictionary]
-//            let tempArr_3 = NSMutableArray()
-//            for item in oneDicts3! {
-//                let modelOne = RPCommentModel.init()
-//                let replyD = item["replyPerson"] as! NSDictionary
-//                let replay = RPPersonModel.init()
-//                replay.userName = replyD["userName"] as? String ?? ""
-//                replay.userId = replyD["userId"] as? String ?? ""
-//                replay.headIconUrl = replyD["headIconUrl"] as? String ?? ""
-//                modelOne.replyPerson = replay
-//
-//                tempArr_3.add(modelOne)
-//            }
-//            comments = (tempArr_3 as? [RPCommentModel])!
-//        }
-    }
+    required init() {}
 }
 
-class RPImageModel: NSObject {
+class RPImageModel: HandyJSON {
     //图片链接
     var url = ""
     var width: CGFloat = 0
     var height: CGFloat = 0
+    required init() {}
 }
 
-class RPVideoModel: NSObject {
+class RPVideoModel: HandyJSON {
     //封面链接
     var converUrl = ""
     var width: CGFloat = 0
     var height: CGFloat = 0
     //视频地址
     var videoPath = ""
+    required init() {}
 }
 
-class RPArticleModel: NSObject {
+class RPArticleModel: HandyJSON {
     //文章封面图
     var converUrl = ""
     //标题
     var title = ""
     //跳转链接
     var url = ""
+    required init() {}
 }
 
-class RPPersonModel: NSObject {
+class RPPersonModel: HandyJSON {
     //用户名
     var userName = ""
     //用户Id
     var userId = ""
     //用户头像
     var headIconUrl = ""
+    required init() {}
 }
 
-class RPCommentModel: NSObject {
+class RPCommentModel: HandyJSON {
     //评论人
     var replyPerson = RPPersonModel()
     //被评论人
@@ -177,4 +100,5 @@ class RPCommentModel: NSObject {
     var content = ""
     //时间
     var dateTime = ""
+    required init() {}
 }

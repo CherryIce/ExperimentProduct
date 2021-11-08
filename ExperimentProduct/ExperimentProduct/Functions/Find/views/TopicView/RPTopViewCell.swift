@@ -17,6 +17,7 @@ protocol RPTopViewCellDelegate:NSObjectProtocol
     func deleteTheTopic(_ cell:RPTopViewCell,indexPath:IndexPath)
     func likeTheTopic(_ cell:RPTopViewCell,indexPath:IndexPath)
     func locationClickInTheTopic(_ cell:RPTopViewCell,indexPath:IndexPath)
+    func photoListClickInTheTopic(_ cell:RPTopViewCell,indexPath:IndexPath,index:Int)
 }
 
 class RPTopViewCell: UITableViewCell {
@@ -154,6 +155,11 @@ class RPTopViewCell: UITableViewCell {
             }
             photoListView?.itemSize = model.photoCellSize
             photoListView?.dataArray = model.images
+            photoListView?.callBack({ (indexPath, currView) in
+                if (self.delegate != nil) {
+                    self.delegate?.photoListClickInTheTopic(self, indexPath: self.indexPath, index: indexPath.item)
+                }
+            })
             break
         case .article:
             if artcleView == nil {
@@ -165,7 +171,11 @@ class RPTopViewCell: UITableViewCell {
                     make.bottom.equalToSuperview().offset(-5)
                     make.right.equalToSuperview().offset(50)
                 })
-                artcleView?.initWithTitle(model.artic.title, converURL: model.artic.url)
+                artcleView?.initWithTitle(model.artic.title, converURL: model.artic.converUrl, block: {
+                    if (self.delegate != nil) {
+                        self.delegate?.selectURLInTopic(self, url: self.model.artic.url)
+                    }
+                })
             }
             break
         case .video:
@@ -178,6 +188,11 @@ class RPTopViewCell: UITableViewCell {
             }
             videoView?.itemSize = model.photoCellSize
             videoView?.path = URL.init(string: model.video.videoPath)
+            videoView?.clickVideoCallBack = {
+                if (self.delegate != nil) {
+                    self.delegate?.photoListClickInTheTopic(self, indexPath: self.indexPath, index: 0)
+                }
+            }
             break
         }
     }

@@ -64,6 +64,10 @@ extension RPTopicViewController:UITableViewDelegate,UITableViewDataSource {
 }
 
 extension RPTopicViewController : RPTopViewCellDelegate {
+    func photoListClickInTheTopic(_ cell: RPTopViewCell, indexPath: IndexPath, index: Int) {
+        
+    }
+    
     func selectURLInTopic(_ cell: RPTopViewCell, url: String) {
         let ctl = RPWkwebViewController.init()
         ctl.urlString = url

@@ -10,6 +10,8 @@ import AVFoundation
 import KTVHTTPCache
 
 class RPTopicVideoView: UIView {
+    public typealias ClickVideoCallBack = ()->()
+    public var clickVideoCallBack: ClickVideoCallBack?
     private lazy var player = AVPlayer()
     private lazy var playerLayer = AVPlayerLayer(player: player)
     var itemSize:CGSize = .zero {
@@ -34,6 +36,17 @@ class RPTopicVideoView: UIView {
         }
         playerLayer = AVPlayerLayer.init(player: player)
         layer.addSublayer(playerLayer)
+        
+        let tap = UITapGestureRecognizer.init(target: self, action: #selector(tapClick))
+        addGestureRecognizer(tap)
+    }
+    
+    @objc private func tapClick() {
+        self.clickVideoCallBack?()
+    }
+    
+    func clickCallBack(_ block:@escaping ClickVideoCallBack) {
+        self.clickVideoCallBack = block
     }
     
     func play() {

@@ -8,7 +8,8 @@
 import UIKit
 
 class RPTopicPhotoListView: UIView {
-    
+    public typealias ClickItemCallBack = (_ indexPath:IndexPath,_ currView:UIView)->()
+    public var clickItemCallBack: ClickItemCallBack?
     private lazy var collectionView = UICollectionView()
     var itemSize:CGSize = .zero
     var dataArray = [RPImageModel](){
@@ -22,7 +23,7 @@ class RPTopicPhotoListView: UIView {
         setup()
     }
     
-    func setup()  {
+    private func setup()  {
         let layout = UICollectionViewFlowLayout.init()
         layout.sectionInset = UIEdgeInsets.zero
         layout.minimumLineSpacing = 5
@@ -41,6 +42,10 @@ class RPTopicPhotoListView: UIView {
         
         //cell左对齐
         collectionView.collectionViewLayout.perform(Selector.init(("_setRowAlignmentsOptions:")),with:NSDictionary.init(dictionary:["UIFlowLayoutCommonRowHorizontalAlignmentKey":NSNumber.init(value:NSTextAlignment.left.rawValue)]))
+    }
+    
+    func callBack(_ block:@escaping ClickItemCallBack) {
+        self.clickItemCallBack = block
     }
     
     override func layoutSubviews() {
@@ -67,6 +72,12 @@ extension RPTopicPhotoListView:UICollectionViewDelegate,UICollectionViewDataSour
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return self.itemSize
+    }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let cell = collectionView.cellForItem(at: indexPath)
+        if self.clickItemCallBack != nil {
+            self.clickItemCallBack?(indexPath,cell!)
+        }
     }
 }
 

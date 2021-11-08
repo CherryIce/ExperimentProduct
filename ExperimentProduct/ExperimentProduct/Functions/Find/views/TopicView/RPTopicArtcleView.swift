@@ -8,7 +8,8 @@
 import UIKit
 
 class RPTopicArtcleView: UIView {
-    
+    public typealias ClickShareCallBack = ()->()
+    public var clickShareCallBack: ClickShareCallBack?
     private lazy var converImgV = UIImageView()
     private lazy var titleLabel = UILabel()
 
@@ -16,6 +17,9 @@ class RPTopicArtcleView: UIView {
         super.init(frame: frame)
         backgroundColor = RPColor.ShallowColor
         layercornerRadius(cornerRadius: 4)
+        
+        let tap = UITapGestureRecognizer.init(target: self, action: #selector(tapClick))
+        self.addGestureRecognizer(tap)
         
         converImgV = UIImageView.init()
         addSubview(converImgV)
@@ -38,7 +42,7 @@ class RPTopicArtcleView: UIView {
         }
     }
     
-    func initWithTitle(_ title:String,converURL:String?) {
+    func initWithTitle(_ title:String,converURL:String?,block:@escaping ClickShareCallBack) {
         if converURL == nil {
             titleLabel.text = title
             titleLabel.snp.updateConstraints { (make) in
@@ -64,7 +68,12 @@ class RPTopicArtcleView: UIView {
             
             converImgV.setImageWithURL(converURL!, placeholder: RPImage.init(color: RPColor.RandomColor)!)
             titleLabel.text = title
+            clickShareCallBack = block
         }
+    }
+    
+    @objc private func tapClick() {
+        self.clickShareCallBack?()
     }
     
     required init?(coder: NSCoder) {

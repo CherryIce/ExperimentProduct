@@ -26,27 +26,23 @@ class RPTopicViewModel: NSObject {
         let dict : NSDictionary! = NSDictionary(contentsOfFile: (Bundle.main.path(forResource: "RPTopicDatas", ofType: "plist")!))
         let array = dict["data"] as! NSArray
         
-//        let model = RPTopicModel.init(jsonData: dict)
-        
         for xxx in array {
             let dic = xxx as! NSDictionary
-//            let model = RPTopicModel.deserialize(from: dic)
-            
-            let model = RPTopicModel.init(dict: dic)
+            let model = RPTopicModel.deserialize(from: dic)
             let type = dic["type"] as! String
             switch type {
-            case "text":model.type = .text
+            case "text":model?.type = .text
                 break
-            case "picture":model.type = .pictures
+            case "picture":model?.type = .pictures
                 break
-            case "article":model.type = .article
+            case "article":model?.type = .article
                 break
-            case "video":model.type = .video
+            case "video":model?.type = .video
                 break
             default:  break
             }
-            fixxxxx(model)
-            tt.add(model)
+            fixxxxx(model!)
+            tt.add(model as Any)
         }
         success(tt)
     }
