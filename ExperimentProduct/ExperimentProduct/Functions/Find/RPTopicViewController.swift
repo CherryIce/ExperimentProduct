@@ -73,15 +73,17 @@ extension RPTopicViewController : RPTopViewCellDelegate {
     func expandTheTopic(_ cell:RPTopViewCell,indexPath:IndexPath) {
         let model = self.dataArray[indexPath.row] as! RPTopicModel
         if model.isExpand {
-            model.textCurrH = 90
-            model.cellH -= (model.textTotalH - 90)
+            model.textCurrH = model.textLimitH
+            model.cellH -= (model.textTotalH - model.textLimitH)
             model.isExpand = false
         }else{
             model.textCurrH = model.textTotalH
-            model.cellH += (model.textTotalH - 90)
+            model.cellH += (model.textTotalH - model.textLimitH)
             model.isExpand = true
         }
-        self.tableView.reloadRows(at: [indexPath], with: .none)
+        UIView.performWithoutAnimation {
+            self.tableView.reloadRows(at: [indexPath], with: .none)
+        }
     }
     
     func commentTheTopic(_ cell: RPTopViewCell, indexPath: IndexPath) {

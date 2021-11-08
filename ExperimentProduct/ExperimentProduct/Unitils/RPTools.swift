@@ -125,14 +125,12 @@ class RPTools: NSObject {
 extension UIView {
     func layercornerRadius(cornerRadius:CGFloat) {
         let layer = self.layer
-        layer.masksToBounds = true
         layer.cornerRadius = cornerRadius
         layer.masksToBounds = false
     }
     
     func layercornerBorder(borderWidth:CGFloat,borderColor:UIColor) {
-        let layer = self.layer;
-        layer.masksToBounds = true
+        let layer = self.layer
         layer.borderWidth = borderWidth
         layer.borderColor = borderColor.cgColor
         layer.masksToBounds = false

@@ -4,6 +4,7 @@ PODS:
   - CocoaAsyncSocket (7.6.5)
   - Differentiator (3.1.0)
   - ESPullToRefresh (2.9.3)
+  - HandyJSON (5.0.2)
   - IQKeyboardManagerSwift (6.5.6)
   - JPImageresizerView (1.9.4)
   - JXPhotoBrowser (3.1.3)
@@ -43,6 +44,7 @@ PODS:
 DEPENDENCIES:
   - ActiveLabel
   - ESPullToRefresh
+  - HandyJSON
   - IQKeyboardManagerSwift
   - JPImageresizerView
   - JXPhotoBrowser
@@ -66,6 +68,7 @@ SPEC REPOS:
     - CocoaAsyncSocket
     - Differentiator
     - ESPullToRefresh
+    - HandyJSON
     - IQKeyboardManagerSwift
     - JPImageresizerView
     - JXPhotoBrowser
@@ -92,6 +95,7 @@ SPEC CHECKSUMS:
   CocoaAsyncSocket: 065fd1e645c7abab64f7a6a2007a48038fdc6a99
   Differentiator: be49ca3408f0ecfc761e4c7763d20c62be01b9ad
   ESPullToRefresh: 0d68daa602b343c81753a1b95e09fd0bfcddfd40
+  HandyJSON: 9e4e236f5d2dbefad5155a77417bbea438201c03
   IQKeyboardManagerSwift: c7df9d2deb356c04522f5c4b7b6e4ce4d8ed94fe
   JPImageresizerView: 6d8ddd0569f15be391e619da82d40af31266b34c
   JXPhotoBrowser: d32e94e1226d43bf5ed83164e3f5b651fed625e0
@@ -112,6 +116,6 @@ SPEC CHECKSUMS:
   XCGLogger: 1943831ef907df55108b0b18657953f868de973b
   YYCache: 8105b6638f5e849296c71f331ff83891a4942952
 
-PODFILE CHECKSUM: cd80feda2e125f0ea76218e87faabd00d9df9b0d
+PODFILE CHECKSUM: cec928e3290e5210aa21e2efe919473b3ffdc431
 
 COCOAPODS: 1.11.2

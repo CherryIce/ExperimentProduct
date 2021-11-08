@@ -36,6 +36,10 @@
 		4A3A9FD4271962D600C032C8 /* RPYaCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3A9FD3271962D600C032C8 /* RPYaCell.swift */; };
 		4A3A9FFD271982C700C032C8 /* RPPostersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3A9FFC271982C700C032C8 /* RPPostersViewController.swift */; };
 		4A3AA005271984E700C032C8 /* RPCollectionViewAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3AA004271984E700C032C8 /* RPCollectionViewAdapter.swift */; };
+		4A4662F12738B1E900FC8FFC /* RPTopicPhotoListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4662F02738B1E900FC8FFC /* RPTopicPhotoListView.swift */; };
+		4A4662F62738B21C00FC8FFC /* RPTopicVideoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4662F52738B21C00FC8FFC /* RPTopicVideoView.swift */; };
+		4A4662FB2738B23800FC8FFC /* RPTopicArtcleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4662FA2738B23800FC8FFC /* RPTopicArtcleView.swift */; };
+		4A4663462738C20100FC8FFC /* RPTopicDatas.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4A4663452738C20100FC8FFC /* RPTopicDatas.plist */; };
 		4A4B72F5272A7C9800821756 /* RPAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4B72F3272A7C9800821756 /* RPAlertViewController.swift */; };
 		4A4B72F6272A7C9800821756 /* RPAlertViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4A4B72F4272A7C9800821756 /* RPAlertViewController.xib */; };
 		4A4B72FC272A93A200821756 /* RPShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4B72FA272A93A200821756 /* RPShareViewController.swift */; };
@@ -185,6 +189,10 @@
 		4A3A9FD3271962D600C032C8 /* RPYaCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPYaCell.swift; sourceTree = "<group>"; };
 		4A3A9FFC271982C700C032C8 /* RPPostersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPPostersViewController.swift; sourceTree = "<group>"; };
 		4A3AA004271984E700C032C8 /* RPCollectionViewAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPCollectionViewAdapter.swift; sourceTree = "<group>"; };
+		4A4662F02738B1E900FC8FFC /* RPTopicPhotoListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPTopicPhotoListView.swift; sourceTree = "<group>"; };
+		4A4662F52738B21C00FC8FFC /* RPTopicVideoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPTopicVideoView.swift; sourceTree = "<group>"; };
+		4A4662FA2738B23800FC8FFC /* RPTopicArtcleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPTopicArtcleView.swift; sourceTree = "<group>"; };
+		4A4663452738C20100FC8FFC /* RPTopicDatas.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = RPTopicDatas.plist; sourceTree = "<group>"; };
 		4A4B72F3272A7C9800821756 /* RPAlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPAlertViewController.swift; sourceTree = "<group>"; };
 		4A4B72F4272A7C9800821756 /* RPAlertViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RPAlertViewController.xib; sourceTree = "<group>"; };
 		4A4B72FA272A93A200821756 /* RPShareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPShareViewController.swift; sourceTree = "<group>"; };
@@ -798,6 +806,9 @@
 			children = (
 				4A37EE8F2734CEA600E1F288 /* RPTopViewCell.swift */,
 				4A37EE902734CEA600E1F288 /* RPTopViewCell.xib */,
+				4A4662F02738B1E900FC8FFC /* RPTopicPhotoListView.swift */,
+				4A4662F52738B21C00FC8FFC /* RPTopicVideoView.swift */,
+				4A4662FA2738B23800FC8FFC /* RPTopicArtcleView.swift */,
 			);
 			path = TopicView;
 			sourceTree = "<group>";
@@ -815,6 +826,7 @@
 		558D355D271A9FF400E03B5F /* vms */ = {
 			isa = PBXGroup;
 			children = (
+				4A4663452738C20100FC8FFC /* RPTopicDatas.plist */,
 				558D355E271AA00B00E03B5F /* RPYaViewModel.swift */,
 				558D3566271AA90000E03B5F /* RPPosterViewModel.swift */,
 				558D356B271ABC4C00E03B5F /* RPFindViewModel.swift */,
@@ -967,6 +979,7 @@
 				4A4B72FD272A93A200821756 /* RPShareViewController.xib in Resources */,
 				554FE83F271BCFF7005E82C7 /* RPFindCardCell.xib in Resources */,
 				4A8F2245271FA7D800A249B6 /* find_nor@2x.png in Resources */,
+				4A4663462738C20100FC8FFC /* RPTopicDatas.plist in Resources */,
 				4A8F223E271FA7D800A249B6 /* find_selected@2x.png in Resources */,
 				4A8F21E9271EBBED00A249B6 /* 003.png in Resources */,
 				558D359F271B25B800E03B5F /* RPNewsLinkCell.xib in Resources */,
@@ -1055,6 +1068,7 @@
 				4A976CBE2729067A008DF042 /* UUTakePhoto.swift in Sources */,
 				4A976BE62726A27B008DF042 /* RPTimer.swift in Sources */,
 				4A976CE127293C1F008DF042 /* RPActionSheetController.swift in Sources */,
+				4A4662F62738B21C00FC8FFC /* RPTopicVideoView.swift in Sources */,
 				4A547C7226F48D19005F00B5 /* RPColor.swift in Sources */,
 				4A976C402727F655008DF042 /* RPPermissions.swift in Sources */,
 				558D3567271AA90000E03B5F /* RPPosterViewModel.swift in Sources */,
@@ -1073,6 +1087,7 @@
 				4A3A5CC12732775000F5E2ED /* RPDynamicProtocol.swift in Sources */,
 				4A0220D927216DC10045CA4B /* HBEmpty+Extensions.swift in Sources */,
 				554FE83E271BCFF7005E82C7 /* RPFindCardCell.swift in Sources */,
+				4A4662F12738B1E900FC8FFC /* RPTopicPhotoListView.swift in Sources */,
 				4A8F23DD271FFEA600A249B6 /* NVActivityIndicatorAnimationBallClipRotatePulse.swift in Sources */,
 				4A547C5C26F485A5005F00B5 /* RPMineViewController.swift in Sources */,
 				4A37EE882734BF4200E1F288 /* RPTopicModel.swift in Sources */,
@@ -1127,6 +1142,7 @@
 				4A7EDAFC26F5C0DC00C8FC55 /* RPTools.swift in Sources */,
 				4A976CDC27293975008DF042 /* RPNewsViewController.swift in Sources */,
 				4A8F23D4271FFEA600A249B6 /* NVActivityIndicatorAnimationBallDoubleBounce.swift in Sources */,
+				4A4662FB2738B23800FC8FFC /* RPTopicArtcleView.swift in Sources */,
 				4A547C5226F4858A005F00B5 /* RPExploreViewController.swift in Sources */,
 				4A547C5726F48595005F00B5 /* RPFindViewController.swift in Sources */,
 				4A8F23D1271FFEA600A249B6 /* NVActivityIndicatorAnimationBallClipRotate.swift in Sources */,

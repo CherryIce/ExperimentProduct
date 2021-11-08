@@ -2,7 +2,7 @@
 //  RPTopViewCell.swift
 //  ExperimentProduct
 //
-//  Created by YuMao on 2021/11/5.
+//  Created by hubin on 2021/11/5.
 //
 
 import UIKit
@@ -50,6 +50,9 @@ class RPTopViewCell: UITableViewCell {
     private weak var delegate:RPTopViewCellDelegate?
     private var indexPath = IndexPath()
     private var model = RPTopicModel()
+    private var photoListView:RPTopicPhotoListView?
+    private var videoView:RPTopicVideoView?
+    private var artcleView:RPTopicArtcleView?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -119,11 +122,12 @@ class RPTopViewCell: UITableViewCell {
         permissionWidth.constant = !permissionBtn.isHidden ? 20 : 0
         
         textH.constant = model.textCurrH
-        moreBtn.isHidden = model.textTotalH <= 90
+        moreBtn.isHidden = model.textTotalH <= model.textLimitH
         moreBtnH.constant = moreBtn.isHidden ? 0 : 30
         moreBtn.isSelected = model.isExpand
         
         middleContentH.constant = model.midH
+        middleContentView.isHidden = model.midH == 0
         
         contentLabel.text = model.text
         
@@ -131,17 +135,49 @@ class RPTopViewCell: UITableViewCell {
         commentH.constant = model.commentH
         commentTop.constant = commentView.isHidden ? 0 : 10
         
+        photoListView?.removeFromSuperview()
+        photoListView = nil
+        videoView?.removeFromSuperview()
+        videoView = nil
+        artcleView?.removeFromSuperview()
+        artcleView = nil
         switch model.type {
         case .text:
             break
-        case .pictures,.textAndPictures:
-            //collectionview
+        case .pictures:
+            if photoListView == nil {
+                photoListView = RPTopicPhotoListView.init()
+                middleContentView.addSubview(photoListView!)
+                photoListView?.snp.makeConstraints({ (make) in
+                    make.left.right.top.bottom.equalToSuperview()
+                })
+            }
+            photoListView?.itemSize = model.photoCellSize
+            photoListView?.dataArray = model.images
             break
-        case .article,.textAndArticle:
-            //articleview
+        case .article:
+            if artcleView == nil {
+                artcleView = RPTopicArtcleView.init()
+                middleContentView.addSubview(artcleView!)
+                artcleView?.snp.makeConstraints({ (make) in
+                    make.left.equalToSuperview()
+                    make.top.equalToSuperview().offset(5)
+                    make.bottom.equalToSuperview().offset(-5)
+                    make.right.equalToSuperview().offset(50)
+                })
+                artcleView?.initWithTitle(model.artic.title, converURL: model.artic.url)
+            }
             break
-        case .video,.textAndVideo:
-            //videoview
+        case .video:
+            if videoView == nil {
+                videoView = RPTopicVideoView.init()
+                middleContentView.addSubview(videoView!)
+                videoView?.snp.makeConstraints({ (make) in
+                    make.left.right.top.bottom.equalToSuperview()
+                })
+            }
+            videoView?.itemSize = model.photoCellSize
+            videoView?.path = URL.init(string: model.video.videoPath)
             break
         }
     }

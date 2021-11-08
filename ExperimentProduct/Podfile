@@ -18,6 +18,7 @@ pod 'RxDataSources', '~> 3.0'  # RxSwift中用于设置UITableView/UICollectionV
 
 # 解析 JSON数据
 pod 'SwiftyJSON'
+pod 'HandyJSON'
 
 # json对象映射为model对象
 #pod 'Argo'

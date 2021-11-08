@@ -9,11 +9,6 @@ import UIKit
 
 class RPVideoDynamicCell: UICollectionViewCell {
     weak var delegate:RPDynamicViewEventDelegate?
-    private var imageView = UIImageView()
-    // 记录pan手势开始时imageView的位置
-    private var beganFrame = CGRect.zero
-    // 记录pan手势开始时，手势位置
-    private var beganTouch = CGPoint.zero
     lazy var playerContainerView = RPDynamicVideoPlyerContainerView()
     var path = URL.init(string: "") {
         didSet {
@@ -27,17 +22,12 @@ class RPVideoDynamicCell: UICollectionViewCell {
         playerContainerView = RPDynamicVideoPlyerContainerView.init(frame: frame)
         playerContainerView.delegate = self
         self.addSubview(playerContainerView)
-        
-        imageView = UIImageView.init()
-        imageView.isHidden = true
-        self.addSubview(imageView)
     }
     
     override func layoutSubviews() {
         super.layoutSubviews()
         
         playerContainerView.frame = bounds
-        imageView.frame = bounds
     }
     
     func playVideo() {
