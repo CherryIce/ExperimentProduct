@@ -8,7 +8,7 @@
 import UIKit
 
 class RPTopicPhotoListView: UIView {
-    public typealias ClickItemCallBack = (_ indexPath:IndexPath,_ currView:UIView)->()
+    public typealias ClickItemCallBack = (_ indexPath:IndexPath,_ views:[UIView])->()
     public var clickItemCallBack: ClickItemCallBack?
     private lazy var collectionView = UICollectionView()
     var itemSize:CGSize = .zero
@@ -74,9 +74,15 @@ extension RPTopicPhotoListView:UICollectionViewDelegate,UICollectionViewDataSour
         return self.itemSize
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let cell = collectionView.cellForItem(at: indexPath)
+        var tmp = [UIView]()
+        for i in 0 ..< self.dataArray.count {
+            let indexP = NSIndexPath.init(row: i, section: 0)
+            guard let cell = collectionView.cellForItem(at: indexP as IndexPath) else { return  }
+            tmp.append(cell)
+        }
+//        let cell = collectionView.cellForItem(at: indexPath)
         if self.clickItemCallBack != nil {
-            self.clickItemCallBack?(indexPath,cell!)
+            self.clickItemCallBack?(indexPath,tmp)
         }
     }
 }

@@ -69,7 +69,9 @@ class RPFindHeaderView: UIView{
         
         bannerView = RPCycleView.init()
         bannerView.delegate = self
-        bannerView.pictures = ["https://nim-nosdn.netease.im/MTY2Nzk0NTU=/bmltYV8xMzgzOTQ1OTEyM18xNTk3OTkwOTE0NjU4XzNlYTcwYjRiLWJiZjAtNDExOS1hOTBkLTAxYTgyNGJjYTVmOA==","https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=1734913275,3830009060&fm=26&gp=0.jpg","https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=2189728697,1720975443&fm=26&gp=0.jpg"]
+        bannerView.pictures = ["https://5b0988e595225.cdn.sohucs.com/images/20180520/e88716934a454c5cb340e12e694dc201.jpeg",
+                               "https://img38.51tietu.net/pic/2017-010521/20170105211453k2ct2r3cofn60776.jpg",
+                               "https://img38.51tietu.net/pic/2017-010521/201701052122164xxsftcqcyy62794.jpg"]
         self.addSubview(bannerView)
         bannerView.snp.makeConstraints { (make) in
             make.left.right.top.equalToSuperview()

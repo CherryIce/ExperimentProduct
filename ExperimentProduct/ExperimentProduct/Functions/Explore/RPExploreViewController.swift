@@ -158,6 +158,6 @@ extension RPExploreViewController: UITableViewDelegate, UITableViewDataSource {
         alert.msgColor = .black
         alert.cancelColor = .blue
         alert.confirmColor = .red
-        self.present(alert, animated: true,completion: nil)
+        self.present(alert, animated: false,completion: nil)
     }
 }

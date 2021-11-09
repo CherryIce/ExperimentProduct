@@ -135,13 +135,13 @@ class RPAlertViewController: RPBaseViewController {
         if self.clickButtonCallBack != nil {
             self.clickButtonCallBack?(0)
         }
-        self.dismiss(animated: true, completion: nil)
+        self.dismiss(animated: false, completion: nil)
     }
     
     @IBAction func confirmClick(_ sender: UIButton) {
         if self.clickButtonCallBack != nil {
             self.clickButtonCallBack?(1)
         }
-        self.dismiss(animated: true, completion: nil)
+        self.dismiss(animated: false, completion: nil)
     }
 }

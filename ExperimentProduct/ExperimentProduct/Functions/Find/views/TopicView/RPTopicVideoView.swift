@@ -10,13 +10,15 @@ import AVFoundation
 import KTVHTTPCache
 
 class RPTopicVideoView: UIView {
-    public typealias ClickVideoCallBack = ()->()
+    public typealias ClickVideoCallBack = (_ view:UIView)->()
     public var clickVideoCallBack: ClickVideoCallBack?
     private lazy var player = AVPlayer()
     private lazy var playerLayer = AVPlayerLayer(player: player)
+    private lazy var contentView = UIView()
     var itemSize:CGSize = .zero {
         didSet {
-            playerLayer.frame = CGRect.init(x: 0, y: 0, width: itemSize.width, height: itemSize.height)
+            contentView.frame = CGRect.init(x: 0, y: 0, width: itemSize.width, height: itemSize.height)
+            playerLayer.frame = contentView.bounds
         }
     }
 
@@ -30,19 +32,22 @@ class RPTopicVideoView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
+        contentView = UIView.init()
+        addSubview(contentView)
+        
         player = AVPlayer.init()
         if #available(iOS 10.0, *) {
             player.automaticallyWaitsToMinimizeStalling = false
         }
         playerLayer = AVPlayerLayer.init(player: player)
-        layer.addSublayer(playerLayer)
+        contentView.layer.addSublayer(playerLayer)
         
         let tap = UITapGestureRecognizer.init(target: self, action: #selector(tapClick))
-        addGestureRecognizer(tap)
+        contentView.addGestureRecognizer(tap)
     }
     
     @objc private func tapClick() {
-        self.clickVideoCallBack?()
+        self.clickVideoCallBack?(contentView)
     }
     
     func clickCallBack(_ block:@escaping ClickVideoCallBack) {

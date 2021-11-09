@@ -10,14 +10,22 @@ import ActiveLabel
 
 protocol RPTopViewCellDelegate:NSObjectProtocol
 {
+    //点击链接
     func selectURLInTopic(_ cell:RPTopViewCell,url:String)
+    //展开与收起
     func expandTheTopic(_ cell:RPTopViewCell,indexPath:IndexPath)
+    //评论
     func commentTheTopic(_ cell:RPTopViewCell,indexPath:IndexPath)
+    //更新开放权限 - 仅针对自己发布的
     func updatePermission(_ cell:RPTopViewCell,indexPath:IndexPath)
+    //删除自己发布的
     func deleteTheTopic(_ cell:RPTopViewCell,indexPath:IndexPath)
+    //点赞
     func likeTheTopic(_ cell:RPTopViewCell,indexPath:IndexPath)
+    //查看定位信息
     func locationClickInTheTopic(_ cell:RPTopViewCell,indexPath:IndexPath)
-    func photoListClickInTheTopic(_ cell:RPTopViewCell,indexPath:IndexPath,index:Int)
+    //图片视频浏览
+    func photoListClickInTheTopic(_ cell:RPTopViewCell,indexPath:IndexPath,index:Int,extraData:[UIView])
 }
 
 class RPTopViewCell: UITableViewCell {
@@ -155,9 +163,9 @@ class RPTopViewCell: UITableViewCell {
             }
             photoListView?.itemSize = model.photoCellSize
             photoListView?.dataArray = model.images
-            photoListView?.callBack({ (indexPath, currView) in
+            photoListView?.callBack({ (indexPath, views) in
                 if (self.delegate != nil) {
-                    self.delegate?.photoListClickInTheTopic(self, indexPath: self.indexPath, index: indexPath.item)
+                    self.delegate?.photoListClickInTheTopic(self, indexPath: self.indexPath, index: indexPath.item, extraData: views)
                 }
             })
             break
@@ -188,11 +196,11 @@ class RPTopViewCell: UITableViewCell {
             }
             videoView?.itemSize = model.photoCellSize
             videoView?.path = URL.init(string: model.video.videoPath)
-            videoView?.clickVideoCallBack = {
+            videoView?.clickCallBack({ (view) in
                 if (self.delegate != nil) {
-                    self.delegate?.photoListClickInTheTopic(self, indexPath: self.indexPath, index: 0)
+                    self.delegate?.photoListClickInTheTopic(self, indexPath: self.indexPath, index: 0, extraData: [view])
                 }
-            }
+            })
             break
         }
     }

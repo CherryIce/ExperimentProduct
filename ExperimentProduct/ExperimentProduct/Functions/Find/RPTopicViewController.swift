@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import JXPhotoBrowser
 
 class RPTopicViewController: RPBaseViewController {
     private lazy var viewModel = RPTopicViewModel()
@@ -64,8 +65,30 @@ extension RPTopicViewController:UITableViewDelegate,UITableViewDataSource {
 }
 
 extension RPTopicViewController : RPTopViewCellDelegate {
-    func photoListClickInTheTopic(_ cell: RPTopViewCell, indexPath: IndexPath, index: Int) {
-        
+    func photoListClickInTheTopic(_ cell: RPTopViewCell, indexPath: IndexPath, index: Int, extraData: [UIView]) {
+        //视频需要做自定义处理 - later
+        let model = self.dataArray[indexPath.row] as! RPTopicModel
+        let browser = JXPhotoBrowser()
+        browser.numberOfItems = {
+            model.type == .pictures ? model.images.count : 1
+        }
+        browser.reloadCellAtIndex = { context in
+            var url = model.video.converUrl
+            if model.type == .pictures {
+                let imgModel = model.images[context.index]
+                url = imgModel.url
+            }
+            let browserCell = context.cell as? JXPhotoBrowserImageCell
+            browserCell?.index = context.index
+            let placeholder = RPTools.snapshot(extraData[context.index])
+            browserCell?.imageView.setImageWithURL(url, placeholder: placeholder ?? UIImage.init())
+        }
+        browser.transitionAnimator = JXPhotoBrowserZoomAnimator(previousView: { index -> UIView? in
+            return extraData[index]
+        })
+        browser.pageIndex = index
+        browser.pageIndicator = JXPhotoBrowserDefaultPageIndicator()
+        browser.show()
     }
     
     func selectURLInTopic(_ cell: RPTopViewCell, url: String) {
