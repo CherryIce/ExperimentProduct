@@ -156,7 +156,11 @@ extension RPCollectionViewAdapter:UICollectionViewDelegate,UICollectionViewDataS
 }
 
 extension RPCollectionViewAdapter: RPListViewCellEventDelegate {
-    
+    func cellSubviewsClickAction(_ indexPath: IndexPath, cellData: AnyObject?) {
+        if c_delegate != nil{
+            c_delegate?.cellSubviewsClickAction(indexPath, cellData: cellData)
+        }
+    }
 }
 
 class RPCollectionViewSectionItem: NSObject {
@@ -184,8 +188,6 @@ class RPCollectionViewCellItem: NSObject {
     var cellClass = UICollectionViewCell.self
     //cell对应的数据
     var cellData = NSObject()
-    //cell上的操作事件合集
-    var cellEventActions = [Selector]()
     //size
     var cellSize = CGSize()
 }

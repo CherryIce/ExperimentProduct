@@ -14,11 +14,14 @@ class RPYaViewModel: NSObject {
                    failed:(_ error: NSError)->()) {
         //没有模拟数据 所以全是成功
         let item = RPTableViewSectionItem.init()
-        for i in 0...10 {
+        let tt = ["表格适配器","🐰", "秃子", "鹰酱", "毛熊", "棒子", "脚盆鸡", "高卢鸡", "狗大户", "🐫", "沙某", "河马"]
+        for i in tt {
+            let model = RPYaModel.init()
+            model.title = i
             let cellItem = RPTableViewCellItem.init()
             cellItem.cellClass = RPYaCell.self
             cellItem.cellh = 60
-            cellItem.cellData = ["表格适配器","🐰", "秃子", "鹰酱", "毛熊", "棒子", "脚盆鸡", "高卢鸡", "狗大户", "🐫", "沙某", "河马"][i] as NSObject
+            cellItem.cellData = model
             item.cellDatas.append(cellItem)
         }
         success([item])

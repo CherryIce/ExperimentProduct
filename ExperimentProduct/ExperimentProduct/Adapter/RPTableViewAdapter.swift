@@ -23,11 +23,13 @@ extension RPListViewSectionEventDelegate {
 protocol RPListViewCellEventDelegate:NSObjectProtocol
 {
     func didSelectListView(_ listView: UIScrollView,indexPath:IndexPath,sectionData:AnyObject?,cellData:AnyObject?)
+    func cellSubviewsClickAction(_ indexPath:IndexPath,cellData:AnyObject?)
 }
 
 //将协议里的可选方法放这里实现一遍就行了
 extension RPListViewCellEventDelegate {
     func didSelectListView(_ listView: UIScrollView,indexPath:IndexPath,sectionData:AnyObject?,cellData:AnyObject?) {}
+    func cellSubviewsClickAction(_ indexPath:IndexPath,cellData:AnyObject?){}
 }
 
 //构建数据类型协议
@@ -84,7 +86,7 @@ class RPTableViewAdapter: NSObject {
     }
 }
 
-extension RPTableViewAdapter:UITableViewDelegate,UITableViewDataSource,RPListViewCellEventDelegate {
+extension RPTableViewAdapter:UITableViewDelegate,UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return dataSourceArray.count
@@ -116,14 +118,9 @@ extension RPTableViewAdapter:UITableViewDelegate,UITableViewDataSource,RPListVie
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let sectionItem = dataSourceArray[section]
         if sectionItem.sectionHeaderH > 0 {
-//            let customClass = String(describing:sectionItem.sectionHeaderView)
-//            var v = type(of: NSClassFromString(customClass)).init()
-//            if v is RPFindSectionHeaderView {
-//                v = RPFindSectionHeaderView.init()
-//                v.datas = sectionItem.sectionHeaderData as! [String]
-//            }
-//            let v = RPFindSectionHeaderView.init()
-//            v.datas = 
+            //头部不能自定义的话 那就用协议好了
+//            let v = sectionItem.sectionHeaderView.init()
+//            (v as! RPListCellDataDelegate).setSectionData(sectionData: sectionItem.sectionHeaderData, delegate: self, section: section)
 //            return v
         }
         return UIView.init()
@@ -149,6 +146,13 @@ extension RPTableViewAdapter:UITableViewDelegate,UITableViewDataSource,RPListVie
     }
 }
 
+extension RPTableViewAdapter: RPListViewCellEventDelegate,RPListViewSectionEventDelegate {
+    func cellSubviewsClickAction(_ indexPath: IndexPath, cellData: AnyObject?) {
+        if c_delegate != nil{
+            c_delegate?.cellSubviewsClickAction(indexPath, cellData: cellData)
+        }
+    }
+}
 
 class RPTableViewSectionItem: NSObject {
     //cell数据
@@ -175,8 +179,6 @@ class RPTableViewCellItem: NSObject {
     var cellClass = UITableViewCell.self
     //cell对应的数据
     var cellData = NSObject()
-    //cell上的操作事件合集
-    var cellEventActions = [Selector]()
     //行高
     var cellh = CGFloat()
 }

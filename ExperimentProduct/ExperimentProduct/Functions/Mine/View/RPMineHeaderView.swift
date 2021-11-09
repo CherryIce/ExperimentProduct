@@ -19,7 +19,8 @@ class RPMineHeaderView: UIView {
         super.init(frame: frame)
         
         headImageButton = UIButton.init(type: .custom)
-        headImageButton.backgroundColor = .red
+        headImageButton.backgroundColor = RPColor.ShallowColor
+        headImageButton.layercornerRadius(cornerRadius: 5)
         self.addSubview(headImageButton)
         
         userNameLabel = UILabel.init()

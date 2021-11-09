@@ -13,7 +13,7 @@ class RPMineViewController: RPBaseViewController {
     private let disposeBag = DisposeBag()
     private var adapter = RPTableViewAdapter()
     private var dataList: NSMutableArray = []
-    private lazy var viewModel = RPYaViewModel()
+    private lazy var viewModel = RPMineViewModel()
     
     //头部视图
     lazy var headerView = RPMineHeaderView()
@@ -30,6 +30,8 @@ class RPMineViewController: RPBaseViewController {
         loadData()
         
         self.tableView.tableHeaderView = headerView
+        headerView.userNameLabel.text = "userName"
+        headerView.descrLabel.text = "descrInfo"
     }
     
     func creatHeaderView () {
@@ -137,7 +139,7 @@ class RPMineViewController: RPBaseViewController {
     
     //请求数据
     func loadData () {
-        viewModel.getYaData(params: NSDictionary.init()) { (datas) in
+        viewModel.getMeData(params: NSDictionary.init()) { (datas) in
             dataList.addObjects(from: datas as! [Any])
             adapter.dataSourceArray = dataList as! [RPTableViewSectionItem]
             tableView.reloadData()
@@ -161,7 +163,36 @@ extension RPMineViewController:UUTakePhotoDelegate {
 
 extension RPMineViewController : RPListViewCellEventDelegate {
     func didSelectListView(_ listView: UIScrollView,indexPath:IndexPath,sectionData:AnyObject?,cellData:AnyObject?) {
+        let xx = cellData as! RPTableViewCellItem
+        let model = xx.cellData as! RPYaModel
+        let normalSelector = NSSelectorFromString(model.clickAction)
+        if (self.responds(to: normalSelector)) {
+            self.perform(normalSelector)
+        }
+    }
+    
+    func cellSubviewsClickAction(_ indexPath: IndexPath, cellData: AnyObject?) {
+        let model = cellData as! RPYaModel
+        let normalSelector = NSSelectorFromString(model.imgClickAction)
+        if (self.responds(to: normalSelector)) {
+            self.perform(normalSelector)
+        }
+    }
+    
+    @objc func payAction() {
+        self.navigationController?.pushViewController(RPWalletViewController.init(), animated: true)
+    }
+    
+    @objc func collectAction() {
+        self.navigationController?.pushViewController(RPCollectViewController.init(), animated: true)
+    }
+    
+    @objc func activityAction() {
         self.navigationController?.pushViewController(RPNewsViewController.init(), animated: true)
+    }
+    
+    @objc func setupAction() {
+        self.navigationController?.pushViewController(RPSetupViewController.init(), animated: true)
     }
 }
 

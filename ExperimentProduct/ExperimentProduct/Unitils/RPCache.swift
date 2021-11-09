@@ -36,7 +36,25 @@ class RPCache: NSObject {
     }
     
     func removeAllCache() {
+        //unable to close due to unfinalized statements or unfinished backups
         self.cache?.removeAllObjects()
         KTVHTTPCache.cacheDeleteAllCaches()
+    }
+    
+    func calculateCacheSize() -> String? {
+        let yy_diskCache = self.cache?.diskCache.totalCost()
+        let ktv_cache = KTVHTTPCache.cacheTotalCacheLength()
+        let total:Float = Float(Float(yy_diskCache ?? 0)+Float(ktv_cache))
+        var sizeText:String?
+        if total >= pow(10, 9) {
+            sizeText = String(format: "%.2fGB", total / pow(10, 9))
+        } else if (total >= pow(10, 6)) {
+            sizeText = String(format: "%.2fMB", total / pow(10, 6))
+        }else if (total >= pow(10, 3)) {
+            sizeText = String(format: "%.2fKB", total / pow(10, 3))
+        }else{
+            sizeText = String(format: "%lluB", total)
+        }
+        return sizeText
     }
 }
