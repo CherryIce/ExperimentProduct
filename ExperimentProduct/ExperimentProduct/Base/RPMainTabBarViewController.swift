@@ -17,10 +17,10 @@ class RPMainTabBarViewController: UITabBarController {
         self.tabBar.backgroundImage = UIImage(color: .white)
         self.tabBar.shadowImage = UIImage.init()
         self.tabBar.isTranslucent = false
-        if #available(iOS 13.0, *) {
-            let dict = {[NSAttributedString.Key.foregroundColor:UIColor.init(hexString: "#13227a")]}()
-            let tabBarAppearance = UITabBarAppearance.init()
-            tabBarAppearance.stackedLayoutAppearance.selected.titleTextAttributes = dict
+        
+//        self.tabBar.tintColor = UIColor.init(hexString: "#13227a")
+        if #available(iOS 10.0, *) {
+            self.tabBar.unselectedItemTintColor = .lightGray
         }
     }
     
