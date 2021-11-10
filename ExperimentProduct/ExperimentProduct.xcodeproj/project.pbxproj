@@ -36,6 +36,11 @@
 		4A3A9FD4271962D600C032C8 /* RPYaCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3A9FD3271962D600C032C8 /* RPYaCell.swift */; };
 		4A3A9FFD271982C700C032C8 /* RPPostersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3A9FFC271982C700C032C8 /* RPPostersViewController.swift */; };
 		4A3AA005271984E700C032C8 /* RPCollectionViewAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3AA004271984E700C032C8 /* RPCollectionViewAdapter.swift */; };
+		4A461A68273B9E6000BA422F /* RPPersonInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A461A67273B9E6000BA422F /* RPPersonInfoViewController.swift */; };
+		4A461A6D273BA3D800BA422F /* RProvincesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A461A6C273BA3D800BA422F /* RProvincesModel.swift */; };
+		4A461A72273BB09500BA422F /* RPPersonInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A461A71273BB09500BA422F /* RPPersonInfoViewModel.swift */; };
+		4A461A77273BB2EE00BA422F /* RPSelectCityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A461A76273BB2EE00BA422F /* RPSelectCityViewController.swift */; };
+		4A461A7C273BD10000BA422F /* RPLookPictureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A461A7B273BD10000BA422F /* RPLookPictureViewController.swift */; };
 		4A4662F12738B1E900FC8FFC /* RPTopicPhotoListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4662F02738B1E900FC8FFC /* RPTopicPhotoListView.swift */; };
 		4A4662F62738B21C00FC8FFC /* RPTopicVideoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4662F52738B21C00FC8FFC /* RPTopicVideoView.swift */; };
 		4A4662FB2738B23800FC8FFC /* RPTopicArtcleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4662FA2738B23800FC8FFC /* RPTopicArtcleView.swift */; };
@@ -195,6 +200,11 @@
 		4A3A9FD3271962D600C032C8 /* RPYaCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPYaCell.swift; sourceTree = "<group>"; };
 		4A3A9FFC271982C700C032C8 /* RPPostersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPPostersViewController.swift; sourceTree = "<group>"; };
 		4A3AA004271984E700C032C8 /* RPCollectionViewAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPCollectionViewAdapter.swift; sourceTree = "<group>"; };
+		4A461A67273B9E6000BA422F /* RPPersonInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPPersonInfoViewController.swift; sourceTree = "<group>"; };
+		4A461A6C273BA3D800BA422F /* RProvincesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RProvincesModel.swift; sourceTree = "<group>"; };
+		4A461A71273BB09500BA422F /* RPPersonInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPPersonInfoViewModel.swift; sourceTree = "<group>"; };
+		4A461A76273BB2EE00BA422F /* RPSelectCityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPSelectCityViewController.swift; sourceTree = "<group>"; };
+		4A461A7B273BD10000BA422F /* RPLookPictureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPLookPictureViewController.swift; sourceTree = "<group>"; };
 		4A4662F02738B1E900FC8FFC /* RPTopicPhotoListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPTopicPhotoListView.swift; sourceTree = "<group>"; };
 		4A4662F52738B21C00FC8FFC /* RPTopicVideoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPTopicVideoView.swift; sourceTree = "<group>"; };
 		4A4662FA2738B23800FC8FFC /* RPTopicArtcleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPTopicArtcleView.swift; sourceTree = "<group>"; };
@@ -663,6 +673,9 @@
 				4A7EDB6226F5E0AF00C8FC55 /* Model */,
 				4A7EDB0226F5CB7D00C8FC55 /* View */,
 				4A547C5B26F485A5005F00B5 /* RPMineViewController.swift */,
+				4A461A67273B9E6000BA422F /* RPPersonInfoViewController.swift */,
+				4A461A7B273BD10000BA422F /* RPLookPictureViewController.swift */,
+				4A461A76273BB2EE00BA422F /* RPSelectCityViewController.swift */,
 				4A758D57273A570B001B204D /* RPWalletViewController.swift */,
 				4A758D5C273A5730001B204D /* RPCollectViewController.swift */,
 				4A976CDB27293975008DF042 /* RPNewsViewController.swift */,
@@ -683,6 +696,7 @@
 			isa = PBXGroup;
 			children = (
 				4A7EDB6C26F5E2C800C8FC55 /* RPUserInfoModel.swift */,
+				4A461A6C273BA3D800BA422F /* RProvincesModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -692,6 +706,7 @@
 			children = (
 				4A7EDB6426F5E2B300C8FC55 /* RPUserInfoViewModel.swift */,
 				4A758D4D273A2BC5001B204D /* RPMineViewModel.swift */,
+				4A461A71273BB09500BA422F /* RPPersonInfoViewModel.swift */,
 				4A758D66273A607B001B204D /* RPSetupViewModel.swift */,
 			);
 			path = ViewModel;
@@ -1088,6 +1103,7 @@
 				4A758D58273A570B001B204D /* RPWalletViewController.swift in Sources */,
 				4A976CE127293C1F008DF042 /* RPActionSheetController.swift in Sources */,
 				4A4662F62738B21C00FC8FFC /* RPTopicVideoView.swift in Sources */,
+				4A461A77273BB2EE00BA422F /* RPSelectCityViewController.swift in Sources */,
 				4A547C7226F48D19005F00B5 /* RPColor.swift in Sources */,
 				4A976C402727F655008DF042 /* RPPermissions.swift in Sources */,
 				558D3567271AA90000E03B5F /* RPPosterViewModel.swift in Sources */,
@@ -1123,6 +1139,7 @@
 				4A8F23EE271FFEA600A249B6 /* NVActivityIndicatorAnimationLineScalePulseOutRapid.swift in Sources */,
 				4A596A42272BCF1E003ECB14 /* RPSortViewController.swift in Sources */,
 				4A4B72F5272A7C9800821756 /* RPAlertViewController.swift in Sources */,
+				4A461A6D273BA3D800BA422F /* RProvincesModel.swift in Sources */,
 				4A596A3A272BCA0D003ECB14 /* RPNiceCollectionViewLayout.swift in Sources */,
 				4A547C8226F49739005F00B5 /* ImageVIewExtension.swift in Sources */,
 				4A7EDB6526F5E2B300C8FC55 /* RPUserInfoViewModel.swift in Sources */,
@@ -1134,6 +1151,8 @@
 				558D359E271B25B800E03B5F /* RPNewsLinkCell.swift in Sources */,
 				4A3A9FBF27182B8000C032C8 /* RPOrignalLoginViewController.swift in Sources */,
 				4A3A9F8E2717CF0B00C032C8 /* HoshiTextField.swift in Sources */,
+				4A461A7C273BD10000BA422F /* RPLookPictureViewController.swift in Sources */,
+				4A461A68273B9E6000BA422F /* RPPersonInfoViewController.swift in Sources */,
 				4A37EE912734CEA600E1F288 /* RPTopViewCell.swift in Sources */,
 				4A3A5CB72732760200F5E2ED /* RPVideoDynamicCell.swift in Sources */,
 				4A8F23CE271FFEA600A249B6 /* NVActivityIndicatorAnimationDelegate.swift in Sources */,
@@ -1179,6 +1198,7 @@
 				4A547C8126F49739005F00B5 /* ImageHelper.swift in Sources */,
 				4A37EE9F2734E1AF00E1F288 /* RPTopicViewModel.swift in Sources */,
 				4A7EDB0726F5CECA00C8FC55 /* RPMineHeaderView.swift in Sources */,
+				4A461A72273BB09500BA422F /* RPPersonInfoViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

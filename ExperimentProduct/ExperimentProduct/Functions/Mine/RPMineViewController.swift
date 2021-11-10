@@ -38,83 +38,8 @@ class RPMineViewController: RPBaseViewController {
         headerView = RPMineHeaderView.init(frame: CGRect.init(x: .zero, y: .zero, width: SCREEN_WIDTH, height: RPTools.IS_IPHONEX ? 170 : 150))
         
         headerView.headImageButton.rx.tap.bind {
-            self.doImage()
+            self.navigationController?.pushViewController(RPPersonInfoViewController.init(), animated: true)
         }.disposed(by: disposeBag)
-    }
-    
-    func doImage() {
-        let camera = RPActionSheetCellItem.init(title: "拍照")
-        let photoLibary = RPActionSheetCellItem.init(title: "从相册中选")
-        let alertC = RPActionSheetController.init(title:nil,
-                                                  message:nil,
-                                                  dataArray:[[camera,photoLibary],
-                                                             [RPActionSheetCellItem.cancel()]]) { (indexPath) in
-            DispatchQueue.main.async {
-                if indexPath.section == 0 {
-                    if indexPath.row == 0 {
-                        self.requestCameraPermission()
-                    }else{
-                        self.requestPhotoPermission()
-                    }
-                }
-            }
-        }
-        self.present(alertC, animated: true,completion: nil)
-    }
-    
-    //请求相机权限
-    func requestCameraPermission() {
-        RPPermissions.request(.camera) { (status) in
-            switch status {
-            case .unknown,.restricted,.denied:
-                //去设置
-                break
-            case .notDetermined:
-                self.requestCameraPermission()
-                break
-            case .authorized,.provisional:
-                if UIImagePickerController.isSourceTypeAvailable(.camera) {
-                    let imagePicker = UUTakePhoto.init()
-                    imagePicker.showImagePickerWithType(.camera, viewController: self,needEditing:false)
-                }else{
-                    log.debug("未检测到使用设备")
-                }
-                break
-            case .noSupport:
-                //设备不支持
-                self.navigationController?.view.makeToast("设备不支持",
-                                                          duration: 3.0,
-                                                          position: .top,
-                                                          style: RPTools.RPToastStyle)
-                break
-            }
-        }
-    }
-    
-    //请求相册权限
-    func requestPhotoPermission() {
-        RPPermissions.request(.photoLibrary) { (status) in
-            switch status {
-            case .unknown,.restricted,.denied:
-                //去设置
-                break
-            case .notDetermined:
-                self.requestCameraPermission()
-                break
-            case .authorized,.provisional:
-                let imagePicker = UUTakePhoto.shared
-                imagePicker.delegate = self
-                imagePicker.showImagePickerWithType(.photoLibrary, viewController: self,needEditing:true)
-                break
-            case .noSupport:
-                //设备不支持
-                self.navigationController?.view.makeToast("设备不支持",
-                                                          duration: 3.0,
-                                                          position: .top,
-                                                          style: RPTools.RPToastStyle)
-                break
-            }
-        }
     }
     
     //UI
@@ -146,18 +71,6 @@ class RPMineViewController: RPBaseViewController {
         } failed: { (error) in
             log.error("请求失败了")
         }
-    }
-}
-
-extension RPMineViewController:UUTakePhotoDelegate {
-    func imagePicker(_ imagePicker: UUTakePhoto, didFinished editedImage: UIImage?) {
-        DispatchQueue.main.async {
-            self.headerView.headImageButton.setBackgroundImage(editedImage!, for: .normal)
-        }
-    }
-    
-    func imagePickerDidCancel(_ imagePicker: UUTakePhoto) {
-        log.alert("cancel")
     }
 }
 

@@ -49,7 +49,7 @@ class RPLaunchAdManager: NSObject {
         //        //网络请求加缓存
         //        RPNetWorkManager.shared.provider.request(.adLaunch) { (respone) in
         //
-        //        };
+        //        }
         imgV.imageFromURL("https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fimg1.doubanio.com%2Fview%2Frichtext%2Flarge%2Fpublic%2Fp122617578.jpg&refer=http%3A%2F%2Fimg1.doubanio.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1637733990&t=44048b827eb4c729ce27ecd49539d78c", placeholder: imgV.imageFromLaunchScreen()!, fadeIn: true, shouldCacheImage: false) { (image) in
             if image == nil {
                 RPCache.shared.cache?.removeObject(forKey: kADLaunchCacheKey)

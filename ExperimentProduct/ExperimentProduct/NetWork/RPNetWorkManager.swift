@@ -61,6 +61,7 @@ enum NewsMoya {
     case register(moblie:String,code:String)
     case forgetPassword(moblie:String,code:String,newpassword:String)
     case adLaunch
+    case provinces
 }
 
 
@@ -74,6 +75,8 @@ extension NewsMoya: TargetType {
             return URL(string: "https://c.m.163.com")!
         case .adLaunch:
             return URL(string: "https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fimg1.doubanio.com%2Fview%2Frichtext%2Flarge%2Fpublic%2Fp122617578.jpg&refer=http%3A%2F%2Fimg1.doubanio.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1637733990&t=44048b827eb4c729ce27ecd49539d78c")!
+        case .provinces:
+            return URL(string: "https://code.aliyun.com/hi31588535/outside_chain/raw/master/ssq.json")!
         }
     }
     
@@ -89,13 +92,15 @@ extension NewsMoya: TargetType {
             return ""
         case .adLaunch:
             return""
+        case .provinces:
+            return""
         }
         
     }
     
     var method: HTTPMethod {
         switch self {
-        case .news(_),.adLaunch:return .get
+        case .news(_),.adLaunch,.provinces:return .get
         case .login(moblie: _, password: _),
              .register(moblie: _, code:  _),
              .forgetPassword(moblie: _, code: _, newpassword: _):
@@ -124,7 +129,7 @@ extension NewsMoya: TargetType {
         case .forgetPassword(moblie: let moblie, code: let code, newpassword: let newpassword):
             let paramters = ["moblie":moblie,"code":code,"newpassword":newpassword]
             return.requestParameters(parameters: paramters, encoding:URLEncoding.default )
-        case.adLaunch:
+        case.adLaunch,.provinces:
             return .requestPlain
         }
         
