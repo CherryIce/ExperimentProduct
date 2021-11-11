@@ -9,11 +9,28 @@ import UIKit
 
 class RPLookPictureViewController: RPBaseViewController {
 
+    private lazy var imgV = UIImageView()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem.init(title: "---", style: .done, target: self, action: #selector(doImage))
+        self.navigationItem.title = "大头贴"
         self.view.backgroundColor = .black
+        creatUI()
+    }
+    
+    func creatUI() {
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem.init(image: RPTools.getPngImage(forResource: "more@2x").withRenderingMode(.alwaysOriginal), style: .plain, target: self, action: #selector(doImage))
+        
+        imgV = UIImageView.init()
+        self.view.addSubview(imgV)
+        
+        imgV.snp.makeConstraints { (make) in
+            make.width.height.equalTo(SCREEN_WIDTH)
+            make.center.equalToSuperview()
+        }
+        
+        imgV.image = RPImage.init(color: RPColor.ShallowColor)
     }
     
     //选择照片还是拍照片
@@ -99,7 +116,6 @@ class RPLookPictureViewController: RPBaseViewController {
         //字体颜色
         let dict = {[NSAttributedString.Key.foregroundColor:UIColor.white,NSAttributedString.Key.font:UIFont.systemFont(ofSize: 16)]}()
         self.navigationController?.navigationBar.titleTextAttributes = dict
-        self.navigationController?.navigationBar.barStyle = .black
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -108,7 +124,11 @@ class RPLookPictureViewController: RPBaseViewController {
         //字体颜色
         let dict = {[NSAttributedString.Key.foregroundColor:RPColor.black,NSAttributedString.Key.font:UIFont.systemFont(ofSize: 16)]}()
         self.navigationController?.navigationBar.titleTextAttributes = dict
-        self.navigationController?.navigationBar.barStyle = .default
+    }
+    
+    //状态栏字体白色 配合infoplist:View controller-based status bar appearance
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
     }
     
 }

@@ -65,7 +65,10 @@ extension RPSetupViewController : RPListViewCellEventDelegate {
     }
     
     @objc func feedbackAction() {
-        
+        let fb = RPFeedBackViewController.init()
+        fb.type = .feedback
+        fb.navigationItem.title = "反馈建议"
+        self.navigationController?.pushViewController(fb, animated: true)
     }
     
     @objc func privcyAction() {

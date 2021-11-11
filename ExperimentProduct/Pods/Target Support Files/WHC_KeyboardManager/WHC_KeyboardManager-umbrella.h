@@ -11,6 +11,6 @@
 #endif
 
 
-FOUNDATION_EXPORT double IQKeyboardManagerSwiftVersionNumber;
-FOUNDATION_EXPORT const unsigned char IQKeyboardManagerSwiftVersionString[];
+FOUNDATION_EXPORT double WHC_KeyboardManagerVersionNumber;
+FOUNDATION_EXPORT const unsigned char WHC_KeyboardManagerVersionString[];
 

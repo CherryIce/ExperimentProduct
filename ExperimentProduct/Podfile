@@ -20,10 +20,6 @@ pod 'RxDataSources', '~> 3.0'  # RxSwift中用于设置UITableView/UICollectionV
 pod 'SwiftyJSON'
 pod 'HandyJSON'
 
-# json对象映射为model对象
-#pod 'Argo'
-#pod 'ObjectMapper'
-
 # 自动布局框架
 pod 'SnapKit'
 
@@ -70,6 +66,9 @@ pod 'ActiveLabel'
 #pod 'TextFieldEffects'
 #pod 'SkyFloatingLabelTextField'
 
+# TextView
+#pod 'NextGrowingTextView'
+
 # 日志
 pod 'XCGLogger'
 
@@ -77,8 +76,7 @@ pod 'XCGLogger'
 pod 'SwiftLint'
 
 # 键盘管理
-pod 'IQKeyboardManagerSwift'
-#pod 'WHC_KeyboardManager'
+pod 'WHC_KeyboardManager'
 
 # 空白页 对于tableHeaderView或则tableFooterView处理不到位
 # pod 'EmptyKit'

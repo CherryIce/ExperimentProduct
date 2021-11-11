@@ -5,7 +5,6 @@ PODS:
   - Differentiator (3.1.0)
   - ESPullToRefresh (2.9.3)
   - HandyJSON (5.0.2)
-  - IQKeyboardManagerSwift (6.5.6)
   - JPImageresizerView (1.9.4)
   - JXPhotoBrowser (3.1.3)
   - KTVCocoaHTTPServer (1.0.0):
@@ -35,6 +34,7 @@ PODS:
   - TABAnimated (2.6.2)
   - TYPagerController (2.1.2)
   - TZImagePickerController (3.6.6)
+  - WHC_KeyboardManager (1.3.0)
   - XCGLogger (7.0.1):
     - XCGLogger/Core (= 7.0.1)
   - XCGLogger/Core (7.0.1):
@@ -45,7 +45,6 @@ DEPENDENCIES:
   - ActiveLabel
   - ESPullToRefresh
   - HandyJSON
-  - IQKeyboardManagerSwift
   - JPImageresizerView
   - JXPhotoBrowser
   - KTVHTTPCache (~> 2.0)
@@ -58,6 +57,7 @@ DEPENDENCIES:
   - TABAnimated
   - TYPagerController
   - TZImagePickerController
+  - WHC_KeyboardManager
   - XCGLogger
   - YYCache
 
@@ -69,7 +69,6 @@ SPEC REPOS:
     - Differentiator
     - ESPullToRefresh
     - HandyJSON
-    - IQKeyboardManagerSwift
     - JPImageresizerView
     - JXPhotoBrowser
     - KTVCocoaHTTPServer
@@ -86,6 +85,7 @@ SPEC REPOS:
     - TABAnimated
     - TYPagerController
     - TZImagePickerController
+    - WHC_KeyboardManager
     - XCGLogger
     - YYCache
 
@@ -96,7 +96,6 @@ SPEC CHECKSUMS:
   Differentiator: be49ca3408f0ecfc761e4c7763d20c62be01b9ad
   ESPullToRefresh: 0d68daa602b343c81753a1b95e09fd0bfcddfd40
   HandyJSON: 9e4e236f5d2dbefad5155a77417bbea438201c03
-  IQKeyboardManagerSwift: c7df9d2deb356c04522f5c4b7b6e4ce4d8ed94fe
   JPImageresizerView: 6d8ddd0569f15be391e619da82d40af31266b34c
   JXPhotoBrowser: d32e94e1226d43bf5ed83164e3f5b651fed625e0
   KTVCocoaHTTPServer: df8d7b861e603ff8037e9b2138aca2563a6b768d
@@ -113,9 +112,10 @@ SPEC CHECKSUMS:
   TABAnimated: 55d2ec5370f9211fc127c94079e2a1b54af27409
   TYPagerController: 262556ecef99986d26ed77fb1288a198ed42f4af
   TZImagePickerController: edf61b8e87f26e3e445aa50eb66254bd7f4859db
+  WHC_KeyboardManager: feb58d9e4ed1c5f4bd8986c7904e7b23c3c246b9
   XCGLogger: 1943831ef907df55108b0b18657953f868de973b
   YYCache: 8105b6638f5e849296c71f331ff83891a4942952
 
-PODFILE CHECKSUM: cec928e3290e5210aa21e2efe919473b3ffdc431
+PODFILE CHECKSUM: 4c71342547a0a1ce8ab6c4e3d504543ffb22c115
 
 COCOAPODS: 1.11.2

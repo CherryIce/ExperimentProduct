@@ -41,6 +41,13 @@
 		4A461A72273BB09500BA422F /* RPPersonInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A461A71273BB09500BA422F /* RPPersonInfoViewModel.swift */; };
 		4A461A77273BB2EE00BA422F /* RPSelectCityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A461A76273BB2EE00BA422F /* RPSelectCityViewController.swift */; };
 		4A461A7C273BD10000BA422F /* RPLookPictureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A461A7B273BD10000BA422F /* RPLookPictureViewController.swift */; };
+		4A461A89273CB60800BA422F /* more@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A461A88273CB60800BA422F /* more@2x.png */; };
+		4A461A97273CB94300BA422F /* RPMyQRCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A461A95273CB94300BA422F /* RPMyQRCodeViewController.swift */; };
+		4A461A98273CB94300BA422F /* RPMyQRCodeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4A461A96273CB94300BA422F /* RPMyQRCodeViewController.xib */; };
+		4A461AA1273CC3D900BA422F /* RPUpdateNickNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A461AA0273CC3D900BA422F /* RPUpdateNickNameViewController.swift */; };
+		4A461AD2273CE98600BA422F /* NextGrowingInternalTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A461AD0273CE98500BA422F /* NextGrowingInternalTextView.swift */; };
+		4A461AD3273CE98600BA422F /* NextGrowingTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A461AD1273CE98500BA422F /* NextGrowingTextView.swift */; };
+		4A461B01273CEC2A00BA422F /* RPFeedBackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A461B00273CEC2A00BA422F /* RPFeedBackViewController.swift */; };
 		4A4662F12738B1E900FC8FFC /* RPTopicPhotoListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4662F02738B1E900FC8FFC /* RPTopicPhotoListView.swift */; };
 		4A4662F62738B21C00FC8FFC /* RPTopicVideoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4662F52738B21C00FC8FFC /* RPTopicVideoView.swift */; };
 		4A4662FB2738B23800FC8FFC /* RPTopicArtcleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4662FA2738B23800FC8FFC /* RPTopicArtcleView.swift */; };
@@ -205,6 +212,13 @@
 		4A461A71273BB09500BA422F /* RPPersonInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPPersonInfoViewModel.swift; sourceTree = "<group>"; };
 		4A461A76273BB2EE00BA422F /* RPSelectCityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPSelectCityViewController.swift; sourceTree = "<group>"; };
 		4A461A7B273BD10000BA422F /* RPLookPictureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPLookPictureViewController.swift; sourceTree = "<group>"; };
+		4A461A88273CB60800BA422F /* more@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "more@2x.png"; sourceTree = "<group>"; };
+		4A461A95273CB94300BA422F /* RPMyQRCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPMyQRCodeViewController.swift; sourceTree = "<group>"; };
+		4A461A96273CB94300BA422F /* RPMyQRCodeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RPMyQRCodeViewController.xib; sourceTree = "<group>"; };
+		4A461AA0273CC3D900BA422F /* RPUpdateNickNameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPUpdateNickNameViewController.swift; sourceTree = "<group>"; };
+		4A461AD0273CE98500BA422F /* NextGrowingInternalTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NextGrowingInternalTextView.swift; sourceTree = "<group>"; };
+		4A461AD1273CE98500BA422F /* NextGrowingTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NextGrowingTextView.swift; sourceTree = "<group>"; };
+		4A461B00273CEC2A00BA422F /* RPFeedBackViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPFeedBackViewController.swift; sourceTree = "<group>"; };
 		4A4662F02738B1E900FC8FFC /* RPTopicPhotoListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPTopicPhotoListView.swift; sourceTree = "<group>"; };
 		4A4662F52738B21C00FC8FFC /* RPTopicVideoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPTopicVideoView.swift; sourceTree = "<group>"; };
 		4A4662FA2738B23800FC8FFC /* RPTopicArtcleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPTopicArtcleView.swift; sourceTree = "<group>"; };
@@ -449,6 +463,23 @@
 			path = views;
 			sourceTree = "<group>";
 		};
+		4A461A9C273CB94800BA422F /* Xib */ = {
+			isa = PBXGroup;
+			children = (
+				4A461A96273CB94300BA422F /* RPMyQRCodeViewController.xib */,
+			);
+			path = Xib;
+			sourceTree = "<group>";
+		};
+		4A461ACF273CE96700BA422F /* NextGrowingTextView */ = {
+			isa = PBXGroup;
+			children = (
+				4A461AD0273CE98500BA422F /* NextGrowingInternalTextView.swift */,
+				4A461AD1273CE98500BA422F /* NextGrowingTextView.swift */,
+			);
+			path = NextGrowingTextView;
+			sourceTree = "<group>";
+		};
 		4A4B72F2272A7C8100821756 /* Alert */ = {
 			isa = PBXGroup;
 			children = (
@@ -464,6 +495,7 @@
 		4A4B7301272AA8DF00821756 /* share */ = {
 			isa = PBXGroup;
 			children = (
+				4A461A88273CB60800BA422F /* more@2x.png */,
 				4A3A5C92273263D500F5E2ED /* back_white@2x.png */,
 				4A3A5C93273263D500F5E2ED /* share_white@2x.png */,
 				4A530BA32730E2B400DD495E /* share@2x.png */,
@@ -586,6 +618,7 @@
 		4A547C7D26F49718005F00B5 /* Thrid */ = {
 			isa = PBXGroup;
 			children = (
+				4A461ACF273CE96700BA422F /* NextGrowingTextView */,
 				4ADBEBF727337B2E00F73B6D /* CycleView */,
 				4A976CBA27290659008DF042 /* RPTakePhoto */,
 				4A0220D427216DA40045CA4B /* EmptyHelper */,
@@ -669,12 +702,16 @@
 		4A7EDB0126F5CB5C00C8FC55 /* Mine */ = {
 			isa = PBXGroup;
 			children = (
+				4A461A9C273CB94800BA422F /* Xib */,
 				4A7EDB6326F5E0B600C8FC55 /* ViewModel */,
 				4A7EDB6226F5E0AF00C8FC55 /* Model */,
 				4A7EDB0226F5CB7D00C8FC55 /* View */,
 				4A547C5B26F485A5005F00B5 /* RPMineViewController.swift */,
 				4A461A67273B9E6000BA422F /* RPPersonInfoViewController.swift */,
+				4A461AA0273CC3D900BA422F /* RPUpdateNickNameViewController.swift */,
+				4A461B00273CEC2A00BA422F /* RPFeedBackViewController.swift */,
 				4A461A7B273BD10000BA422F /* RPLookPictureViewController.swift */,
+				4A461A95273CB94300BA422F /* RPMyQRCodeViewController.swift */,
 				4A461A76273BB2EE00BA422F /* RPSelectCityViewController.swift */,
 				4A758D57273A570B001B204D /* RPWalletViewController.swift */,
 				4A758D5C273A5730001B204D /* RPCollectViewController.swift */,
@@ -1008,6 +1045,7 @@
 				4A547BDD26F44898005F00B5 /* Main.storyboard in Resources */,
 				4A5969E7272B8960003ECB14 /* wechat@2x.png in Resources */,
 				4A3A5C95273263D500F5E2ED /* share_white@2x.png in Resources */,
+				4A461A98273CB94300BA422F /* RPMyQRCodeViewController.xib in Resources */,
 				4A8F2241271FA7D800A249B6 /* home_nor@2x.png in Resources */,
 				4A4B72FD272A93A200821756 /* RPShareViewController.xib in Resources */,
 				554FE83F271BCFF7005E82C7 /* RPFindCardCell.xib in Resources */,
@@ -1019,6 +1057,7 @@
 				4A4B72F6272A7C9800821756 /* RPAlertViewController.xib in Resources */,
 				4A596A5B272BF00F003ECB14 /* RPNiceViewCell.xib in Resources */,
 				4A8F21EB271EBBED00A249B6 /* 002.png in Resources */,
+				4A461A89273CB60800BA422F /* more@2x.png in Resources */,
 				4A3A5CE727327EA600F5E2ED /* RPDynamicCommentCell.xib in Resources */,
 				4A8F2242271FA7D800A249B6 /* friend_nor@2x.png in Resources */,
 				558D3585271AE5CE00E03B5F /* RPFindNewsLinkCell.xib in Resources */,
@@ -1123,7 +1162,9 @@
 				4A3A5CC12732775000F5E2ED /* RPDynamicProtocol.swift in Sources */,
 				4A0220D927216DC10045CA4B /* HBEmpty+Extensions.swift in Sources */,
 				554FE83E271BCFF7005E82C7 /* RPFindCardCell.swift in Sources */,
+				4A461B01273CEC2A00BA422F /* RPFeedBackViewController.swift in Sources */,
 				4A4662F12738B1E900FC8FFC /* RPTopicPhotoListView.swift in Sources */,
+				4A461AD3273CE98600BA422F /* NextGrowingTextView.swift in Sources */,
 				4A8F23DD271FFEA600A249B6 /* NVActivityIndicatorAnimationBallClipRotatePulse.swift in Sources */,
 				4A547C5C26F485A5005F00B5 /* RPMineViewController.swift in Sources */,
 				4A37EE882734BF4200E1F288 /* RPTopicModel.swift in Sources */,
@@ -1149,6 +1190,7 @@
 				4A3A9FFD271982C700C032C8 /* RPPostersViewController.swift in Sources */,
 				4A8F23E3271FFEA600A249B6 /* NVActivityIndicatorAnimationAudioEqualizer.swift in Sources */,
 				558D359E271B25B800E03B5F /* RPNewsLinkCell.swift in Sources */,
+				4A461AD2273CE98600BA422F /* NextGrowingInternalTextView.swift in Sources */,
 				4A3A9FBF27182B8000C032C8 /* RPOrignalLoginViewController.swift in Sources */,
 				4A3A9F8E2717CF0B00C032C8 /* HoshiTextField.swift in Sources */,
 				4A461A7C273BD10000BA422F /* RPLookPictureViewController.swift in Sources */,
@@ -1190,9 +1232,11 @@
 				4A547C5726F48595005F00B5 /* RPFindViewController.swift in Sources */,
 				4A8F23D1271FFEA600A249B6 /* NVActivityIndicatorAnimationBallClipRotate.swift in Sources */,
 				4A8F23EB271FFEA600A249B6 /* NVActivityIndicatorAnimationCubeTransition.swift in Sources */,
+				4A461A97273CB94300BA422F /* RPMyQRCodeViewController.swift in Sources */,
 				558D3559271A9E4300E03B5F /* RPYaViewController.swift in Sources */,
 				4A8F23A0271FFDC500A249B6 /* RPRefreshHeader.swift in Sources */,
 				558D357E271ADBB400E03B5F /* RPFindModel.swift in Sources */,
+				4A461AA1273CC3D900BA422F /* RPUpdateNickNameViewController.swift in Sources */,
 				4A3AA005271984E700C032C8 /* RPCollectionViewAdapter.swift in Sources */,
 				4A8F2206271ECC0700A249B6 /* Toast.swift in Sources */,
 				4A547C8126F49739005F00B5 /* ImageHelper.swift in Sources */,

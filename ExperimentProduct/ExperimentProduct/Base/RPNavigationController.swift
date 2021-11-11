@@ -41,8 +41,12 @@ class RPNavigationController: UINavigationController ,UINavigationControllerDele
     override func pushViewController(_ viewController: UIViewController, animated: Bool) {
         if self.children.count > 0 {
             viewController.hidesBottomBarWhenPushed = true
+            var backImg = RPImage.NavBackImage
+            if viewController is RPLookPictureViewController {
+                backImg = RPTools.getPngImage(forResource: "back_white@2x")
+            }
             //添加图片
-            viewController.navigationItem.leftBarButtonItem = UIBarButtonItem.init(image: RPImage.NavBackImage.withRenderingMode(.alwaysOriginal), style: .plain, target: self, action: #selector(leftClick))
+            viewController.navigationItem.leftBarButtonItem = UIBarButtonItem.init(image: backImg.withRenderingMode(.alwaysOriginal), style: .plain, target: self, action: #selector(leftClick))
             //        //添加文字
             //        viewController.navigationItem.leftBarButtonItem = UIBarButtonItem.init(title: "返回", style: .plain, target: self, action: #selector(leftClick))
         }
