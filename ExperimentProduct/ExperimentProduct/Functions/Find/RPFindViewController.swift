@@ -132,9 +132,9 @@ extension RPFindViewController:UITableViewDelegate,UITableViewDataSource {
         v.backgroundColor = .white
         let btn = UIButton.init(type: .custom)
         btn.frame = v.bounds
+        btn.titleLabel?.font = .systemFont(ofSize: 14)
         btn.setTitle("查看更多", for: .normal)
-        btn.setTitleColor(RPColor.blue, for: .normal)
-        btn.titleLabel?.textAlignment = .center
+        btn.setTitleColor(.init(hexString: "#2697FF"), for: .normal)
         btn.addTarget(self, action: #selector(searchMore), for: .touchUpInside)
         v.addSubview(btn)
         return v

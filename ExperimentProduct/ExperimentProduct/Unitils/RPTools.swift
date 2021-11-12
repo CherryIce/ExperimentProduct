@@ -175,6 +175,11 @@ class RPTools: NSObject {
         let scaledImage: CGImage = bitmapRef.makeImage()!
         return UIImage(cgImage: scaledImage)
     }
+    
+    //获取当前版本
+    class func getVersion() -> String {
+        return Bundle.main.infoDictionary!["CFBundleShortVersionString"] as! String
+    }
 }
 
 extension UIView {
@@ -216,5 +221,61 @@ public extension String {
 
         result.deallocate()
         return hash as String
+    }
+}
+
+var codeTimer = DispatchSource.makeTimerSource(queue:DispatchQueue.global())
+extension UIButton {
+    //倒计时启动
+    func countDown(count: Int){
+        // 倒计时开始,禁止点击事件
+        isEnabled = false
+        var remainingCount: Int = count {
+            willSet {
+                setTitle("\(newValue)s", for: .normal)
+                if newValue <= 0 {
+                    setTitle("获取验证码", for: .normal)
+                }
+            }
+        }
+
+        if codeTimer.isCancelled {
+            codeTimer = DispatchSource.makeTimerSource(queue:DispatchQueue.global())
+        }
+
+        // 设定这个时间源是每秒循环一次，立即开始
+        codeTimer.schedule(deadline: .now(), repeating: .seconds(1))
+
+        // 设定时间源的触发事件
+        codeTimer.setEventHandler(handler: {
+            // 返回主线程处理一些事件，更新UI等等
+            DispatchQueue.main.async {
+                // 每秒计时一次
+                remainingCount -= 1
+                // 时间到了取消时间源
+                if remainingCount <= 0 {
+                    self.isEnabled = true
+                    codeTimer.cancel()
+                }
+            }
+        })
+        // 启动时间源
+        codeTimer.resume()
+    }
+
+    //取消倒计时
+    func countdownCancel() {
+        if !codeTimer.isCancelled {
+            codeTimer.cancel()
+        }
+
+        // 返回主线程
+        DispatchQueue.main.async {
+            self.isEnabled = true
+            if self.titleLabel?.text?.count != 0
+            {
+                self.setTitle("获取验证码", for: .normal)
+            }
+        }
     }
 }

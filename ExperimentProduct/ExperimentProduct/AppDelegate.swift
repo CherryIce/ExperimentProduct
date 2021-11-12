@@ -30,7 +30,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func jungleEnter() {
         let lastVersion = UserDefaults.standard.string(forKey: kLastVersionKey)
-        let currentVersion = Bundle.main.infoDictionary!["CFBundleShortVersionString"] as! String
+        let currentVersion = RPTools.getVersion()
         if lastVersion != currentVersion {
             window?.rootViewController = RPGuideViewController.init()
         }else{

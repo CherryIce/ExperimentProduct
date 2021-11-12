@@ -1,13 +1,13 @@
 //
-//  RPSetupViewController.swift
+//  RPAccountViewController.swift
 //  ExperimentProduct
 //
-//  Created by hubin on 2021/11/9.
+//  Created by hubin on 2021/11/12.
 //
 
 import UIKit
 
-class RPSetupViewController: RPBaseViewController {
+class RPAccountViewController: RPBaseViewController {
     
     private var tableView = UITableView()
     private var adapter = RPTableViewAdapter()
@@ -18,7 +18,7 @@ class RPSetupViewController: RPBaseViewController {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
-        self.navigationItem.title = "设置"
+        self.navigationItem.title = "账户与安全"
         createTableViewUI()
         adapter.c_delegate = self
         loadData()
@@ -39,7 +39,7 @@ class RPSetupViewController: RPBaseViewController {
     }
     
     func loadData () {
-        viewModel.getSetupData(params: NSDictionary.init()) { (datas) in
+        viewModel.getAccountData(params: NSDictionary.init()) { (datas) in
             dataList = datas
             adapter.dataSourceArray = dataList as! [RPTableViewSectionItem]
             tableView.reloadData()
@@ -50,40 +50,18 @@ class RPSetupViewController: RPBaseViewController {
     }
 }
 
-extension RPSetupViewController : RPListViewCellEventDelegate {
+extension RPAccountViewController : RPListViewCellEventDelegate {
     func didSelectListView(_ listView: UIScrollView,indexPath:IndexPath,sectionData:AnyObject?,cellData:AnyObject?) {
         let xx = cellData as! RPTableViewCellItem
         let model = xx.cellData as! RPYaModel
-        let normalSelector = NSSelectorFromString(model.clickAction)
-        if (self.responds(to: normalSelector)) {
-            self.perform(normalSelector)
+        switch model.title {
+        case "密码":
+            //判断是否设置了密码是吧
+            let ctl = RPPasswordViewController.init()
+            ctl.type = .change
+            self.navigationController?.pushViewController(ctl, animated: true)
+            break
+        default:break
         }
-    }
-    
-    @objc func accountAction() {
-        self.navigationController?.pushViewController(RPAccountViewController.init(), animated: true)
-    }
-    
-    @objc func feedbackAction() {
-        let fb = RPFeedBackViewController.init()
-        fb.type = .feedback
-        fb.navigationItem.title = "反馈建议"
-        self.navigationController?.pushViewController(fb, animated: true)
-    }
-    
-    @objc func privcyAction() {
-        let ctl = RPWkwebViewController.init()
-        ctl.urlString = "https://github.com/CherryIce/ExperimentProduct"
-        self.navigationController?.pushViewController(ctl, animated: true)
-    }
-    
-    @objc func clearCacheAction() {
-        //带参数的传参方法在swift中实现貌似不太容易 暂时先缓缓
-        RPCache.shared.removeAllCache()
-        loadData()
-    }
-    
-    @objc func aboutAction() {
-        self.navigationController?.pushViewController(RPAboutViewController.init(), animated: true)
     }
 }

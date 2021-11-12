@@ -30,6 +30,9 @@ class RPWkwebViewController: RPBaseViewController {
         webView = WKWebView(frame: UIScreen.main.bounds, configuration: config)
         webView.navigationDelegate = self
         view.addSubview(webView)
+        webView.snp.makeConstraints { (make) in
+            make.left.right.top.bottom.equalToSuperview()
+        }
 //        if ((urlString?.hasPrefix("http")) == nil) {
 //            urlString = "http://" + urlString!
 //        }

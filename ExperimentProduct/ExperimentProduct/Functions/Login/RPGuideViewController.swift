@@ -83,7 +83,7 @@ class RPGuideViewController: RPBaseViewController {
     }
     
     @objc func hide() {
-        let currentVersion = Bundle.main.infoDictionary!["CFBundleShortVersionString"] as! String
+        let currentVersion = RPTools.getVersion()
         UserDefaults.standard.setValue(currentVersion, forKey: kLastVersionKey)
         UserDefaults.standard.synchronize()
         
