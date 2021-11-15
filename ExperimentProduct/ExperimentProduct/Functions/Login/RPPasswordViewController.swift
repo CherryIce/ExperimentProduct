@@ -45,7 +45,7 @@ class RPPasswordViewController: RPBaseViewController {
         let v = UIView.init()
         v.frame = CGRect.init(x: 0, y: 0, width: SCREEN_WIDTH, height: 100)
         submitBtn = UIButton.init(type: .custom)
-        submitBtn.frame = CGRect.init(x: 30, y: 30, width: v.frame.width - 60, height: 40)
+        submitBtn.frame = CGRect.init(x: 30, y: 30, width: v.frame.width - 60, height: 50)
         submitBtn.backgroundColor = .red
         submitBtn.setTitle("确定", for:.normal)
         submitBtn.addTarget(self, action: #selector(submitClick), for: .touchUpInside)

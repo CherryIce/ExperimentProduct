@@ -36,6 +36,19 @@ class RPAccountViewController: RPBaseViewController {
         tableView.snp.makeConstraints { (make) in
             make.left.top.right.bottom.equalToSuperview()
         }
+        
+        let v = UIView.init()
+        v.frame = CGRect.init(x: 0, y: 0, width: SCREEN_WIDTH, height: 100)
+        let exitLogin = UIButton.init(type: .custom)
+        exitLogin.frame = CGRect.init(x: 30, y: 30, width: v.frame.width - 60, height: 50)
+        exitLogin.backgroundColor = UIColor.init(hexString: "#FFB366")
+        exitLogin.setTitle("退出登录", for:.normal)
+        exitLogin.addTarget(self, action: #selector(exitLoginClick), for: .touchUpInside)
+        exitLogin.titleLabel?.font = .systemFont(ofSize: 16)
+        exitLogin.layercornerRadius(cornerRadius: 4)
+        v.addSubview(exitLogin)
+        
+        tableView.tableFooterView = v
     }
     
     func loadData () {
@@ -47,6 +60,25 @@ class RPAccountViewController: RPBaseViewController {
             print("请求失败了")
             tableView.reloadData()
         }
+    }
+    
+    @objc func exitLoginClick() {
+        let alert = RPAlertViewController.init(title: "温馨提示", message: "真的要残忍的离开吗?", cancel: "取消", confirm: "确定") { (index) in
+            if index == 1 {
+                UserDefaults.standard.removeObject(forKey: kTokenExpDateTime)
+                UserDefaults.standard.synchronize()
+                
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+                    let window = UIApplication.shared.windows.first
+                    window?.rootViewController = RPNavigationController.init(rootViewController: RPLoginViewController.init())
+                }
+            }
+        }
+        alert.titleColor = .black
+        alert.msgColor = .red
+        alert.cancelColor = RPColor.MainColor
+        alert.confirmColor = .init(hexString: "999999")
+        self.present(alert, animated: false,completion: nil)
     }
 }
 
