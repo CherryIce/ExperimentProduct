@@ -180,6 +180,18 @@ class RPTools: NSObject {
     class func getVersion() -> String {
         return Bundle.main.infoDictionary!["CFBundleShortVersionString"] as! String
     }
+    
+    //去设置
+    static func jumpToSystemPrivacySetting() {
+        guard let appSetting = URL(string: UIApplication.openSettingsURLString) else {
+            return
+        }
+        if #available(iOS 10, *) {
+            UIApplication.shared.open(appSetting, options: [:], completionHandler: nil)
+        } else {
+            UIApplication.shared.openURL(appSetting)
+        }
+    }
 }
 
 extension UIView {

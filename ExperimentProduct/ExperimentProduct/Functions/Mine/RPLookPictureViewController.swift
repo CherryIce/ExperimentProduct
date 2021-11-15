@@ -135,8 +135,10 @@ class RPLookPictureViewController: RPBaseViewController {
 
 extension RPLookPictureViewController:UUTakePhotoDelegate {
     func imagePicker(_ imagePicker: UUTakePhoto, didFinished editedImage: UIImage?) {
-        DispatchQueue.main.async {
-            log.debug(editedImage)
+        DispatchQueue.main.async { [weak self] in
+            if editedImage != nil {
+                self!.imgV.image = editedImage
+            }
         }
     }
     

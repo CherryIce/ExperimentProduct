@@ -57,7 +57,7 @@ class RPNavigationController: UINavigationController ,UINavigationControllerDele
     }
     
     func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool){
-        let hiddenVcs = ["RPFindViewController","RPMineViewController"]
+        let hiddenVcs = ["RPFindViewController","RPMineViewController","RPScanViewController"]
         let identifier = NSStringFromClass(type(of: viewController)).components(separatedBy: ".").last ?? ""
         if hiddenVcs.contains(identifier) {
             navigationController.setNavigationBarHidden(true, animated: true)

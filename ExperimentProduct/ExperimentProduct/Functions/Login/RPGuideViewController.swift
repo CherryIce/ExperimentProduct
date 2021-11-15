@@ -106,10 +106,12 @@ extension RPGuideViewController:UICollectionViewDelegate,UICollectionViewDataSou
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        let current = scrollView.contentOffset.x / scrollView.frame.size.width
-        pageControl.currentPage = lroundf(Float(current))
+        let offsetX = scrollView.contentOffset.x
+        let current = Int(offsetX / SCREEN_WIDTH+0.5)
+//        let current = scrollView.contentOffset.x / scrollView.frame.size.width
+        pageControl.currentPage = current
         
         skipButton.isHidden = images.count - 1 != lroundf(Float(current))
-        pageControl.isHidden = !skipButton.isHidden;
+        pageControl.isHidden = !skipButton.isHidden
     }
 }

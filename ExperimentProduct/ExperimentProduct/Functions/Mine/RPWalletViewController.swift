@@ -13,17 +13,28 @@ class RPWalletViewController: RPBaseViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+        let btn = UIButton.init(type: .custom)
+        btn.backgroundColor = .red
+        btn.frame = CGRect.init(x:100 , y: 100, width: 100, height: 100)
+        btn.addTarget(self, action: #selector(xxxx), for: .touchUpInside)
+        view.addSubview(btn)
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @objc func xxxx()  {
+        let ctl = RPScanViewController.init(cornerColor:nil, scanAnimationImage: nil)
+        ctl.delegate = self
+        self.present(ctl, animated: true, completion: nil)
     }
-    */
 
+}
+
+extension RPWalletViewController:RPScanViewControllerDelegate {
+    func didOutput(_ code: String) {
+        log.debug(code)
+    }
+    
+    func didReceiveError(_ error: Error) {
+        log.debug(error)
+    }
 }

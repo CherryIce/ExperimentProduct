@@ -214,6 +214,7 @@ class RPActionSheetCell: UITableViewCell {
         self.selectionStyle = .none
         
         button = UIButton.init(type: .custom)
+        button.isEnabled = false // 兼容iOS 12.2以下
         self.addSubview(button)
     }
     

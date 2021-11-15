@@ -116,6 +116,7 @@ class RPOrignalLoginViewController: RPBaseViewController {
     }
     
     @objc func loginButtonClick() {
+        self.view.endEditing(true)
         //瞎搞
         let value1 = pwStr.md5
         let value2 = phoneStr + value1

@@ -13,6 +13,8 @@
 		4A0220DA27216DC10045CA4B /* HBEmptyDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A0220D727216DC10045CA4B /* HBEmptyDelegate.swift */; };
 		4A0220E127216FDD0045CA4B /* RPEmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A0220E027216FDD0045CA4B /* RPEmptyView.swift */; };
 		4A0221BF2722A35F0045CA4B /* RPLaunchAdManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A0221BE2722A35F0045CA4B /* RPLaunchAdManager.swift */; };
+		4A1BC593274210EC00909DF7 /* RPScanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1BC592274210EC00909DF7 /* RPScanViewController.swift */; };
+		4A1BC5A027424C3400909DF7 /* RPScanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1BC59F27424C3400909DF7 /* RPScanView.swift */; };
 		4A1DEBF92714326700149FD8 /* RPLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1DEBF82714326700149FD8 /* RPLoginViewController.swift */; };
 		4A1DEC03271432ED00149FD8 /* RPPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1DEC02271432ED00149FD8 /* RPPasswordViewController.swift */; };
 		4A1DEC6F27156CA400149FD8 /* RPTextFiled.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1DEC6E27156CA400149FD8 /* RPTextFiled.swift */; };
@@ -189,6 +191,8 @@
 		4A0220D727216DC10045CA4B /* HBEmptyDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HBEmptyDelegate.swift; sourceTree = "<group>"; };
 		4A0220E027216FDD0045CA4B /* RPEmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPEmptyView.swift; sourceTree = "<group>"; };
 		4A0221BE2722A35F0045CA4B /* RPLaunchAdManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPLaunchAdManager.swift; sourceTree = "<group>"; };
+		4A1BC592274210EC00909DF7 /* RPScanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPScanViewController.swift; sourceTree = "<group>"; };
+		4A1BC59F27424C3400909DF7 /* RPScanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPScanView.swift; sourceTree = "<group>"; };
 		4A1DEBF82714326700149FD8 /* RPLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPLoginViewController.swift; sourceTree = "<group>"; };
 		4A1DEC02271432ED00149FD8 /* RPPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPPasswordViewController.swift; sourceTree = "<group>"; };
 		4A1DEC6E27156CA400149FD8 /* RPTextFiled.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPTextFiled.swift; sourceTree = "<group>"; };
@@ -735,6 +739,7 @@
 				4A461A95273CB94300BA422F /* RPMyQRCodeViewController.swift */,
 				4A461A76273BB2EE00BA422F /* RPSelectCityViewController.swift */,
 				4A758D57273A570B001B204D /* RPWalletViewController.swift */,
+				4A1BC592274210EC00909DF7 /* RPScanViewController.swift */,
 				4A758D5C273A5730001B204D /* RPCollectViewController.swift */,
 				4A976CDB27293975008DF042 /* RPNewsViewController.swift */,
 				4A758D61273A5742001B204D /* RPSetupViewController.swift */,
@@ -748,6 +753,7 @@
 			isa = PBXGroup;
 			children = (
 				4A7EDB0626F5CECA00C8FC55 /* RPMineHeaderView.swift */,
+				4A1BC59F27424C3400909DF7 /* RPScanView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1204,6 +1210,7 @@
 				4A8F23D0271FFEA600A249B6 /* NVActivityIndicatorAnimationBallGridPulse.swift in Sources */,
 				4A0221BF2722A35F0045CA4B /* RPLaunchAdManager.swift in Sources */,
 				4A8F23EE271FFEA600A249B6 /* NVActivityIndicatorAnimationLineScalePulseOutRapid.swift in Sources */,
+				4A1BC5A027424C3400909DF7 /* RPScanView.swift in Sources */,
 				4A596A42272BCF1E003ECB14 /* RPSortViewController.swift in Sources */,
 				4A4B72F5272A7C9800821756 /* RPAlertViewController.swift in Sources */,
 				4A461A6D273BA3D800BA422F /* RProvincesModel.swift in Sources */,
@@ -1216,6 +1223,7 @@
 				4A3A9FFD271982C700C032C8 /* RPPostersViewController.swift in Sources */,
 				4A8F23E3271FFEA600A249B6 /* NVActivityIndicatorAnimationAudioEqualizer.swift in Sources */,
 				558D359E271B25B800E03B5F /* RPNewsLinkCell.swift in Sources */,
+				4A1BC593274210EC00909DF7 /* RPScanViewController.swift in Sources */,
 				4A461AD2273CE98600BA422F /* NextGrowingInternalTextView.swift in Sources */,
 				4A3A9FBF27182B8000C032C8 /* RPOrignalLoginViewController.swift in Sources */,
 				4A3A9F8E2717CF0B00C032C8 /* HoshiTextField.swift in Sources */,
@@ -1448,17 +1456,19 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
 				DEFINES_MODULE = NO;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 8WS3SK4795;
 				INFOPLIST_FILE = ExperimentProduct/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = doman.ExperimentProduct;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mdd.business;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = mddConsumerDev;
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -1473,17 +1483,19 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
 				DEFINES_MODULE = NO;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 8WS3SK4795;
 				INFOPLIST_FILE = ExperimentProduct/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = doman.ExperimentProduct;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mdd.business;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = mddConsumerDev;
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
