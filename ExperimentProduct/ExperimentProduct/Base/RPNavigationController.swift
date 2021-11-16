@@ -27,6 +27,21 @@ class RPNavigationController: UINavigationController ,UINavigationControllerDele
         self.navigationBar.titleTextAttributes = dict
         //        self.navigationBar.barStyle = .black
         self.delegate = self
+        
+        // ios15 导航栏变黑
+        if #available(iOS 15.0, *) {
+            let appearance = UINavigationBarAppearance()
+            appearance.configureWithOpaqueBackground()
+            appearance.backgroundColor = .white
+            appearance.shadowColor = UIColor.clear
+            appearance.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black]
+            navigationBar.standardAppearance = appearance
+            navigationBar.scrollEdgeAppearance = navigationBar.standardAppearance
+        } else {
+            UINavigationBar.appearance().barTintColor = .white
+            UINavigationBar.appearance().titleTextAttributes = [.foregroundColor: UIColor.black]
+            UINavigationBar.appearance().tintColor = .white
+        }
     }
     
     // 重写此方法让 preferredStatusBarStyle 响应

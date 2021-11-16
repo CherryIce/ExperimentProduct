@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import CommonCrypto
 
 let SCREEN_WIDTH = UIScreen.main.bounds.size.width
 let SCREEN_HEIGHT = UIScreen.main.bounds.size.height
@@ -190,104 +189,6 @@ class RPTools: NSObject {
             UIApplication.shared.open(appSetting, options: [:], completionHandler: nil)
         } else {
             UIApplication.shared.openURL(appSetting)
-        }
-    }
-}
-
-extension UIView {
-    func layercornerRadius(cornerRadius:CGFloat) {
-        let layer = self.layer
-        layer.cornerRadius = cornerRadius
-        layer.masksToBounds = false
-    }
-    
-    func layercornerBorder(borderWidth:CGFloat,borderColor:UIColor) {
-        let layer = self.layer
-        layer.borderWidth = borderWidth
-        layer.borderColor = borderColor.cgColor
-        layer.masksToBounds = false
-    }
-    
-    func layerRoundedRect(byRoundingCorners corners: UIRectCorner, cornerRadii: CGSize){
-        let maskPath = UIBezierPath.init(roundedRect: self.bounds, byRoundingCorners: corners, cornerRadii: cornerRadii)
-        let maskLayer = CAShapeLayer.init()
-        maskLayer.frame = self.bounds
-        maskLayer.path = maskPath.cgPath
-        self.layer.mask = maskLayer
-    }
-}
-
-public extension String {
-    var md5: String {
-        let str = self.cString(using: String.Encoding.utf8)
-        let strLen = CUnsignedInt(self.lengthOfBytes(using: String.Encoding.utf8))
-        let digestLen = Int(CC_MD5_DIGEST_LENGTH)
-        let result = UnsafeMutablePointer<CUnsignedChar>.allocate(capacity: digestLen)
-        CC_MD5(str!, strLen, result)
-
-        let hash = NSMutableString()
-
-        for i in 0..<digestLen {
-            hash.appendFormat("%02x", result[i])
-        }
-
-        result.deallocate()
-        return hash as String
-    }
-}
-
-var codeTimer = DispatchSource.makeTimerSource(queue:DispatchQueue.global())
-extension UIButton {
-    //倒计时启动
-    func countDown(count: Int){
-        // 倒计时开始,禁止点击事件
-        isEnabled = false
-        var remainingCount: Int = count {
-            willSet {
-                setTitle("\(newValue)s", for: .normal)
-                if newValue <= 0 {
-                    setTitle("获取验证码", for: .normal)
-                }
-            }
-        }
-
-        if codeTimer.isCancelled {
-            codeTimer = DispatchSource.makeTimerSource(queue:DispatchQueue.global())
-        }
-
-        // 设定这个时间源是每秒循环一次，立即开始
-        codeTimer.schedule(deadline: .now(), repeating: .seconds(1))
-
-        // 设定时间源的触发事件
-        codeTimer.setEventHandler(handler: {
-            // 返回主线程处理一些事件，更新UI等等
-            DispatchQueue.main.async {
-                // 每秒计时一次
-                remainingCount -= 1
-                // 时间到了取消时间源
-                if remainingCount <= 0 {
-                    self.isEnabled = true
-                    codeTimer.cancel()
-                }
-            }
-        })
-        // 启动时间源
-        codeTimer.resume()
-    }
-
-    //取消倒计时
-    func countdownCancel() {
-        if !codeTimer.isCancelled {
-            codeTimer.cancel()
-        }
-
-        // 返回主线程
-        DispatchQueue.main.async {
-            self.isEnabled = true
-            if self.titleLabel?.text?.count != 0
-            {
-                self.setTitle("获取验证码", for: .normal)
-            }
         }
     }
 }

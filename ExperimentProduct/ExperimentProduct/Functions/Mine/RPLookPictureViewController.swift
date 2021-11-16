@@ -91,7 +91,7 @@ class RPLookPictureViewController: RPBaseViewController {
                 //去设置
                 break
             case .notDetermined:
-                self.requestCameraPermission()
+                self.requestPhotoPermission()
                 break
             case .authorized,.provisional:
                 let imagePicker = UUTakePhoto.shared
@@ -111,19 +111,40 @@ class RPLookPictureViewController: RPBaseViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        //导航栏背景
-        self.navigationController?.navigationBar.setBackgroundImage(UIImage(color: .black), for: .default)
         //字体颜色
         let dict = {[NSAttributedString.Key.foregroundColor:UIColor.white,NSAttributedString.Key.font:UIFont.systemFont(ofSize: 16)]}()
-        self.navigationController?.navigationBar.titleTextAttributes = dict
+        if #available(iOS 15.0, *) {
+            let appearance = UINavigationBarAppearance()
+            appearance.configureWithOpaqueBackground()
+            appearance.backgroundColor = .black
+            appearance.shadowColor = UIColor.clear
+            appearance.titleTextAttributes = dict
+            self.navigationController?.navigationBar.standardAppearance = appearance
+            self.navigationController?.navigationBar.scrollEdgeAppearance = appearance
+        }else{
+            //导航栏背景
+            self.navigationController?.navigationBar.setBackgroundImage(UIImage(color: .black), for: .default)
+            self.navigationController?.navigationBar.titleTextAttributes = dict
+        }
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        self.navigationController?.navigationBar.setBackgroundImage(UIImage(color: .white), for: .default)
         //字体颜色
         let dict = {[NSAttributedString.Key.foregroundColor:RPColor.black,NSAttributedString.Key.font:UIFont.systemFont(ofSize: 16)]}()
-        self.navigationController?.navigationBar.titleTextAttributes = dict
+        if #available(iOS 15.0, *) {
+            let appearance = UINavigationBarAppearance()
+            appearance.configureWithOpaqueBackground()
+            appearance.backgroundColor = .white
+            appearance.shadowColor = UIColor.clear
+            appearance.titleTextAttributes = dict
+            self.navigationController?.navigationBar.standardAppearance = appearance
+            self.navigationController?.navigationBar.scrollEdgeAppearance = appearance
+        }else{
+            //导航栏背景
+            self.navigationController?.navigationBar.setBackgroundImage(UIImage(color: .white), for: .default)
+            self.navigationController?.navigationBar.titleTextAttributes = dict
+        }
     }
     
     //状态栏字体白色 配合infoplist:View controller-based status bar appearance

@@ -9,6 +9,6 @@
 import Foundation
 import UIKit
 
-public protocol HBEmptyDelegate: class {
+public protocol HBEmptyDelegate: AnyObject {
     func customViewForEmpty() -> UIView?
 }

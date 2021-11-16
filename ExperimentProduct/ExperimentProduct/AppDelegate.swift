@@ -20,6 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         
         thirdInstall()
+        configuration()
         
         window = UIWindow.init(frame: UIScreen.main.bounds)
         window?.makeKeyAndVisible()
@@ -72,6 +73,12 @@ extension AppDelegate {
         log.setup(level: .debug, showThreadName: true, showLevel: true,
                   showFileNames: true, showLineNumbers: true,
                   writeToFile: nil, fileLevel: .debug)
+    }
+    
+    func configuration()  {
+        if #available(iOS 15.0, *) {
+            UITableView.appearance().sectionHeaderTopPadding = 0
+        }
     }
 }
 

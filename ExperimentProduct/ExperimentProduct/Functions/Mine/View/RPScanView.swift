@@ -114,6 +114,10 @@ extension RPScanView{
         ScanAnimation.shared.startAnimation()
     }
     
+    func pausedAnimation() {
+        ScanAnimation.shared.pausedAnimation()
+    }
+    
     func stopAnimation() {
         ScanAnimation.shared.stopAnimation()
     }
@@ -278,6 +282,9 @@ class ScanAnimation:NSObject{
         displayLink?.isPaused = false
     }
     
+    func pausedAnimation() {
+        displayLink?.isPaused = true
+    }
     
     func stopAnimation() {
         

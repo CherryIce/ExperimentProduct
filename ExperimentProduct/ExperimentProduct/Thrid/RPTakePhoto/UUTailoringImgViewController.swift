@@ -8,7 +8,7 @@
 import UIKit
 import JPImageresizerView
 
-public protocol UUTailoringImgViewControllerDelegate:class {
+public protocol UUTailoringImgViewControllerDelegate:AnyObject {
     func cdmOptionalPhotoEditVC(_ controller :UIViewController,didFinishCroppingImage croppedImage:UIImage?)
     func cdmCancelPhotoEditVC(_ controller :UIViewController)
 }

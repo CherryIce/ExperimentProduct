@@ -8,13 +8,14 @@
 import UIKit
 import AVFoundation
 
-protocol RPScanViewControllerDelegate: class {
+protocol RPScanViewControllerDelegate: NSObjectProtocol {
     func didOutput(_ code:String)
-    func didReceiveError(_ error: Error)
+    func didReceiveError(_ error: String)
 }
 
 //从SwiftScan里面剥离出的一个简单的版本 要多功能还是选SwiftScan现成的
 class RPScanViewController: RPBaseViewController {
+    
     weak var delegate:RPScanViewControllerDelegate?
     private var captureSession = AVCaptureSession()
     private var videoPreviewLayer = AVCaptureVideoPreviewLayer()
@@ -32,7 +33,7 @@ class RPScanViewController: RPBaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
         
         showScanCode()
@@ -47,11 +48,6 @@ class RPScanViewController: RPBaseViewController {
     public override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         scanView.startAnimation()
-    }
-    
-    public override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
-        scanView.stopAnimation()
     }
     
     //创建流区范围
@@ -136,7 +132,7 @@ class RPScanViewController: RPBaseViewController {
         leftItem.frame = CGRect.init(x: 16, y: (titleView.frame.height-30)/2, width: 30, height: 30)
         leftItem.setImage(RPTools.getPngImage(forResource: "back_white@2x"), for: .normal)
         titleView.addSubview(leftItem)
-
+        
         let rightItem = UIButton.init(type: .custom)
         rightItem.frame = CGRect.init(x: titleView.frame.width - 60 - 16, y: (titleView.frame.height-30)/2, width: 60, height: 30)
         rightItem.setTitle("相册", for: .normal)
@@ -158,9 +154,46 @@ class RPScanViewController: RPBaseViewController {
     @objc func leftClick() {
         dismiss(animated: true, completion: nil)
     }
-
+    
     @objc func rightClick() {
-        //xxx
+        scanView.pausedAnimation()
+        requestPhotoPermission()
+    }
+    
+    //请求相册权限
+    func requestPhotoPermission() {
+        RPPermissions.request(.photoLibrary) { (status) in
+            switch status {
+            case .unknown,.restricted,.denied:
+                let alert = RPAlertViewController.init(title: "没有相册权限", message: "去设置打开相关权限?", cancel: "取消", confirm: "确定") { (index) in
+                    if index == 1 {
+                        RPTools.jumpToSystemPrivacySetting()
+                    }
+                }
+                self.present(alert, animated: false,completion: nil)
+                break
+            case .notDetermined:
+                self.requestPhotoPermission()
+                break
+            case .authorized,.provisional:
+                let imagePicker = UUTakePhoto.shared
+                imagePicker.delegate = self
+                imagePicker.showImagePickerWithType(.photoLibrary, viewController: self,needEditing:false)
+                break
+            case .noSupport:
+                //设备不支持
+                self.navigationController?.view.makeToast("设备不支持",
+                                                          duration: 3.0,
+                                                          position: .top,
+                                                          style: RPTools.RPToastStyle)
+                break
+            }
+        }
+    }
+    
+    deinit {
+        scanView.stopAnimation()
+        log.debug("RPScanViewController deinit")
     }
 }
 
@@ -172,7 +205,31 @@ extension RPScanViewController:AVCaptureMetadataOutputObjectsDelegate{
             }
             self.captureSession.stopRunning()
             delegate?.didOutput(object.stringValue ?? "")
-            self.dismiss(animated: true, completion: nil)
+            leftClick()
         }
+    }
+}
+
+extension RPScanViewController : UUTakePhotoDelegate {
+    func imagePicker(_ imagePicker: UUTakePhoto, didFinished editedImage: UIImage?) {
+        DispatchQueue.main.async { [weak self] in
+            if editedImage != nil {
+                let imageData = editedImage!.pngData()
+                let ciImage:CIImage = CIImage(data: imageData!)!
+                let detector = CIDetector(ofType: CIDetectorTypeQRCode, context:nil,options:[CIDetectorAccuracy:CIDetectorAccuracyHigh])
+                let feature = detector?.features(in: ciImage)
+                if feature?.count ?? 0 > 0{
+                    let f = feature?.first as! CIQRCodeFeature
+                    self?.delegate?.didOutput(f.messageString ?? "")
+                }else{
+                    self?.delegate?.didReceiveError("no result")
+                }
+            }
+            self?.leftClick()
+        }
+    }
+    
+    func imagePickerDidCancel(_ imagePicker: UUTakePhoto) {
+        scanView.startAnimation()
     }
 }

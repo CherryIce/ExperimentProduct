@@ -13,14 +13,30 @@ class RPMainTabBarViewController: UITabBarController {
         super.viewDidLoad()
         addAllChildsControllors();
         
-        //隐藏tabbar上面的黑线
-        self.tabBar.backgroundImage = UIImage(color: .white)
-        self.tabBar.shadowImage = UIImage.init()
-        self.tabBar.isTranslucent = false
-        
 //        self.tabBar.tintColor = UIColor.init(hexString: "#13227a")
         if #available(iOS 10.0, *) {
-            self.tabBar.unselectedItemTintColor = .lightGray
+            tabBar.unselectedItemTintColor = .lightGray
+        }
+        
+        // ios15
+        if #available(iOS 15.0, *) {
+            let itemAppearance = UITabBarItemAppearance()
+            itemAppearance.normal.titleTextAttributes = [.foregroundColor: UIColor.lightGray]
+            itemAppearance.selected.titleTextAttributes = [.foregroundColor: UIColor.init(hexString: "#13227a")]
+            
+            let appearance = UITabBarAppearance()
+            appearance.stackedLayoutAppearance = itemAppearance
+            appearance.configureWithOpaqueBackground()
+            appearance.backgroundColor = .white
+            appearance.backgroundEffect = nil
+            appearance.shadowColor = .clear
+            tabBar.standardAppearance = appearance
+            tabBar.scrollEdgeAppearance = appearance
+        }else{
+            //隐藏tabbar上面的黑线
+            tabBar.backgroundImage = UIImage(color: .white)
+            tabBar.shadowImage = UIImage.init()
+            tabBar.isTranslucent = false
         }
     }
     

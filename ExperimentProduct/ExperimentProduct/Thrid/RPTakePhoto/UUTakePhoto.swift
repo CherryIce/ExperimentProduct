@@ -8,7 +8,7 @@
 import UIKit
 import JPImageresizerView
 
-protocol UUTakePhotoDelegate:class {
+protocol UUTakePhotoDelegate:AnyObject {
     func imagePicker(_ imagePicker :UUTakePhoto,didFinished editedImage:UIImage?)
     func imagePickerDidCancel(_ imagePicker :UUTakePhoto)
 }

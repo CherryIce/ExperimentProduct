@@ -101,7 +101,9 @@ class RPLoginViewController: RPBaseViewController {
         protocolLabel.customColor[customType] = RPColor.MainColor
         protocolLabel.textColor = UIColor.black
         protocolLabel.handleCustomTap(for: customType, handler: { (customType) in
-            print("《阴间论坛用户使用协议》")
+            let ctl = RPWkwebViewController.init()
+            ctl.urlString = "https://www.baidu.com"
+            self.navigationController?.pushViewController(ctl, animated: true)
         })
         self.view.addSubview(protocolLabel)
         
