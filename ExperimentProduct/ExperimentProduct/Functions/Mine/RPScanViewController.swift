@@ -38,7 +38,7 @@ class RPScanViewController: RPBaseViewController {
         
         showScanCode()
         
-        scanView.cornerColor = self.scanCornerColor ?? .init(hexString: "#F86767")
+        scanView.cornerColor = self.scanCornerColor ?? RPColor.redWine
         scanView.scanAnimationImage = self.scanAnimationImage ?? UIImage(named: "ScanLine")!
         view.addSubview(scanView)
         

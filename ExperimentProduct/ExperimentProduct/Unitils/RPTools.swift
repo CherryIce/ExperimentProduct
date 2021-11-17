@@ -120,61 +120,6 @@ class RPTools: NSObject {
         return viewController
     }
     
-    //生成二维码
-    class func creatQRCodeImage(text: String,logoImage:UIImage?) -> UIImage{
-        //创建滤镜
-        let filter = CIFilter(name: "CIQRCodeGenerator")
-        //还原滤镜的默认属性
-        filter?.setDefaults()
-        //设置需要生成二维码的数据
-        filter?.setValue(text.data(using: String.Encoding.utf8), forKey: "inputMessage")
-        //从滤镜中取出生成的图片
-        let ciImage = filter?.outputImage
-        //调整清晰度
-        let bgImage = createNonInterpolatedUIImageFormCIImage(image: ciImage!, size:SCREEN_WIDTH)
-        
-        //5.嵌入LOGO
-        //5.1开启图形上下文
-        UIGraphicsBeginImageContext(bgImage.size)
-        //5.2将二维码的LOGO画入
-        bgImage.draw(in: CGRect.init(x: 0, y: 0, width: bgImage.size.width, height: bgImage.size.height))
-        
-        if logoImage != nil {
-            let centerW = bgImage.size.width * 0.25
-            let centerH = centerW
-            let centerX = (bgImage.size.width-centerW)*0.5
-            let centerY = (bgImage.size.height-centerH)*0.5
-            logoImage?.draw(in: CGRect.init(x: centerX, y: centerY, width: centerW, height: centerH))
-            //5.3获取绘制好的图片
-            let finalImg = UIGraphicsGetImageFromCurrentImageContext()
-            //5.4关闭图像上下文
-            UIGraphicsEndImageContext()
-            return finalImg!
-        }
-        return bgImage
-    }
-    
-    //根据CIImage生成指定大小的高清UIImage
-    class func createNonInterpolatedUIImageFormCIImage(image: CIImage, size: CGFloat) -> UIImage {
-        
-        let extent: CGRect = image.extent.integral
-        let scale: CGFloat = min(size/extent.width, size/extent.height)
-        
-        let width = extent.width * scale
-        let height = extent.height * scale
-        let cs: CGColorSpace = CGColorSpaceCreateDeviceGray()
-        let bitmapRef = CGContext(data: nil, width: Int(width), height: Int(height), bitsPerComponent: 8, bytesPerRow: 0, space: cs, bitmapInfo: 0)!
-        
-        let context = CIContext(options: nil)
-        let bitmapImage: CGImage = context.createCGImage(image, from: extent)!
-        
-        bitmapRef.interpolationQuality = CGInterpolationQuality.none
-        bitmapRef.scaleBy(x: scale, y: scale)
-        bitmapRef.draw(bitmapImage, in: extent)
-        let scaledImage: CGImage = bitmapRef.makeImage()!
-        return UIImage(cgImage: scaledImage)
-    }
-    
     //获取当前版本
     class func getVersion() -> String {
         return Bundle.main.infoDictionary!["CFBundleShortVersionString"] as! String

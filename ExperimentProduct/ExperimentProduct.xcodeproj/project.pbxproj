@@ -109,6 +109,11 @@
 		4A7EDB6526F5E2B300C8FC55 /* RPUserInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A7EDB6426F5E2B300C8FC55 /* RPUserInfoViewModel.swift */; };
 		4A7EDB6D26F5E2C800C8FC55 /* RPUserInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A7EDB6C26F5E2C800C8FC55 /* RPUserInfoModel.swift */; };
 		4A7EDB7426F5E6FC00C8FC55 /* RPNetWorkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A7EDB7326F5E6FC00C8FC55 /* RPNetWorkManager.swift */; };
+		4A8508C12744ABA700F538C2 /* RPYueViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A8508C02744ABA700F538C2 /* RPYueViewController.swift */; };
+		4A8508C52744ADED00F538C2 /* RPWithdrawalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A8508C42744ADED00F538C2 /* RPWithdrawalViewController.swift */; };
+		4A8508C72744AF6900F538C2 /* RPBillViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A8508C62744AF6900F538C2 /* RPBillViewController.swift */; };
+		4A8508C92744B21400F538C2 /* RPBillListsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A8508C82744B21400F538C2 /* RPBillListsViewController.swift */; };
+		4A8508CB2744B25100F538C2 /* RPBillDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A8508CA2744B25100F538C2 /* RPBillDetailViewController.swift */; };
 		4A8F21C4271E9DBC00A249B6 /* RPGuideViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A8F21C3271E9DBC00A249B6 /* RPGuideViewController.swift */; };
 		4A8F21D7271EA9A200A249B6 /* RPGuideCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A8F21D6271EA9A200A249B6 /* RPGuideCell.swift */; };
 		4A8F21E9271EBBED00A249B6 /* 003.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A8F21E6271EBBED00A249B6 /* 003.png */; };
@@ -299,6 +304,11 @@
 		4A7EDB6426F5E2B300C8FC55 /* RPUserInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPUserInfoViewModel.swift; sourceTree = "<group>"; };
 		4A7EDB6C26F5E2C800C8FC55 /* RPUserInfoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPUserInfoModel.swift; sourceTree = "<group>"; };
 		4A7EDB7326F5E6FC00C8FC55 /* RPNetWorkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPNetWorkManager.swift; sourceTree = "<group>"; };
+		4A8508C02744ABA700F538C2 /* RPYueViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPYueViewController.swift; sourceTree = "<group>"; };
+		4A8508C42744ADED00F538C2 /* RPWithdrawalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPWithdrawalViewController.swift; sourceTree = "<group>"; };
+		4A8508C62744AF6900F538C2 /* RPBillViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPBillViewController.swift; sourceTree = "<group>"; };
+		4A8508C82744B21400F538C2 /* RPBillListsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPBillListsViewController.swift; sourceTree = "<group>"; };
+		4A8508CA2744B25100F538C2 /* RPBillDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPBillDetailViewController.swift; sourceTree = "<group>"; };
 		4A8F21C3271E9DBC00A249B6 /* RPGuideViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPGuideViewController.swift; sourceTree = "<group>"; };
 		4A8F21D6271EA9A200A249B6 /* RPGuideCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPGuideCell.swift; sourceTree = "<group>"; };
 		4A8F21E6271EBBED00A249B6 /* 003.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 003.png; sourceTree = "<group>"; };
@@ -755,6 +765,11 @@
 				4A461A76273BB2EE00BA422F /* RPSelectCityViewController.swift */,
 				4A758D57273A570B001B204D /* RPWalletViewController.swift */,
 				4AEC25FA2743B387002F419E /* RPRecivePayCodeViewController.swift */,
+				4A8508C02744ABA700F538C2 /* RPYueViewController.swift */,
+				4A8508C62744AF6900F538C2 /* RPBillViewController.swift */,
+				4A8508C82744B21400F538C2 /* RPBillListsViewController.swift */,
+				4A8508CA2744B25100F538C2 /* RPBillDetailViewController.swift */,
+				4A8508C42744ADED00F538C2 /* RPWithdrawalViewController.swift */,
 				4A1BC592274210EC00909DF7 /* RPScanViewController.swift */,
 				4A758D5C273A5730001B204D /* RPCollectViewController.swift */,
 				4A976CDB27293975008DF042 /* RPNewsViewController.swift */,
@@ -1198,6 +1213,7 @@
 				4A976CBE2729067A008DF042 /* UUTakePhoto.swift in Sources */,
 				4A976BE62726A27B008DF042 /* RPTimer.swift in Sources */,
 				4A758D58273A570B001B204D /* RPWalletViewController.swift in Sources */,
+				4A8508C12744ABA700F538C2 /* RPYueViewController.swift in Sources */,
 				4A976CE127293C1F008DF042 /* RPActionSheetController.swift in Sources */,
 				4A4662F62738B21C00FC8FFC /* RPTopicVideoView.swift in Sources */,
 				4A461A77273BB2EE00BA422F /* RPSelectCityViewController.swift in Sources */,
@@ -1280,14 +1296,17 @@
 				4A758D5D273A5730001B204D /* RPCollectViewController.swift in Sources */,
 				4A1DEC03271432ED00149FD8 /* RPPasswordViewController.swift in Sources */,
 				558D356C271ABC4C00E03B5F /* RPFindViewModel.swift in Sources */,
+				4A8508C92744B21400F538C2 /* RPBillListsViewController.swift in Sources */,
 				4A530B4B272F7AE600DD495E /* RPDynamicViewController.swift in Sources */,
 				558D354E271A784900E03B5F /* RPPosterModel.swift in Sources */,
+				4A8508CB2744B25100F538C2 /* RPBillDetailViewController.swift in Sources */,
 				4A4B72FC272A93A200821756 /* RPShareViewController.swift in Sources */,
 				4A8F23F1271FFEA600A249B6 /* NVActivityIndicatorShape.swift in Sources */,
 				4A8F23E6271FFEA600A249B6 /* NVActivityIndicatorAnimationBallScaleMultiple.swift in Sources */,
 				4A461B0B273E044500BA422F /* RPAboutViewController.swift in Sources */,
 				4A547C3326F47EF3005F00B5 /* RPMainTabBarViewController.swift in Sources */,
 				4A758D4E273A2BC5001B204D /* RPMineViewModel.swift in Sources */,
+				4A8508C72744AF6900F538C2 /* RPBillViewController.swift in Sources */,
 				4AD802AD26F57565000F3B3A /* RPImage.swift in Sources */,
 				4ADBEC092733CDC300F73B6D /* RPTopicViewController.swift in Sources */,
 				4A7EDAB326F5915600C8FC55 /* RPExploreViewCell.swift in Sources */,
@@ -1304,6 +1323,7 @@
 				558D3559271A9E4300E03B5F /* RPYaViewController.swift in Sources */,
 				4A8F23A0271FFDC500A249B6 /* RPRefreshHeader.swift in Sources */,
 				558D357E271ADBB400E03B5F /* RPFindModel.swift in Sources */,
+				4A8508C52744ADED00F538C2 /* RPWithdrawalViewController.swift in Sources */,
 				4A461AA1273CC3D900BA422F /* RPUpdateNickNameViewController.swift in Sources */,
 				4A3AA005271984E700C032C8 /* RPCollectionViewAdapter.swift in Sources */,
 				4A8F2206271ECC0700A249B6 /* Toast.swift in Sources */,

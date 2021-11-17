@@ -47,7 +47,7 @@ class RPWalletViewController: RPBaseViewController {
         moneyBtn.setImage(RPTools.getPngImage(forResource: "balance@2x"), for: .normal)
         moneyBtn.setTitle("余额", for: .normal)
         moneyBtn.titleLabel?.font = .systemFont(ofSize: 15)
-        moneyBtn.setTitleColor(.init(hexString: "#F86767"), for: .normal)
+        moneyBtn.setTitleColor(RPColor.redWine, for: .normal)
         moneyBtn.addTarget(self, action: #selector(moneyClick), for: .touchUpInside)
         simpleView.addSubview(moneyBtn)
         moneyBtn.snp.makeConstraints { make in
@@ -76,8 +76,7 @@ class RPWalletViewController: RPBaseViewController {
     }
     
     @objc func moneyClick()  {
-        //余额啊 账单啊  to be continue...
-        
+        self.navigationController?.pushViewController(RPYueViewController.init(), animated: true)
     }
 }
 

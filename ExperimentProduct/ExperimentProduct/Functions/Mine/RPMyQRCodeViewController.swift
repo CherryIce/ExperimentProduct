@@ -22,7 +22,7 @@ class RPMyQRCodeViewController: RPBaseViewController {
         // Do any additional setup after loading the view.
         self.navigationItem.title = "我的QR Code"
         contentView.layercornerRadius(cornerRadius: 8)
-        qrCodeImgV.image = RPTools.creatQRCodeImage(text: "www.baidu.com", logoImage: nil)
+        qrCodeImgV.image = UIImage.creatQRCode(content: "www.baidu.com",size: 200 ,tintColor: .green)
     }
 
 }
