@@ -45,8 +45,9 @@ class RPBillViewController: RPBaseViewController {
         }
         
         dateTimeBtn = UIButton.init(type: .custom)
-        dateTimeBtn.titleLabel?.font = .boldSystemFont(ofSize: 20)
-        dateTimeBtn.setTitle("2021/11/17", for: .normal)
+        dateTimeBtn.titleLabel?.font = .systemFont(ofSize: 16)
+        dateTimeBtn.setTitle(Date.init().toString("yyyy/MM/dd"), for: .normal)
+        dateTimeBtn.setTitleColor(RPColor.redWine, for: .normal)
         if #available(iOS 15.0, *) {
             var configuration = UIButton.Configuration.plain()
             configuration.titleAlignment = .trailing
@@ -96,7 +97,15 @@ class RPBillViewController: RPBaseViewController {
     }
     
     @objc func selectedTimeBill() {
+        let xx = dateTimeBtn.titleLabel?.text ?? ""
         //选日期查看账单信息
+        let ctl = RPDatePickerViewController.init(datePickerMode: .yearMonthDay,
+                                                  minimumDate: "2001/09/08".toDate("yyyy/MM/dd"),
+                                                  maximumDate: "2030/9/01".toDate("yyyy/MM/dd"),
+                                                  currentDate: xx.toDate("yyyy/MM/dd")) { date in
+            self.dateTimeBtn.setTitle(date.toString("yyyy/MM/dd"), for: .normal)
+        }
+        present(ctl, animated: true, completion: nil)
     }
 }
 

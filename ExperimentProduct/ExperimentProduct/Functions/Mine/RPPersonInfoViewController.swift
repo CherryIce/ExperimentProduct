@@ -96,6 +96,20 @@ extension RPPersonInfoViewController : RPListViewCellEventDelegate {
             self.present(alertC, animated: true,completion: nil)
             break
         case "生日":
+            let xCell = cell as! RPYaCell
+            let xx = xCell.detailTextLabel?.text ?? ""
+            //按当前日期往前算100年,如果是超过一百岁的大佬,自然值得特别修改一下 🤣🤣
+            guard let min =  NSCalendar.current.date(byAdding: .year, value: -100, to: Date.init()) else {
+                return
+            }
+            let ctl = RPDatePickerViewController.init(datePickerMode: .yearMonthDay,
+                                                      minimumDate:min,
+                                                      currentDate:xx.toDate("yyyy-MM-dd")) { date in
+                DispatchQueue.main.async {
+                    xCell.detailTextLabel?.text = date.toString("yyyy-MM-dd")
+                }
+            }
+            present(ctl, animated: true, completion: nil)
             break
         case "名字":
             let nickName = RPUpdateNickNameViewController.init()
