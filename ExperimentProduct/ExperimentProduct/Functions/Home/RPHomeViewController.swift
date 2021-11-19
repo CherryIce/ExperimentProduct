@@ -94,13 +94,13 @@ extension RPHomeViewController : UICollectionViewDelegate,UICollectionViewDataSo
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell : RPNiceViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: RPCollectionViewAdapter.init().reuseIdentifierForCellClass(cellClass: RPNiceViewCell.self, collectionView: collectionView), for: indexPath) as! RPNiceViewCell
+        let cell : RPNicePicCell = collectionView.dequeueReusableCell(withReuseIdentifier: RPCollectionViewAdapter.init().reuseIdentifierForCellClass(cellClass: RPNicePicCell.self, collectionView: collectionView), for: indexPath) as! RPNicePicCell
         cell.model = self.dataArray[indexPath.item]
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let cell = collectionView.cellForItem(at: indexPath) as! RPNiceViewCell
+        let cell = collectionView.cellForItem(at: indexPath) as! RPNicePicCell
         let type = indexPath.item%2 == 0 ? RPDynamicViewControllerType.pictures : RPDynamicViewControllerType.video
         let ctl = RPDynamicViewController.init(dynamicType: type,model:self.dataArray[indexPath.item])
         ctl.transitionView = cell.converImgV

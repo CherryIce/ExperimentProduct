@@ -26,7 +26,16 @@ class RPNiceViewModel: NSObject {
             item.headImgUrl = ""
             item.userName = "user 007"
             item.likes = Int(arc4random()%1000 + 1)
-            item.cellH = item.converH + 10 + RPTools.calculateTextSize(item.content, size: CGSize.init(width: (SCREEN_WIDTH - 3 * 10)/2, height: 100), font: UIFont.systemFont(ofSize: 16)).height + 10 + 20 + 10
+            
+            if item.content.count > 0 {
+                let label = UILabel.init()
+                label.frame = CGRect.init(x: 0, y: 0, width: width, height: 20)
+                label.numberOfLines = 2
+                label.text = item.content
+                label.sizeToFit()
+                item.contentH = CGFloat(ceilf(Float(label.frame.size.height)))
+            }
+            item.cellH = item.converH + 10 + item.contentH + 10 + 20 + 10
             tt.add(item)
         }
         success(tt)

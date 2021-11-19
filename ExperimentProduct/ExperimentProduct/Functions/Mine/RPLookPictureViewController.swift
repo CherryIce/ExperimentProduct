@@ -88,7 +88,12 @@ class RPLookPictureViewController: RPBaseViewController {
         RPPermissions.request(.photoLibrary) { (status) in
             switch status {
             case .unknown,.restricted,.denied:
-                //去设置
+                let alert = RPAlertViewController.init(title: "没有相册权限", message: "去设置打开相关权限?", cancel: "取消", confirm: "确定") { (index) in
+                    if index == 1 {
+                        RPTools.jumpToSystemPrivacySetting()
+                    }
+                }
+                self.present(alert, animated: false,completion: nil)
                 break
             case .notDetermined:
                 self.requestPhotoPermission()

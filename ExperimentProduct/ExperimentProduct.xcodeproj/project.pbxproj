@@ -93,8 +93,6 @@
 		4A596A3A272BCA0D003ECB14 /* RPNiceCollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A596A39272BCA0D003ECB14 /* RPNiceCollectionViewLayout.swift */; };
 		4A596A42272BCF1E003ECB14 /* RPSortViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A596A41272BCF1E003ECB14 /* RPSortViewController.swift */; };
 		4A596A48272BD2CA003ECB14 /* RPNiceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A596A47272BD2CA003ECB14 /* RPNiceViewModel.swift */; };
-		4A596A5A272BF00F003ECB14 /* RPNiceViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A596A58272BF00F003ECB14 /* RPNiceViewCell.swift */; };
-		4A596A5B272BF00F003ECB14 /* RPNiceViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4A596A59272BF00F003ECB14 /* RPNiceViewCell.xib */; };
 		4A596A61272BF2E4003ECB14 /* RPNiceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A596A60272BF2E4003ECB14 /* RPNiceModel.swift */; };
 		4A758D4E273A2BC5001B204D /* RPMineViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A758D4D273A2BC5001B204D /* RPMineViewModel.swift */; };
 		4A758D53273A5268001B204D /* RPYaModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A758D52273A5268001B204D /* RPYaModel.swift */; };
@@ -116,6 +114,8 @@
 		4A8508CB2744B25100F538C2 /* RPBillDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A8508CA2744B25100F538C2 /* RPBillDetailViewController.swift */; };
 		4A8508CE2744F91800F538C2 /* RPDatePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A8508CD2744F91800F538C2 /* RPDatePickerViewController.swift */; };
 		4A8508D22745EB1100F538C2 /* RPDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A8508D12745EB1100F538C2 /* RPDate.swift */; };
+		4A8508D627475B1C00F538C2 /* RPNicePicCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A8508D527475B1C00F538C2 /* RPNicePicCell.swift */; };
+		4A8508DB27477D0F00F538C2 /* likes@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A8508DA27477D0F00F538C2 /* likes@2x.png */; };
 		4A8F21C4271E9DBC00A249B6 /* RPGuideViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A8F21C3271E9DBC00A249B6 /* RPGuideViewController.swift */; };
 		4A8F21D7271EA9A200A249B6 /* RPGuideCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A8F21D6271EA9A200A249B6 /* RPGuideCell.swift */; };
 		4A8F21E9271EBBED00A249B6 /* 003.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A8F21E6271EBBED00A249B6 /* 003.png */; };
@@ -290,8 +290,6 @@
 		4A596A39272BCA0D003ECB14 /* RPNiceCollectionViewLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPNiceCollectionViewLayout.swift; sourceTree = "<group>"; };
 		4A596A41272BCF1E003ECB14 /* RPSortViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPSortViewController.swift; sourceTree = "<group>"; };
 		4A596A47272BD2CA003ECB14 /* RPNiceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPNiceViewModel.swift; sourceTree = "<group>"; };
-		4A596A58272BF00F003ECB14 /* RPNiceViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPNiceViewCell.swift; sourceTree = "<group>"; };
-		4A596A59272BF00F003ECB14 /* RPNiceViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RPNiceViewCell.xib; sourceTree = "<group>"; };
 		4A596A60272BF2E4003ECB14 /* RPNiceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPNiceModel.swift; sourceTree = "<group>"; };
 		4A758D4D273A2BC5001B204D /* RPMineViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPMineViewModel.swift; sourceTree = "<group>"; };
 		4A758D52273A5268001B204D /* RPYaModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPYaModel.swift; sourceTree = "<group>"; };
@@ -313,6 +311,8 @@
 		4A8508CA2744B25100F538C2 /* RPBillDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPBillDetailViewController.swift; sourceTree = "<group>"; };
 		4A8508CD2744F91800F538C2 /* RPDatePickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPDatePickerViewController.swift; sourceTree = "<group>"; };
 		4A8508D12745EB1100F538C2 /* RPDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPDate.swift; sourceTree = "<group>"; };
+		4A8508D527475B1C00F538C2 /* RPNicePicCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPNicePicCell.swift; sourceTree = "<group>"; };
+		4A8508DA27477D0F00F538C2 /* likes@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "likes@2x.png"; sourceTree = "<group>"; };
 		4A8F21C3271E9DBC00A249B6 /* RPGuideViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPGuideViewController.swift; sourceTree = "<group>"; };
 		4A8F21D6271EA9A200A249B6 /* RPGuideCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPGuideCell.swift; sourceTree = "<group>"; };
 		4A8F21E6271EBBED00A249B6 /* 003.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 003.png; sourceTree = "<group>"; };
@@ -700,8 +700,7 @@
 			isa = PBXGroup;
 			children = (
 				4A596A39272BCA0D003ECB14 /* RPNiceCollectionViewLayout.swift */,
-				4A596A58272BF00F003ECB14 /* RPNiceViewCell.swift */,
-				4A596A59272BF00F003ECB14 /* RPNiceViewCell.xib */,
+				4A8508D527475B1C00F538C2 /* RPNicePicCell.swift */,
 			);
 			path = water_flow_layout;
 			sourceTree = "<group>";
@@ -831,9 +830,18 @@
 			path = Date;
 			sourceTree = "<group>";
 		};
+		4A8508D727477CAC00F538C2 /* common */ = {
+			isa = PBXGroup;
+			children = (
+				4A8508DA27477D0F00F538C2 /* likes@2x.png */,
+			);
+			path = common;
+			sourceTree = "<group>";
+		};
 		4A8F21DB271EB58B00A249B6 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				4A8508D727477CAC00F538C2 /* common */,
 				4AEC25EF2743AA2D002F419E /* mine */,
 				4A4B7301272AA8DF00821756 /* share */,
 				4A8F2235271FA7D800A249B6 /* tabbar */,
@@ -1141,11 +1149,11 @@
 				4A8F21E9271EBBED00A249B6 /* 003.png in Resources */,
 				558D359F271B25B800E03B5F /* RPNewsLinkCell.xib in Resources */,
 				4A4B72F6272A7C9800821756 /* RPAlertViewController.xib in Resources */,
-				4A596A5B272BF00F003ECB14 /* RPNiceViewCell.xib in Resources */,
 				4A8F21EB271EBBED00A249B6 /* 002.png in Resources */,
 				4A461A89273CB60800BA422F /* more@2x.png in Resources */,
 				4A3A5CE727327EA600F5E2ED /* RPDynamicCommentCell.xib in Resources */,
 				4A8F2242271FA7D800A249B6 /* friend_nor@2x.png in Resources */,
+				4A8508DB27477D0F00F538C2 /* likes@2x.png in Resources */,
 				558D3585271AE5CE00E03B5F /* RPFindNewsLinkCell.xib in Resources */,
 				4A5969EF272B8978003ECB14 /* wechat_circle@3x.png in Resources */,
 			);
@@ -1300,7 +1308,6 @@
 				4ADBEBF927337B5C00F73B6D /* RPCycleView.swift in Sources */,
 				4A461B2E273E45C300BA422F /* RPFromTableProtocol.swift in Sources */,
 				4A0220DA27216DC10045CA4B /* HBEmptyDelegate.swift in Sources */,
-				4A596A5A272BF00F003ECB14 /* RPNiceViewCell.swift in Sources */,
 				558D3584271AE5CE00E03B5F /* RPFindNewsLinkCell.swift in Sources */,
 				4A8F243927200AF500A249B6 /* RPRefreshFooter.swift in Sources */,
 				558D3548271A77E400E03B5F /* RPPosterCell.swift in Sources */,
@@ -1327,6 +1334,7 @@
 				4A8508D22745EB1100F538C2 /* RPDate.swift in Sources */,
 				4A7EDAB326F5915600C8FC55 /* RPExploreViewCell.swift in Sources */,
 				4A547C4A26F48528005F00B5 /* RPHomeViewController.swift in Sources */,
+				4A8508D627475B1C00F538C2 /* RPNicePicCell.swift in Sources */,
 				4A7EDAFC26F5C0DC00C8FC55 /* RPTools.swift in Sources */,
 				4A976CDC27293975008DF042 /* RPNewsViewController.swift in Sources */,
 				4A8F23D4271FFEA600A249B6 /* NVActivityIndicatorAnimationBallDoubleBounce.swift in Sources */,
