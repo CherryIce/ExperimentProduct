@@ -163,6 +163,11 @@
 		4AEC25F72743B082002F419E /* RPView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AEC25F62743B082002F419E /* RPView.swift */; };
 		4AEC25F92743B0B4002F419E /* RPString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AEC25F82743B0B4002F419E /* RPString.swift */; };
 		4AEC25FB2743B387002F419E /* RPRecivePayCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AEC25FA2743B387002F419E /* RPRecivePayCodeViewController.swift */; };
+		4AF559242748AD7C0089A656 /* RPVideoBrowserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF559232748AD7C0089A656 /* RPVideoBrowserCell.swift */; };
+		4AF559262748CDBC0089A656 /* RPMineTopicController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF559252748CDBC0089A656 /* RPMineTopicController.swift */; };
+		4AF559282748D1FE0089A656 /* RPTopicDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF559272748D1FE0089A656 /* RPTopicDetailViewController.swift */; };
+		4AF5592F2748D9340089A656 /* RPMineTopicViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF5592E2748D9340089A656 /* RPMineTopicViewCell.swift */; };
+		4AF559312748EA6C0089A656 /* RPMineTopicViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF559302748EA6C0089A656 /* RPMineTopicViewModel.swift */; };
 		554FE83E271BCFF7005E82C7 /* RPFindCardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554FE83C271BCFF7005E82C7 /* RPFindCardCell.swift */; };
 		554FE83F271BCFF7005E82C7 /* RPFindCardCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 554FE83D271BCFF7005E82C7 /* RPFindCardCell.xib */; };
 		554FE844271BD389005E82C7 /* RPFindHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554FE843271BD389005E82C7 /* RPFindHeaderView.swift */; };
@@ -360,6 +365,11 @@
 		4AEC25F62743B082002F419E /* RPView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPView.swift; sourceTree = "<group>"; };
 		4AEC25F82743B0B4002F419E /* RPString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPString.swift; sourceTree = "<group>"; };
 		4AEC25FA2743B387002F419E /* RPRecivePayCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPRecivePayCodeViewController.swift; sourceTree = "<group>"; };
+		4AF559232748AD7C0089A656 /* RPVideoBrowserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPVideoBrowserCell.swift; sourceTree = "<group>"; };
+		4AF559252748CDBC0089A656 /* RPMineTopicController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPMineTopicController.swift; sourceTree = "<group>"; };
+		4AF559272748D1FE0089A656 /* RPTopicDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPTopicDetailViewController.swift; sourceTree = "<group>"; };
+		4AF5592E2748D9340089A656 /* RPMineTopicViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPMineTopicViewCell.swift; sourceTree = "<group>"; };
+		4AF559302748EA6C0089A656 /* RPMineTopicViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPMineTopicViewModel.swift; sourceTree = "<group>"; };
 		554FE83C271BCFF7005E82C7 /* RPFindCardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPFindCardCell.swift; sourceTree = "<group>"; };
 		554FE83D271BCFF7005E82C7 /* RPFindCardCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RPFindCardCell.xib; sourceTree = "<group>"; };
 		554FE843271BD389005E82C7 /* RPFindHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPFindHeaderView.swift; sourceTree = "<group>"; };
@@ -492,16 +502,16 @@
 		4A3A9FFB2719829200C032C8 /* views */ = {
 			isa = PBXGroup;
 			children = (
+				4AF559222748AC740089A656 /* xib */,
+				4AF559292748D69F0089A656 /* MineTopicView */,
 				4ADBEC132733E2FE00F73B6D /* TopicView */,
 				4A3A9FD3271962D600C032C8 /* RPYaCell.swift */,
 				558D3547271A77E400E03B5F /* RPPosterCell.swift */,
 				554FE843271BD389005E82C7 /* RPFindHeaderView.swift */,
 				558D3582271AE5CE00E03B5F /* RPFindNewsLinkCell.swift */,
-				558D3583271AE5CE00E03B5F /* RPFindNewsLinkCell.xib */,
 				558D359C271B25B800E03B5F /* RPNewsLinkCell.swift */,
-				558D359D271B25B800E03B5F /* RPNewsLinkCell.xib */,
 				554FE83C271BCFF7005E82C7 /* RPFindCardCell.swift */,
-				554FE83D271BCFF7005E82C7 /* RPFindCardCell.xib */,
+				4AF559232748AD7C0089A656 /* RPVideoBrowserCell.swift */,
 			);
 			path = views;
 			sourceTree = "<group>";
@@ -750,6 +760,8 @@
 				4A3A9FFC271982C700C032C8 /* RPPostersViewController.swift */,
 				558D3542271A750B00E03B5F /* RPPosterListViewController.swift */,
 				4ADBEC082733CDC300F73B6D /* RPTopicViewController.swift */,
+				4AF559252748CDBC0089A656 /* RPMineTopicController.swift */,
+				4AF559272748D1FE0089A656 /* RPTopicDetailViewController.swift */,
 			);
 			path = Find;
 			sourceTree = "<group>";
@@ -957,7 +969,6 @@
 			isa = PBXGroup;
 			children = (
 				4A37EE8F2734CEA600E1F288 /* RPTopViewCell.swift */,
-				4A37EE902734CEA600E1F288 /* RPTopViewCell.xib */,
 				4A4662F02738B1E900FC8FFC /* RPTopicPhotoListView.swift */,
 				4A4662F52738B21C00FC8FFC /* RPTopicVideoView.swift */,
 				4A4662FA2738B23800FC8FFC /* RPTopicArtcleView.swift */,
@@ -972,6 +983,25 @@
 				4AEC25F02743AA7E002F419E /* qrcode@2x.png */,
 			);
 			path = mine;
+			sourceTree = "<group>";
+		};
+		4AF559222748AC740089A656 /* xib */ = {
+			isa = PBXGroup;
+			children = (
+				4A37EE902734CEA600E1F288 /* RPTopViewCell.xib */,
+				558D3583271AE5CE00E03B5F /* RPFindNewsLinkCell.xib */,
+				558D359D271B25B800E03B5F /* RPNewsLinkCell.xib */,
+				554FE83D271BCFF7005E82C7 /* RPFindCardCell.xib */,
+			);
+			path = xib;
+			sourceTree = "<group>";
+		};
+		4AF559292748D69F0089A656 /* MineTopicView */ = {
+			isa = PBXGroup;
+			children = (
+				4AF5592E2748D9340089A656 /* RPMineTopicViewCell.swift */,
+			);
+			path = MineTopicView;
 			sourceTree = "<group>";
 		};
 		558D354C271A783000E03B5F /* models */ = {
@@ -993,6 +1023,7 @@
 				558D3566271AA90000E03B5F /* RPPosterViewModel.swift */,
 				558D356B271ABC4C00E03B5F /* RPFindViewModel.swift */,
 				4A37EE9E2734E1AF00E1F288 /* RPTopicViewModel.swift */,
+				4AF559302748EA6C0089A656 /* RPMineTopicViewModel.swift */,
 			);
 			path = vms;
 			sourceTree = "<group>";
@@ -1251,6 +1282,7 @@
 				4A758D67273A607B001B204D /* RPSetupViewModel.swift in Sources */,
 				4A8F23E9271FFEA600A249B6 /* NVActivityIndicatorAnimationPacman.swift in Sources */,
 				4A547C3926F482D9005F00B5 /* RPNavigationController.swift in Sources */,
+				4AF559282748D1FE0089A656 /* RPTopicDetailViewController.swift in Sources */,
 				4A547C4126F484DD005F00B5 /* RPBaseViewController.swift in Sources */,
 				4A3A9F892717CEEC00C032C8 /* TextFieldEffects.swift in Sources */,
 				558D3543271A750B00E03B5F /* RPPosterListViewController.swift in Sources */,
@@ -1268,16 +1300,19 @@
 				4A8F23DD271FFEA600A249B6 /* NVActivityIndicatorAnimationBallClipRotatePulse.swift in Sources */,
 				4A547C5C26F485A5005F00B5 /* RPMineViewController.swift in Sources */,
 				4A37EE882734BF4200E1F288 /* RPTopicModel.swift in Sources */,
+				4AF5592F2748D9340089A656 /* RPMineTopicViewCell.swift in Sources */,
 				4A3A5CBC2732764000F5E2ED /* RPDynamicVideoPlyerContainerView.swift in Sources */,
 				554FE844271BD389005E82C7 /* RPFindHeaderView.swift in Sources */,
 				4A596A61272BF2E4003ECB14 /* RPNiceModel.swift in Sources */,
 				4A530B5C272F875E00DD495E /* RPAnimatedTransitions.swift in Sources */,
+				4AF559242748AD7C0089A656 /* RPVideoBrowserCell.swift in Sources */,
 				4A758D62273A5742001B204D /* RPSetupViewController.swift in Sources */,
 				4A3A5CD827327C4E00F5E2ED /* RPPicturesDynamicHeaderView.swift in Sources */,
 				4A8508CE2744F91800F538C2 /* RPDatePickerViewController.swift in Sources */,
 				4A547BD626F44898005F00B5 /* AppDelegate.swift in Sources */,
 				4A8F23D0271FFEA600A249B6 /* NVActivityIndicatorAnimationBallGridPulse.swift in Sources */,
 				4AEC25F72743B082002F419E /* RPView.swift in Sources */,
+				4AF559312748EA6C0089A656 /* RPMineTopicViewModel.swift in Sources */,
 				4A0221BF2722A35F0045CA4B /* RPLaunchAdManager.swift in Sources */,
 				4A8F23EE271FFEA600A249B6 /* NVActivityIndicatorAnimationLineScalePulseOutRapid.swift in Sources */,
 				4A1BC5A027424C3400909DF7 /* RPScanView.swift in Sources */,
@@ -1301,6 +1336,7 @@
 				4A461A7C273BD10000BA422F /* RPLookPictureViewController.swift in Sources */,
 				4A461A68273B9E6000BA422F /* RPPersonInfoViewController.swift in Sources */,
 				4A37EE912734CEA600E1F288 /* RPTopViewCell.swift in Sources */,
+				4AF559262748CDBC0089A656 /* RPMineTopicController.swift in Sources */,
 				4A3A5CB72732760200F5E2ED /* RPVideoDynamicCell.swift in Sources */,
 				4A8F23CE271FFEA600A249B6 /* NVActivityIndicatorAnimationDelegate.swift in Sources */,
 				4A8F21D7271EA9A200A249B6 /* RPGuideCell.swift in Sources */,

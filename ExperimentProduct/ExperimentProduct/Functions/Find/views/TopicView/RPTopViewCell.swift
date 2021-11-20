@@ -10,6 +10,8 @@ import ActiveLabel
 
 protocol RPTopViewCellDelegate:NSObjectProtocol
 {
+    //点击头像
+    func clickHeaderIconInTopic(_ cell:RPTopViewCell,indexPath:IndexPath)
     //点击链接
     func selectURLInTopic(_ cell:RPTopViewCell,url:String)
     //展开与收起
@@ -68,6 +70,10 @@ class RPTopViewCell: UITableViewCell {
         // Initialization code
         headIconV.layercornerRadius(cornerRadius: 4)
         headIconV.backgroundColor = RPColor.Separator
+        headIconV.isUserInteractionEnabled = true
+        let tap = UITapGestureRecognizer(target: self, action: #selector(headIconVClick))
+        headIconV.addGestureRecognizer(tap)
+        
         contentLabel.delegate = self
         let customType = ActiveType.custom(pattern: "\\b((?:https?://|www\\d{0,3}[.]|[a-z0-9.\\-]+[.][a-z]{2,4}/)(?:[^\\s()<>]+|\\(([^\\s()<>]+|(\\([^\\s()<>]+\\)))*\\))+(?:\\(([^\\s()<>]+|(\\([^\\s()<>]+\\)))*\\)|[^\\s`!()\\[\\]{};:'\".,<>???“”‘’]))")
         contentLabel.enabledTypes = [customType]//enabledTypes = [.mention,.hashtag,.url]
@@ -233,6 +239,12 @@ class RPTopViewCell: UITableViewCell {
     @IBAction func like_comment_click(_ sender: UIButton) {
         if (self.delegate != nil) {
             self.delegate?.likeTheTopic(self, indexPath: indexPath)
+        }
+    }
+    
+    @objc func headIconVClick() {
+        if (self.delegate != nil) {
+            self.delegate?.clickHeaderIconInTopic(self, indexPath: indexPath)
         }
     }
 }

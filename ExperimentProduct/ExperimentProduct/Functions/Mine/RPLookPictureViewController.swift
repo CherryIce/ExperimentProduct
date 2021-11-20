@@ -74,10 +74,7 @@ class RPLookPictureViewController: RPBaseViewController {
                 break
             case .noSupport:
                 //设备不支持
-                self.navigationController?.view.makeToast("设备不支持",
-                                                          duration: 3.0,
-                                                          position: .top,
-                                                          style: RPTools.RPToastStyle)
+                self.viewShowToast("设备不支持", position: .top)
                 break
             }
         }
@@ -105,10 +102,7 @@ class RPLookPictureViewController: RPBaseViewController {
                 break
             case .noSupport:
                 //设备不支持
-                self.navigationController?.view.makeToast("设备不支持",
-                                                          duration: 3.0,
-                                                          position: .top,
-                                                          style: RPTools.RPToastStyle)
+                self.viewShowToast("设备不支持", position: .top)
                 break
             }
         }

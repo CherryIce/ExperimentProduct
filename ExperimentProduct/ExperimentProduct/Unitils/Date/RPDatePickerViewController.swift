@@ -43,8 +43,8 @@ class RPDatePickerViewController: RPBaseViewController {
         
         datePicker.snp.makeConstraints { make in
             make.left.right.equalToSuperview()
-            make.bottom.equalToSuperview().offset(-RPTools.BottomPadding)
-            make.height.equalTo(300)
+            make.bottom.equalToSuperview()//.offset(-RPTools.BottomPadding)
+            make.height.equalTo(300+RPTools.BottomPadding)
         }
         scroll()
         
