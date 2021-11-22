@@ -19,7 +19,7 @@ class RPWalletViewController: RPBaseViewController {
     
     func simpleUI() {
         let simpleView = UIView.init()
-        simpleView.backgroundColor = RPColor.ShallowColor
+        simpleView.backgroundColor = .init(hexString: "#FFF3E6").withAlphaComponent(0.4)
         view.addSubview(simpleView)
         simpleView.snp.makeConstraints { make in
             make.left.top.equalToSuperview().offset(16)
@@ -57,6 +57,20 @@ class RPWalletViewController: RPBaseViewController {
             make.height.equalTo(100)
         }
         moneyBtn.layoutButton(style: .Top, imageTitleSpace: 10)
+        //银行卡 这里只是随便给银行卡列表一个入口 就不再增加iOS对于按钮属性的适配了 实际情况按需处理
+        let bankCardBtn = UIButton.init(type: .custom)
+        bankCardBtn.titleLabel?.font = .systemFont(ofSize: 16)
+        bankCardBtn.setTitle("银行卡", for: .normal)
+        bankCardBtn.backgroundColor = .init(hexString: "#18C47C")
+        bankCardBtn.addTarget(self, action: #selector(bankCardBtnClick), for: .touchUpInside)
+        view.addSubview(bankCardBtn)
+        bankCardBtn.layercornerRadius(cornerRadius: 5)
+        bankCardBtn.snp.makeConstraints { make in
+            make.left.equalToSuperview().offset(16)
+            make.top.equalTo(simpleView.snp_bottom).offset(16)
+            make.width.equalTo(simpleView.snp_width)
+            make.height.equalTo(40)
+        }
         //扫一扫
         let btn = UIButton.init(type: .custom)
         btn.setTitle("☁️", for: .normal)
@@ -77,6 +91,10 @@ class RPWalletViewController: RPBaseViewController {
     
     @objc func moneyClick()  {
         self.navigationController?.pushViewController(RPYueViewController.init(), animated: true)
+    }
+    
+    @objc func bankCardBtnClick() {
+        self.navigationController?.pushViewController(RPBankCardListController.init(), animated: true)
     }
 }
 

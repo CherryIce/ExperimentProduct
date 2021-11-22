@@ -13,6 +13,7 @@ class RPWithdrawalViewController: RPBaseViewController {
     lazy var bankIconV = UIImageView()
     lazy var bankLabel = UILabel()
     lazy var rateLabel = UILabel()
+    lazy var withdrawalTextfield = UITextField()
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -63,6 +64,9 @@ class RPWithdrawalViewController: RPBaseViewController {
             make.top.equalTo(actV.snp_bottom).offset(10)
             make.height.equalTo(68)
         }
+        
+        let tap = UITapGestureRecognizer.init(target: self, action: #selector(bankVClick))
+        bankV.addGestureRecognizer(tap)
         
         bankIconV = UIImageView.init()
         bankIconV.backgroundColor = .brown
@@ -137,16 +141,31 @@ class RPWithdrawalViewController: RPBaseViewController {
             make.height.equalTo(33)
         }
         
-        let withdrawalTextfield = UITextField.init()
-        withdrawalTextfield.placeholder = "please input"
+        let  allWithdrawalBtn = UIButton.init(type: .custom)
+        allWithdrawalBtn.setTitle("全部提现", for: .normal)
+        allWithdrawalBtn.setTitleColor(RPColor.redWine, for: .normal)
+        allWithdrawalBtn.titleLabel?.font = .systemFont(ofSize: 16)
+        withdrawal.addSubview(allWithdrawalBtn)
+        allWithdrawalBtn.snp.makeConstraints { make in
+            make.right.equalToSuperview().offset(-16)
+            make.width.equalTo(68)
+            make.height.equalTo(33)
+            make.centerY.equalTo(unitLabel.snp_centerY)
+        }
+        allWithdrawalBtn.addTarget(self, action: #selector(allWithdrawalBtnClick), for: .touchUpInside)
+        
+        withdrawalTextfield = UITextField.init()
+        withdrawalTextfield.placeholder = "请输入提现金额"
         withdrawalTextfield.textColor = .init(hexString: "#2E3135")
         withdrawalTextfield.font = .boldSystemFont(ofSize: 24)
+        withdrawalTextfield.clearButtonMode = .whileEditing
+        withdrawalTextfield.keyboardType = .decimalPad
         withdrawal.addSubview(withdrawalTextfield)
         withdrawalTextfield.snp.makeConstraints { make in
             make.left.equalTo(unitLabel.snp_right).offset(10)
             make.top.equalTo(unitLabel.snp_top)
             make.height.equalTo(unitLabel.snp_height)
-            make.right.equalToSuperview().offset(-16)
+            make.right.equalTo(allWithdrawalBtn.snp_left)
         }
         
         let lineView = UIView.init()
@@ -197,7 +216,29 @@ class RPWithdrawalViewController: RPBaseViewController {
         withdrawalBtn.addTarget(self, action: #selector(withdrawalBtnClick), for: .touchUpInside)
     }
     
+    @objc func bankVClick() {
+        //有银行卡 去选择
+        //无银行卡 去添加
+        let isExistedBankCard = arc4random()%3 == 0 ? false : true
+        if isExistedBankCard {
+            let vc = RPChosseBankCardController.init { model in
+                
+            }
+            self.present(vc, animated: true, completion: nil)
+        }else{
+            self.navigationController?.pushViewController(RPAddBankCardController.init(), animated: true)
+        }
+    }
+    
+    @objc func allWithdrawalBtnClick() {
+        withdrawalTextfield.text = "0.00"//全部
+    }
+    
     @objc func withdrawalBtnClick() {
-        
+        withdrawalTextfield.resignFirstResponder()
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        withdrawalTextfield.resignFirstResponder()
     }
 }

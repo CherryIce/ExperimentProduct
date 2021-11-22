@@ -61,8 +61,15 @@ class RPTools: NSObject {
     
     //通过文件名获取png图片
     public static func getPngImage(forResource: String) -> UIImage {
-        let path = Bundle.main.path(forResource: forResource, ofType: "png")!
-        let image = RPImage.init(contentsOfFile: path)!
+        guard let path = Bundle.main.path(forResource: forResource, ofType: "png") else {
+            log.debug("The image path not found")
+            return UIImage.init(color: .red)!
+        }
+        guard let image = UIImage.init(contentsOfFile: path) else {
+            log.debug("The image path found, but the image is error")
+            return UIImage.init(color: .blue)!
+        }
+        
         return image
     }
     

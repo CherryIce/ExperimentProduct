@@ -62,7 +62,7 @@ class RPPasswordViewController: RPBaseViewController {
             self.navigationItem.title = "设置密码"
             let xx = ["设置密码","再次确认","验 证 码"]
             let xxs = ["请设置密码","请再次输入密码","请输入验证码"]
-            let yy = [RPFromTableType.inputMid,RPFromTableType.inputMid,RPFromTableType.verification]
+            let yy = [RPFromTableType.labelAndTextField,RPFromTableType.labelAndTextField,RPFromTableType.verification]
             for i in 0..<xx.count {
                 let model = RPFromTableModel.init(title: xx[i], placeholder:xxs[i], cellClass:nil, type: yy[i])
                 model.maxLength = i == 2 ? 4 : 12
@@ -74,7 +74,7 @@ class RPPasswordViewController: RPBaseViewController {
             //这里只考虑手机验证码修改密码这一选择 用原密码修改方案有需求可以增加
             let xx = ["新 密 码","再次确认","验 证 码"]
             let xxs = ["请设置新密码","请再次输入新密码","请输入验证码"]
-            let yy = [RPFromTableType.inputMid,RPFromTableType.inputMid,RPFromTableType.verification]
+            let yy = [RPFromTableType.labelAndTextField,RPFromTableType.labelAndTextField,RPFromTableType.verification]
             for i in 0..<xx.count {
                 let model = RPFromTableModel.init(title: xx[i], placeholder:xxs[i], cellClass:nil, type: yy[i])
                 model.maxLength = i == 2 ? 4 : 12
@@ -91,7 +91,7 @@ class RPPasswordViewController: RPBaseViewController {
             let model = xx as! RPFromTableModel
             if model.info.count == 0 {
                 unfinished = true
-                tips = model.textfiledPlaceholder
+                tips = model.placeholder
                 break
             }
         }

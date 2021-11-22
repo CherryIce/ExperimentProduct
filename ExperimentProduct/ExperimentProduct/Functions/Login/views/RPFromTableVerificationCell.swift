@@ -59,6 +59,7 @@ class RPFromTableVerificationCell: UITableViewCell {
         
         switch model.type {
         case .verification:
+            titleLabel.isHidden = false
             titleLabel.frame = CGRect.init(x: 16, y: 0, width: 100, height: 25)
             titleLabel.center.y = bounds.size.height * 0.5
             
@@ -69,13 +70,29 @@ class RPFromTableVerificationCell: UITableViewCell {
             textfiled.frame = CGRect.init(x: titleLabel.frame.maxX + 10, y: 0, width: verifiBtn.frame.minX - titleLabel.frame.minX - 20, height: 25)
             textfiled.center.y = bounds.size.height * 0.5
             break
-        case .inputMid,.inputRight:
+        case .labelAndTextField:
+            titleLabel.isHidden = false
             titleLabel.frame = CGRect.init(x: 16, y: 0, width: 100, height: 25)
             titleLabel.center.y = bounds.size.height * 0.5
             textfiled.frame = CGRect.init(x: titleLabel.frame.maxX + 10, y: 0, width:bounds.size.width - titleLabel.frame.minX - 20, height: 25)
             textfiled.center.y = bounds.size.height * 0.5
             
             verifiBtn.isHidden = true
+            break
+        case .textfieldAndButton:
+            titleLabel.isHidden = true
+            verifiBtn.isHidden = false
+            verifiBtn.frame = CGRect.init(x: bounds.size.width - 16 - 100, y: 0, width: 100, height: 30)
+            verifiBtn.center.y = bounds.size.height * 0.5
+            
+            textfiled.frame = CGRect(x: 16, y: 0, width: verifiBtn.frame.minX - 32, height: 25)
+            textfiled.center.y = bounds.size.height * 0.5
+            break
+        case .textField:
+            titleLabel.isHidden = true
+            verifiBtn.isHidden = true
+            textfiled.frame = CGRect(x: 16, y: 0, width: bounds.width - 32, height: 25)
+            textfiled.center.y = bounds.size.height * 0.5
             break
         }
     }
@@ -111,11 +128,12 @@ extension RPFromTableVerificationCell:RPFromTableCellDataDelegate {
         self.titleLabel.textColor = model.titleColor
         
         self.textfiled.text = model.info
-        self.textfiled.placeholder = model.textfiledPlaceholder
-        self.textfiled.font = model.textfiledFont
-        self.textfiled.textColor = model.textfiledColor
+        self.textfiled.placeholder = model.placeholder
+        self.textfiled.font = model.inputFont
+        self.textfiled.textColor = model.inputColor
+        self.textfiled.keyboardType = model.keyboardType
         //...
-        self.textfiled.textAlignment =  model.type == .inputRight ? .right : .left
+        self.textfiled.textAlignment =  model.alignment
     }
 }
 

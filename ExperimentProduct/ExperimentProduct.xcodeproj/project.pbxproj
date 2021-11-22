@@ -154,6 +154,11 @@
 		4A976CBE2729067A008DF042 /* UUTakePhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A976CBC2729067A008DF042 /* UUTakePhoto.swift */; };
 		4A976CDC27293975008DF042 /* RPNewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A976CDB27293975008DF042 /* RPNewsViewController.swift */; };
 		4A976CE127293C1F008DF042 /* RPActionSheetController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A976CE027293C1F008DF042 /* RPActionSheetController.swift */; };
+		4AB5EFDC274B3204008CD843 /* RPAddBankCardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB5EFDB274B3204008CD843 /* RPAddBankCardController.swift */; };
+		4AB5EFDE274B3228008CD843 /* RPBankCardListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB5EFDD274B3228008CD843 /* RPBankCardListController.swift */; };
+		4AB5EFE0274B4793008CD843 /* RPChosseBankCardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB5EFDF274B4793008CD843 /* RPChosseBankCardController.swift */; };
+		4AB5EFE2274B4BC3008CD843 /* RPBankCardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB5EFE1274B4BC3008CD843 /* RPBankCardModel.swift */; };
+		4AB5EFE4274B7DB5008CD843 /* collect@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4AB5EFE3274B7DB5008CD843 /* collect@2x.png */; };
 		4AD802AD26F57565000F3B3A /* RPImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AD802AC26F57565000F3B3A /* RPImage.swift */; };
 		4ADBEBF927337B5C00F73B6D /* RPCycleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ADBEBF827337B5C00F73B6D /* RPCycleView.swift */; };
 		4ADBEC092733CDC300F73B6D /* RPTopicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ADBEC082733CDC300F73B6D /* RPTopicViewController.swift */; };
@@ -356,6 +361,11 @@
 		4A976CBC2729067A008DF042 /* UUTakePhoto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UUTakePhoto.swift; sourceTree = "<group>"; };
 		4A976CDB27293975008DF042 /* RPNewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPNewsViewController.swift; sourceTree = "<group>"; };
 		4A976CE027293C1F008DF042 /* RPActionSheetController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPActionSheetController.swift; sourceTree = "<group>"; };
+		4AB5EFDB274B3204008CD843 /* RPAddBankCardController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPAddBankCardController.swift; sourceTree = "<group>"; };
+		4AB5EFDD274B3228008CD843 /* RPBankCardListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPBankCardListController.swift; sourceTree = "<group>"; };
+		4AB5EFDF274B4793008CD843 /* RPChosseBankCardController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPChosseBankCardController.swift; sourceTree = "<group>"; };
+		4AB5EFE1274B4BC3008CD843 /* RPBankCardModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPBankCardModel.swift; sourceTree = "<group>"; };
+		4AB5EFE3274B7DB5008CD843 /* collect@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "collect@2x.png"; sourceTree = "<group>"; };
 		4AD802AC26F57565000F3B3A /* RPImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPImage.swift; sourceTree = "<group>"; };
 		4ADBEBF827337B5C00F73B6D /* RPCycleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPCycleView.swift; sourceTree = "<group>"; };
 		4ADBEC082733CDC300F73B6D /* RPTopicViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPTopicViewController.swift; sourceTree = "<group>"; };
@@ -787,6 +797,9 @@
 				4A8508C82744B21400F538C2 /* RPBillListsViewController.swift */,
 				4A8508CA2744B25100F538C2 /* RPBillDetailViewController.swift */,
 				4A8508C42744ADED00F538C2 /* RPWithdrawalViewController.swift */,
+				4AB5EFDF274B4793008CD843 /* RPChosseBankCardController.swift */,
+				4AB5EFDD274B3228008CD843 /* RPBankCardListController.swift */,
+				4AB5EFDB274B3204008CD843 /* RPAddBankCardController.swift */,
 				4A1BC592274210EC00909DF7 /* RPScanViewController.swift */,
 				4A758D5C273A5730001B204D /* RPCollectViewController.swift */,
 				4A976CDB27293975008DF042 /* RPNewsViewController.swift */,
@@ -811,6 +824,7 @@
 			children = (
 				4A7EDB6C26F5E2C800C8FC55 /* RPUserInfoModel.swift */,
 				4A461A6C273BA3D800BA422F /* RProvincesModel.swift */,
+				4AB5EFE1274B4BC3008CD843 /* RPBankCardModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -845,6 +859,7 @@
 		4A8508D727477CAC00F538C2 /* common */ = {
 			isa = PBXGroup;
 			children = (
+				4AB5EFE3274B7DB5008CD843 /* collect@2x.png */,
 				4A8508DA27477D0F00F538C2 /* likes@2x.png */,
 			);
 			path = common;
@@ -1161,6 +1176,7 @@
 				4A8F2243271FA7D800A249B6 /* mine_nor@2x.png in Resources */,
 				4A547BDF26F44899005F00B5 /* Assets.xcassets in Resources */,
 				4AEC25F12743AA7E002F419E /* qrcode@2x.png in Resources */,
+				4AB5EFE4274B7DB5008CD843 /* collect@2x.png in Resources */,
 				4AEC25F32743AA86002F419E /* balance@2x.png in Resources */,
 				4A8F2240271FA7D800A249B6 /* friend_selected@2x.png in Resources */,
 				4A5969E8272B8960003ECB14 /* wechat@3x.png in Resources */,
@@ -1258,6 +1274,7 @@
 				4A547BDA26F44898005F00B5 /* ViewController.swift in Sources */,
 				4A530B8E272FC0F600DD495E /* RPPicturesDynamicView.swift in Sources */,
 				4AEC25FB2743B387002F419E /* RPRecivePayCodeViewController.swift in Sources */,
+				4AB5EFDE274B3228008CD843 /* RPBankCardListController.swift in Sources */,
 				4A0220D827216DC10045CA4B /* HBEmpty.swift in Sources */,
 				4A976BDF272698DA008DF042 /* RPWkwebViewController.swift in Sources */,
 				4A1DEC6F27156CA400149FD8 /* RPTextFiled.swift in Sources */,
@@ -1302,6 +1319,7 @@
 				4A37EE882734BF4200E1F288 /* RPTopicModel.swift in Sources */,
 				4AF5592F2748D9340089A656 /* RPMineTopicViewCell.swift in Sources */,
 				4A3A5CBC2732764000F5E2ED /* RPDynamicVideoPlyerContainerView.swift in Sources */,
+				4AB5EFE0274B4793008CD843 /* RPChosseBankCardController.swift in Sources */,
 				554FE844271BD389005E82C7 /* RPFindHeaderView.swift in Sources */,
 				4A596A61272BF2E4003ECB14 /* RPNiceModel.swift in Sources */,
 				4A530B5C272F875E00DD495E /* RPAnimatedTransitions.swift in Sources */,
@@ -1360,6 +1378,7 @@
 				4A8508CB2744B25100F538C2 /* RPBillDetailViewController.swift in Sources */,
 				4A4B72FC272A93A200821756 /* RPShareViewController.swift in Sources */,
 				4A8F23F1271FFEA600A249B6 /* NVActivityIndicatorShape.swift in Sources */,
+				4AB5EFDC274B3204008CD843 /* RPAddBankCardController.swift in Sources */,
 				4A8F23E6271FFEA600A249B6 /* NVActivityIndicatorAnimationBallScaleMultiple.swift in Sources */,
 				4A461B0B273E044500BA422F /* RPAboutViewController.swift in Sources */,
 				4A547C3326F47EF3005F00B5 /* RPMainTabBarViewController.swift in Sources */,
@@ -1387,6 +1406,7 @@
 				4A461AA1273CC3D900BA422F /* RPUpdateNickNameViewController.swift in Sources */,
 				4A3AA005271984E700C032C8 /* RPCollectionViewAdapter.swift in Sources */,
 				4A8F2206271ECC0700A249B6 /* Toast.swift in Sources */,
+				4AB5EFE2274B4BC3008CD843 /* RPBankCardModel.swift in Sources */,
 				4A547C8126F49739005F00B5 /* ImageHelper.swift in Sources */,
 				4A37EE9F2734E1AF00E1F288 /* RPTopicViewModel.swift in Sources */,
 				4A7EDB0726F5CECA00C8FC55 /* RPMineHeaderView.swift in Sources */,

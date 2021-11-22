@@ -14,6 +14,7 @@ class RPMineViewModel: NSObject {
         var tt = [RPTableViewSectionItem]()
         let xx = [["支付中心"],["收藏", "活动中心"], ["设置"]]
         let xxs = [["payAction"],["collectAction", "activityAction"], ["setupAction"]]
+        let imgs = [["balance@2x"],["collect@2x","xx"],["yy"]]
         for i in 0..<xx.count {
             let item = RPTableViewSectionItem.init()
             if i != 0 {
@@ -22,7 +23,7 @@ class RPMineViewModel: NSObject {
             let yy = xx[i]
             for j in 0..<yy.count {
                 let model = RPYaModel.init()
-                model.image = "wechat@2x"
+                model.image = imgs[i][j]
                 model.title = yy[j]
                 model.clickAction = xxs[i][j]
                 model.imgClickAction = "test"
