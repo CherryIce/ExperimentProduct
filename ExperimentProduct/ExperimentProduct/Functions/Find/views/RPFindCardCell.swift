@@ -32,8 +32,8 @@ extension RPFindCardCell:RPListCellDataDelegate {
         self.indexPath = indexPath
         if cellData is RPCollectionViewCellItem {
             let xx = cellData as! RPCollectionViewCellItem
-            if xx.cellData is RPPosterModel {
-                datas = ["🐰", "秃子", "鹰酱", "毛熊", "棒子", "脚盆鸡", "高卢鸡", "狗大户"]
+            if xx.cellData is NSArray {
+                datas = xx.cellData as! NSArray
                 collectionView.reloadData()
             }
         }
@@ -49,8 +49,9 @@ extension RPFindCardCell:UICollectionViewDelegate,UICollectionViewDataSource,UIC
     //cell显示
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let identifier = RPCollectionViewAdapter.init().reuseIdentifierForCellClass(cellClass: RPPosterCell.self, collectionView: collectionView)
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath)
-        cell.backgroundColor = RPColor.RandomColor
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath) as! RPPosterCell
+        let model = datas[indexPath.row] as! RPPosterModel
+        cell.posterImgView.setImageWithURL(model.imgUrlPath, placeholder: UIImage.init(color: .orange)!)
         return cell
     }
     

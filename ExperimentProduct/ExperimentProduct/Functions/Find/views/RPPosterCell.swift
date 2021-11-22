@@ -13,12 +13,13 @@ class RPPosterCell: UICollectionViewCell {
     var model = RPPosterModel()
     private var indexPath = IndexPath()
     
-    private var posterImgView = UIImageView()
+    var posterImgView = UIImageView()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         
         posterImgView = UIImageView.init()
+        posterImgView.contentMode = .scaleToFill
         self.addSubview(posterImgView)
         
         posterImgView.layercornerRadius(cornerRadius: 4)

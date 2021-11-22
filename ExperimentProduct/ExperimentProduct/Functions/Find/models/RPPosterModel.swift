@@ -8,9 +8,8 @@
 import UIKit
 
 class RPPosterModel: NSObject {
-    
-    var imgUrlPath = String()
-    var imgName = String()
-    var dateTime = String()
+    var imgUrlPath = ""
+    var imgName = ""
+    var dateTime = ""
     
 }

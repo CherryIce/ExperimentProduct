@@ -187,7 +187,7 @@ class RPCollectionViewCellItem: NSObject {
     //cell
     var cellClass = UICollectionViewCell.self
     //cell对应的数据
-    var cellData = NSObject()
+    var cellData:AnyObject?
     //size
     var cellSize = CGSize()
 }

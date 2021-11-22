@@ -90,7 +90,9 @@ extension RPPersonInfoViewController : RPListViewCellEventDelegate {
                                                       dataArray:[[man,woman],
                                                                  [RPActionSheetCellItem.cancel()]]) { (indexPath) in
                 DispatchQueue.main.async {
-                    xCell.detailTextLabel?.text = ["男","女"][indexPath.row]
+                    if indexPath.section == 0 {
+                        xCell.detailTextLabel?.text = ["男","女"][indexPath.row]
+                    }
                 }
             }
             self.present(alertC, animated: true,completion: nil)

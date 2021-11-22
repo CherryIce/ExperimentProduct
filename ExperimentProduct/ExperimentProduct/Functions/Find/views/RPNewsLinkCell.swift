@@ -32,8 +32,8 @@ extension RPNewsLinkCell:RPListCellDataDelegate {
         self.indexPath = indexPath
         if cellData is RPCollectionViewCellItem {
             let xx = cellData as! RPCollectionViewCellItem
-            if xx.cellData is RPPosterModel {
-                datas = ["🐰", "秃子", "鹰酱", "毛熊", "棒子", "脚盆鸡", "高卢鸡", "狗大户"]
+            if xx.cellData is [RPPosterModel] {
+                datas = xx.cellData as! NSArray
                 tableView.reloadData()
             }
         }
@@ -50,7 +50,8 @@ extension RPNewsLinkCell:UITableViewDelegate,UITableViewDataSource{
 //        let item = datas[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: String(describing:UITableViewCell.self), for: indexPath)
         cell.selectionStyle = .none
-        cell.textLabel?.text = datas[indexPath.row] as? String
+        let model = datas[indexPath.row] as? RPPosterModel
+        cell.textLabel?.text = model?.imgName
         return cell
     }
 

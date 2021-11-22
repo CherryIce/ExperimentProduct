@@ -20,7 +20,7 @@ class RPRefreshHeader: UIView ,ESRefreshProtocol, ESRefreshAnimatorProtocol{
     private let activityIndicatorView: NVActivityIndicatorView = {
         let activityIndicatorView = NVActivityIndicatorView(frame: CGRect.zero,
                                                             type: .audioEqualizer)
-        activityIndicatorView.color = RPColor.MainColor
+        activityIndicatorView.color = RPColor.redWine
         return activityIndicatorView
     }()
     
