@@ -62,11 +62,20 @@ class RPTools: NSObject {
     //通过文件名获取png图片
     public static func getPngImage(forResource: String) -> UIImage {
         guard let path = Bundle.main.path(forResource: forResource, ofType: "png") else {
-            log.debug("The image path not found")
-            return UIImage.init(color: .red)!
+            var named = forResource
+            if named.contains("@") {
+                named = forResource.components(separatedBy: "@").first!
+            }
+            let image = UIImage(named: named)
+            if image == nil {
+                log.debug( forResource+" The image path not found and not existed Assets! ")
+                return UIImage.init(color: .red)!
+            }
+            log.debug(forResource+" The image path exist in Assets!")
+            return image!
         }
         guard let image = UIImage.init(contentsOfFile: path) else {
-            log.debug("The image path found, but the image is error")
+            log.debug(forResource+" The image path found, but the image is error... ")
             return UIImage.init(color: .blue)!
         }
         

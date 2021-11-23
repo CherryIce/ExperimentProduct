@@ -20,7 +20,7 @@ class RPPicturesDynamicView: UIView {
     weak var container:RPDynamicViewController?
     var model = RPNiceModel() {
         didSet {
-            headerView.dataArray = model.imgs
+            headerView.dataArray = model.imageList
         }
     }
 
@@ -37,6 +37,7 @@ class RPPicturesDynamicView: UIView {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.separatorColor = RPColor.Separator
+        tableView.sectionFooterHeight = RPTools.BottomPadding //保证刘海屏底部黑线距离
         tableView.tableFooterView = UIView()
         tableView.showsVerticalScrollIndicator = false
         self.addSubview(tableView)
@@ -172,6 +173,10 @@ extension RPPicturesDynamicView : UITableViewDelegate,UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: RPTableViewAdapter.init().reuseIdentifierForCellClass(cellClass: RPDynamicCommentCell.self, tableView: tableView), for: indexPath) as! RPDynamicCommentCell
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        return UIView.init()
     }
 }
 

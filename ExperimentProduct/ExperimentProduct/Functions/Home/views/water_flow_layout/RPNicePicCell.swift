@@ -23,11 +23,11 @@ class RPNicePicCell: UICollectionViewCell {
     }
     
     func establish() {
-        converImgV.setImageWithURL(model.converUrl, placeholder: UIImage.init(color: RPColor.RandomColor)!)
-        contentLabel.text = model.content
-        headImgV.setImageWithURL(model.headImgUrl, placeholder: UIImage.init(color: RPColor.RandomColor)!, closure: nil)
-        userNameLabel.text = model.userName
+        converImgV.setImageWithURL(model.cover.url, placeholder: UIImage.init(color: RPColor.RandomColor)!)
+        contentLabel.text = model.title
+        userNameLabel.text = model.author.name
         likesButton.setTitle(String(Int(model.likes)), for: .normal)
+        headImgV.setImageWithURL(model.author.image, placeholder: UIImage.init(color: RPColor.RandomColor)!, closure: nil)
     }
     
     override init(frame: CGRect) {
@@ -72,9 +72,9 @@ class RPNicePicCell: UICollectionViewCell {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        
-        converImgV.frame = CGRect(x: 0, y: 0, width: frame.size.width, height: model.converH)
-        var top = model.converH+10
+        //实际情况 cell的宽是固定的 那么高度应由图片宽高比例得出
+        converImgV.frame = CGRect(x: 0, y: 0, width: frame.size.width, height: model.cover.height)
+        var top = model.cover.height+10
         contentLabel.frame = CGRect(x: 10, y: top, width:frame.size.width-20, height:model.contentH)
         if model.contentH > 0 {
             top += model.contentH
@@ -84,6 +84,7 @@ class RPNicePicCell: UICollectionViewCell {
         likesButton.frame = CGRect(x: frame.size.width - 10 - 60, y: top, width: 60, height: 20)
         likesButton.sizeToFit()
         likesButton.frame.size = CGSize(width: likesButton.frame.width, height: 20)
+        likesButton.frame.origin.x = frame.size.width - 10 - likesButton.frame.width
         userNameLabel.frame = CGRect(x: headImgV.frame.maxX+5, y: top, width: likesButton.frame.minX - headImgV.frame.maxX - 15, height: 20)
         
         contentView.layercornerRadius(cornerRadius: 4)

@@ -76,16 +76,16 @@ extension RPDynamicViewController: RPDynamicViewEventDelegate {
         case .browser:
             let browser = JXPhotoBrowser()
             browser.numberOfItems = {
-                self.model.imgs.count
+                self.model.imageList.count
             }
             browser.reloadCellAtIndex = { context in
-                let url = self.model.imgs[context.index]
+                let imageModel = self.model.imageList[context.index]
                 let browserCell = context.cell as? JXPhotoBrowserImageCell
                 browserCell?.index = context.index
                 let collectionPath = IndexPath(item: context.index, section: 0)
                 let collectionCell = self.pictureMainView.headerView.collectionView.cellForItem(at: collectionPath) as? RPPicturesDynamicCell
                 let placeholder = collectionCell?.imgV.image
-                browserCell?.imageView.setImageWithURL(url, placeholder: placeholder ?? UIImage.init())
+                browserCell?.imageView.setImageWithURL(imageModel.url, placeholder: placeholder ?? UIImage.init())
             }
             browser.transitionAnimator = JXPhotoBrowserZoomAnimator(previousView: { index -> UIView? in
                 let path = IndexPath(item: index, section: 0)

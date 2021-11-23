@@ -191,7 +191,8 @@ class RPShareViewCell: UICollectionViewCell {
     override func layoutSubviews() {
         super.layoutSubviews()
         
-        imgV.frame = CGRect.init(x: 0, y: 5, width: 50, height: 50)
+        //图片显示的大小 应该是cell的总高度 减去 10的间隙 再减去label显示的高度 就刚好是图片的大小
+        imgV.frame = CGRect.init(x: 0, y: 5, width: bounds.height-30, height: bounds.height-30)
         imgV.center.x = self.frame.size.width * 0.5
         
         title.frame = CGRect.init(x: 0, y: imgV.frame.maxY + 5, width: self.frame.size.width, height: 20)

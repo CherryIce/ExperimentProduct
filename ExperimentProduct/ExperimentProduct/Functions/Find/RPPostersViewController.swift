@@ -58,7 +58,7 @@ class RPPostersViewController: RPBaseViewController {
     
     func loadData() {
         viewModel.getTitleLabel(params: NSDictionary.init()) { (datas) in
-            titlesArray = ["一叶子","维生素","玻尿酸","爽肤水"]
+            titlesArray = datas as! [String]
             var i = 0
             while i < titlesArray.count {
                 let vc = RPPosterListViewController.init()

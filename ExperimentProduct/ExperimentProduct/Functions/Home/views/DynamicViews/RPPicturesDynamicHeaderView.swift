@@ -13,7 +13,7 @@ class RPPicturesDynamicHeaderView: UIView {
     lazy var pageControl = UIPageControl()
 //    lazy var titleLabel = UILabel()
 //    lazy var descrLabel = UILabel()
-    var dataArray = [String]() {
+    var dataArray = [RPImageModel]() {
         didSet {
             self.collectionView.reloadData()
         }
@@ -83,7 +83,8 @@ extension RPPicturesDynamicHeaderView:UICollectionViewDelegate,UICollectionViewD
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let identifier = RPCollectionViewAdapter.init().reuseIdentifierForCellClass(cellClass: RPPicturesDynamicCell.self, collectionView: collectionView)
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath) as! RPPicturesDynamicCell
-        cell.imgV.setImageWithURL(dataArray[indexPath.item], placeholder: UIImage.init(color: RPColor.RandomColor)!)
+        let model = dataArray[indexPath.item]
+        cell.imgV.setImageWithURL(model.url, placeholder: UIImage.init(color: RPColor.RandomColor)!)
         return cell
     }
 

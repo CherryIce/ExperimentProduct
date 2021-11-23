@@ -6,112 +6,138 @@
 //
 
 import UIKit
+import TYPagerController
 
 class RPHomeViewController: RPBaseViewController {
-    
-    private var pageIndex = 1
-    private lazy var dataArray = [RPNiceModel]()
-    private lazy var collectionView = UICollectionView()
-    private lazy var viewModel  = RPNiceViewModel()
+    private lazy var topNavView = UIView()
+    private lazy var tabBar = TYTabPagerBar()
+    private lazy var pagerController = TYPagerController()
+    private lazy var titlesArray = [String]()
+    private lazy var controllersArray: NSMutableArray = []
     override func viewDidLoad() {
         super.viewDidLoad()
-        initUI()
-        configuration()
-        refreshUI()
+        creatNav()
+        addTabPagerBar()
+        addPagerController()
+        loadData()
     }
     
-    func initUI () {
-        let flowLayout = RPNiceCollectionViewLayout.init()
-        flowLayout.delegate = self
-        collectionView = UICollectionView.init(frame: CGRect.zero, collectionViewLayout: flowLayout)
-        collectionView.delegate = self
-        collectionView.dataSource = self
-        collectionView.backgroundColor = UIColor.clear
-        collectionView.showsVerticalScrollIndicator = false
-        self.view.addSubview(collectionView)
-        
-        collectionView.snp.makeConstraints { (make) in
-            make.left.top.right.bottom.equalToSuperview()
-        }
-    }
-    
-    private func configuration() {
-        //下拉刷新
-        collectionView.refreshIdentifier = "RPRefreshHeader"
-        collectionView.expiredTimeInterval = 20.0
-        collectionView.es.addPullToRefresh(animator: RPRefreshHeader.init(frame: CGRect.zero)) { [weak self] in
-            DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
-                self?.pageIndex = 1
-                self?.refreshUI()
-            }
+    func creatNav(){
+        topNavView = UIView.init()
+        topNavView.backgroundColor = .white
+        self.view.addSubview(topNavView)
+        topNavView.snp.makeConstraints { (make) in
+            make.left.top.right.equalToSuperview()
+            make.height.equalTo(RPTools.NAV_HEIGHT)
         }
         
-        //上拉加载
-        collectionView.es.addInfiniteScrolling(animator: RPRefreshFooter.init(frame: CGRect.zero)) { [weak self] in
-            DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
-                self?.refreshUI()
-            }
+        let search = UIButton.init(type: .custom)
+        search.setImage(RPTools.getPngImage(forResource: "find_nor@2x"), for: .normal)
+        search.addTarget(self, action: #selector(searchOthers), for: .touchUpInside)
+        topNavView.addSubview(search)
+        search.snp.makeConstraints { make in
+            make.right.equalToSuperview().offset(-16)
+            make.width.height.equalTo(30)
+            make.bottom.equalToSuperview().offset(-7)
         }
     }
     
-    func refreshUI () {
-        viewModel.getNicesLists(params: NSDictionary.init()) { (datas) in
-            collectionView.es.stopPullToRefresh()
-            collectionView.es.stopLoadingMore()
-            if pageIndex == 1 {
-                collectionView.es.resetNoMoreData()
-                dataArray = datas as! [RPNiceModel]
-                collectionView.reloadData()
-                pageIndex += 1
-            }else{
-                let indexPaths = NSMutableArray.init()
-                for i in 0 ..< datas.count {
-                    dataArray.append(datas[i] as! RPNiceModel)
-                    let indexPath = NSIndexPath.init(row: dataArray.count-1, section: 0)
-                    indexPaths.add(indexPath)
-                }
-                if pageIndex >= 10 {
-                    collectionView.es.noticeNoMoreData()
-                }
-                pageIndex += 1
-                if indexPaths.count > 0 {
-                    collectionView.insertItems(at: indexPaths as! [IndexPath])
-                    UIView.performWithoutAnimation {
-                        collectionView.reloadItems(at: indexPaths as! [IndexPath])
-                    }
-                }
-            }
-        } failed: { (error) in
-            //collectionView.reloadData()
+    func addTabPagerBar() {
+        self.tabBar.delegate = self
+        self.tabBar.dataSource = self
+        self.tabBar.layout.sectionInset = UIEdgeInsets.init(top: 0, left: 16, bottom: 0, right: 16)
+        self.tabBar.layout.cellEdging = 10
+        self.tabBar.layout.normalTextFont = UIFont.systemFont(ofSize: 16)
+        self.tabBar.layout.selectedTextFont = UIFont.boldSystemFont(ofSize: 16)
+        self.tabBar.layout.normalTextColor = RPColor.lightGray
+        self.tabBar.layout.selectedTextColor = RPColor.redWine
+        self.tabBar.layout.progressColor = RPColor.redWine
+        self.tabBar.register(TYTabPagerBarCell.classForCoder(), forCellWithReuseIdentifier: NSStringFromClass(TYTabPagerBarCell.classForCoder()))
+        topNavView.addSubview(self.tabBar)
+        self.tabBar.snp.makeConstraints { (make) in
+            make.bottom.equalToSuperview().offset(-2)
+            make.width.equalTo(200)
+            make.height.equalTo(40)
+            make.centerX.equalToSuperview()
         }
     }
     
+    func addPagerController() {
+        self.pagerController.dataSource = self
+        self.pagerController.delegate = self
+        self.addChild(self.pagerController)
+        self.view.addSubview(self.pagerController.view)
+        self.pagerController.view.snp.makeConstraints { (make) in
+            make.left.right.bottom.equalToSuperview()
+            make.top.equalTo(self.tabBar.snp_bottom)
+        }
+    }
+    
+    func loadData() {
+        titlesArray = ["关注","发现","附近"]
+        
+        let follow = RPFollowViewController.init()
+        self.controllersArray.add(follow)
+        
+        let recommend = RPRecommendController.init()
+        self.controllersArray.add(recommend)
+        
+        let near = RPNearViewController.init()
+        self.controllersArray.add(near)
+
+        reloadData()
+    }
+    
+    func reloadData() {
+        self.tabBar.reloadData()
+        self.pagerController.reloadData()
+        
+        //指定默认
+        self.tabBar.scrollToItem(from: 0, to: 1, animate: true)
+        self.pagerController.scrollToController(at: 1, animate: true)
+    }
+    
+    @objc func searchOthers() {
+        
+    }
 }
 
-extension RPHomeViewController : UICollectionViewDelegate,UICollectionViewDataSource {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return self.dataArray.count
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell : RPNicePicCell = collectionView.dequeueReusableCell(withReuseIdentifier: RPCollectionViewAdapter.init().reuseIdentifierForCellClass(cellClass: RPNicePicCell.self, collectionView: collectionView), for: indexPath) as! RPNicePicCell
-        cell.model = self.dataArray[indexPath.item]
+extension RPHomeViewController: TYTabPagerBarDataSource, TYTabPagerBarDelegate {
+    func pagerTabBar(_ pagerTabBar: TYTabPagerBar, cellForItemAt index: Int) -> UICollectionViewCell & TYTabPagerBarCellProtocol {
+        let cell = pagerTabBar.dequeueReusableCell(withReuseIdentifier: NSStringFromClass(TYTabPagerBarCell.classForCoder()), for: index)
+        cell.titleLabel.text = self.titlesArray[index]
         return cell
     }
     
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let cell = collectionView.cellForItem(at: indexPath) as! RPNicePicCell
-        let type = indexPath.item%2 == 0 ? RPDynamicViewControllerType.pictures : RPDynamicViewControllerType.video
-        let ctl = RPDynamicViewController.init(dynamicType: type,model:self.dataArray[indexPath.item])
-        ctl.transitionView = cell.converImgV
-        self.customPresent(ctl, animated: true)
+    func numberOfItemsInPagerTabBar() -> Int {
+        return self.titlesArray.count
+    }
+    
+    func pagerTabBar(_ pagerTabBar: TYTabPagerBar, widthForItemAt index: Int) -> CGFloat {
+        let title = self.titlesArray[index]
+        return pagerTabBar.cellWidth(forTitle: title)
+    }
+    
+    func pagerTabBar(_ pagerTabBar: TYTabPagerBar, didSelectItemAt index: Int) {
+        self.pagerController.scrollToController(at: index, animate: true);
     }
 }
 
-extension RPHomeViewController : RPNiceCollectionViewLayoutDelegate {
-    func waterFlowLayout(layout: RPNiceCollectionViewLayout, indexPath: NSIndexPath, itemWidth: CGFloat) -> CGFloat {
-        let item : RPNiceModel = self.dataArray[indexPath.item]
-        return item.cellH
+extension RPHomeViewController: TYPagerControllerDataSource, TYPagerControllerDelegate {
+    func numberOfControllersInPagerController() -> Int {
+        return self.controllersArray.count
+    }
+    
+    func pagerController(_ pagerController: TYPagerController, controllerFor index: Int, prefetching: Bool) -> UIViewController {
+        let vc = self.controllersArray[index]
+        return vc as! UIViewController
+    }
+    
+    func pagerController(_ pagerController: TYPagerController, transitionFrom fromIndex: Int, to toIndex: Int, animated: Bool) {
+        self.tabBar.scrollToItem(from: fromIndex, to: toIndex, animate: animated)
+    }
+    func pagerController(_ pagerController: TYPagerController, transitionFrom fromIndex: Int, to toIndex: Int, progress: CGFloat) {
+        self.tabBar.scrollToItem(from: fromIndex, to: toIndex, progress: progress)
     }
 }
 

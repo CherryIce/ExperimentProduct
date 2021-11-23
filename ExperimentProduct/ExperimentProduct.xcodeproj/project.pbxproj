@@ -115,7 +115,6 @@
 		4A8508CE2744F91800F538C2 /* RPDatePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A8508CD2744F91800F538C2 /* RPDatePickerViewController.swift */; };
 		4A8508D22745EB1100F538C2 /* RPDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A8508D12745EB1100F538C2 /* RPDate.swift */; };
 		4A8508D627475B1C00F538C2 /* RPNicePicCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A8508D527475B1C00F538C2 /* RPNicePicCell.swift */; };
-		4A8508DB27477D0F00F538C2 /* likes@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A8508DA27477D0F00F538C2 /* likes@2x.png */; };
 		4A8F21C4271E9DBC00A249B6 /* RPGuideViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A8F21C3271E9DBC00A249B6 /* RPGuideViewController.swift */; };
 		4A8F21D7271EA9A200A249B6 /* RPGuideCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A8F21D6271EA9A200A249B6 /* RPGuideCell.swift */; };
 		4A8F21E9271EBBED00A249B6 /* 003.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A8F21E6271EBBED00A249B6 /* 003.png */; };
@@ -158,7 +157,12 @@
 		4AB5EFDE274B3228008CD843 /* RPBankCardListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB5EFDD274B3228008CD843 /* RPBankCardListController.swift */; };
 		4AB5EFE0274B4793008CD843 /* RPChosseBankCardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB5EFDF274B4793008CD843 /* RPChosseBankCardController.swift */; };
 		4AB5EFE2274B4BC3008CD843 /* RPBankCardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB5EFE1274B4BC3008CD843 /* RPBankCardModel.swift */; };
-		4AB5EFE4274B7DB5008CD843 /* collect@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4AB5EFE3274B7DB5008CD843 /* collect@2x.png */; };
+		4AB5EFE6274C9CBB008CD843 /* RPFollowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB5EFE5274C9CBB008CD843 /* RPFollowViewController.swift */; };
+		4AB5EFE8274C9D13008CD843 /* RPRecommendController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB5EFE7274C9D13008CD843 /* RPRecommendController.swift */; };
+		4AB5EFEA274C9DA1008CD843 /* RPNearViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB5EFE9274C9DA1008CD843 /* RPNearViewController.swift */; };
+		4AB5EFEC274CA077008CD843 /* RPRecommendListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB5EFEB274CA077008CD843 /* RPRecommendListViewController.swift */; };
+		4AB5EFF1274CDAA8008CD843 /* RPFollowViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB5EFEF274CDAA8008CD843 /* RPFollowViewCell.swift */; };
+		4AB5EFF2274CDAA8008CD843 /* RPFollowViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4AB5EFF0274CDAA8008CD843 /* RPFollowViewCell.xib */; };
 		4AD802AD26F57565000F3B3A /* RPImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AD802AC26F57565000F3B3A /* RPImage.swift */; };
 		4ADBEBF927337B5C00F73B6D /* RPCycleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ADBEBF827337B5C00F73B6D /* RPCycleView.swift */; };
 		4ADBEC092733CDC300F73B6D /* RPTopicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ADBEC082733CDC300F73B6D /* RPTopicViewController.swift */; };
@@ -322,7 +326,6 @@
 		4A8508CD2744F91800F538C2 /* RPDatePickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPDatePickerViewController.swift; sourceTree = "<group>"; };
 		4A8508D12745EB1100F538C2 /* RPDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPDate.swift; sourceTree = "<group>"; };
 		4A8508D527475B1C00F538C2 /* RPNicePicCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPNicePicCell.swift; sourceTree = "<group>"; };
-		4A8508DA27477D0F00F538C2 /* likes@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "likes@2x.png"; sourceTree = "<group>"; };
 		4A8F21C3271E9DBC00A249B6 /* RPGuideViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPGuideViewController.swift; sourceTree = "<group>"; };
 		4A8F21D6271EA9A200A249B6 /* RPGuideCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPGuideCell.swift; sourceTree = "<group>"; };
 		4A8F21E6271EBBED00A249B6 /* 003.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 003.png; sourceTree = "<group>"; };
@@ -365,7 +368,12 @@
 		4AB5EFDD274B3228008CD843 /* RPBankCardListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPBankCardListController.swift; sourceTree = "<group>"; };
 		4AB5EFDF274B4793008CD843 /* RPChosseBankCardController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPChosseBankCardController.swift; sourceTree = "<group>"; };
 		4AB5EFE1274B4BC3008CD843 /* RPBankCardModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPBankCardModel.swift; sourceTree = "<group>"; };
-		4AB5EFE3274B7DB5008CD843 /* collect@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "collect@2x.png"; sourceTree = "<group>"; };
+		4AB5EFE5274C9CBB008CD843 /* RPFollowViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPFollowViewController.swift; sourceTree = "<group>"; };
+		4AB5EFE7274C9D13008CD843 /* RPRecommendController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPRecommendController.swift; sourceTree = "<group>"; };
+		4AB5EFE9274C9DA1008CD843 /* RPNearViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPNearViewController.swift; sourceTree = "<group>"; };
+		4AB5EFEB274CA077008CD843 /* RPRecommendListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPRecommendListViewController.swift; sourceTree = "<group>"; };
+		4AB5EFEF274CDAA8008CD843 /* RPFollowViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPFollowViewCell.swift; sourceTree = "<group>"; };
+		4AB5EFF0274CDAA8008CD843 /* RPFollowViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RPFollowViewCell.xib; sourceTree = "<group>"; };
 		4AD802AC26F57565000F3B3A /* RPImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPImage.swift; sourceTree = "<group>"; };
 		4ADBEBF827337B5C00F73B6D /* RPCycleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPCycleView.swift; sourceTree = "<group>"; };
 		4ADBEC082733CDC300F73B6D /* RPTopicViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPTopicViewController.swift; sourceTree = "<group>"; };
@@ -448,6 +456,8 @@
 			children = (
 				4A3A5CCE27327B6E00F5E2ED /* DynamicViews */,
 				4A596A38272BC9BC003ECB14 /* water_flow_layout */,
+				4AB5EFEF274CDAA8008CD843 /* RPFollowViewCell.swift */,
+				4AB5EFF0274CDAA8008CD843 /* RPFollowViewCell.xib */,
 			);
 			path = views;
 			sourceTree = "<group>";
@@ -856,19 +866,9 @@
 			path = Date;
 			sourceTree = "<group>";
 		};
-		4A8508D727477CAC00F538C2 /* common */ = {
-			isa = PBXGroup;
-			children = (
-				4AB5EFE3274B7DB5008CD843 /* collect@2x.png */,
-				4A8508DA27477D0F00F538C2 /* likes@2x.png */,
-			);
-			path = common;
-			sourceTree = "<group>";
-		};
 		4A8F21DB271EB58B00A249B6 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
-				4A8508D727477CAC00F538C2 /* common */,
 				4AEC25EF2743AA2D002F419E /* mine */,
 				4A4B7301272AA8DF00821756 /* share */,
 				4A8F2235271FA7D800A249B6 /* tabbar */,
@@ -966,6 +966,10 @@
 				4A596A46272BD2B2003ECB14 /* viewmodel */,
 				4A1DEBDB2713E06F00149FD8 /* views */,
 				4A547C4926F48528005F00B5 /* RPHomeViewController.swift */,
+				4AB5EFE5274C9CBB008CD843 /* RPFollowViewController.swift */,
+				4AB5EFE7274C9D13008CD843 /* RPRecommendController.swift */,
+				4AB5EFEB274CA077008CD843 /* RPRecommendListViewController.swift */,
+				4AB5EFE9274C9DA1008CD843 /* RPNearViewController.swift */,
 				4A530B4A272F7AE600DD495E /* RPDynamicViewController.swift */,
 				4A596A41272BCF1E003ECB14 /* RPSortViewController.swift */,
 			);
@@ -1176,9 +1180,9 @@
 				4A8F2243271FA7D800A249B6 /* mine_nor@2x.png in Resources */,
 				4A547BDF26F44899005F00B5 /* Assets.xcassets in Resources */,
 				4AEC25F12743AA7E002F419E /* qrcode@2x.png in Resources */,
-				4AB5EFE4274B7DB5008CD843 /* collect@2x.png in Resources */,
 				4AEC25F32743AA86002F419E /* balance@2x.png in Resources */,
 				4A8F2240271FA7D800A249B6 /* friend_selected@2x.png in Resources */,
+				4AB5EFF2274CDAA8008CD843 /* RPFollowViewCell.xib in Resources */,
 				4A5969E8272B8960003ECB14 /* wechat@3x.png in Resources */,
 				4A37EE922734CEA600E1F288 /* RPTopViewCell.xib in Resources */,
 				4A7EDAB426F5915600C8FC55 /* RPExploreViewCell.xib in Resources */,
@@ -1200,7 +1204,6 @@
 				4A461A89273CB60800BA422F /* more@2x.png in Resources */,
 				4A3A5CE727327EA600F5E2ED /* RPDynamicCommentCell.xib in Resources */,
 				4A8F2242271FA7D800A249B6 /* friend_nor@2x.png in Resources */,
-				4A8508DB27477D0F00F538C2 /* likes@2x.png in Resources */,
 				558D3585271AE5CE00E03B5F /* RPFindNewsLinkCell.xib in Resources */,
 				4A5969EF272B8978003ECB14 /* wechat_circle@3x.png in Resources */,
 			);
@@ -1298,6 +1301,7 @@
 				4A3A9FCC2719564800C032C8 /* RPTableViewAdapter.swift in Sources */,
 				4A758D67273A607B001B204D /* RPSetupViewModel.swift in Sources */,
 				4A8F23E9271FFEA600A249B6 /* NVActivityIndicatorAnimationPacman.swift in Sources */,
+				4AB5EFE6274C9CBB008CD843 /* RPFollowViewController.swift in Sources */,
 				4A547C3926F482D9005F00B5 /* RPNavigationController.swift in Sources */,
 				4AF559282748D1FE0089A656 /* RPTopicDetailViewController.swift in Sources */,
 				4A547C4126F484DD005F00B5 /* RPBaseViewController.swift in Sources */,
@@ -1386,6 +1390,9 @@
 				4A8508C72744AF6900F538C2 /* RPBillViewController.swift in Sources */,
 				4AD802AD26F57565000F3B3A /* RPImage.swift in Sources */,
 				4ADBEC092733CDC300F73B6D /* RPTopicViewController.swift in Sources */,
+				4AB5EFF1274CDAA8008CD843 /* RPFollowViewCell.swift in Sources */,
+				4AB5EFE8274C9D13008CD843 /* RPRecommendController.swift in Sources */,
+				4AB5EFEC274CA077008CD843 /* RPRecommendListViewController.swift in Sources */,
 				4A8508D22745EB1100F538C2 /* RPDate.swift in Sources */,
 				4A7EDAB326F5915600C8FC55 /* RPExploreViewCell.swift in Sources */,
 				4A547C4A26F48528005F00B5 /* RPHomeViewController.swift in Sources */,
@@ -1403,6 +1410,7 @@
 				4A8F23A0271FFDC500A249B6 /* RPRefreshHeader.swift in Sources */,
 				558D357E271ADBB400E03B5F /* RPFindModel.swift in Sources */,
 				4A8508C52744ADED00F538C2 /* RPWithdrawalViewController.swift in Sources */,
+				4AB5EFEA274C9DA1008CD843 /* RPNearViewController.swift in Sources */,
 				4A461AA1273CC3D900BA422F /* RPUpdateNickNameViewController.swift in Sources */,
 				4A3AA005271984E700C032C8 /* RPCollectionViewAdapter.swift in Sources */,
 				4A8F2206271ECC0700A249B6 /* Toast.swift in Sources */,

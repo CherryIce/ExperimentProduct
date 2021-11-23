@@ -1,33 +1,29 @@
 //
-//  RPYaViewController.swift
+//  RPFollowViewController.swift
 //  ExperimentProduct
 //
-//  Created by hubin on 2021/10/16.
+//  Created by hubin on 2021/11/23.
 //
 
 import UIKit
 
-class RPYaViewController: RPBaseViewController {
-    
+//关注那些人的动态列表
+class RPFollowViewController: RPBaseViewController {
     private var tableView = UITableView()
-    private var adapter = RPTableViewAdapter()
     private var dataList: NSMutableArray = []
-    private lazy var viewModel = RPYaViewModel()
-    
+    private lazy var viewModel = RPNiceViewModel()
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         // Do any additional setup after loading the view.
-        self.title = "试试适配器"
         createTableViewUI()
-        adapter.c_delegate = self
         loadData()
     }
     
     func createTableViewUI() {
         tableView = UITableView.init(frame:CGRect.zero, style: .plain)
-        tableView.delegate = adapter
-        tableView.dataSource = adapter
+        tableView.delegate = self
+        tableView.dataSource = self
         tableView.separatorColor = RPColor.Separator
         tableView.tableFooterView = UIView()
         self.view.addSubview(tableView)
@@ -40,28 +36,33 @@ class RPYaViewController: RPBaseViewController {
     }
     
     func loadData () {
-        viewModel.getYaData(params: NSDictionary.init()) { (datas) in
+        viewModel.getFollowLists(params: NSDictionary.init()) { (datas) in
             dataList.addObjects(from: datas as! [Any])
-            adapter.dataSourceArray = dataList as! [RPTableViewSectionItem]
             tableView.reloadData()
         } failed: { (error) in
-            log.debug("请求失败了")
             tableView.reloadData()
         }
     }
 }
 
-extension RPYaViewController : RPListViewCellEventDelegate {
-    func didSelectListView(_ listView: UIScrollView,indexPath:IndexPath,sectionData:AnyObject?,cellData:AnyObject?) {
-        self.navigationController?.pushViewController(RPPostersViewController.init(), animated: true)
+extension RPFollowViewController : UITableViewDelegate,UITableViewDataSource {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let identifier = RPTableViewAdapter.init().reuseIdentifierForCellClass(cellClass: RPFollowViewCell.self, tableView: tableView)
+        let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath)
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return dataList.count
     }
 }
 
-extension RPYaViewController: HBEmptyDelegate {
-    
+extension RPFollowViewController: HBEmptyDelegate {
     func customViewForEmpty() -> UIView? {
         let v = RPEmptyView.init(frame: self.view.bounds)
         v.type = .normal_no_data
         return v
     }
 }
+
+

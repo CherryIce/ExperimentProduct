@@ -15,6 +15,7 @@ class RPRefreshHeader: UIView ,ESRefreshProtocol, ESRefreshAnimatorProtocol{
     public var duration: TimeInterval = 0.3
     public var trigger: CGFloat = 56.0
     public var executeIncremental: CGFloat = 56.0
+    public var ignore:CGFloat = 0.0
     public var state: ESRefreshViewState = .pullToRefresh
     
     private let activityIndicatorView: NVActivityIndicatorView = {
@@ -34,10 +35,10 @@ class RPRefreshHeader: UIView ,ESRefreshProtocol, ESRefreshAnimatorProtocol{
     }
     
     public func refreshAnimationBegin(view: ESRefreshComponent) {
-        activityIndicatorView.center = self.center
-        UIView.animate(withDuration: 0.2, delay: 0, options: .curveLinear, animations: {
+//        activityIndicatorView.center = self.center
+        UIView.animate(withDuration: 0.2, delay: 0, options: .curveLinear, animations: { [self] in
             self.activityIndicatorView.frame = CGRect.init(x: (self.bounds.size.width - 39.0) / 2.0,
-                                               y: self.bounds.size.height - 50.0,
+                                               y: self.bounds.size.height - (ignore+50),
                                            width: 39.0,
                                           height: 50.0)
 
@@ -59,7 +60,7 @@ class RPRefreshHeader: UIView ,ESRefreshProtocol, ESRefreshAnimatorProtocol{
     public func refresh(view: ESRefreshComponent, progressDidChange progress: CGFloat) {
         let p = max(0.0, min(1.0, progress))
         activityIndicatorView.frame = CGRect.init(x: (self.bounds.size.width - 39.0) / 2.0,
-                                      y: self.bounds.size.height - 50.0 * p,
+                                      y: self.bounds.size.height - (50.0+ignore) * p,
                                       width: 39.0,
                                       height: 50.0 * p)
     }
