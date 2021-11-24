@@ -11,7 +11,7 @@ class RPMainTabBarViewController: UITabBarController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        addAllChildsControllors();
+        addAllChildsControllors()
         
 //        self.tabBar.tintColor = UIColor.init(hexString: "#13227a")
         if #available(iOS 10.0, *) {
@@ -20,12 +20,13 @@ class RPMainTabBarViewController: UITabBarController {
         
         // ios15
         if #available(iOS 15.0, *) {
-            let itemAppearance = UITabBarItemAppearance()
-            itemAppearance.normal.titleTextAttributes = [.foregroundColor: UIColor.lightGray]
-            itemAppearance.selected.titleTextAttributes = [.foregroundColor: UIColor.init(hexString: "#13227a")]
+//            let itemAppearance = UITabBarItemAppearance()
+//            itemAppearance.normal.titleTextAttributes = [.foregroundColor: UIColor.lightGray]
+            //UIColor.init(hexString: "#13227a")
+//            itemAppearance.selected.titleTextAttributes = [.foregroundColor:RPColor.redWine]
             
             let appearance = UITabBarAppearance()
-            appearance.stackedLayoutAppearance = itemAppearance
+//            appearance.stackedLayoutAppearance = itemAppearance
             appearance.configureWithOpaqueBackground()
             appearance.backgroundColor = .white
             appearance.backgroundEffect = nil
@@ -41,23 +42,44 @@ class RPMainTabBarViewController: UITabBarController {
     }
     
     func addAllChildsControllors() {
+        let titles = ["动态","通讯录","话题","我"]
+        let tabbarItems = RPTabBar.init(titles)
+        tabbarItems.frame = tabBar.bounds
+        tabbarItems.delegate = self
+        tabBar.addSubview(tabbarItems)
         
-        addOneChildVC(childVC:RPHomeViewController(),title:"首页",imageName: "home")
+        addOneChildVC(childVC:RPHomeViewController(),title:"动态",imageName: "home")
         
         addOneChildVC(childVC:RPExploreViewController(),title:"通讯录",imageName: "friend")
         
-        addOneChildVC(childVC:RPFindViewController(), title:"发现", imageName: "find")
+        addOneChildVC(childVC:RPFindViewController(), title:"话题", imageName: "topic")
         
-        addOneChildVC(childVC:RPMineViewController(), title:"我", imageName: "mine")
+        addOneChildVC(childVC:RPMineViewController(), title:"我", imageName: "me")
     }
     
     func addOneChildVC(childVC: RPBaseViewController, title: String?, imageName: String) {
-        childVC.tabBarItem.title = title
+//        childVC.tabBarItem.title = title
         childVC.title = title
-        childVC.tabBarItem.setTitleTextAttributes([NSAttributedString.Key.foregroundColor:UIColor.init(hexString: "#13227a")], for: .selected)
-        childVC.tabBarItem.image = RPTools.getPngImage(forResource:imageName+"_nor@2x").withRenderingMode(.alwaysOriginal)
-        childVC.tabBarItem.selectedImage = RPTools.getPngImage(forResource:imageName+"_selected@2x").withRenderingMode(.alwaysOriginal)
+//        UIColor.init(hexString: "#13227a")
+//        childVC.tabBarItem.setTitleTextAttributes([NSAttributedString.Key.foregroundColor:RPColor.redWine], for: .selected)
+//        childVC.tabBarItem.image = RPTools.getPngImage(forResource:imageName+"_nor@2x").withRenderingMode(.alwaysOriginal)
+//        childVC.tabBarItem.selectedImage = RPTools.getPngImage(forResource:imageName+"_selected@2x").withRenderingMode(.alwaysOriginal)
         let navVC = RPNavigationController(rootViewController: childVC)
         self.addChild(navVC)
+    }
+    
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        for tabBarItem in self.tabBar.subviews {
+            if !(tabBarItem is RPTabBar) {
+                tabBarItem.removeFromSuperview()
+            }
+        }
+    }
+}
+
+extension RPMainTabBarViewController : RPTabBarwEventDelegate {
+    func clickTabBarEventCallBack(_ index: Int) {
+        self.selectedIndex = index
     }
 }

@@ -22,7 +22,7 @@ class RPEmptyView: UIView {
     public typealias ButtonClickCompletionHandler = ()->()
     public var blockButtonClick: ButtonClickCompletionHandler?
 
-    //输入框类型
+    //类型
     public var type: RPEmptyViewType{
         didSet {
             adjustUI()

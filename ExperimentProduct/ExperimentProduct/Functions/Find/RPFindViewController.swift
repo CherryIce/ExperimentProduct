@@ -53,7 +53,7 @@ class RPFindViewController: RPBaseViewController {
         
         var titleLab = UILabel()
         titleLab = UILabel.init()
-        titleLab.text = "发现"
+        titleLab.text = "话题"
         titleLab.font = UIFont.boldSystemFont(ofSize: 24)
         titleView .addSubview(titleLab)
         titleLab.snp.makeConstraints { (make) in
@@ -80,7 +80,6 @@ class RPFindViewController: RPBaseViewController {
             make.top.equalToSuperview().offset(RPTools.NAV_HEIGHT)
         }
     }
-    
     
     func loadData () {
         viewModel.getFindLists(params: NSDictionary.init()) { (datas) in

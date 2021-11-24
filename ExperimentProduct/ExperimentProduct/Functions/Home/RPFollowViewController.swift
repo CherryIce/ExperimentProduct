@@ -26,6 +26,7 @@ class RPFollowViewController: RPBaseViewController {
         tableView.dataSource = self
         tableView.separatorColor = RPColor.Separator
         tableView.tableFooterView = UIView()
+        tableView.showsVerticalScrollIndicator = false
         self.view.addSubview(tableView)
         
         tableView.hb_ept.delegate = self
@@ -48,7 +49,8 @@ class RPFollowViewController: RPBaseViewController {
 extension RPFollowViewController : UITableViewDelegate,UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let identifier = RPTableViewAdapter.init().reuseIdentifierForCellClass(cellClass: RPFollowViewCell.self, tableView: tableView)
-        let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath) as! RPFollowViewCell
+        cell.model = dataList[indexPath.item] as! RPNiceModel
         return cell
     }
     

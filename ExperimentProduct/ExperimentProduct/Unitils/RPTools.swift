@@ -12,6 +12,7 @@ let SCREEN_HEIGHT = UIScreen.main.bounds.size.height
 let kLastVersionKey = "kLastVersionKey"
 let kTokenExpDateTime = "kTokenExpDateTime"
 let kADLaunchCacheKey = "kADLaunchCacheKey"
+let kHostSearchCacheKey = "kHostSearchCacheKey"
 
 class RPTools: NSObject {
     

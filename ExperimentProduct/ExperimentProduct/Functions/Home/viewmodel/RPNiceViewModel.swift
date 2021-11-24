@@ -66,6 +66,11 @@ class RPNiceViewModel: NSObject {
     func getFollowLists(params:NSDictionary,
                         success:(_ datas: NSArray)->(),
                         failed:(_ error: NSError)->()) {
-        success([1,2,3,4,5,6,7,8,9,10])
+        self.getNicesLists(params: params) { datas in
+            success(datas)
+        } failed: { error in
+            
+        }
+        
     }
 }
