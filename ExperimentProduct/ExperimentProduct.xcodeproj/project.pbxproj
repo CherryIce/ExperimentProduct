@@ -101,6 +101,9 @@
 		4A59F2B7274E35C50057605B /* RPSearchTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A59F2B6274E35C50057605B /* RPSearchTitleView.swift */; };
 		4A59F2B9274E3A380057605B /* RPSearchLabelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A59F2B8274E3A380057605B /* RPSearchLabelCell.swift */; };
 		4A59F2BB274E40D60057605B /* delete@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A59F2BA274E40D60057605B /* delete@2x.png */; };
+		4A59F2C0274F715C0057605B /* RPMeidDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A59F2BF274F715C0057605B /* RPMeidDetailViewController.swift */; };
+		4A59F2C3274F7E3C0057605B /* RPMediaImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A59F2C2274F7E3C0057605B /* RPMediaImageCell.swift */; };
+		4A59F2C5274F97290057605B /* RPMediaTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A59F2C4274F97290057605B /* RPMediaTitleView.swift */; };
 		4A758D4E273A2BC5001B204D /* RPMineViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A758D4D273A2BC5001B204D /* RPMineViewModel.swift */; };
 		4A758D53273A5268001B204D /* RPYaModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A758D52273A5268001B204D /* RPYaModel.swift */; };
 		4A758D58273A570B001B204D /* RPWalletViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A758D57273A570B001B204D /* RPWalletViewController.swift */; };
@@ -313,6 +316,9 @@
 		4A59F2B6274E35C50057605B /* RPSearchTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPSearchTitleView.swift; sourceTree = "<group>"; };
 		4A59F2B8274E3A380057605B /* RPSearchLabelCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPSearchLabelCell.swift; sourceTree = "<group>"; };
 		4A59F2BA274E40D60057605B /* delete@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "delete@2x.png"; sourceTree = "<group>"; };
+		4A59F2BF274F715C0057605B /* RPMeidDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPMeidDetailViewController.swift; sourceTree = "<group>"; };
+		4A59F2C2274F7E3C0057605B /* RPMediaImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPMediaImageCell.swift; sourceTree = "<group>"; };
+		4A59F2C4274F97290057605B /* RPMediaTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPMediaTitleView.swift; sourceTree = "<group>"; };
 		4A758D4D273A2BC5001B204D /* RPMineViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPMineViewModel.swift; sourceTree = "<group>"; };
 		4A758D52273A5268001B204D /* RPYaModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPYaModel.swift; sourceTree = "<group>"; };
 		4A758D57273A570B001B204D /* RPWalletViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPWalletViewController.swift; sourceTree = "<group>"; };
@@ -528,6 +534,7 @@
 				4AF559222748AC740089A656 /* xib */,
 				4AF559292748D69F0089A656 /* MineTopicView */,
 				4ADBEC132733E2FE00F73B6D /* TopicView */,
+				4A59F2C1274F7D960057605B /* MediaCells */,
 				4A3A9FD3271962D600C032C8 /* RPYaCell.swift */,
 				558D3547271A77E400E03B5F /* RPPosterCell.swift */,
 				554FE843271BD389005E82C7 /* RPFindHeaderView.swift */,
@@ -766,6 +773,15 @@
 			path = search;
 			sourceTree = "<group>";
 		};
+		4A59F2C1274F7D960057605B /* MediaCells */ = {
+			isa = PBXGroup;
+			children = (
+				4A59F2C2274F7E3C0057605B /* RPMediaImageCell.swift */,
+				4A59F2C4274F97290057605B /* RPMediaTitleView.swift */,
+			);
+			path = MediaCells;
+			sourceTree = "<group>";
+		};
 		4A7EDAAF26F5910C00C8FC55 /* Explore */ = {
 			isa = PBXGroup;
 			children = (
@@ -796,6 +812,7 @@
 				558D3542271A750B00E03B5F /* RPPosterListViewController.swift */,
 				4ADBEC082733CDC300F73B6D /* RPTopicViewController.swift */,
 				4AF559252748CDBC0089A656 /* RPMineTopicController.swift */,
+				4A59F2BF274F715C0057605B /* RPMeidDetailViewController.swift */,
 				4AF559272748D1FE0089A656 /* RPTopicDetailViewController.swift */,
 			);
 			path = Find;
@@ -1286,6 +1303,7 @@
 				4AB5EFDE274B3228008CD843 /* RPBankCardListController.swift in Sources */,
 				4A0220D827216DC10045CA4B /* HBEmpty.swift in Sources */,
 				4A976BDF272698DA008DF042 /* RPWkwebViewController.swift in Sources */,
+				4A59F2C5274F97290057605B /* RPMediaTitleView.swift in Sources */,
 				4A1DEC6F27156CA400149FD8 /* RPTextFiled.swift in Sources */,
 				4A3A9FD4271962D600C032C8 /* RPYaCell.swift in Sources */,
 				4A8F23D2271FFEA600A249B6 /* NVActivityIndicatorAnimationBallClipRotateMultiple.swift in Sources */,
@@ -1302,6 +1320,7 @@
 				558D3567271AA90000E03B5F /* RPPosterViewModel.swift in Sources */,
 				4A8F23EC271FFEA600A249B6 /* NVActivityIndicatorAnimationBallSpinFadeLoader.swift in Sources */,
 				4A976CBD2729067A008DF042 /* UUTailoringImgViewController.swift in Sources */,
+				4A59F2C0274F715C0057605B /* RPMeidDetailViewController.swift in Sources */,
 				4A8F21C4271E9DBC00A249B6 /* RPGuideViewController.swift in Sources */,
 				4A1DEBF92714326700149FD8 /* RPLoginViewController.swift in Sources */,
 				4A596A48272BD2CA003ECB14 /* RPNiceViewModel.swift in Sources */,
@@ -1391,6 +1410,7 @@
 				558D354E271A784900E03B5F /* RPPosterModel.swift in Sources */,
 				4A8508CB2744B25100F538C2 /* RPBillDetailViewController.swift in Sources */,
 				4A4B72FC272A93A200821756 /* RPShareViewController.swift in Sources */,
+				4A59F2C3274F7E3C0057605B /* RPMediaImageCell.swift in Sources */,
 				4A8F23F1271FFEA600A249B6 /* NVActivityIndicatorShape.swift in Sources */,
 				4AB5EFDC274B3204008CD843 /* RPAddBankCardController.swift in Sources */,
 				4A8F23E6271FFEA600A249B6 /* NVActivityIndicatorAnimationBallScaleMultiple.swift in Sources */,

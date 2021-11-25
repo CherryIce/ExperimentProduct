@@ -40,4 +40,12 @@ public extension String {
         }
         return date
     }
+    
+    //字符串转时间戳
+    func toTimeInterval(_ dateFormat:String = "yyyy-MM-dd HH:mm:ss") -> String {
+        if self.isEmpty {
+            return ""
+        }
+        return String(self.toDate(dateFormat).timeIntervalSince1970)
+    }
 }

@@ -55,7 +55,7 @@ class RPMineTopicViewModel: NSObject {
             label.text = model.text
             label.sizeToFit()
             model.textTotalH = CGFloat(ceilf(Float(label.frame.size.height)))
-            model.cellH = model.textTotalH+20+10
+            model.cellH = model.textTotalH+20
             if model.type == .article {
                 if model.artic.converUrl.count == 0 {
                     label.font = UIFont.systemFont(ofSize: 13)
@@ -70,7 +70,7 @@ class RPMineTopicViewModel: NSObject {
             }
             break;
         case .pictures,.video:
-            model.cellH = 170
+            model.cellH = 120
             break
         }
     }

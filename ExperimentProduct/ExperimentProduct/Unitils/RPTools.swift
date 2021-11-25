@@ -153,4 +153,10 @@ class RPTools: NSObject {
             UIApplication.shared.openURL(appSetting)
         }
     }
+    
+    //时间戳转字符串
+    static func timeIntervalToString(_ timeInterval:Double,dateformat:String = "yyyy-MM-dd HH:mm:ss") -> String {
+        let date = Date.init(timeIntervalSince1970: timeInterval)
+        return date.toString(dateformat)
+    }
 }

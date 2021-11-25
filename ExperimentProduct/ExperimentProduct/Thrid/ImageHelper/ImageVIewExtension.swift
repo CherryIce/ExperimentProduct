@@ -44,6 +44,10 @@ public extension UIImageView {
     }
     
     func setImageWithURL(_ url: String, placeholder: UIImage, fadeIn: Bool = true, closure: ((_ image: UIImage?) -> ())? = nil) {
+        if url.isEmpty {
+            self.image = placeholder
+            return
+        }
         let cahce =  RPCache.shared.cache
         if cahce?.object(forKey: url) != nil {
             self.image = cahce?.object(forKey: url) as? UIImage

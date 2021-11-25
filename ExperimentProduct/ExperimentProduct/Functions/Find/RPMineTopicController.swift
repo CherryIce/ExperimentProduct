@@ -42,9 +42,11 @@ class RPMineTopicController: RPBaseViewController {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.separatorStyle = .none
-        tableView.tableFooterView = UIView()
         tableView.showsVerticalScrollIndicator = false
         self.view.addSubview(tableView)
+        
+        let v = UIView.init(frame: CGRect(x: 0, y: 0, width: SCREEN_WIDTH, height: /*RPTools.BottomPadding+*/10))
+        tableView.tableFooterView = v
         
         tableView.snp.makeConstraints { (make) in
             make.left.right.top.bottom.equalToSuperview()
@@ -71,13 +73,41 @@ extension RPMineTopicController:UITableViewDelegate,UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let model = self.dataArray[indexPath.row] as! RPTopicModel
         let cell = tableView.dequeueReusableCell(withIdentifier: RPTableViewAdapter.init().reuseIdentifierForCellClass(cellClass: RPMineTopicViewCell.self, tableView: tableView), for: indexPath) as! RPMineTopicViewCell
-        //        cell.setCellData(model: model, delegate: self, indexPath: indexPath)
-        cell.model = model
+        cell.setCellData(model: model, indexPath: indexPath)
         return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         let model = self.dataArray[indexPath.row] as! RPTopicModel
         return model.cellH
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        //图片 视频 有单独的中间拓展页 其他类型直接飞详情页
+        let model = self.dataArray[indexPath.row] as! RPTopicModel
+        switch model.type {
+        case .text,.article:
+            let detail = RPTopicDetailViewController.init()
+            self.navigationController?.pushViewController(detail, animated: true)
+            break
+        case .video,.pictures:
+            //需要把已经获取到的所有媒体model放进一个数组中打包
+            var index = 0
+            let media = RPMeidDetailViewController.init()
+            for i in 0..<self.dataArray.count {
+                let xm:RPTopicModel = self.dataArray[i] as! RPTopicModel
+                if xm.type == .video || xm.type == .pictures {
+                    media.dataArray.append(xm)
+                    if i == indexPath.row {
+                        index = (media.dataArray.count - 1)
+                    }
+                }
+            }
+            media.currentIndex = index
+            media.modalPresentationStyle = .overFullScreen
+            //可以模拟个push动画
+            self.present(media, animated: true, completion: nil)
+            break
+        }
     }
 }
