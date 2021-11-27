@@ -104,6 +104,7 @@
 		4A59F2C0274F715C0057605B /* RPMeidDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A59F2BF274F715C0057605B /* RPMeidDetailViewController.swift */; };
 		4A59F2C3274F7E3C0057605B /* RPMediaImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A59F2C2274F7E3C0057605B /* RPMediaImageCell.swift */; };
 		4A59F2C5274F97290057605B /* RPMediaTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A59F2C4274F97290057605B /* RPMediaTitleView.swift */; };
+		4A59F2CD2751CF410057605B /* logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A59F2CC2751CF410057605B /* logo@2x.png */; };
 		4A758D4E273A2BC5001B204D /* RPMineViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A758D4D273A2BC5001B204D /* RPMineViewModel.swift */; };
 		4A758D53273A5268001B204D /* RPYaModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A758D52273A5268001B204D /* RPYaModel.swift */; };
 		4A758D58273A570B001B204D /* RPWalletViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A758D57273A570B001B204D /* RPWalletViewController.swift */; };
@@ -319,6 +320,7 @@
 		4A59F2BF274F715C0057605B /* RPMeidDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPMeidDetailViewController.swift; sourceTree = "<group>"; };
 		4A59F2C2274F7E3C0057605B /* RPMediaImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPMediaImageCell.swift; sourceTree = "<group>"; };
 		4A59F2C4274F97290057605B /* RPMediaTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPMediaTitleView.swift; sourceTree = "<group>"; };
+		4A59F2CC2751CF410057605B /* logo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo@2x.png"; sourceTree = "<group>"; };
 		4A758D4D273A2BC5001B204D /* RPMineViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPMineViewModel.swift; sourceTree = "<group>"; };
 		4A758D52273A5268001B204D /* RPYaModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPYaModel.swift; sourceTree = "<group>"; };
 		4A758D57273A570B001B204D /* RPWalletViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPWalletViewController.swift; sourceTree = "<group>"; };
@@ -978,6 +980,7 @@
 		4AB5EFF3274DD29A008CD843 /* common */ = {
 			isa = PBXGroup;
 			children = (
+				4A59F2CC2751CF410057605B /* logo@2x.png */,
 				4A59F2BA274E40D60057605B /* delete@2x.png */,
 				4A8F223D271FA7D800A249B6 /* search@2x.png */,
 				4A8F223B271FA7D800A249B6 /* mine_nor@2x.png */,
@@ -1211,6 +1214,7 @@
 				4AB5EFF2274CDAA8008CD843 /* RPFollowViewCell.xib in Resources */,
 				4A5969E8272B8960003ECB14 /* wechat@3x.png in Resources */,
 				4A37EE922734CEA600E1F288 /* RPTopViewCell.xib in Resources */,
+				4A59F2CD2751CF410057605B /* logo@2x.png in Resources */,
 				4A7EDAB426F5915600C8FC55 /* RPExploreViewCell.xib in Resources */,
 				4A530BA42730E2B400DD495E /* share@2x.png in Resources */,
 				4A547BDD26F44898005F00B5 /* Main.storyboard in Resources */,
@@ -1644,7 +1648,7 @@
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -1670,7 +1674,7 @@
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

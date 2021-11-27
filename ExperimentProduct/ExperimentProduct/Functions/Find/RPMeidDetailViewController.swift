@@ -26,7 +26,7 @@ class RPMeidDetailViewController: RPBaseViewController {
         self.view.addSubview(titleView)
         titleView.leftBtn.setImage(RPTools.getPngImage(forResource: "back_white@2x"), for: .normal)
         titleView.leftBtn.addTarget(self, action: #selector(back), for: .touchUpInside)
-        titleView.rightBtn.setImage(RPTools.getPngImage(forResource: "back_white@2x"), for: .normal)
+        titleView.rightBtn.setImage(RPTools.getPngImage(forResource: "share_white@2x"), for: .normal)
         titleView.rightBtn.addTarget(self, action: #selector(share), for: .touchUpInside)
         
         let flowLayout = UICollectionViewFlowLayout.init()

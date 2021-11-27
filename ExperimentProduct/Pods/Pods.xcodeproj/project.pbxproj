@@ -15,6 +15,7 @@
 			dependencies = (
 			);
 			name = SwiftLint;
+			productName = SwiftLint;
 		};
 /* End PBXAggregateTarget section */
 
@@ -791,7 +792,7 @@
 		E7B6D156EA7705D37752545A7803E110 /* HTTPDynamicFileResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D49F630081DBB82935E394E47EFD34F /* HTTPDynamicFileResponse.m */; };
 		E7C12F362BF90CD95C1937E05B4159D4 /* WHC_KeyboardHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E9898E0F6A3BB927F2BE9085D909F4 /* WHC_KeyboardHeaderView.swift */; };
 		E7F7A632D4C716BBC727E8491BD4251C /* LockOwnerType.swift in Sources */ = {isa = PBXBuildFile; fileRef = B08810CA19DA9C05D2DA127CBF64A52E /* LockOwnerType.swift */; };
-		E8137D5998AD2C7469F9AF4A01E9CE1A /* ESPullToRefresh-ESPullToRefresh in Resources */ = {isa = PBXBuildFile; fileRef = BADAA893FFBF2C0B3B1CC6468C1C685F /* ESPullToRefresh-ESPullToRefresh */; };
+		E8137D5998AD2C7469F9AF4A01E9CE1A /* ESPullToRefresh.bundle in Resources */ = {isa = PBXBuildFile; fileRef = BADAA893FFBF2C0B3B1CC6468C1C685F /* ESPullToRefresh.bundle */; };
 		E827D6ACBA8975388E6D9944040C0A9F /* TABAnimatedDarkModeManagerInterface.h in Headers */ = {isa = PBXBuildFile; fileRef = 80F546091B369E0FA04731C35AB81852 /* TABAnimatedDarkModeManagerInterface.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E863EC75A29D4EE7E3F7C33A495097F6 /* NSImageView+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52EC0F9BB288C6B0E27DF462950E0AD /* NSImageView+Rx.swift */; };
 		E8CFE93D956312C13B0A9A17033D8A44 /* KTVHCHTTPConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 719386F7D13412E2AFDA69E8877654E9 /* KTVHCHTTPConnection.m */; };
@@ -1311,7 +1312,7 @@
 		30F4582F859B38FF53CF0D467F2AEB99 /* FloatingPointType+IdentifiableType.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "FloatingPointType+IdentifiableType.swift"; path = "Sources/RxDataSources/FloatingPointType+IdentifiableType.swift"; sourceTree = "<group>"; };
 		30FF642A497046F5CA1B0E4EDA070E32 /* TagFilter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TagFilter.swift; path = Sources/XCGLogger/Filters/TagFilter.swift; sourceTree = "<group>"; };
 		322ECFE34A6E4C8A66CC13EEFB4B963D /* TABBaseComponent+TABClassicAnimation.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "TABBaseComponent+TABClassicAnimation.m"; path = "TABAnimatedDemo/TABAnimated/Decorate/Animation/Classic/TABBaseComponent+TABClassicAnimation.m"; sourceTree = "<group>"; };
-		328B1FDF437C4056B69F9AD7F59275FC /* .swift-version */ = {isa = PBXFileReference; includeInIndex = 1; path = ".swift-version"; sourceTree = "<group>"; };
+		328B1FDF437C4056B69F9AD7F59275FC /* .swift-version */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = ".swift-version"; sourceTree = "<group>"; };
 		329E0A1BFEC465AB9A8DE16A1DE49A3C /* KTVHTTPCache.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = KTVHTTPCache.release.xcconfig; sourceTree = "<group>"; };
 		32D279E1123CB17CB6EF9BE5E223BABA /* ESPullToRefresh-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "ESPullToRefresh-Info.plist"; sourceTree = "<group>"; };
 		335C1FBC91F47A606ABD57228C24DA8D /* JPImageresizerView-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "JPImageresizerView-prefix.pch"; sourceTree = "<group>"; };
@@ -1719,7 +1720,7 @@
 		9D3DF3FE9C1ED0DF162C9C05330F5E39 /* SnapKit-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SnapKit-dummy.m"; sourceTree = "<group>"; };
 		9D49F630081DBB82935E394E47EFD34F /* HTTPDynamicFileResponse.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = HTTPDynamicFileResponse.m; path = KTVCocoaHTTPServer/Classes/Responses/HTTPDynamicFileResponse.m; sourceTree = "<group>"; };
 		9D702606F8C0A40AC869B7BF9BF8DBC6 /* _RXKVOObserver.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = _RXKVOObserver.h; path = RxCocoa/Runtime/include/_RXKVOObserver.h; sourceTree = "<group>"; };
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		9DB43FA12A69A51041C72FFE6EC57074 /* MultipartFormDataParser.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MultipartFormDataParser.m; path = KTVCocoaHTTPServer/Classes/Mime/MultipartFormDataParser.m; sourceTree = "<group>"; };
 		9DD31A25703330F47D8F82BE64842768 /* ActiveLabel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ActiveLabel.swift; path = ActiveLabel/ActiveLabel.swift; sourceTree = "<group>"; };
 		9DE84633FEC5D24CA29A803EB78263F5 /* SingleAssignmentDisposable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SingleAssignmentDisposable.swift; path = RxSwift/Disposables/SingleAssignmentDisposable.swift; sourceTree = "<group>"; };
@@ -1834,7 +1835,7 @@
 		BA1A822669A6D094F57BF53BA8013288 /* TABWeakDelegateManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = TABWeakDelegateManager.m; path = TABAnimatedDemo/TABAnimated/Util/TABWeakDelegateManager.m; sourceTree = "<group>"; };
 		BA277C50F4A4729FAA3765685E6EA502 /* ToArray.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ToArray.swift; path = RxSwift/Observables/ToArray.swift; sourceTree = "<group>"; };
 		BA7D3DE54BCB738A896D0E3A0541BA33 /* NoError.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NoError.swift; path = Result/NoError.swift; sourceTree = "<group>"; };
-		BADAA893FFBF2C0B3B1CC6468C1C685F /* ESPullToRefresh-ESPullToRefresh */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = "ESPullToRefresh-ESPullToRefresh"; path = ESPullToRefresh.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		BADAA893FFBF2C0B3B1CC6468C1C685F /* ESPullToRefresh.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ESPullToRefresh.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB101929E4B0FA22F26A18DFA90A10BA /* MoyaProvider+Defaults.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "MoyaProvider+Defaults.swift"; path = "Sources/Moya/MoyaProvider+Defaults.swift"; sourceTree = "<group>"; };
 		BC432FD48A5932251F1CAFBC4BF74894 /* RxCocoa */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = RxCocoa; path = RxCocoa.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BCA36DA60CAAD7C1019CE85BCBE8B6D7 /* PointerType.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PointerType.swift; path = Source/PointerType.swift; sourceTree = "<group>"; };
@@ -2337,7 +2338,6 @@
 				6AE363ADAD91611D94573906B1422224 /* ResultProtocol.swift */,
 				E02EAF506525F93ACF82EB48CC55C141 /* Support Files */,
 			);
-			name = Result;
 			path = Result;
 			sourceTree = "<group>";
 		};
@@ -2400,7 +2400,6 @@
 				9745F2C67C28B6402B45B0652C3B334E /* KTVHTTPCache.m */,
 				1AE939FDE5E2D493785CA422B027A05C /* Support Files */,
 			);
-			name = KTVHTTPCache;
 			path = KTVHTTPCache;
 			sourceTree = "<group>";
 		};
@@ -2445,7 +2444,6 @@
 				2690DF4828B3D02CAB5A35ACE9209FB2 /* URLTransform.swift */,
 				82C3CEA0D116DD3ACC73821F86B8D59C /* Support Files */,
 			);
-			name = HandyJSON;
 			path = HandyJSON;
 			sourceTree = "<group>";
 		};
@@ -2469,7 +2467,6 @@
 				ECAFC9C9673E348FFEBA04FAD235C262 /* JXPhotoBrowserZoomSupportedCell.swift */,
 				908D6FE9C0F180CF1E21D0AC0DD69E06 /* Support Files */,
 			);
-			name = JXPhotoBrowser;
 			path = JXPhotoBrowser;
 			sourceTree = "<group>";
 		};
@@ -2588,7 +2585,6 @@
 				15511B333510654C2EE91610502E1059 /* YYMemoryCache.m */,
 				15565A14AECA887CEE6978CD9D66001D /* Support Files */,
 			);
-			name = YYCache;
 			path = YYCache;
 			sourceTree = "<group>";
 		};
@@ -2597,7 +2593,6 @@
 			children = (
 				2000DDBDA89B36B02BA0196393DA72C5 /* Support Files */,
 			);
-			name = SwiftLint;
 			path = SwiftLint;
 			sourceTree = "<group>";
 		};
@@ -2640,7 +2635,6 @@
 				1C0280CFB9382F9506C616D9708C5492 /* UILayoutSupport+Extensions.swift */,
 				67008DBB3C8BD849B5939D7D3FB08ECA /* Support Files */,
 			);
-			name = SnapKit;
 			path = SnapKit;
 			sourceTree = "<group>";
 		};
@@ -2812,7 +2806,6 @@
 				F1793DE50D64916EE15FF023C500ED72 /* URLSession+Rx.swift */,
 				FDF33910EEA787C1D4C8DD7AF9A68C72 /* Support Files */,
 			);
-			name = RxCocoa;
 			path = RxCocoa;
 			sourceTree = "<group>";
 		};
@@ -2852,7 +2845,6 @@
 				98BA70FEA036D175CF597104398B5A5E /* TYTabPagerView.m */,
 				BA44F36E232D796A6B4D4CCD7A975656 /* Support Files */,
 			);
-			name = TYPagerController;
 			path = TYPagerController;
 			sourceTree = "<group>";
 		};
@@ -2866,7 +2858,6 @@
 				29EDA2A432DEF5C1B238D5EA9EEF1359 /* StringTrimExtension.swift */,
 				8342DB6D106C163A2349B4319C01B9BF /* Support Files */,
 			);
-			name = ActiveLabel;
 			path = ActiveLabel;
 			sourceTree = "<group>";
 		};
@@ -2943,7 +2934,6 @@
 				4FA4B4019B25BCF321B34513F53BA981 /* WebSocket.m */,
 				33147502BEB7A6B10D62210C5EC230E7 /* Support Files */,
 			);
-			name = KTVCocoaHTTPServer;
 			path = KTVCocoaHTTPServer;
 			sourceTree = "<group>";
 		};
@@ -2970,7 +2960,7 @@
 				6CBEFE4F9E22AFDC6347A739BB35FF8C /* CocoaAsyncSocket */,
 				D51C3D0C53D23B97B032E3BDD4F82C82 /* Differentiator */,
 				876C4141D6ADC72BFBD0854AD5DD3DC5 /* ESPullToRefresh */,
-				BADAA893FFBF2C0B3B1CC6468C1C685F /* ESPullToRefresh-ESPullToRefresh */,
+				BADAA893FFBF2C0B3B1CC6468C1C685F /* ESPullToRefresh.bundle */,
 				CD54121DDA84872534168702B5F92950 /* HandyJSON */,
 				57A16F36496F75700A94F44A589F70C0 /* JPImageresizerView */,
 				117887665FB3C7A539BB6F806956A01A /* JXPhotoBrowser */,
@@ -3012,7 +3002,6 @@
 				E712AE29723BEFDD97E00ACF1C678B48 /* Utilities.swift */,
 				E03A86D2A2425470E736DFC48DE59AC0 /* Support Files */,
 			);
-			name = Differentiator;
 			path = Differentiator;
 			sourceTree = "<group>";
 		};
@@ -3053,7 +3042,6 @@
 				FA5DF55280EB3A25CC4B4AAD0E879749 /* Resources */,
 				D5B2A853C52556CA185B302DD6E8521C /* Support Files */,
 			);
-			name = ESPullToRefresh;
 			path = ESPullToRefresh;
 			sourceTree = "<group>";
 		};
@@ -3094,7 +3082,6 @@
 				7F6F63F01E15FCF2C24694581D376120 /* Core */,
 				186210500537D2EBCC52A43102266ECA /* Support Files */,
 			);
-			name = XCGLogger;
 			path = XCGLogger;
 			sourceTree = "<group>";
 		};
@@ -3144,7 +3131,6 @@
 				F2C59EEF929E7A6E407563D3FC2864A1 /* WHC_KeyboardManager.swift */,
 				9F2CF2A5133B8C3FF08F7BF27F30BC21 /* Support Files */,
 			);
-			name = WHC_KeyboardManager;
 			path = WHC_KeyboardManager;
 			sourceTree = "<group>";
 		};
@@ -3303,7 +3289,6 @@
 				FDEDED9F43AB0347DEB9EF18AA1DC6AE /* Zip+Collection.swift */,
 				DF72F3FFFBF20C1E4FA652559AAF323E /* Support Files */,
 			);
-			name = RxSwift;
 			path = RxSwift;
 			sourceTree = "<group>";
 		};
@@ -3369,7 +3354,6 @@
 				F9F8EF567C462D1D8F9451D4D1E01072 /* ViewTransition.swift */,
 				9FA04BB3391C63900DD0BD979F502F94 /* Support Files */,
 			);
-			name = RxDataSources;
 			path = RxDataSources;
 			sourceTree = "<group>";
 		};
@@ -3379,7 +3363,6 @@
 				91F755D26AEF0CABA35CCE7F95FD7FE6 /* ObjcExceptionBridging */,
 				99AB0506D980E51B2E8DB13E96F44CDA /* Support Files */,
 			);
-			name = ObjcExceptionBridging;
 			path = ObjcExceptionBridging;
 			sourceTree = "<group>";
 		};
@@ -3473,7 +3456,6 @@
 				AE45D7E2821BA69B19AEC6781D11055D /* Validation.swift */,
 				C5BF10AA56A8839DD820044C10E07F37 /* Support Files */,
 			);
-			name = Alamofire;
 			path = Alamofire;
 			sourceTree = "<group>";
 		};
@@ -3516,7 +3498,6 @@
 				FFD6B8387EA2E8289E1CC99C0FE90654 /* JPImageresizerView.m */,
 				3BB5AE62B76E81ED436E6AADB44A1A5C /* Support Files */,
 			);
-			name = JPImageresizerView;
 			path = JPImageresizerView;
 			sourceTree = "<group>";
 		};
@@ -3527,7 +3508,6 @@
 				ECE2FDA6C03EFAB63CCE787B88BE3209 /* RxSwift */,
 				E212F9AB38A813A186698A7CD4225C05 /* Support Files */,
 			);
-			name = Moya;
 			path = Moya;
 			sourceTree = "<group>";
 		};
@@ -3551,7 +3531,6 @@
 				D2A26744BFE78448B26AF502586C19F1 /* GCDAsyncUdpSocket.m */,
 				5D20E8B1A8AAC06ECE10D79BE51DF98B /* Support Files */,
 			);
-			name = CocoaAsyncSocket;
 			path = CocoaAsyncSocket;
 			sourceTree = "<group>";
 		};
@@ -3595,7 +3574,6 @@
 				2EDC57BB26EE7D6776A72DEA27E882F8 /* Resources */,
 				562529C1B1B696B81043811411E8E2C5 /* Support Files */,
 			);
-			name = TZImagePickerController;
 			path = TZImagePickerController;
 			sourceTree = "<group>";
 		};
@@ -3691,7 +3669,6 @@
 				DB698E065E1C6403ADC1A937425FF728 /* SwiftyJSON.swift */,
 				7BED058B7452FE025FD1605E3F8848DB /* Support Files */,
 			);
-			name = SwiftyJSON;
 			path = SwiftyJSON;
 			sourceTree = "<group>";
 		};
@@ -3814,7 +3791,6 @@
 				533E9F44A2ADC27FFB74933B3242D0C4 /* UIView+TABExtension.m */,
 				0FDEF566594EEA9A46A426C894770260 /* Support Files */,
 			);
-			name = TABAnimated;
 			path = TABAnimated;
 			sourceTree = "<group>";
 		};
@@ -4447,7 +4423,7 @@
 			);
 			name = "ESPullToRefresh-ESPullToRefresh";
 			productName = ESPullToRefresh;
-			productReference = BADAA893FFBF2C0B3B1CC6468C1C685F /* ESPullToRefresh-ESPullToRefresh */;
+			productReference = BADAA893FFBF2C0B3B1CC6468C1C685F /* ESPullToRefresh.bundle */;
 			productType = "com.apple.product-type.bundle";
 		};
 		4F95B73DC51D7024E7E7321B80A2589B /* JXPhotoBrowser */ = {
@@ -4934,7 +4910,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E8137D5998AD2C7469F9AF4A01E9CE1A /* ESPullToRefresh-ESPullToRefresh in Resources */,
+				E8137D5998AD2C7469F9AF4A01E9CE1A /* ESPullToRefresh.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -6675,7 +6651,7 @@
 				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/ESPullToRefresh";
 				IBSC_MODULE = ESPullToRefresh;
 				INFOPLIST_FILE = "Target Support Files/ESPullToRefresh/ResourceBundle-ESPullToRefresh-ESPullToRefresh-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				PRODUCT_NAME = ESPullToRefresh;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
@@ -7537,7 +7513,7 @@
 				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/ESPullToRefresh";
 				IBSC_MODULE = ESPullToRefresh;
 				INFOPLIST_FILE = "Target Support Files/ESPullToRefresh/ResourceBundle-ESPullToRefresh-ESPullToRefresh-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				PRODUCT_NAME = ESPullToRefresh;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
