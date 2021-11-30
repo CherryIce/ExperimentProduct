@@ -113,8 +113,8 @@ class RPTextFiled: UIView {
     func rightViewWithImgName(imgName:String,selectedImageName:String , size:CGSize){
         let buttonV = UIButton.init(type: .custom)
         buttonV.frame = CGRect(x: 0, y: 0, width: size.width+20, height: self.frame.height)
-        buttonV.setImage(UIImage.init(named: imgName), for: .normal)
-        buttonV.setImage(UIImage.init(named: selectedImageName), for: .selected)
+        buttonV.setImage(UIImage.loadImage(imgName), for: .normal)
+        buttonV.setImage(UIImage.loadImage(selectedImageName), for: .selected)
         textField.rightViewMode = UITextField.ViewMode.always
         textField.rightView = buttonV
         
@@ -139,7 +139,7 @@ extension UITextField{
         containerView.addSubview(imgV)
         self.leftViewMode = UITextField.ViewMode.always
         imgV.contentMode = UIView.ContentMode.left;
-        imgV.image = UIImage.init(named: imgName)
+        imgV.image = UIImage.loadImage(imgName)
         self.leftView = containerView
     }
 }

@@ -59,7 +59,7 @@ extension RPYaCell:RPListCellDataDelegate {
                 self.textLabel?.font = model.titleFont
                 self.textLabel?.textColor = model.titleColor
                 if model.image.count != 0 {
-                    self.imageView?.image = RPTools.getPngImage(forResource: model.image).roundedCornerImageWithCornerRadius(8)
+                    self.imageView?.image = UIImage.loadImage(model.image)?.roundedCornerImageWithCornerRadius(8)
                 }
                 self.accessoryType = model.needArrow ? .disclosureIndicator : .none
                 self.detailTextLabel?.text = model.detail

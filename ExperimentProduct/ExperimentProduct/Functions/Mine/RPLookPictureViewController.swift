@@ -20,7 +20,7 @@ class RPLookPictureViewController: RPBaseViewController {
     }
     
     func creatUI() {
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem.init(image: RPTools.getPngImage(forResource: "more@2x").withRenderingMode(.alwaysOriginal), style: .plain, target: self, action: #selector(doImage))
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem.init(image: UIImage.loadImage("more")?.withRenderingMode(.alwaysOriginal), style: .plain, target: self, action: #selector(doImage))
         
         imgV = UIImageView.init()
         self.view.addSubview(imgV)

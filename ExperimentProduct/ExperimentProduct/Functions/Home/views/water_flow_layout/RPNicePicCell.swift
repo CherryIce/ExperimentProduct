@@ -63,7 +63,7 @@ class RPNicePicCell: UICollectionViewCell {
             likesButton.layoutButton(style: .Right, imageTitleSpace: 5)
         }
         contentView.addSubview(likesButton)
-        likesButton.setImage(RPTools.getPngImage(forResource: "likes@2x"), for: .normal)
+        likesButton.setImage(UIImage.loadImage("likes"), for: .normal)
     }
     
     required init?(coder: NSCoder) {

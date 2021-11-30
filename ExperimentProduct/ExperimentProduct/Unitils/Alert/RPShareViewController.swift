@@ -215,11 +215,11 @@ class RPShareItem: NSObject {
         super.init()
     }
     
-    convenience init(text: String?,icon:UIImage) {
+    convenience init(text: String?,icon:UIImage?) {
         self.init(text: text, font: nil, color: nil, icon: icon)
     }
     
-    init(text: String?,font:UIFont?,color:UIColor?,icon:UIImage) {
+    init(text: String?,font:UIFont?,color:UIColor?,icon:UIImage?) {
         super.init()
         self.title = text ?? nil
         self.titleFont = font != nil ? font! : UIFont.systemFont(ofSize: 12)
@@ -228,10 +228,10 @@ class RPShareItem: NSObject {
     }
     
     class func shareToWeChat() -> RPShareItem  {
-        return RPShareItem.init(text: "微信", icon: RPTools.getPngImage(forResource: "wechat@2x"))
+        return RPShareItem.init(text: "微信", icon: UIImage.loadImage("wechat"))
     }
     
     class func shareToWechatCircle() -> RPShareItem  {
-        return RPShareItem.init(text: "朋友圈", icon: RPTools.getPngImage(forResource: "wechat_circle@2x"))
+        return RPShareItem.init(text: "朋友圈", icon: UIImage.loadImage("wechat_circle"))
     }
 }

@@ -32,7 +32,7 @@ class RPHomeViewController: RPBaseViewController {
         }
         
         let search = UIButton.init(type: .custom)
-        search.setImage(RPTools.getPngImage(forResource: "search@2x"), for: .normal)
+        search.setImage(UIImage.loadImage("search"), for: .normal)
         search.addTarget(self, action: #selector(searchOthers), for: .touchUpInside)
         topNavView.addSubview(search)
         search.snp.makeConstraints { make in

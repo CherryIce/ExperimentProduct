@@ -64,25 +64,13 @@ class RPImage: UIImage {
     //导航栏返回按钮图
     open class var NavBackImage : UIImage {
         get {
-            return UIImage.init(named: "back")!
+            return UIImage.loadImage("back")!
         }
     }
     //默认头像
     open class var UserAvatarImage : UIImage {
         get {
-            return UIImage.init(named: "组 1894")!
-        }
-    }
-    //无网络
-    open class var NoNetworkImage : UIImage {
-        get {
-            return UIImage.init(named: "")!
-        }
-    }
-    //无数据
-    open class var NoDatasImage : UIImage {
-        get {
-            return UIImage.init(contentsOfFile: "")!
+            return UIImage.loadImage("组 1894")!
         }
     }
 }
@@ -135,6 +123,76 @@ extension UIImage {
             return UIImage()
         }
         return image
+    }
+    
+    //加载图片
+    static func loadImage(_ imageName: String) -> UIImage? {
+
+        if imageName.isEmpty || imageName.count == 0 {
+            return nil
+        }
+
+        let nameAndType = imageName.components(separatedBy: ".")
+        var name = nameAndType.first!
+        let type = nameAndType.count > 1 ? nameAndType[1] : "png"
+
+        if let image = RPCache.shared.cache?.object(forKey: name) {
+            return image as? UIImage
+        }
+
+        var imagePath = Bundle.main.path(forResource: imageName, ofType: type)
+        var isImageUnder3x = false
+        let nameLength = name.count
+
+        if imagePath == nil && name.hasSuffix("@") && nameLength > 3 {
+            let index = name.index(name.endIndex, offsetBy: -3)
+            name = String(name[name.startIndex..<index])
+        }
+
+        if imagePath == nil && !name.hasSuffix("@2x") {
+            let name2x = name + "@2x"
+            imagePath = Bundle.main.path(forResource:name2x, ofType: type)
+            if imagePath == nil && !name.hasSuffix("3x") {
+                let name3x = name + "@3x"
+                imagePath = Bundle.main.path(forResource:name3x, ofType: type)
+                isImageUnder3x = true
+            }
+        }
+
+        var image: UIImage?
+        if let imagePath = imagePath {
+            image = UIImage(contentsOfFile: imagePath)
+        } else {
+            //有一说一 这一步不是很建议这么做...😂
+            if name.hasSuffix("@") && nameLength > 3 {
+                let index = name.index(name.endIndex, offsetBy: -3)
+                name = String(name[name.startIndex..<index])
+            }
+            image = UIImage(named: name)
+        }
+        if #available(iOS 8, *){} else {
+            if isImageUnder3x {
+                image = image?.scaledImageFrom3x()
+            }
+        }
+        if let image = image {
+            RPCache.shared.cache?.setObject(image, forKey: name)
+        }
+        return image
+    }
+
+    func scaledImageFrom3x() -> UIImage {
+        let theRate: CGFloat = 1.0 / 3.0
+        let oldSize = self.size
+        let scaleWidth = CGFloat(oldSize.width) * theRate
+        let scaleHeight = CGFloat(oldSize.height) * theRate
+        var scaleRect = CGRect.zero
+        scaleRect.size = CGSize(width: scaleWidth, height: scaleHeight)
+        UIGraphicsBeginImageContextWithOptions(scaleRect.size, false, UIScreen.main.scale)
+        draw(in: scaleRect)
+        let newImage = UIGraphicsGetImageFromCurrentImageContext()!
+        UIGraphicsEndImageContext()
+        return newImage
     }
     
     //条形码

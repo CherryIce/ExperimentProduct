@@ -22,7 +22,7 @@ class RPDynamicTopView: UIView {
         self.addSubview(leftItem)
 
         rightItem = UIButton.init(type: .custom)
-        rightItem.setImage(RPTools.getPngImage(forResource: "share@2x"), for: .normal)
+        rightItem.setImage(UIImage.loadImage("share"), for: .normal)
         self.addSubview(rightItem)
         
         leftItem.addTarget(self, action: #selector(leftClick), for: .touchUpInside)

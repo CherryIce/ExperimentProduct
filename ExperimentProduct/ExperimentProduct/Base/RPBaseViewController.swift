@@ -69,4 +69,17 @@ class RPBaseViewController: UIViewController {
         b.sizeToFit()
         UIApplication.shared.keyWindow?.showToast(b, point:CGPoint.init(x: SCREEN_WIDTH/2, y: SCREEN_HEIGHT/2))
     }
+    
+    deinit {
+        /**
+         检查内存泄露：
+         
+         可选方案1：MLeaksFinder+FBRetainCycleDetector ,
+         MLeaksFinder手动导入 or pod 'MLeaksFinder', :git => 'https://github.com/Zepo/MLeaksFinder.git', :configurations => ['Debug']
+         pod 'FBRetainCycleDetector', :git => 'https://github.com/facebook/FBRetainCycleDetector.git' ,:branch => 'main', :configurations => ['Debug']
+         
+         方案2：uber/RIBs内存泄漏工具（LeakDetector.swift）
+         */
+        log.debug("❤️❤️❤️❤️❤️❤️❤️❤️ \(self.classForCoder)释放了...")
+    }
 }

@@ -58,7 +58,7 @@ class RPNavigationController: UINavigationController ,UINavigationControllerDele
             viewController.hidesBottomBarWhenPushed = true
             var backImg = RPImage.NavBackImage
             if viewController is RPLookPictureViewController {
-                backImg = RPTools.getPngImage(forResource: "back_white@2x")
+                backImg = UIImage.loadImage("back_white")!
             }
             //添加图片
             viewController.navigationItem.leftBarButtonItem = UIBarButtonItem.init(image: backImg.withRenderingMode(.alwaysOriginal), style: .plain, target: self, action: #selector(leftClick))

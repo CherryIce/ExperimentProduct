@@ -27,8 +27,8 @@ class RPLoginViewController: RPBaseViewController {
         rightBtn.setTitle("密码登录", for: .normal)
         rightBtn.titleLabel?.font = UIFont.systemFont(ofSize: 15)
         rightBtn.setTitleColor(UIColor.init(hexString: "#333333"), for: .normal)
-        rightBtn.rx.tap.subscribe(onNext:{ event in
-            self.navigationController?.pushViewController(RPOrignalLoginViewController.init(), animated: true)
+        rightBtn.rx.tap.subscribe(onNext:{ [weak self] (event) in
+            self?.navigationController?.pushViewController(RPOrignalLoginViewController.init(), animated: true)
         })
         .disposed(by: disposeBag)
         
@@ -80,8 +80,8 @@ class RPLoginViewController: RPBaseViewController {
         verifyButton.layercornerRadius(cornerRadius: 8)
         self.view.addSubview(verifyButton)
         
-        verifyButton.rx.tap.subscribe(onNext:{ event in
-            print("获取验证码")
+        verifyButton.rx.tap.subscribe(onNext:{ [weak self] (event) in
+            log.debug(self)
         })
         .disposed(by: disposeBag)
         
@@ -100,10 +100,10 @@ class RPLoginViewController: RPBaseViewController {
         protocolLabel.font = UIFont.systemFont(ofSize: 14)
         protocolLabel.customColor[customType] = RPColor.MainColor
         protocolLabel.textColor = UIColor.black
-        protocolLabel.handleCustomTap(for: customType, handler: { (customType) in
+        protocolLabel.handleCustomTap(for: customType, handler: { [weak self] (customType) in
             let ctl = RPWkwebViewController.init()
             ctl.urlString = "https://www.baidu.com"
-            self.navigationController?.pushViewController(ctl, animated: true)
+            self?.navigationController?.pushViewController(ctl, animated: true)
         })
         self.view.addSubview(protocolLabel)
         

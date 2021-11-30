@@ -29,7 +29,7 @@ class RPWalletViewController: RPBaseViewController {
         simpleView.layercornerRadius(cornerRadius: 8)
         //收付款码
         let codeBtn = UIButton.init(type: .custom)
-        codeBtn.setImage(RPTools.getPngImage(forResource: "qrcode@2x"), for: .normal)
+        codeBtn.setImage(UIImage.loadImage("qrcode"), for: .normal)
         codeBtn.setTitle("收付款码", for: .normal)
         codeBtn.setTitleColor(.init(hexString: "#18C47C"), for: .normal)
         codeBtn.titleLabel?.font = .systemFont(ofSize: 15)
@@ -44,7 +44,7 @@ class RPWalletViewController: RPBaseViewController {
         codeBtn.layoutButton(style: .Top, imageTitleSpace: 10)
         //余额
         let moneyBtn = UIButton.init(type: .custom)
-        moneyBtn.setImage(RPTools.getPngImage(forResource: "balance@2x"), for: .normal)
+        moneyBtn.setImage(UIImage.loadImage("balance"), for: .normal)
         moneyBtn.setTitle("余额", for: .normal)
         moneyBtn.titleLabel?.font = .systemFont(ofSize: 15)
         moneyBtn.setTitleColor(RPColor.redWine, for: .normal)

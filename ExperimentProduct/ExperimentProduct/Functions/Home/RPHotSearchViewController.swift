@@ -64,6 +64,7 @@ class RPHotSearchViewController: RPBaseViewController {
     }
     
     @objc func returnBack() {
+        self.view.endEditing(true)
         if (self.presentedViewController != nil) {
             self.dismiss(animated: true, completion: nil)
         }else {

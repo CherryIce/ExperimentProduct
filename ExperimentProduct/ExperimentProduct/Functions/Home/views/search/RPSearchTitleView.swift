@@ -17,7 +17,7 @@ class RPSearchTitleView: UICollectionReusableView {
         addSubview(titleLabel)
         
         deleBtn = UIButton.init(type: .custom)
-        deleBtn.setImage(RPTools.getPngImage(forResource: "delete@2x"), for: .normal)
+        deleBtn.setImage(UIImage.loadImage("delete"), for: .normal)
         addSubview(deleBtn)
     }
     

@@ -43,7 +43,7 @@ class RPEmptyView: UIView {
     //建立约束
     private func establishConstraint(imageName:String,imageSize:CGSize,tips:String,hideBtn:Bool){
         
-        placeholderIconV.image = UIImage.init(named: imageName)
+        placeholderIconV.image = UIImage.loadImage(imageName)
         tipsLabel.text = tips
         reloadBtn.isHidden = hideBtn
         

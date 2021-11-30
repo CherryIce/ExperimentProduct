@@ -15,6 +15,12 @@ class RPPosterCell: UICollectionViewCell {
     
     var posterImgView = UIImageView()
     
+    lazy var queue:OperationQueue = {
+        let q = OperationQueue.init()
+        q.maxConcurrentOperationCount = 1
+        return q
+    }()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -32,6 +38,14 @@ class RPPosterCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    func loadImg () {
+        DispatchQueue.global().async {
+            //耗时操作完之后回主线程刷新
+            DispatchQueue.main.async {
+                self.posterImgView.backgroundColor = RPColor.RandomColor
+            }
+        }
+    }
 }
 
 extension RPPosterCell:RPListCellDataDelegate {
@@ -42,7 +56,14 @@ extension RPPosterCell:RPListCellDataDelegate {
             let xx = cellData as! RPCollectionViewCellItem
             if xx.cellData is RPPosterModel {
                 model = xx.cellData as! RPPosterModel
-                posterImgView.backgroundColor = RPColor.RandomColor
+                
+                if self.queue.operationCount >= 2 {
+                    self.queue.cancelAllOperations()
+                }
+                
+                self.queue.addOperation {
+                    self.loadImg()
+                }
             }
         }
     }

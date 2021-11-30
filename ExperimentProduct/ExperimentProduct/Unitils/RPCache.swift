@@ -16,8 +16,8 @@ class RPCache: NSObject {
     
     override init() {
         let cache = YYCache.init(name: "/RPCache")
-//        cache?.diskCache.countLimit = 1000
-//        cache?.memoryCache.countLimit = 1000
+        cache?.diskCache.countLimit = 10000
+        cache?.memoryCache.countLimit = 10000
         self.cache = cache
         
         KTVHTTPCache.logSetRecordLogEnable(true)
@@ -30,7 +30,7 @@ class RPCache: NSObject {
         
         KTVHTTPCache.downloadSetTimeoutInterval(30)
         KTVHTTPCache.downloadSetUnacceptableContentTypeDisposer { (url, contentType) -> Bool in
-            log.warning("Unsupport Content-Type Filter reviced URL"+(url?.absoluteString)!+contentType!)
+            log.debug("Unsupport Content-Type Filter reviced URL"+(url?.absoluteString)!+contentType!)
             return false
         }
     }

@@ -101,7 +101,7 @@ extension RPGuideViewController:UICollectionViewDelegate,UICollectionViewDataSou
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let identifier = RPCollectionViewAdapter.init().reuseIdentifierForCellClass(cellClass: RPGuideCell.self, collectionView: collectionView)
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath) as! RPGuideCell
-        cell.posterImgView.image = RPTools.getPngImage(forResource: images[indexPath.row] as! String)
+        cell.posterImgView.image = UIImage.loadImage(images[indexPath.row] as! String)
         return cell
     }
     

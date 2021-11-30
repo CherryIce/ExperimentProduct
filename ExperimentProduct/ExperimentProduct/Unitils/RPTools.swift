@@ -60,29 +60,6 @@ class RPTools: NSObject {
         }
     }
     
-    //通过文件名获取png图片
-    public static func getPngImage(forResource: String) -> UIImage {
-        guard let path = Bundle.main.path(forResource: forResource, ofType: "png") else {
-            var named = forResource
-            if named.contains("@") {
-                named = forResource.components(separatedBy: "@").first!
-            }
-            let image = UIImage(named: named)
-            if image == nil {
-                log.debug( forResource+" The image path not found and not existed Assets! ")
-                return UIImage.init(color: .red)!
-            }
-            log.debug(forResource+" The image path exist in Assets!")
-            return image!
-        }
-        guard let image = UIImage.init(contentsOfFile: path) else {
-            log.debug(forResource+" The image path found, but the image is error... ")
-            return UIImage.init(color: .blue)!
-        }
-        
-        return image
-    }
-    
     //计算字符串宽高
     class func calculateTextSize(_ text:String,size:CGSize,font:UIFont) -> CGSize  {
         let rect: CGRect = text.boundingRect(with: size, options: NSStringDrawingOptions.init(rawValue: 0) , attributes: [NSAttributedString.Key.font:font], context: nil) as CGRect

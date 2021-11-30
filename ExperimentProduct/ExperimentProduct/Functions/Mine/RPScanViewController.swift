@@ -130,7 +130,7 @@ class RPScanViewController: RPBaseViewController {
         
         let leftItem = UIButton.init(type: .custom)
         leftItem.frame = CGRect.init(x: 16, y: (titleView.frame.height-30)/2, width: 30, height: 30)
-        leftItem.setImage(RPTools.getPngImage(forResource: "back_white@2x"), for: .normal)
+        leftItem.setImage(UIImage.loadImage("back_white"), for: .normal)
         titleView.addSubview(leftItem)
         
         let rightItem = UIButton.init(type: .custom)

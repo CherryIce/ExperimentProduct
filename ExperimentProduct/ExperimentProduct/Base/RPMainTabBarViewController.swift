@@ -76,6 +76,10 @@ class RPMainTabBarViewController: UITabBarController {
             }
         }
     }
+    
+    deinit {
+        log.debug("🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥")
+    }
 }
 
 extension RPMainTabBarViewController : RPTabBarwEventDelegate {
