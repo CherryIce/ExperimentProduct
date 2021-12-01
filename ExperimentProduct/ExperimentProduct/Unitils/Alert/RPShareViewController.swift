@@ -74,12 +74,12 @@ extension RPShareViewController:UICollectionViewDelegate,UICollectionViewDataSou
         let setionArray = self.dataArray[indexPath.row] as NSArray
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: RPCollectionViewAdapter.init().reuseIdentifierForCellClass(cellClass: RPShareSheetCell.self, collectionView: collectionView), for: indexPath) as! RPShareSheetCell
         cell.shareItems = setionArray as! [RPShareItem]
-        cell.sheetCellClicked = { (cell, index) in
+        cell.sheetCellClicked = { [weak self] (cell, index) in
             let indexP = IndexPath.init(row: index, section: indexPath.row)
-            if self.clickItemCallBack != nil {
-                self.clickItemCallBack?(indexP)
+            if self?.clickItemCallBack != nil {
+                self?.clickItemCallBack?(indexP)
             }
-            self.pop()
+            self?.pop()
         }
         return cell
     }

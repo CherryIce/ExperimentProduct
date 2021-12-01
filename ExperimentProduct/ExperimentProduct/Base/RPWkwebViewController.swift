@@ -11,7 +11,20 @@ import WebKit
 class RPWkwebViewController: RPBaseViewController {
     
     private lazy var progressView = UIProgressView()
-    private lazy var webView = WKWebView()
+    private lazy var webView:WKWebView = {
+        let config = WKWebViewConfiguration()
+        let userContent = WKUserContentController()
+        config.userContentController = userContent
+        
+        let webView = WKWebView(frame: UIScreen.main.bounds, configuration: config)
+        webView.navigationDelegate = self
+        view.addSubview(webView)
+        webView.snp.makeConstraints { (make) in
+            make.left.right.top.bottom.equalToSuperview()
+        }
+        webView.addObserver(self, forKeyPath: "estimatedProgress", options: .new, context: nil)
+        return webView
+    }()
     var urlString:String?
     
     override func viewDidLoad() {
@@ -22,17 +35,7 @@ class RPWkwebViewController: RPBaseViewController {
     }
     
     func initUI() {
-        let config = WKWebViewConfiguration()
-        let userContent = WKUserContentController()
-        userContent.add(self, name: "methodName")
-        config.userContentController = userContent
-        
-        webView = WKWebView(frame: UIScreen.main.bounds, configuration: config)
-        webView.navigationDelegate = self
-        view.addSubview(webView)
-        webView.snp.makeConstraints { (make) in
-            make.left.right.top.bottom.equalToSuperview()
-        }
+        webView.configuration.userContentController.add(LeakAvoider(delegate:self), name: "methodName")
 //        if ((urlString?.hasPrefix("http")) == nil) {
 //            urlString = "http://" + urlString!
 //        }
@@ -46,8 +49,6 @@ class RPWkwebViewController: RPBaseViewController {
         progressView.progressTintColor = UIColor.red
         progressView.trackTintColor = UIColor.clear
         self.view.addSubview(self.progressView)
-        
-        webView.addObserver(self, forKeyPath: "estimatedProgress", options: .new, context: nil)
     }
     
     func goback() {
@@ -63,6 +64,9 @@ class RPWkwebViewController: RPBaseViewController {
     }
     
     deinit {
+        webView.stopLoading()
+        webView.removeObserver(self, forKeyPath: "estimatedProgress")
+        webView.scrollView.delegate = nil
         webView.navigationDelegate = nil
         webView.configuration.userContentController.removeScriptMessageHandler(forName: "methodName")
     }
@@ -84,7 +88,7 @@ extension RPWkwebViewController:WKScriptMessageHandler, WKNavigationDelegate {
         if "methodName" == message.name {
             // 判断message的内容，然后做相应的操作
             if "close" == message.body as! String {
-
+                
             }
         }
     }
@@ -119,7 +123,7 @@ extension RPWkwebViewController:WKScriptMessageHandler, WKNavigationDelegate {
         //允许跳转
         decisionHandler(.allow)
         //不允许跳转
-//        decisionHandler(.cancel)
+        //        decisionHandler(.cancel)
     }
     
     // 在发送请求之前，决定是否跳转 -> 默认允许
@@ -128,4 +132,17 @@ extension RPWkwebViewController:WKScriptMessageHandler, WKNavigationDelegate {
         decisionHandler(.allow, preferences)
     }
     
+}
+
+// fix: https://stackoverflow.com/questions/26383031/wkwebview-causes-my-view-controller-to-leak
+class LeakAvoider : NSObject, WKScriptMessageHandler {
+    weak var delegate : WKScriptMessageHandler?
+    init(delegate:WKScriptMessageHandler) {
+        self.delegate = delegate
+        super.init()
+    }
+    
+    func userContentController(_ userContentController: WKUserContentController,didReceive message: WKScriptMessage) {
+        self.delegate?.userContentController(userContentController, didReceive: message)
+    }
 }

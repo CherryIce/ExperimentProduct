@@ -190,7 +190,8 @@ class RPScanViewController: RPBaseViewController {
     
     deinit {
         scanView.stopAnimation()
-        log.debug("RPScanViewController deinit")
+//        scanView.subviews.forEach {$0.removeFromSuperview()}
+//        scanView.removeFromSuperview()
     }
 }
 

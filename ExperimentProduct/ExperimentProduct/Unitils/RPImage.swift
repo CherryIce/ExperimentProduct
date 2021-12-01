@@ -136,9 +136,9 @@ extension UIImage {
         var name = nameAndType.first!
         let type = nameAndType.count > 1 ? nameAndType[1] : "png"
 
-        if let image = RPCache.shared.cache?.object(forKey: name) {
-            return image as? UIImage
-        }
+//        if let image = RPCache.shared.cache?.object(forKey: name) {
+//            return image as? UIImage
+//        }
 
         var imagePath = Bundle.main.path(forResource: imageName, ofType: type)
         var isImageUnder3x = false
@@ -175,9 +175,9 @@ extension UIImage {
                 image = image?.scaledImageFrom3x()
             }
         }
-        if let image = image {
-            RPCache.shared.cache?.setObject(image, forKey: name)
-        }
+//        if let image = image {
+//            RPCache.shared.cache?.setObject(image, forKey: name)
+//        }
         return image
     }
 

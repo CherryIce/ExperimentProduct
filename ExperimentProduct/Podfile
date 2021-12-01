@@ -96,5 +96,9 @@ pod 'KTVHTTPCache', '~> 2.0'
 # 启动广告 是个oc库 还有依赖库
 #pod 'XHLaunchAd'
 
+# 检查内存泄露
+pod 'MLeaksFinder', :git => 'https://github.com/Zepo/MLeaksFinder.git', :configurations => ['Debug']
+pod 'FBRetainCycleDetector', :git => 'https://github.com/facebook/FBRetainCycleDetector.git' ,:branch => 'main', :configurations => ['Debug']
+
 end
 

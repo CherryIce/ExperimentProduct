@@ -182,6 +182,10 @@
 		4AF559282748D1FE0089A656 /* RPTopicDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF559272748D1FE0089A656 /* RPTopicDetailViewController.swift */; };
 		4AF5592F2748D9340089A656 /* RPMineTopicViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF5592E2748D9340089A656 /* RPMineTopicViewCell.swift */; };
 		4AF559312748EA6C0089A656 /* RPMineTopicViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF559302748EA6C0089A656 /* RPMineTopicViewModel.swift */; };
+		4AF8B4D827574DA80049BDE8 /* RPVerificationCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF8B4D727574DA80049BDE8 /* RPVerificationCodeViewController.swift */; };
+		4AF8B4ED2757506F0049BDE8 /* TDWVerifyCodeTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF8B4E22757506F0049BDE8 /* TDWVerifyCodeTextView.swift */; };
+		4AF8B4EE2757506F0049BDE8 /* TDWVerifyCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF8B4E32757506F0049BDE8 /* TDWVerifyCodeView.swift */; };
+		4AF8B4EF2757506F0049BDE8 /* TDWVerifyCodeNumView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AF8B4E42757506F0049BDE8 /* TDWVerifyCodeNumView.swift */; };
 		554FE83E271BCFF7005E82C7 /* RPFindCardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554FE83C271BCFF7005E82C7 /* RPFindCardCell.swift */; };
 		554FE83F271BCFF7005E82C7 /* RPFindCardCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 554FE83D271BCFF7005E82C7 /* RPFindCardCell.xib */; };
 		554FE844271BD389005E82C7 /* RPFindHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554FE843271BD389005E82C7 /* RPFindHeaderView.swift */; };
@@ -398,6 +402,10 @@
 		4AF559272748D1FE0089A656 /* RPTopicDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPTopicDetailViewController.swift; sourceTree = "<group>"; };
 		4AF5592E2748D9340089A656 /* RPMineTopicViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPMineTopicViewCell.swift; sourceTree = "<group>"; };
 		4AF559302748EA6C0089A656 /* RPMineTopicViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPMineTopicViewModel.swift; sourceTree = "<group>"; };
+		4AF8B4D727574DA80049BDE8 /* RPVerificationCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPVerificationCodeViewController.swift; sourceTree = "<group>"; };
+		4AF8B4E22757506F0049BDE8 /* TDWVerifyCodeTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TDWVerifyCodeTextView.swift; sourceTree = "<group>"; };
+		4AF8B4E32757506F0049BDE8 /* TDWVerifyCodeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TDWVerifyCodeView.swift; sourceTree = "<group>"; };
+		4AF8B4E42757506F0049BDE8 /* TDWVerifyCodeNumView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TDWVerifyCodeNumView.swift; sourceTree = "<group>"; };
 		554FE83C271BCFF7005E82C7 /* RPFindCardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPFindCardCell.swift; sourceTree = "<group>"; };
 		554FE83D271BCFF7005E82C7 /* RPFindCardCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RPFindCardCell.xib; sourceTree = "<group>"; };
 		554FE843271BD389005E82C7 /* RPFindHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPFindHeaderView.swift; sourceTree = "<group>"; };
@@ -479,6 +487,7 @@
 				4A461B24273E22F800BA422F /* model */,
 				4A1DEC0B2715157900149FD8 /* views */,
 				4A1DEBF82714326700149FD8 /* RPLoginViewController.swift */,
+				4AF8B4D727574DA80049BDE8 /* RPVerificationCodeViewController.swift */,
 				4A3A9FBE27182B8000C032C8 /* RPOrignalLoginViewController.swift */,
 				4A1DEC02271432ED00149FD8 /* RPPasswordViewController.swift */,
 				4A8F21C3271E9DBC00A249B6 /* RPGuideViewController.swift */,
@@ -717,6 +726,7 @@
 		4A547C7D26F49718005F00B5 /* Thrid */ = {
 			isa = PBXGroup;
 			children = (
+				4AF8B4E12757506F0049BDE8 /* VerifyCodeView */,
 				4A461ACF273CE96700BA422F /* NextGrowingTextView */,
 				4ADBEBF727337B2E00F73B6D /* CycleView */,
 				4A976CBA27290659008DF042 /* RPTakePhoto */,
@@ -1054,6 +1064,16 @@
 			path = MineTopicView;
 			sourceTree = "<group>";
 		};
+		4AF8B4E12757506F0049BDE8 /* VerifyCodeView */ = {
+			isa = PBXGroup;
+			children = (
+				4AF8B4E22757506F0049BDE8 /* TDWVerifyCodeTextView.swift */,
+				4AF8B4E32757506F0049BDE8 /* TDWVerifyCodeView.swift */,
+				4AF8B4E42757506F0049BDE8 /* TDWVerifyCodeNumView.swift */,
+			);
+			path = VerifyCodeView;
+			sourceTree = "<group>";
+		};
 		558D354C271A783000E03B5F /* models */ = {
 			isa = PBXGroup;
 			children = (
@@ -1349,6 +1369,7 @@
 				4A4662F12738B1E900FC8FFC /* RPTopicPhotoListView.swift in Sources */,
 				4A461B20273E1F4C00BA422F /* RPFromTableVerificationCell.swift in Sources */,
 				4A461AD3273CE98600BA422F /* NextGrowingTextView.swift in Sources */,
+				4AF8B4EF2757506F0049BDE8 /* TDWVerifyCodeNumView.swift in Sources */,
 				4A8F23DD271FFEA600A249B6 /* NVActivityIndicatorAnimationBallClipRotatePulse.swift in Sources */,
 				4A547C5C26F485A5005F00B5 /* RPMineViewController.swift in Sources */,
 				4A37EE882734BF4200E1F288 /* RPTopicModel.swift in Sources */,
@@ -1424,6 +1445,7 @@
 				4A758D4E273A2BC5001B204D /* RPMineViewModel.swift in Sources */,
 				4A8508C72744AF6900F538C2 /* RPBillViewController.swift in Sources */,
 				4AD802AD26F57565000F3B3A /* RPImage.swift in Sources */,
+				4AF8B4EE2757506F0049BDE8 /* TDWVerifyCodeView.swift in Sources */,
 				4ADBEC092733CDC300F73B6D /* RPTopicViewController.swift in Sources */,
 				4AB5EFF1274CDAA8008CD843 /* RPFollowViewCell.swift in Sources */,
 				4AB5EFE8274C9D13008CD843 /* RPRecommendController.swift in Sources */,
@@ -1446,10 +1468,12 @@
 				4A8F23A0271FFDC500A249B6 /* RPRefreshHeader.swift in Sources */,
 				558D357E271ADBB400E03B5F /* RPFindModel.swift in Sources */,
 				4A8508C52744ADED00F538C2 /* RPWithdrawalViewController.swift in Sources */,
+				4AF8B4ED2757506F0049BDE8 /* TDWVerifyCodeTextView.swift in Sources */,
 				4AB5EFEA274C9DA1008CD843 /* RPNearViewController.swift in Sources */,
 				4A461AA1273CC3D900BA422F /* RPUpdateNickNameViewController.swift in Sources */,
 				4A3AA005271984E700C032C8 /* RPCollectionViewAdapter.swift in Sources */,
 				4A8F2206271ECC0700A249B6 /* Toast.swift in Sources */,
+				4AF8B4D827574DA80049BDE8 /* RPVerificationCodeViewController.swift in Sources */,
 				4AB5EFE2274B4BC3008CD843 /* RPBankCardModel.swift in Sources */,
 				4A547C8126F49739005F00B5 /* ImageHelper.swift in Sources */,
 				4A37EE9F2734E1AF00E1F288 /* RPTopicViewModel.swift in Sources */,
@@ -1636,11 +1660,85 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = NO;
 				DEVELOPMENT_TEAM = 8WS3SK4795;
+				EXCLUDED_ARCHS = "armv7 armv64 i386";
 				INFOPLIST_FILE = ExperimentProduct/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
+				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-l\"c++\"",
+					"-l\"sqlite3\"",
+					"-framework",
+					"\"ActiveLabel\"",
+					"-framework",
+					"\"Alamofire\"",
+					"-framework",
+					"\"CFNetwork\"",
+					"-framework",
+					"\"CocoaAsyncSocket\"",
+					"-framework",
+					"\"CoreFoundation\"",
+					"-framework",
+					"\"CoreGraphics\"",
+					"-framework",
+					"\"Differentiator\"",
+					"-framework",
+					"\"ESPullToRefresh\"",
+					"-framework",
+					"\"FBRetainCycleDetector\"",
+					"-framework",
+					"\"Foundation\"",
+					"-framework",
+					"\"HandyJSON\"",
+					"-framework",
+					"\"JPImageresizerView\"",
+					"-framework",
+					"\"JXPhotoBrowser\"",
+					"-framework",
+					"\"KTVCocoaHTTPServer\"",
+					"-framework",
+					"\"KTVHTTPCache\"",
+					"-framework",
+					"\"MLeaksFinder\"",
+					"-framework",
+					"\"Moya\"",
+					"-framework",
+					"\"ObjcExceptionBridging\"",
+					"-framework",
+					"\"Photos\"",
+					"-framework",
+					"\"QuartzCore\"",
+					"-framework",
+					"\"Result\"",
+					"-framework",
+					"\"RxCocoa\"",
+					"-framework",
+					"\"RxDataSources\"",
+					"-framework",
+					"\"RxSwift\"",
+					"-framework",
+					"\"Security\"",
+					"-framework",
+					"\"SnapKit\"",
+					"-framework",
+					"\"SwiftyJSON\"",
+					"-framework",
+					"\"TABAnimated\"",
+					"-framework",
+					"\"TYPagerController\"",
+					"-framework",
+					"\"TZImagePickerController\"",
+					"-framework",
+					"\"UIKit\"",
+					"-framework",
+					"\"WHC_KeyboardManager\"",
+					"-framework",
+					"\"XCGLogger\"",
+					"-framework",
+					"\"YYCache\"",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.mdd.business;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1663,6 +1761,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = NO;
 				DEVELOPMENT_TEAM = 8WS3SK4795;
+				EXCLUDED_ARCHS = "armv7 armv64 i386";
 				INFOPLIST_FILE = ExperimentProduct/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (

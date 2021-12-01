@@ -59,10 +59,10 @@ class RPAddBankCardController: RPBaseViewController {
         protocolLabel.font = UIFont.systemFont(ofSize: 12)
         protocolLabel.customColor[customType] = RPColor.MainColor
         protocolLabel.textColor = .init(hexString: "#2E3135")
-        protocolLabel.handleCustomTap(for: customType, handler: { (customType) in
+        protocolLabel.handleCustomTap(for: customType, handler: { [weak self] (customType) in
             let ctl = RPWkwebViewController.init()
             ctl.urlString = "https://www.baidu.com"
-            self.navigationController?.pushViewController(ctl, animated: true)
+            self?.navigationController?.pushViewController(ctl, animated: true)
         })
         v.addSubview(protocolLabel)
         

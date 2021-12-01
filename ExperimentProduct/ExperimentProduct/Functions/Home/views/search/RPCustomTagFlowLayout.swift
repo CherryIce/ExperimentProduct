@@ -13,7 +13,7 @@ protocol RPCustomTagFlowLayoutDelegate : NSObjectProtocol {
 
 class RPCustomTagFlowLayout: UICollectionViewFlowLayout {
     
-    var delegate:RPCustomTagFlowLayoutDelegate?
+    weak var delegate:RPCustomTagFlowLayoutDelegate?
     var maximumInteritemSpacing: CGFloat = 10
     override func prepare() {
         super.prepare()

@@ -15,9 +15,9 @@ protocol UUTakePhotoDelegate:AnyObject {
 
 class UUTakePhoto: NSObject {
     static let shared = UUTakePhoto()
-    private var tailoringImgVC = UUTailoringImgViewController()
-    private var imagePickerController = UIImagePickerController()
-    private var configure = JPImageresizerConfigure()
+    private var tailoringImgVC:UUTailoringImgViewController?
+    private var imagePickerController:UIImagePickerController?
+    private var configure:JPImageresizerConfigure?
     weak var delegate:UUTakePhotoDelegate?
     var needEditing:Bool = false
     
@@ -31,13 +31,13 @@ class UUTakePhoto: NSObject {
         DispatchQueue.main.async {
             self.needEditing = needEditing
             self.imagePickerController = UIImagePickerController.init()
-            self.imagePickerController.delegate = self
-            self.imagePickerController.sourceType =  type
+            self.imagePickerController?.delegate = self
+            self.imagePickerController?.sourceType =  type
             if #available(iOS 11, *) {
                 UIScrollView.appearance().contentInsetAdjustmentBehavior = .automatic
             }
-            self.imagePickerController.modalPresentationStyle = .fullScreen
-            viewController.present(self.imagePickerController, animated: true,completion: nil)
+            self.imagePickerController?.modalPresentationStyle = .fullScreen
+            viewController.present(self.imagePickerController!, animated: true,completion: nil)
         }
     }
 }
@@ -50,14 +50,20 @@ extension UUTakePhoto : UUTailoringImgViewControllerDelegate {
         if #available(iOS 11, *) {
             UIScrollView.appearance().contentInsetAdjustmentBehavior = .never
         }
-        controller.dismiss(animated: true, completion: nil)
+        controller.dismiss(animated: true) {
+            self.configure = nil
+            self.tailoringImgVC = nil
+        }
     }
     
     func cdmCancelPhotoEditVC(_ controller :UIViewController) {
-        self.imagePickerController.delegate = self;
+        self.imagePickerController?.delegate = self
         let pickerVC = controller.navigationController as! UIImagePickerController
         if (pickerVC.sourceType == .camera) {
-            controller.navigationController?.dismiss(animated: true, completion: nil)
+            controller.navigationController?.dismiss(animated: true, completion: {
+                self.configure = nil
+                self.tailoringImgVC = nil
+            })
         }else{
             controller.navigationController?.popViewController(animated: true)
         }
@@ -69,7 +75,9 @@ extension UUTakePhoto : UIImagePickerControllerDelegate,UINavigationControllerDe
         if (self.delegate) != nil {
             self.delegate?.imagePickerDidCancel(self)
         }
-        picker.dismiss(animated: true, completion: nil)
+        picker.dismiss(animated: true) {
+            self.imagePickerController = nil//回收资源
+        }
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
@@ -85,9 +93,9 @@ extension UUTakePhoto : UIImagePickerControllerDelegate,UINavigationControllerDe
         
         if needEditing {
             self.tailoringImgVC = UUTailoringImgViewController.init()
-            self.tailoringImgVC.configure = self.configure
-            self.tailoringImgVC.delegate = self
-            picker.pushViewController(self.tailoringImgVC, animated: true)
+            self.tailoringImgVC?.configure = self.configure!
+            self.tailoringImgVC?.delegate = self
+            picker.pushViewController(self.tailoringImgVC!, animated: true)
         }else{
             if (self.delegate) != nil {
                 self.delegate?.imagePicker(self, didFinished: selectedImage)
@@ -95,7 +103,9 @@ extension UUTakePhoto : UIImagePickerControllerDelegate,UINavigationControllerDe
             if #available(iOS 11, *) {
                 UIScrollView.appearance().contentInsetAdjustmentBehavior = .never
             }
-            picker.dismiss(animated: true, completion: nil)
+            picker.dismiss(animated: true) {
+                self.imagePickerController = nil
+            }
         }
     }
 }

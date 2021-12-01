@@ -232,7 +232,8 @@ class ScanAnimation:NSObject{
         return instance
     }()
     
-    lazy var animationImageView = UIImageView()
+//    lazy var animationImageView = UIImageView()
+    var animationImageView:UIImageView?
     
     var displayLink:CADisplayLink?
     
@@ -259,12 +260,12 @@ class ScanAnimation:NSObject{
     
     @objc func animation() {
         
-        if animationImageView.frame.maxY > contentHeight! + 20 {
-            animationImageView.frame = tempFrame ?? CGRect.zero
+        if animationImageView?.frame.maxY ?? 0 > contentHeight! + 20 {
+            animationImageView?.frame = tempFrame ?? CGRect.zero
         }
         
-        animationImageView.transform = CGAffineTransform(translationX: 0, y: 2).concatenating(animationImageView.transform)
-        
+        guard let newAnimationImageView = animationImageView else { return }
+        newAnimationImageView.transform = CGAffineTransform(translationX: 0, y: 2).concatenating(newAnimationImageView.transform)
     }
     
     
@@ -291,6 +292,7 @@ class ScanAnimation:NSObject{
         displayLink?.invalidate()
         
         displayLink = nil
-        
+        animationImageView?.removeFromSuperview()
+        animationImageView = nil
     }
 }

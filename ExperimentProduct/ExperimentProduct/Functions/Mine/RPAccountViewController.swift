@@ -67,7 +67,7 @@ class RPAccountViewController: RPBaseViewController {
             if index == 1 {
                 UserDefaults.standard.removeObject(forKey: kTokenExpDateTime)
                 UserDefaults.standard.synchronize()
-                
+                RPCache.shared.removeAllCache()
                 DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
                     let window = UIApplication.shared.windows.first
                     window?.rootViewController = RPNavigationController.init(rootViewController: RPLoginViewController.init())

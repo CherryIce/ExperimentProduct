@@ -13,7 +13,8 @@ class RPHotSearchViewController: RPBaseViewController {
     lazy var hotLists = [String]()
     lazy var collectionView = UICollectionView()
     lazy var tableView = UITableView()
-
+    var textField:UITextField?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -45,26 +46,30 @@ class RPHotSearchViewController: RPBaseViewController {
             make.bottom.equalToSuperview().offset(-3)
         }
         
-        let textField = UITextField.init()
-        textField.backgroundColor = RPColor.ShallowColor
-        textField.font = .systemFont(ofSize: 14)
-        textField.placeholder = "请输入"
-        textField.tintColor = RPColor.redWine
-        topNavView.addSubview(textField)
-        textField.leftViewWithImgName(imgName: "search", size: CGSize.init(width: 19, height: 19))
-        textField.snp.makeConstraints { make in
+        textField = UITextField.init()
+        textField?.backgroundColor = RPColor.ShallowColor
+        textField?.font = .systemFont(ofSize: 14)
+        textField?.placeholder = "请输入"
+        textField?.tintColor = RPColor.redWine
+        textField?.delegate = self
+        topNavView.addSubview(textField!)
+        textField?.leftViewWithImgName(imgName: "search", size: CGSize.init(width: 19, height: 19))
+        textField?.snp.makeConstraints { make in
             make.left.equalTo(16)
             make.centerY.equalTo(cancelBtn.snp_centerY)
             make.height.equalTo(30)
             make.right.equalTo(cancelBtn.snp_left).offset(-10)
         }
-        textField.layercornerRadius(cornerRadius: 15)
+        textField?.layercornerRadius(cornerRadius: 15)
         
-        textField.becomeFirstResponder()
+        textField?.becomeFirstResponder()
     }
     
     @objc func returnBack() {
-        self.view.endEditing(true)
+        //我不理解 可能是因为MLeaksFinder对于textField没那么友好
+        UIApplication.shared.sendAction(#selector(resignFirstResponder), to: nil, from: textField, for: nil)
+//        UIApplication.shared.resignFirstResponder()
+//        textField?.resignFirstResponder()
         if (self.presentedViewController != nil) {
             self.dismiss(animated: true, completion: nil)
         }else {
@@ -227,5 +232,15 @@ extension RPHotSearchViewController:RPCustomTagFlowLayoutDelegate {
     func getCollectionVIewHeight(H: CGFloat) {
         collectionView.frame = CGRect(x: 0, y: 0, width: SCREEN_WIDTH, height:collectionView.collectionViewLayout.collectionViewContentSize.height)
         tableView.tableHeaderView = collectionView
+    }
+}
+
+extension RPHotSearchViewController:UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if textField.text?.count != 0 {
+            searchKeyword(textField.text!)
+            return textField.resignFirstResponder()
+        }
+        return false
     }
 }

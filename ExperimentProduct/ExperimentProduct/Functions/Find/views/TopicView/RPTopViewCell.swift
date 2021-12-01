@@ -169,9 +169,9 @@ class RPTopViewCell: UITableViewCell {
             }
             photoListView?.itemSize = model.photoCellSize
             photoListView?.dataArray = model.images
-            photoListView?.callBack({ (indexPath, views) in
-                if (self.delegate != nil) {
-                    self.delegate?.photoListClickInTheTopic(self, indexPath: self.indexPath, index: indexPath.item, extraData: views)
+            photoListView?.callBack({ [weak self] (indexPath, views) in
+                if (self?.delegate != nil) {
+                    self?.delegate?.photoListClickInTheTopic(self!, indexPath: self!.indexPath, index: indexPath.item, extraData: views)
                 }
             })
             break
@@ -185,9 +185,9 @@ class RPTopViewCell: UITableViewCell {
                     make.bottom.equalToSuperview().offset(-5)
                     make.right.equalToSuperview().offset(50)
                 })
-                artcleView?.initWithTitle(model.artic.title, converURL: model.artic.converUrl, block: {
-                    if (self.delegate != nil) {
-                        self.delegate?.selectURLInTopic(self, url: self.model.artic.url)
+                artcleView?.initWithTitle(model.artic.title, converURL: model.artic.converUrl, block: {[weak self] in
+                    if (self?.delegate != nil) {
+                        self?.delegate?.selectURLInTopic(self!, url: (self?.model.artic.url)!)
                     }
                 })
             }
@@ -202,9 +202,9 @@ class RPTopViewCell: UITableViewCell {
             }
             videoView?.itemSize = model.photoCellSize
             videoView?.path = URL.init(string: model.video.videoPath)
-            videoView?.clickCallBack({ (view) in
-                if (self.delegate != nil) {
-                    self.delegate?.photoListClickInTheTopic(self, indexPath: self.indexPath, index: 0, extraData: [view])
+            videoView?.clickCallBack({ [weak self] (view) in
+                if (self?.delegate != nil) {
+                    self?.delegate?.photoListClickInTheTopic(self!, indexPath: self!.indexPath, index: 0, extraData: [view])
                 }
             })
             break

@@ -81,7 +81,7 @@ class RPLoginViewController: RPBaseViewController {
         self.view.addSubview(verifyButton)
         
         verifyButton.rx.tap.subscribe(onNext:{ [weak self] (event) in
-            log.debug(self)
+            self?.navigationController?.pushViewController(RPVerificationCodeViewController.init(), animated: true)
         })
         .disposed(by: disposeBag)
         
@@ -114,5 +114,9 @@ class RPLoginViewController: RPBaseViewController {
             make.bottom.greaterThanOrEqualTo(self.view.snp_bottom).offset(-40)
         }
         
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
     }
 }

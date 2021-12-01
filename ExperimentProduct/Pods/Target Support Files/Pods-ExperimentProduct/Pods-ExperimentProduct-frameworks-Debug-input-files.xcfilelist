@@ -4,11 +4,13 @@ ${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework
 ${BUILT_PRODUCTS_DIR}/CocoaAsyncSocket/CocoaAsyncSocket.framework
 ${BUILT_PRODUCTS_DIR}/Differentiator/Differentiator.framework
 ${BUILT_PRODUCTS_DIR}/ESPullToRefresh/ESPullToRefresh.framework
+${BUILT_PRODUCTS_DIR}/FBRetainCycleDetector/FBRetainCycleDetector.framework
 ${BUILT_PRODUCTS_DIR}/HandyJSON/HandyJSON.framework
 ${BUILT_PRODUCTS_DIR}/JPImageresizerView/JPImageresizerView.framework
 ${BUILT_PRODUCTS_DIR}/JXPhotoBrowser/JXPhotoBrowser.framework
 ${BUILT_PRODUCTS_DIR}/KTVCocoaHTTPServer/KTVCocoaHTTPServer.framework
 ${BUILT_PRODUCTS_DIR}/KTVHTTPCache/KTVHTTPCache.framework
+${BUILT_PRODUCTS_DIR}/MLeaksFinder/MLeaksFinder.framework
 ${BUILT_PRODUCTS_DIR}/Moya/Moya.framework
 ${BUILT_PRODUCTS_DIR}/ObjcExceptionBridging/ObjcExceptionBridging.framework
 ${BUILT_PRODUCTS_DIR}/Result/Result.framework

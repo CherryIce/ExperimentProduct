@@ -43,8 +43,8 @@ class RPNewsViewController: RPBaseViewController {
             return cell
         })
         
-        tableView.rx.modelSelected(RPUserInfoModel.self).subscribe(onNext: { (item) in
-            self.navigationController?.pushViewController(RPPostersViewController.init(), animated: true)
+        tableView.rx.modelSelected(RPUserInfoModel.self).subscribe(onNext: {[weak self] (item) in
+            self?.navigationController?.pushViewController(RPPostersViewController.init(), animated: true)
         }).disposed(by: disposeBag)
         
         output.drive(tableView.rx.items(dataSource: dataSource))
