@@ -12,6 +12,7 @@ import ActiveLabel
 class RPLoginViewController: RPBaseViewController {
     
     private let disposeBag = DisposeBag()
+    private var verifyButton = UIButton()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,6 +51,16 @@ class RPLoginViewController: RPBaseViewController {
         textField.placeholder("请输入手机号码")
         textField.type = .loginPhone
         
+        textField.callBackFunction { [weak self] (tf) in
+            if (tf.text?.count == 11) {
+                self?.verifyButton.backgroundColor = RPColor.MainColor
+                self?.verifyButton.isEnabled = true
+            }else{
+                self?.verifyButton.backgroundColor = UIColor.init(hexString: "#E5E5E5")
+                self?.verifyButton.isEnabled = false
+            }
+        }
+        
         let logoView = UIImageView.init(image: RPImage.init(color: RPColor.init(hexString:"#FFF3E6"))?.roundedCornerImageWithCornerRadius(4))
         self.view.addSubview(logoView)
         
@@ -74,7 +85,7 @@ class RPLoginViewController: RPBaseViewController {
         
         let verifyButton = UIButton.init(type: .custom)
         verifyButton.setTitle("获取验证码", for: .normal)
-        verifyButton.backgroundColor = RPColor.MainColor
+        verifyButton.backgroundColor = UIColor.init(hexString: "#E5E5E5")
         verifyButton.setTitleColor(.white, for: .normal)
         verifyButton.titleLabel?.font = UIFont.systemFont(ofSize: 16)
         verifyButton.layercornerRadius(cornerRadius: 8)

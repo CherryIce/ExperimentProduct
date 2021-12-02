@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 // 像素，每个像素包含红，蓝，绿，透明度
 public struct CWPixel {
@@ -193,6 +194,88 @@ extension UIImage {
         let newImage = UIGraphicsGetImageFromCurrentImageContext()!
         UIGraphicsEndImageContext()
         return newImage
+    }
+    
+    // MARK: 1.3、获取视频的第一帧
+    /// 获取视频的第一帧
+    /// - Parameters:
+    ///   - videoUrl: 视频 url
+    ///   - maximumSize: 图片的最大尺寸
+    /// - Returns: 视频的第一帧
+    func getVideoFirstImage(videoUrl: String, maximumSize: CGSize = CGSize(width: 1000, height: 1000), closure: @escaping (UIImage?) -> Void) {
+        if videoUrl.isEmpty {
+            DispatchQueue.main.async {
+                closure(nil)
+            }
+            return
+        }
+        let cahce =  RPCache.shared.cache
+        if cahce?.object(forKey: videoUrl) != nil {
+            let  x = cahce?.object(forKey: videoUrl) as? UIImage
+            DispatchQueue.main.async {
+                closure(x)
+            }
+            return
+        }
+        guard let url = URL(string: videoUrl) else {
+            closure(nil)
+            return
+        }
+        DispatchQueue.global().async {
+            let opts = [AVURLAssetPreferPreciseDurationAndTimingKey: false]
+            let avAsset = AVURLAsset(url: url, options: opts)
+            let generator = AVAssetImageGenerator(asset: avAsset)
+            generator.appliesPreferredTrackTransform = true
+            generator.maximumSize = maximumSize
+            var cgImage: CGImage? = nil
+            let time = CMTimeMake(value: 0, timescale: 600)
+            var actualTime : CMTime = CMTimeMake(value: 0, timescale: 0)
+            do {
+                try cgImage = generator.copyCGImage(at: time, actualTime: &actualTime)
+            } catch {
+                DispatchQueue.main.async {
+                    closure(nil)
+                }
+                return
+            }
+            guard let image = cgImage else {
+                DispatchQueue.main.async {
+                    closure(nil)
+                }
+                return
+            }
+            DispatchQueue.main.async {
+                let final = UIImage(cgImage: image)
+                cahce?.setObject(final, forKey: videoUrl)
+                closure(final)
+            }
+        }
+    }
+    
+    /// 给图片添加文字水印
+    ///   - drawTextframe: 水印的 frame
+    ///   - drawText: 水印文字
+    ///   - withAttributes: 水印富文本
+    /// - Returns: 返回水印图片
+    func drawTextInImage(drawTextframe: CGRect, drawText: String, withAttributes: [NSAttributedString.Key : Any]? = nil) -> UIImage {
+        // 开启图片上下文
+        UIGraphicsBeginImageContext(self.size)
+        // 图形重绘
+        self.draw(in: CGRect(x: 0, y: 0, width: self.size.width, height: self.size.height))
+        // 水印文字属性
+        let attributes = withAttributes
+        // 水印文字和大小
+        let text = NSString(string: drawText)
+        // 获取富文本的 size
+        // let size = text.size(withAttributes: attributes)
+        // 绘制文字
+        text.draw(in: drawTextframe, withAttributes: attributes)
+        // 从当前上下文获取图片
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        // 关闭上下文
+        UIGraphicsEndImageContext()
+        
+        return image!
     }
     
     //条形码

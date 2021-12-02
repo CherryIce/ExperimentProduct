@@ -134,11 +134,11 @@ class RPTextFiled: UIView {
 extension UITextField{
     func leftViewWithImgName(imgName:String , size:CGSize){
         let containerView = UIView(frame: CGRect(x: 0, y: 0, width: size.width+20, height: self.frame.height))
-        let y  = (self.frame.height - size.height)/2;
+        let y  = (self.frame.height - size.height)/2
         let imgV = UIImageView(frame: CGRect(x: 10, y: y, width: size.width, height: size.height))
         containerView.addSubview(imgV)
         self.leftViewMode = UITextField.ViewMode.always
-        imgV.contentMode = UIView.ContentMode.left;
+        imgV.contentMode = UIView.ContentMode.left
         imgV.image = UIImage.loadImage(imgName)
         self.leftView = containerView
     }
