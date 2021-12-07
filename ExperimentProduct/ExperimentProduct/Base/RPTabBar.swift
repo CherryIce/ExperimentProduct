@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Then
 
 protocol RPTabBarwEventDelegate:NSObjectProtocol {
     func clickTabBarEventCallBack(_ index:Int)
@@ -23,14 +24,15 @@ class RPTabBar: UIView {
         self.init()
         
         for title in titles {
-            let btn = UIButton.init(type: .custom)
-            btn.tag = self.subviews.count
+            let btn = UIButton.init(type: .custom).then {
+                $0.setTitle(title, for: .normal)
+                $0.setTitleColor(.lightGray, for: .normal)
+                $0.setTitleColor(RPColor.redWine, for: .selected)
+                $0.tag = self.subviews.count
+                $0.titleLabel?.font = .systemFont(ofSize: 15)
+            }
             self.addSubview(btn)
             
-            btn.titleLabel?.font = .systemFont(ofSize: 15)
-            btn.setTitle(title, for: .normal)
-            btn.setTitleColor(.lightGray, for: .normal)
-            btn.setTitleColor(RPColor.redWine, for: .selected)
             btn.addTarget(self, action: #selector(tabbarClick), for: .touchUpInside)
             
             if btn.tag == 0 {

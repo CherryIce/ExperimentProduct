@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Then
 import JPImageresizerView
 
 public protocol UUTailoringImgViewControllerDelegate:AnyObject {
@@ -33,19 +34,21 @@ class UUTailoringImgViewController: UIViewController {
         view.backgroundColor = UIColor.init(red: 30/255.0, green: 30/255.0, blue: 30/255.0, alpha: 0.7)
         self.view.addSubview(view)
         
-        let cancelButton = UIButton.init(type: .custom)
-        cancelButton.frame = CGRect.init(x: 16, y: 0, width: 60, height: 60)
-        cancelButton.setTitle("取消", for: .normal)
-        cancelButton.setTitleColor(.white, for: .normal)
-        cancelButton.titleLabel?.font = UIFont.systemFont(ofSize: 14)
+        let cancelButton = UIButton.init(type: .custom).then {
+            $0.setTitle("取消", for: .normal)
+            $0.setTitleColor(.white, for: .normal)
+            $0.titleLabel?.font = .systemFont(ofSize: 14)
+            $0.frame = CGRect(x: 16, y: 0, width: 60, height: 60)
+        }
         cancelButton.addTarget(self, action:#selector(cancelTailor), for: .touchUpInside)
         view.addSubview(cancelButton)
         
-        let completelButton = UIButton.init(type: .custom)
-        completelButton.frame = CGRect.init(x: self.view.bounds.size.width - 60 - 16, y: 0, width: 60, height: 60)
-        completelButton.setTitle("完成", for: .normal)
-        completelButton.setTitleColor(.white, for: .normal)
-        completelButton.titleLabel?.font = UIFont.systemFont(ofSize: 14)
+        let completelButton = UIButton.init(type: .custom).then {
+            $0.setTitle("完成", for: .normal)
+            $0.setTitleColor(.white, for: .normal)
+            $0.titleLabel?.font = .systemFont(ofSize: 14)
+            $0.frame = CGRect(x: self.view.bounds.size.width - 60 - 16, y: 0, width: 60, height: 60)
+        }
         completelButton.addTarget(self, action:#selector(rightBtnClick), for: .touchUpInside)
         view.addSubview(completelButton)
     }

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Then
 
 enum RPDatePickerMode {
     case year
@@ -57,10 +58,11 @@ class RPDatePickerViewController: RPBaseViewController {
             make.height.equalTo(45)
         }
         
-        let cancelBtn = UIButton.init(type: .custom)
-        cancelBtn.titleLabel?.font = .systemFont(ofSize: 16)
-        cancelBtn.setTitleColor(.black, for: .normal)
-        cancelBtn.setTitle("取消", for: .normal)
+        let cancelBtn = UIButton.init(type: .custom).then {
+            $0.titleLabel?.font = .systemFont(ofSize: 16)
+            $0.setTitle("取消", for: .normal)
+            $0.setTitleColor(.black, for: .normal)
+        }
         cancelBtn.addTarget(self, action: #selector(miss), for: .touchUpInside)
         topV.addSubview(cancelBtn)
         cancelBtn.snp.makeConstraints { (make) in
@@ -70,10 +72,11 @@ class RPDatePickerViewController: RPBaseViewController {
             make.centerY.equalToSuperview()
         }
         
-        let okBtn = UIButton.init(type: .custom)
-        okBtn.titleLabel?.font = .systemFont(ofSize: 16)
-        okBtn.setTitle("确认", for: .normal)
-        okBtn.setTitleColor(.black, for: .normal)
+        let okBtn = UIButton.init(type: .custom).then {
+            $0.titleLabel?.font = .systemFont(ofSize: 16)
+            $0.setTitle("确认", for: .normal)
+            $0.setTitleColor(.black, for: .normal)
+        }
         okBtn.addTarget(self, action: #selector(dateChanged), for: .touchUpInside)
         topV.addSubview(okBtn)
         okBtn.snp.makeConstraints { (make) in

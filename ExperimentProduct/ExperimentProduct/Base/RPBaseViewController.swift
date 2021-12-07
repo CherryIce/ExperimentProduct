@@ -7,6 +7,7 @@
 
 import UIKit
 import SnapKit
+import Then
 
 class RPBaseViewController: UIViewController {
     
@@ -50,22 +51,23 @@ class RPBaseViewController: UIViewController {
     
     func windowShowToast(_ tips:String) {
         UIApplication.shared.keyWindow?.hideAllToasts(includeActivity: true, clearQueue: true)
-        let b = UIButton.init(type: .custom)
-        b.frame = CGRect(x: 0, y: 0, width: 270, height: 40)
-        b.titleLabel?.font = .systemFont(ofSize: 14)
-        b.setTitle(tips, for: .normal)
-        b.setTitleColor(.white, for: .normal)
-        if #available(iOS 15.0, *) {
-            var configuration = UIButton.Configuration.plain()
-            configuration.titleAlignment = .trailing
-            configuration.contentInsets = NSDirectionalEdgeInsets.init(top: 5, leading: 16, bottom: 5, trailing: 16)
-            b.configuration = configuration
-        }else{
-            b.contentEdgeInsets = UIEdgeInsets(top: 5, left: 16, bottom: 5, right: 16)
-            b.titleLabel?.textAlignment = .right
+        let b = UIButton.init(type: .custom).then {
+            $0.frame = CGRect(x: 0, y: 0, width: 270, height: 40)
+            $0.titleLabel?.font = .systemFont(ofSize: 14)
+            $0.setTitle(tips, for: .normal)
+            $0.setTitleColor(.white, for: .normal)
+            if #available(iOS 15.0, *) {
+                var configuration = UIButton.Configuration.plain()
+                configuration.titleAlignment = .trailing
+                configuration.contentInsets = NSDirectionalEdgeInsets.init(top: 5, leading: 16, bottom: 5, trailing: 16)
+                $0.configuration = configuration
+            }else{
+                $0.contentEdgeInsets = UIEdgeInsets(top: 5, left: 16, bottom: 5, right: 16)
+                $0.titleLabel?.textAlignment = .right
+            }
+            $0.backgroundColor = UIColor.black.withAlphaComponent(0.5)
+            $0.layercornerRadius(cornerRadius: 4)
         }
-        b.backgroundColor = UIColor.black.withAlphaComponent(0.5)
-        b.layercornerRadius(cornerRadius: 4)
         b.sizeToFit()
         UIApplication.shared.keyWindow?.showToast(b, point:CGPoint.init(x: SCREEN_WIDTH/2, y: SCREEN_HEIGHT/2))
     }

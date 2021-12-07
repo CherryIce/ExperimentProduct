@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Then
 
 //sort table
 
@@ -25,14 +26,15 @@ class RPSortViewController: RPBaseViewController {
     }
     
     func creatNavRightItem() {
-        editBtn = UIButton.init(type: .custom)
-        editBtn.frame = CGRect.init(x: 0, y: 0, width: 30, height: 30)
-        editBtn.setTitle("编辑", for:.normal)
-        editBtn.setTitle("完成", for: .selected)
-        editBtn.setTitleColor(RPColor.MainColor, for: .normal)
-        editBtn.setTitleColor(RPColor.red, for: .selected)
-        editBtn.titleLabel?.font = UIFont.systemFont(ofSize: 15)
-        editBtn.addTarget(self, action: #selector(editAction), for: .touchUpInside)
+        editBtn = UIButton.init(type: .custom).then {
+            $0.frame = CGRect.init(x: 0, y: 0, width: 30, height: 30)
+            $0.setTitle("编辑", for:.normal)
+            $0.setTitle("完成", for: .selected)
+            $0.setTitleColor(RPColor.MainColor, for: .normal)
+            $0.setTitleColor(RPColor.red, for: .selected)
+            $0.titleLabel?.font = UIFont.systemFont(ofSize: 15)
+            $0.addTarget(self, action: #selector(editAction), for: .touchUpInside)
+        }
         self.navigationItem.rightBarButtonItem = UIBarButtonItem.init(customView: editBtn)
     }
     

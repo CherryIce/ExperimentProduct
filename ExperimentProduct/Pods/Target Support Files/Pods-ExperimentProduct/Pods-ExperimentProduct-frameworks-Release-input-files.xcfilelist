@@ -20,6 +20,7 @@ ${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework
 ${BUILT_PRODUCTS_DIR}/TABAnimated/TABAnimated.framework
 ${BUILT_PRODUCTS_DIR}/TYPagerController/TYPagerController.framework
 ${BUILT_PRODUCTS_DIR}/TZImagePickerController/TZImagePickerController.framework
+${BUILT_PRODUCTS_DIR}/Then/Then.framework
 ${BUILT_PRODUCTS_DIR}/WHC_KeyboardManager/WHC_KeyboardManager.framework
 ${BUILT_PRODUCTS_DIR}/XCGLogger/XCGLogger.framework
 ${BUILT_PRODUCTS_DIR}/YYCache/YYCache.framework

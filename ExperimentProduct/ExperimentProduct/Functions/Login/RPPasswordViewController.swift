@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Then
 
 //修改或重置密码
 public enum RPPasswordHandleType : Int {
@@ -44,13 +45,14 @@ class RPPasswordViewController: RPBaseViewController {
         
         let v = UIView.init()
         v.frame = CGRect.init(x: 0, y: 0, width: SCREEN_WIDTH, height: 100)
-        submitBtn = UIButton.init(type: .custom)
-        submitBtn.frame = CGRect.init(x: 30, y: 30, width: v.frame.width - 60, height: 50)
-        submitBtn.backgroundColor = .red
-        submitBtn.setTitle("确定", for:.normal)
-        submitBtn.addTarget(self, action: #selector(submitClick), for: .touchUpInside)
-        submitBtn.titleLabel?.font = .systemFont(ofSize: 16)
-        submitBtn.layercornerRadius(cornerRadius: 4)
+        submitBtn = UIButton.init(type: .custom).then {
+            $0.frame = CGRect.init(x: 30, y: 30, width: v.frame.width - 60, height: 50)
+            $0.backgroundColor = RPColor.redWine
+            $0.setTitle("确定", for:.normal)
+            $0.addTarget(self, action: #selector(submitClick), for: .touchUpInside)
+            $0.titleLabel?.font = .systemFont(ofSize: 16)
+            $0.layercornerRadius(cornerRadius: 4)
+        }
         v.addSubview(submitBtn)
         
         tableView.tableFooterView = v

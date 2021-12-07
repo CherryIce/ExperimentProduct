@@ -388,6 +388,10 @@ public extension UIImage {
      */
     func roundCorners(cornerRadius: CGFloat) -> UIImage? {
         // If the image does not have an alpha layer, add one
+        if cornerRadius == 0 {
+            return self
+        }
+        
         let imageWithAlpha = applyAlpha()
         if imageWithAlpha == nil {
             return nil

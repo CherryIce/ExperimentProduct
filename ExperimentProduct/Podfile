@@ -100,5 +100,17 @@ pod 'KTVHTTPCache', '~> 2.0'
 pod 'MLeaksFinder', :git => 'https://github.com/Zepo/MLeaksFinder.git', :configurations => ['Debug']
 pod 'FBRetainCycleDetector', :git => 'https://github.com/facebook/FBRetainCycleDetector.git' ,:branch => 'main', :configurations => ['Debug']
 
+# 还在研究
+#pod 'IGListKit'
+
+# 对于比例自适应
+#pod 'AutoInch'
+
+# 控件的属性添加
+pod 'Then'
+
+# 控件的layout
+#pod 'SteviaLayout'
+
 end
 

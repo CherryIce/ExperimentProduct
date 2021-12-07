@@ -8,6 +8,7 @@
 import UIKit
 import RxSwift
 import ActiveLabel
+import Then
 
 class RPLoginViewController: RPBaseViewController {
     
@@ -24,10 +25,11 @@ class RPLoginViewController: RPBaseViewController {
     }
     
     func creatRightItem() {
-        let rightBtn = UIButton.init(type: .custom)
-        rightBtn.setTitle("密码登录", for: .normal)
-        rightBtn.titleLabel?.font = UIFont.systemFont(ofSize: 15)
-        rightBtn.setTitleColor(UIColor.init(hexString: "#333333"), for: .normal)
+        let rightBtn = UIButton.init(type: .custom).then {
+            $0.setTitle("密码登录", for: .normal)
+            $0.titleLabel?.font = UIFont.systemFont(ofSize: 15)
+            $0.setTitleColor(UIColor.init(hexString: "#333333"), for: .normal)
+        }
         rightBtn.rx.tap.subscribe(onNext:{ [weak self] (event) in
             self?.navigationController?.pushViewController(RPOrignalLoginViewController.init(), animated: true)
         })
@@ -83,12 +85,13 @@ class RPLoginViewController: RPBaseViewController {
             make.top.greaterThanOrEqualTo(logoView.snp.bottom).offset(15)
         }
         
-        let verifyButton = UIButton.init(type: .custom)
-        verifyButton.setTitle("获取验证码", for: .normal)
-        verifyButton.backgroundColor = UIColor.init(hexString: "#E5E5E5")
-        verifyButton.setTitleColor(.white, for: .normal)
-        verifyButton.titleLabel?.font = UIFont.systemFont(ofSize: 16)
-        verifyButton.layercornerRadius(cornerRadius: 8)
+        let verifyButton = UIButton.init(type: .custom).then {
+            $0.setTitle("获取验证码", for: .normal)
+            $0.backgroundColor = UIColor.init(hexString: "#E5E5E5")
+            $0.setTitleColor(.white, for: .normal)
+            $0.titleLabel?.font = UIFont.systemFont(ofSize: 16)
+            $0.layercornerRadius(cornerRadius: 8)
+        }
         self.view.addSubview(verifyButton)
         
         verifyButton.rx.tap.subscribe(onNext:{ [weak self] (event) in
@@ -103,14 +106,15 @@ class RPLoginViewController: RPBaseViewController {
             make.height.equalTo(47)
         }
         
-        let protocolLabel = ActiveLabel()
         let customType = ActiveType.custom(pattern: "\\《阴间论坛用户使用协议》")
-        protocolLabel.enabledTypes = [customType]
-        protocolLabel.numberOfLines = 2
-        protocolLabel.text = "点击注册按钮，即表示您同意《阴间论坛用户使用协议》"
-        protocolLabel.font = UIFont.systemFont(ofSize: 14)
-        protocolLabel.customColor[customType] = RPColor.MainColor
-        protocolLabel.textColor = UIColor.black
+        let protocolLabel = ActiveLabel().then {
+            $0.enabledTypes = [customType]
+            $0.numberOfLines = 2
+            $0.text = "点击注册按钮，即表示您同意《阴间论坛用户使用协议》"
+            $0.font = UIFont.systemFont(ofSize: 14)
+            $0.customColor[customType] = RPColor.MainColor
+            $0.textColor = UIColor.black
+        }
         protocolLabel.handleCustomTap(for: customType, handler: { [weak self] (customType) in
             let ctl = RPWkwebViewController.init()
             ctl.urlString = "https://www.baidu.com"

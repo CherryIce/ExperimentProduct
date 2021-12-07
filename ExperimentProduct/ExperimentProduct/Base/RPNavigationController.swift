@@ -14,10 +14,10 @@ class RPNavigationController: UINavigationController ,UINavigationControllerDele
         
         // Do any additional setup after loading the view.
         //返回手势
-        let isTrue = self.responds(to:#selector(getter: interactivePopGestureRecognizer))
-        if isTrue{
-            self.interactivePopGestureRecognizer?.isEnabled = self.viewControllers.count>1;
-        }
+//        let isTrue = self.responds(to:#selector(getter: interactivePopGestureRecognizer))
+//        if isTrue{
+//            self.interactivePopGestureRecognizer?.isEnabled = self.viewControllers.count>1;
+//        }
         //导航栏背景
         self.navigationBar.setBackgroundImage(UIImage(color: .white), for: .default)
         //去线

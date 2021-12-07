@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Then
 
 enum  RPTextViewFromType {
     case feedback
@@ -91,11 +92,12 @@ class RPFeedBackViewController: RPBaseViewController {
             log.debug("\n\n\n this is a test : "+(self?.textView.text)!)
         }
         
-        let submit = UIButton.init(type: .custom)
-        submit.setTitle("提 交", for: .normal)
-        submit.setTitleColor(.white, for: .normal)
-        submit.backgroundColor = .red
-        submit.titleLabel?.font = .systemFont(ofSize: 15)
+        let submit = UIButton.init(type: .custom).then {
+            $0.setTitle("提 交", for: .normal)
+            $0.setTitleColor(.white, for: .normal)
+            $0.backgroundColor = .red
+            $0.titleLabel?.font = .systemFont(ofSize: 15)
+        }
         self.view.addSubview(submit)
         submit.layercornerRadius(cornerRadius: 4)
         submit.addTarget(self, action: #selector(submitApi), for: .touchUpInside)

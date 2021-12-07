@@ -7,6 +7,8 @@
 
 import UIKit
 import WHC_KeyboardManager
+import Then
+import SnapKit
 
 class RPUpdateNickNameViewController: RPBaseViewController {
     
@@ -24,21 +26,23 @@ class RPUpdateNickNameViewController: RPBaseViewController {
     }
     
     func creatUI() {
-        doneBtn = UIButton.init(type: .custom)
-        doneBtn.setTitle("确定", for: .normal)
-        doneBtn.titleLabel?.font = .systemFont(ofSize: 16)
-        doneBtn.setTitleColor(RPColor.Separator, for: .normal)
-        doneBtn.addTarget(self, action: #selector(doneClick), for: .touchUpInside)
-        doneBtn.isEnabled = false
+        doneBtn = UIButton.init(type: .custom).then {
+            $0.setTitle("确定", for: .normal)
+            $0.titleLabel?.font = .systemFont(ofSize: 16)
+            $0.setTitleColor(RPColor.Separator, for: .normal)
+            $0.addTarget(self, action: #selector(doneClick), for: .touchUpInside)
+            $0.isEnabled = false
+        }
         let rightItem = UIBarButtonItem.init(customView: doneBtn)
         self.navigationItem.rightBarButtonItem = rightItem
         
-        textfiled = UITextField.init()
-        textfiled.placeholder = "请输入昵称"
-        textfiled.font = .systemFont(ofSize: 16)
-        textfiled.backgroundColor = .white
-        textfiled.clearButtonMode = .always
-        textfiled.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
+        textfiled = UITextField.init().then {
+            $0.placeholder = "请输入昵称"
+            $0.font = .systemFont(ofSize: 16)
+            $0.backgroundColor = .white
+            $0.clearButtonMode = .always
+            $0.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
+        }
         self.view.addSubview(textfiled)
         
         textfiled.snp.makeConstraints { (make) in

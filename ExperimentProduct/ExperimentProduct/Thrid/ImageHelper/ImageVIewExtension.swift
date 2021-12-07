@@ -60,59 +60,68 @@ public extension UIImageView {
         }
     }
     
-//    func setImageWithName(_ name:String) {
-//        if name.isEmpty {
-//            return
-//        }
-//        
-//        DispatchQueue.global().async {
-//            
-//            guard let cgImage = UIImage.loadImage(name)?.cgImage else {
-//                DispatchQueue.main.async {
-//                    self.image = nil
-//                }
-//                return
-//            }
-//            
-//            let alphaInfo = CGImageAlphaInfo(rawValue: cgImage.alphaInfo.rawValue & CGBitmapInfo.alphaInfoMask.rawValue)
-//            
-//            var hasAlpha = false
-//            
-//            if (alphaInfo == .premultipliedLast ||
-//                alphaInfo == .premultipliedFirst ||
-//                alphaInfo == .last ||
-//                alphaInfo == .first) {
-//                hasAlpha = true
-//            }
-//            
-//            let bimapInfo: CGBitmapInfo = [.byteOrder32Little,.floatComponents,CGBitmapInfo(rawValue: (hasAlpha ? (CGImageAlphaInfo.premultipliedFirst.rawValue) :CGImageAlphaInfo.noneSkipFirst.rawValue))]
-//            let width = cgImage.width
-//            let height = cgImage.height
-//            
-//            guard let context = CGContext(data: nil,width: width,height: height,bitsPerComponent: 8,bytesPerRow: 0,space: CGColorSpaceCreateDeviceRGB(),bitmapInfo: bimapInfo.rawValue) else {
-//                DispatchQueue.main.async {
-//                    self.image = UIImage(cgImage: cgImage)
-//                }
-//                return
-//            }
-//        
-//            context.draw(cgImage, in: CGRect(x: 0,y: 0,width:width,height:height))
-//            
-//            guard let newCgImage = context.makeImage() else {
-//                DispatchQueue.main.async {
-//                    self.image = UIImage(cgImage: cgImage)
-//                }
-//                return
-//            }
-//            
-//            let newImage = UIImage(cgImage: newCgImage)
-////            CGContextRelease(context)
-////            CGImageRelease(cgImage)
-//            
-//            DispatchQueue.main.async {
-//                self.image = newImage
-//            }
-//        }
-//    }
+    //em... 感觉不是很好用的样子
+    func setImageWithName(_ name:String,cornerRadius:CGFloat = 0) {
+        if name.isEmpty {
+            return
+        }
+        
+        DispatchQueue.global().async {
+            
+            guard let image = UIImage.loadImage(name) else {
+                DispatchQueue.main.async {
+                    self.image = nil
+                }
+                return
+            }
+            
+            guard let cgImage = image.cgImage else {
+                DispatchQueue.main.async {
+                    self.image = nil
+                }
+                return
+            }
+            
+            let alphaInfo = CGImageAlphaInfo(rawValue: cgImage.alphaInfo.rawValue & CGBitmapInfo.alphaInfoMask.rawValue)
+            
+            var hasAlpha = false
+            
+            if (alphaInfo == .premultipliedLast ||
+                alphaInfo == .premultipliedFirst ||
+                alphaInfo == .last ||
+                alphaInfo == .first) {
+                hasAlpha = true
+            }
+            
+            let tmpAlphaInfo = hasAlpha ? CGImageAlphaInfo.premultipliedFirst : CGImageAlphaInfo.noneSkipFirst
+            var bitmapInfo:UInt32 = CGBitmapInfo.byteOrder32Little.rawValue
+            bitmapInfo = CGBitmapInfo(rawValue:tmpAlphaInfo.rawValue).rawValue
+            
+            let width = cgImage.width
+            let height = cgImage.height
+            
+            guard let context = CGContext(data: nil,width: width,height: height,bitsPerComponent: 8,bytesPerRow: 0,space: CGColorSpaceCreateDeviceRGB(),bitmapInfo: bitmapInfo) else {
+                DispatchQueue.main.async {
+                    self.image = image.roundCorners(cornerRadius: cornerRadius)
+                }
+                return
+            }
+        
+            context.draw(cgImage, in: CGRect(x: 0,y: 0,width:width,height:height))
+            
+            guard let newCgImage = context.makeImage() else {
+                DispatchQueue.main.async {
+                    self.image = image.roundCorners(cornerRadius: cornerRadius)
+                }
+                return
+            }
+            
+            let newImage = UIImage(cgImage: newCgImage)
+            
+            DispatchQueue.main.async {
+                self.image = newImage.roundCorners(cornerRadius: cornerRadius)
+            }
+        }
+    }
 }
  

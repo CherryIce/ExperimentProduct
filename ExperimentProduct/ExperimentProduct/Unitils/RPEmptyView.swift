@@ -82,6 +82,7 @@ class RPEmptyView: UIView {
     
     private func creatUI () {
         placeholderIconV = UIImageView.init()
+        placeholderIconV.contentMode = .scaleAspectFill
         self.addSubview(placeholderIconV)
         
         tipsLabel = UILabel.init()

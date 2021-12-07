@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import SnapKit
+import Then
 
 class RPFindViewController: RPBaseViewController {
     
@@ -129,12 +131,13 @@ extension RPFindViewController:UITableViewDelegate,UITableViewDataSource {
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         let v = UIView.init(frame: CGRect.init(x: 0, y: 0, width: SCREEN_WIDTH, height: 40))
         v.backgroundColor = .white
-        let btn = UIButton.init(type: .custom)
-        btn.frame = v.bounds
-        btn.titleLabel?.font = .systemFont(ofSize: 14)
-        btn.setTitle("查看更多", for: .normal)
-        btn.setTitleColor(.init(hexString: "#2697FF"), for: .normal)
-        btn.addTarget(self, action: #selector(searchMore), for: .touchUpInside)
+        let btn = UIButton.init(type: .custom).then {
+            $0.frame = v.bounds
+            $0.titleLabel?.font = .systemFont(ofSize: 14)
+            $0.setTitle("查看更多", for: .normal)
+            $0.setTitleColor(.init(hexString: "#2697FF"), for: .normal)
+            $0.addTarget(self, action: #selector(searchMore), for: .touchUpInside)
+        }
         v.addSubview(btn)
         return v
     }

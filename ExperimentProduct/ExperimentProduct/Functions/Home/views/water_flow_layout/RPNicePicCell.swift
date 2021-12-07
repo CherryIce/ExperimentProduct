@@ -7,6 +7,7 @@
 
 import UIKit
 import RxCocoa
+import Then
 
 class RPNicePicCell: UICollectionViewCell {
     
@@ -49,18 +50,19 @@ class RPNicePicCell: UICollectionViewCell {
         userNameLabel.font = .systemFont(ofSize: 13)
         contentView.addSubview(userNameLabel)
         
-        likesButton = UIButton.init(type: .custom)
-        likesButton.setTitleColor(.init(hexString: "999999"), for: .normal)
-        likesButton.titleLabel?.font = .systemFont(ofSize: 13)
-        if #available(iOS 15.0, *) {
-            var configuration = UIButton.Configuration.plain()
-            configuration.imagePlacement = .trailing
-            configuration.imagePadding = 5
-            configuration.contentInsets = NSDirectionalEdgeInsets.zero
-            likesButton.configuration = configuration
-        }else{
-            likesButton.titleLabel?.textAlignment = .right
-            likesButton.layoutButton(style: .Right, imageTitleSpace: 5)
+        likesButton = UIButton.init(type: .custom).then {
+            $0.setTitleColor(.init(hexString: "999999"), for: .normal)
+            $0.titleLabel?.font = .systemFont(ofSize: 13)
+            if #available(iOS 15.0, *) {
+                var configuration = UIButton.Configuration.plain()
+                configuration.imagePlacement = .trailing
+                configuration.imagePadding = 5
+                configuration.contentInsets = NSDirectionalEdgeInsets.zero
+                $0.configuration = configuration
+            }else{
+                $0.titleLabel?.textAlignment = .right
+                $0.layoutButton(style: .Right, imageTitleSpace: 5)
+            }
         }
         contentView.addSubview(likesButton)
         likesButton.setImage(UIImage.loadImage("likes"), for: .normal)

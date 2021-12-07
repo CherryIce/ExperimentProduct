@@ -11,7 +11,7 @@ class RPColor: UIColor {
     //主色调
     open class var  MainColor:UIColor {
         get{
-            return .init(hexString: "#FF7700")
+            return .init(hexString: "#55C28B")
         }
     }
     //常用视图背景色

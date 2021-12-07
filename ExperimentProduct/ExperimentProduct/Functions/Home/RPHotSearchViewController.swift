@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Then
 
 class RPHotSearchViewController: RPBaseViewController {
     lazy var historyLists = [String]()
@@ -34,11 +35,12 @@ class RPHotSearchViewController: RPBaseViewController {
             make.height.equalTo(RPTools.NAV_HEIGHT)
         }
         
-        let cancelBtn = UIButton.init(type: .custom)
-        cancelBtn.titleLabel?.font = .systemFont(ofSize: 14)
-        cancelBtn.setTitle("取消", for: .normal)
-        cancelBtn.setTitleColor(.init(hexString: "#999999"), for: .normal)
-        cancelBtn.addTarget(self, action: #selector(returnBack), for: .touchUpInside)
+        let cancelBtn = UIButton.init(type: .custom).then {
+            $0.titleLabel?.font = .systemFont(ofSize: 14)
+            $0.setTitle("取消", for: .normal)
+            $0.setTitleColor(.init(hexString: "#999999"), for: .normal)
+            $0.addTarget(self, action: #selector(returnBack), for: .touchUpInside)
+        }
         topNavView.addSubview(cancelBtn)
         cancelBtn.snp.makeConstraints { make in
             make.right.equalToSuperview().offset(-16)
@@ -46,12 +48,13 @@ class RPHotSearchViewController: RPBaseViewController {
             make.bottom.equalToSuperview().offset(-3)
         }
         
-        textField = UITextField.init()
-        textField?.backgroundColor = RPColor.ShallowColor
-        textField?.font = .systemFont(ofSize: 14)
-        textField?.placeholder = "请输入"
-        textField?.tintColor = RPColor.redWine
-        textField?.delegate = self
+        textField = UITextField.init().then {
+            $0.backgroundColor = RPColor.ShallowColor
+            $0.font = .systemFont(ofSize: 14)
+            $0.placeholder = "请输入"
+            $0.tintColor = RPColor.redWine
+            $0.delegate = self
+        }
         topNavView.addSubview(textField!)
         textField?.leftViewWithImgName(imgName: "search", size: CGSize.init(width: 19, height: 19))
         textField?.snp.makeConstraints { make in

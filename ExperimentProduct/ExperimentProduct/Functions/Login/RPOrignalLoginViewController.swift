@@ -7,6 +7,7 @@
 
 import UIKit
 import RxSwift
+import Then
 
 class RPOrignalLoginViewController: RPBaseViewController {
     
@@ -26,10 +27,11 @@ class RPOrignalLoginViewController: RPBaseViewController {
     }
     
     func creatUI() {
-        let titleLabel = UILabel.init()
-        titleLabel.text = "密码登录"
-        titleLabel.font = UIFont.boldSystemFont(ofSize: 24)
-        titleLabel.textColor = UIColor.init(hexString: "#2E3135")
+        let titleLabel = UILabel.init().then {
+            $0.text = "密码登录"
+            $0.font = UIFont.boldSystemFont(ofSize: 24)
+            $0.textColor = UIColor.init(hexString: "#2E3135")
+        }
         self.view.addSubview(titleLabel)
         
         titleLabel.snp.makeConstraints { (make) in
@@ -64,10 +66,11 @@ class RPOrignalLoginViewController: RPBaseViewController {
         pwTextFiled.placeholder("请输入6-12位密码")
         pwTextFiled.type = .loginPw
         
-        forgetButton = UIButton.init(type: .custom)
-        forgetButton.setTitle("忘记密码", for: .normal)
-        forgetButton.setTitleColor(UIColor.init(hexString: "#666666"), for: .normal)
-        forgetButton.titleLabel?.font = UIFont.systemFont(ofSize: 13)
+        forgetButton = UIButton.init(type: .custom).then {
+            $0.setTitle("忘记密码", for: .normal)
+            $0.setTitleColor(UIColor.init(hexString: "#666666"), for: .normal)
+            $0.titleLabel?.font = .systemFont(ofSize: 13)
+        }
         self.view.addSubview(forgetButton)
         
         forgetButton.addTarget(self, action: #selector(forgetButtonClick), for: .touchUpInside)
@@ -78,12 +81,13 @@ class RPOrignalLoginViewController: RPBaseViewController {
             make.height.equalTo(30)
         }
         
-        loginButton = UIButton.init(type: .custom)
-        loginButton.setTitle("登录", for: .normal)
-        loginButton.backgroundColor = UIColor.init(hexString: "#E5E5E5")
-        loginButton.setTitleColor(.white, for: .normal)
-        loginButton.titleLabel?.font = UIFont.systemFont(ofSize: 16)
-        loginButton.layercornerRadius(cornerRadius: 8)
+        loginButton = UIButton.init(type: .custom).then {
+            $0.setTitle("登录", for: .normal)
+            $0.backgroundColor = UIColor.init(hexString: "#E5E5E5")
+            $0.setTitleColor(.white, for: .normal)
+            $0.titleLabel?.font = UIFont.systemFont(ofSize: 16)
+            $0.layercornerRadius(cornerRadius: 8)
+        }
         self.view.addSubview(loginButton)
         
         loginButton.snp.makeConstraints { (make) in

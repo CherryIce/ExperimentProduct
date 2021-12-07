@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Then
 
 class RPFromTableVerificationCell: UITableViewCell {
     weak var delegate:RPFromTableCellActionDelegate?
@@ -27,10 +28,11 @@ class RPFromTableVerificationCell: UITableViewCell {
         contentView.addSubview(textfiled)
         textfiled.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
         
-        verifiBtn = UIButton.init()
-        verifiBtn.setTitle("获取验证码", for: .normal)
-        verifiBtn.backgroundColor = .init(hexString: "#2697FF")
-        verifiBtn.titleLabel?.font = .systemFont(ofSize: 14)
+        verifiBtn = UIButton.init().then({
+            $0.setTitle("获取验证码", for: .normal)
+            $0.backgroundColor = .init(hexString: "#2697FF")
+            $0.titleLabel?.font = .systemFont(ofSize: 14)
+        })
         verifiBtn.addTarget(self, action: #selector(verifiBtnClick), for: .touchUpInside)
         contentView.addSubview(verifiBtn)
         verifiBtn.layercornerRadius(cornerRadius: 4)

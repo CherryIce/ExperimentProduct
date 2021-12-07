@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Then
 
 class RPGuideViewController: RPBaseViewController {
     
@@ -49,12 +50,13 @@ class RPGuideViewController: RPBaseViewController {
             make.left.top.right.bottom.equalToSuperview()
         }
         
-        pageControl = UIPageControl.init()
-        pageControl.isUserInteractionEnabled = false
-        pageControl.hidesForSinglePage = true
-        pageControl.numberOfPages = images.count
-        pageControl.currentPageIndicatorTintColor = RPColor.MainColor
-        pageControl.pageIndicatorTintColor = RPColor.ShallowColor
+        pageControl = UIPageControl.init().then {
+            $0.isUserInteractionEnabled = false
+            $0.hidesForSinglePage = true
+            $0.numberOfPages = images.count
+            $0.currentPageIndicatorTintColor = RPColor.MainColor
+            $0.pageIndicatorTintColor = RPColor.ShallowColor
+        }
         self.view .addSubview(pageControl)
         
         let size = pageControl.size(forNumberOfPages: images.count)
@@ -64,11 +66,12 @@ class RPGuideViewController: RPBaseViewController {
             make.bottom.equalToSuperview().offset(-60)
         }
         
-        skipButton = UIButton.init(type: .custom)
-        skipButton.isHidden = true
-        skipButton.setTitle("立即体验", for: .normal)
-        skipButton.setTitleColor(RPColor.MainColor, for: .normal)
-        skipButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 15)
+        skipButton = UIButton.init(type: .custom).then {
+            $0.isHidden = true
+            $0.setTitle("立即体验", for: .normal)
+            $0.setTitleColor(RPColor.MainColor, for: .normal)
+            $0.titleLabel?.font = UIFont.boldSystemFont(ofSize: 15)
+        }
         skipButton.addTarget(self, action:#selector(hide) , for: .touchUpInside)
         self.view.addSubview(skipButton)
         
@@ -101,7 +104,7 @@ extension RPGuideViewController:UICollectionViewDelegate,UICollectionViewDataSou
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let identifier = RPCollectionViewAdapter.init().reuseIdentifierForCellClass(cellClass: RPGuideCell.self, collectionView: collectionView)
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath) as! RPGuideCell
-        cell.posterImgView.image = UIImage.loadImage(images[indexPath.row] as! String)
+        cell.posterImgView.setImageWithName(images[indexPath.row] as! String)
         return cell
     }
     

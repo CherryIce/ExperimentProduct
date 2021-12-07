@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Then
 
 class RPWalletViewController: RPBaseViewController {
 
@@ -28,12 +29,13 @@ class RPWalletViewController: RPBaseViewController {
         }
         simpleView.layercornerRadius(cornerRadius: 8)
         //收付款码
-        let codeBtn = UIButton.init(type: .custom)
-        codeBtn.setImage(UIImage.loadImage("qrcode"), for: .normal)
-        codeBtn.setTitle("收付款码", for: .normal)
-        codeBtn.setTitleColor(.init(hexString: "#18C47C"), for: .normal)
-        codeBtn.titleLabel?.font = .systemFont(ofSize: 15)
-        codeBtn.addTarget(self, action: #selector(codeClick), for: .touchUpInside)
+        let codeBtn = UIButton.init(type: .custom).then {
+            $0.setImage(UIImage.loadImage("qrcode"), for: .normal)
+            $0.setTitle("收付款码", for: .normal)
+            $0.setTitleColor(.init(hexString: "#18C47C"), for: .normal)
+            $0.titleLabel?.font = .systemFont(ofSize: 15)
+            $0.addTarget(self, action: #selector(codeClick), for: .touchUpInside)
+        }
         simpleView.addSubview(codeBtn)
         codeBtn.snp.makeConstraints { make in
             make.left.equalTo(16)
@@ -43,12 +45,13 @@ class RPWalletViewController: RPBaseViewController {
         }
         codeBtn.layoutButton(style: .Top, imageTitleSpace: 10)
         //余额
-        let moneyBtn = UIButton.init(type: .custom)
-        moneyBtn.setImage(UIImage.loadImage("balance"), for: .normal)
-        moneyBtn.setTitle("余额", for: .normal)
-        moneyBtn.titleLabel?.font = .systemFont(ofSize: 15)
-        moneyBtn.setTitleColor(RPColor.redWine, for: .normal)
-        moneyBtn.addTarget(self, action: #selector(moneyClick), for: .touchUpInside)
+        let moneyBtn = UIButton.init(type: .custom).then {
+            $0.setImage(UIImage.loadImage("balance"), for: .normal)
+            $0.setTitle("余额", for: .normal)
+            $0.titleLabel?.font = .systemFont(ofSize: 15)
+            $0.setTitleColor(RPColor.redWine, for: .normal)
+            $0.addTarget(self, action: #selector(moneyClick), for: .touchUpInside)
+        }
         simpleView.addSubview(moneyBtn)
         moneyBtn.snp.makeConstraints { make in
             make.right.equalToSuperview().offset(-16)
@@ -58,11 +61,12 @@ class RPWalletViewController: RPBaseViewController {
         }
         moneyBtn.layoutButton(style: .Top, imageTitleSpace: 10)
         //银行卡 这里只是随便给银行卡列表一个入口 就不再增加iOS对于按钮属性的适配了 实际情况按需处理
-        let bankCardBtn = UIButton.init(type: .custom)
-        bankCardBtn.titleLabel?.font = .systemFont(ofSize: 16)
-        bankCardBtn.setTitle("银行卡", for: .normal)
-        bankCardBtn.backgroundColor = .init(hexString: "#18C47C")
-        bankCardBtn.addTarget(self, action: #selector(bankCardBtnClick), for: .touchUpInside)
+        let bankCardBtn = UIButton.init(type: .custom).then {
+            $0.titleLabel?.font = .systemFont(ofSize: 16)
+            $0.setTitle("银行卡", for: .normal)
+            $0.backgroundColor = .init(hexString: "#18C47C")
+            $0.addTarget(self, action: #selector(bankCardBtnClick), for: .touchUpInside)
+        }
         view.addSubview(bankCardBtn)
         bankCardBtn.layercornerRadius(cornerRadius: 5)
         bankCardBtn.snp.makeConstraints { make in
