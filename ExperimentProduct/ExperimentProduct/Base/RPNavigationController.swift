@@ -7,17 +7,14 @@
 
 import UIKit
 
-class RPNavigationController: UINavigationController ,UINavigationControllerDelegate {
+class RPNavigationController: UINavigationController ,UINavigationControllerDelegate,UIGestureRecognizerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
         //返回手势
-//        let isTrue = self.responds(to:#selector(getter: interactivePopGestureRecognizer))
-//        if isTrue{
-//            self.interactivePopGestureRecognizer?.isEnabled = self.viewControllers.count>1;
-//        }
+        self.interactivePopGestureRecognizer?.delegate = self
         //导航栏背景
         self.navigationBar.setBackgroundImage(UIImage(color: .white), for: .default)
         //去线
@@ -64,6 +61,7 @@ class RPNavigationController: UINavigationController ,UINavigationControllerDele
             viewController.navigationItem.leftBarButtonItem = UIBarButtonItem.init(image: backImg.withRenderingMode(.alwaysOriginal), style: .plain, target: self, action: #selector(leftClick))
             //        //添加文字
             //        viewController.navigationItem.leftBarButtonItem = UIBarButtonItem.init(title: "返回", style: .plain, target: self, action: #selector(leftClick))
+            self.interactivePopGestureRecognizer?.isEnabled = true //self.viewControllers.count>1;
         }
         super.pushViewController(viewController, animated: animated)
     }

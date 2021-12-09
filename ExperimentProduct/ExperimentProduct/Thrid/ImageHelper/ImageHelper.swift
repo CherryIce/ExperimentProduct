@@ -13,7 +13,7 @@ import UIKit
 import QuartzCore
 import CoreGraphics
 import Accelerate
-
+import libwebp
 
 public enum UIImageContentMode {
     case scaleToFill, scaleAspectFit, scaleAspectFill
@@ -71,57 +71,57 @@ public extension UIImage {
         let colors = gradientColors.map {(color: UIColor) -> AnyObject? in return color.cgColor as AnyObject? } as NSArray
         let gradient: CGGradient
         if locations.count > 0 {
-          let cgLocations = locations.map { CGFloat($0) }
-          gradient = CGGradient(colorsSpace: colorSpace, colors: colors, locations: cgLocations)!
+            let cgLocations = locations.map { CGFloat($0) }
+            gradient = CGGradient(colorsSpace: colorSpace, colors: colors, locations: cgLocations)!
         } else {
-          gradient = CGGradient(colorsSpace: colorSpace, colors: colors, locations: nil)!
+            gradient = CGGradient(colorsSpace: colorSpace, colors: colors, locations: nil)!
         }
         context!.drawLinearGradient(gradient, start: CGPoint(x: 0, y: 0), end: CGPoint(x: 0, y: size.height), options: CGGradientDrawingOptions(rawValue: 0))
         self.init(cgImage:(UIGraphicsGetImageFromCurrentImageContext()?.cgImage!)!)
         UIGraphicsEndImageContext()
     }
-
+    
     /**
      Applies gradient color overlay to an image.
-
+     
      - Parameter gradientColors: An array of colors to use for the gradient.
      - Parameter locations: An array of locations to use for the gradient.
      - Parameter blendMode: The blending type to use.
-
+     
      - Returns A new image
      */
     func apply(gradientColors: [UIColor], locations: [Float] = [], blendMode: CGBlendMode = CGBlendMode.normal) -> UIImage
     {
-      UIGraphicsBeginImageContextWithOptions(size, false, scale)
-      let context = UIGraphicsGetCurrentContext()
-      context?.translateBy(x: 0, y: size.height)
-      context?.scaleBy(x: 1.0, y: -1.0)
-      context?.setBlendMode(blendMode)
-      let rect = CGRect(x: 0, y: 0, width: size.width, height: size.height)
-    
-      context?.draw(self.cgImage!, in: rect)
-      // Create gradient
-      let colorSpace = CGColorSpaceCreateDeviceRGB()
+        UIGraphicsBeginImageContextWithOptions(size, false, scale)
+        let context = UIGraphicsGetCurrentContext()
+        context?.translateBy(x: 0, y: size.height)
+        context?.scaleBy(x: 1.0, y: -1.0)
+        context?.setBlendMode(blendMode)
+        let rect = CGRect(x: 0, y: 0, width: size.width, height: size.height)
+        
+        context?.draw(self.cgImage!, in: rect)
+        // Create gradient
+        let colorSpace = CGColorSpaceCreateDeviceRGB()
         let colors = gradientColors.map {(color: UIColor) -> AnyObject? in return color.cgColor as AnyObject? } as NSArray
-      let gradient: CGGradient
-      if locations.count > 0 {
-        let cgLocations = locations.map { CGFloat($0) }
-        gradient = CGGradient(colorsSpace: colorSpace, colors: colors, locations: cgLocations)!
-      } else {
-        gradient = CGGradient(colorsSpace: colorSpace, colors: colors, locations: nil)!
-      }
-      // Apply gradient
-      context?.clip(to: rect, mask: self.cgImage!)
-      context?.drawLinearGradient(gradient, start: CGPoint(x: 0, y: 0), end: CGPoint(x: 0, y: size.height), options: CGGradientDrawingOptions(rawValue: 0))
-      let image = UIGraphicsGetImageFromCurrentImageContext()
-      UIGraphicsEndImageContext();
-      return image!;
+        let gradient: CGGradient
+        if locations.count > 0 {
+            let cgLocations = locations.map { CGFloat($0) }
+            gradient = CGGradient(colorsSpace: colorSpace, colors: colors, locations: cgLocations)!
+        } else {
+            gradient = CGGradient(colorsSpace: colorSpace, colors: colors, locations: nil)!
+        }
+        // Apply gradient
+        context?.clip(to: rect, mask: self.cgImage!)
+        context?.drawLinearGradient(gradient, start: CGPoint(x: 0, y: 0), end: CGPoint(x: 0, y: size.height), options: CGGradientDrawingOptions(rawValue: 0))
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext();
+        return image!;
     }
-
+    
     // MARK: Image with Text
     /**
      Creates a text label image.
-
+     
      - Parameter text: The text to use in the label.
      - Parameter font: The font (default: System font of size 18)
      - Parameter color: The text color (default: White)
@@ -724,12 +724,23 @@ public extension UIImage {
                         closure(nil)
                     }
                 }
-                if let data = data, let image = UIImage(data: data) {
-                    if shouldCacheImage {
-                        UIImage.shared.setObject(image, forKey: url as AnyObject)
+                if url.contains("webp") {
+                    if let data = data, let image = UIImage.imageWithWebPData(imageData: data) {
+                        if shouldCacheImage {
+                            UIImage.shared.setObject(image, forKey: url as AnyObject)
+                        }
+                        DispatchQueue.main.async {
+                            closure(image)
+                        }
                     }
-                    DispatchQueue.main.async {
-                        closure(image)
+                }else{
+                    if let data = data, let image = UIImage(data: data) {
+                        if shouldCacheImage {
+                            UIImage.shared.setObject(image, forKey: url as AnyObject)
+                        }
+                        DispatchQueue.main.async {
+                            closure(image)
+                        }
                     }
                 }
                 session.finishTasksAndInvalidate()
@@ -737,4 +748,45 @@ public extension UIImage {
         }
         return placeholder
     }
+    
+    // 解析webP
+    class func imageWithWebPData(imageData:Data) -> UIImage? {
+        // `WebPGetInfo` weill return image width and height
+        var width: CInt = 0
+        var height: CInt = 0
+        
+//        let rgbaData = WebPDecodeRGBA(imageData.bytes.assumingMemoryBound(to: UInt8.self), imageData.length, &width, &height)
+        let bytes = [UInt8](imageData)
+//        let bytes = imageData.withUnsafeBytes {
+////            $0.baseAddress?.assumingMemoryBound(to: Int8.self)
+//            [UInt8](UnsafeBufferPointer(start: $0, count: imageData.count))
+//        }
+        let rgbaData = WebPDecodeRGBA(bytes, imageData.count,&width, &height)
+        
+        guard let data = rgbaData else {
+            return nil
+        }
+        let provider = CGDataProvider(dataInfo: nil, data: data, size:Int(width) * Int(height) * 4, releaseData: freeWebPData)
+        
+        let bitmapWithAlpha = CGBitmapInfo(rawValue: CGImageAlphaInfo.last.rawValue)
+        
+        guard let cgimage = CGImage(width:Int(width),
+                                    height:Int(height),
+                                    bitsPerComponent: 8,
+                                    bitsPerPixel: 32,
+                                    bytesPerRow: 4 * Int(width),
+                                    space: CGColorSpaceCreateDeviceRGB(),
+                                    bitmapInfo: bitmapWithAlpha,
+                                    provider: provider!,
+                                    decode: nil,
+                                    shouldInterpolate: true,
+                                    intent: CGColorRenderingIntent.defaultIntent) else {
+            return nil
+        }
+        return UIImage(cgImage: cgimage)
+    }
+}
+
+private func freeWebPData(info: UnsafeMutableRawPointer?, data: UnsafeRawPointer, size: Int) -> Void {
+    free(UnsafeMutableRawPointer(mutating: data))
 }

@@ -111,6 +111,7 @@
 		4A758D5D273A5730001B204D /* RPCollectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A758D5C273A5730001B204D /* RPCollectViewController.swift */; };
 		4A758D62273A5742001B204D /* RPSetupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A758D61273A5742001B204D /* RPSetupViewController.swift */; };
 		4A758D67273A607B001B204D /* RPSetupViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A758D66273A607B001B204D /* RPSetupViewModel.swift */; };
+		4A789AEB27604B7E004DEF15 /* RPPageControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A789AEA27604B7E004DEF15 /* RPPageControl.swift */; };
 		4A7EDAB326F5915600C8FC55 /* RPExploreViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A7EDAB126F5915600C8FC55 /* RPExploreViewCell.swift */; };
 		4A7EDAB426F5915600C8FC55 /* RPExploreViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4A7EDAB226F5915600C8FC55 /* RPExploreViewCell.xib */; };
 		4A7EDAFC26F5C0DC00C8FC55 /* RPTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A7EDAFB26F5C0DB00C8FC55 /* RPTools.swift */; };
@@ -331,6 +332,7 @@
 		4A758D5C273A5730001B204D /* RPCollectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPCollectViewController.swift; sourceTree = "<group>"; };
 		4A758D61273A5742001B204D /* RPSetupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPSetupViewController.swift; sourceTree = "<group>"; };
 		4A758D66273A607B001B204D /* RPSetupViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPSetupViewModel.swift; sourceTree = "<group>"; };
+		4A789AEA27604B7E004DEF15 /* RPPageControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPPageControl.swift; sourceTree = "<group>"; };
 		4A7EDAB126F5915600C8FC55 /* RPExploreViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPExploreViewCell.swift; sourceTree = "<group>"; };
 		4A7EDAB226F5915600C8FC55 /* RPExploreViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RPExploreViewCell.xib; sourceTree = "<group>"; };
 		4A7EDAFB26F5C0DB00C8FC55 /* RPTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPTools.swift; sourceTree = "<group>"; };
@@ -1021,6 +1023,7 @@
 			isa = PBXGroup;
 			children = (
 				4ADBEBF827337B5C00F73B6D /* RPCycleView.swift */,
+				4A789AEA27604B7E004DEF15 /* RPPageControl.swift */,
 			);
 			path = CycleView;
 			sourceTree = "<group>";
@@ -1433,6 +1436,7 @@
 				4A530B4B272F7AE600DD495E /* RPDynamicViewController.swift in Sources */,
 				4A59F2AC274E0EF70057605B /* RPHotSearchViewController.swift in Sources */,
 				558D354E271A784900E03B5F /* RPPosterModel.swift in Sources */,
+				4A789AEB27604B7E004DEF15 /* RPPageControl.swift in Sources */,
 				4A8508CB2744B25100F538C2 /* RPBillDetailViewController.swift in Sources */,
 				4A4B72FC272A93A200821756 /* RPShareViewController.swift in Sources */,
 				4A59F2C3274F7E3C0057605B /* RPMediaImageCell.swift in Sources */,

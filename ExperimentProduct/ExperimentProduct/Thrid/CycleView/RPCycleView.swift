@@ -48,12 +48,15 @@ class RPCycleView: UIView {
         return collectionView
     }()
     
-    private lazy var pageControl:UIPageControl = {
-        let pageControl = UIPageControl.init()
-        pageControl.isUserInteractionEnabled = false
-        pageControl.hidesForSinglePage = true
-        pageControl.currentPageIndicatorTintColor = RPColor.init(hexString: "#FF0066")
-        pageControl.pageIndicatorTintColor = RPColor.init(hexString: "#CCCCCC")
+    private lazy var pageControl:RPPageControl = {
+        let pageControl = RPPageControl.init()
+        pageControl.cornerRadius = 3
+        pageControl.dotHeight = 6
+        pageControl.dotSpace = 10
+        pageControl.currentDotWidth = 12
+        pageControl.otherDotWidth = 6
+        pageControl.otherDotColor = RPColor.init(hexString: "#CCCCCC")
+        pageControl.currentDotColor = RPColor.init(hexString: "#FF0066")
         self.addSubview(pageControl)
         return pageControl
     }()
@@ -121,9 +124,9 @@ class RPCycleView: UIView {
             itemSize = bounds.size
         }
         collectionView.frame = bounds
+        
         pageControl.numberOfPages = pictures.count
-        let size = pageControl.size(forNumberOfPages: pictures.count)
-        pageControl.frame.size = size
+        pageControl.frame.size = CGSize(width: 200, height: 20)
         pageControl.center.x = self.bounds.size.width * 0.5
         pageControl.frame.origin.y = collectionView.frame.maxY - 20
     }

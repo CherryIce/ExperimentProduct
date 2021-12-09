@@ -69,7 +69,10 @@ class RPAccountViewController: RPBaseViewController {
                 UserDefaults.standard.synchronize()
                 RPCache.shared.removeAllCache()
                 DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-                    let window = UIApplication.shared.windows.first
+                    var window = UIApplication.shared.keyWindow
+                    if #available(iOS 13.0, *) {
+                        window = UIApplication.shared.windows.first
+                    }
                     window?.rootViewController = RPNavigationController.init(rootViewController: RPLoginViewController.init())
                 }
             }

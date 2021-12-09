@@ -23,6 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         configuration()
         
         window = UIWindow.init(frame: UIScreen.main.bounds)
+        window?.backgroundColor = .white
         window?.makeKeyAndVisible()
         
         jungleEnter()

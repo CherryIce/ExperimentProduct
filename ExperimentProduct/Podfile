@@ -31,6 +31,8 @@ pod 'TYPagerController'
 
 # 图片加载、缓存
 #pod 'Kingfisher'
+pod 'libwebp'
+#pod 'iOS-WebP'
 
 # 消息及应用通知组件
 #pod 'Whisper'
@@ -101,7 +103,9 @@ pod 'MLeaksFinder', :git => 'https://github.com/Zepo/MLeaksFinder.git', :configu
 pod 'FBRetainCycleDetector', :git => 'https://github.com/facebook/FBRetainCycleDetector.git' ,:branch => 'main', :configurations => ['Debug']
 
 # 还在研究
-#pod 'IGListKit'
+pod 'IGListKit', '~> 4.0.0'
+# 牵扯到 Texture DeepDiff
+pod 'Texture'
 
 # 对于比例自适应
 #pod 'AutoInch'

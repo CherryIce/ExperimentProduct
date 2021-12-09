@@ -127,7 +127,10 @@ class RPOrignalLoginViewController: RPBaseViewController {
         let value3 = value2.md5
         UserDefaults.standard.setValue(value3, forKey: kTokenExpDateTime)
         UserDefaults.standard.synchronize()
-        let window = UIApplication.shared.windows.first
+        var window = UIApplication.shared.keyWindow
+        if #available(iOS 13.0, *) {
+            window = UIApplication.shared.windows.first
+        }
         window?.rootViewController = RPMainTabBarViewController.init()
     }
     
