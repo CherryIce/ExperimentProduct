@@ -29,7 +29,7 @@ class RPBaseViewController: UIViewController {
         if #available(iOS 11.0, *) {
             
         }
-        
+        self.automaticallyAdjustsScrollViewInsets = false
     }
     
     //提示语显示

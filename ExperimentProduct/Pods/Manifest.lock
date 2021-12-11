@@ -34,21 +34,6 @@ PODS:
   - ObjcExceptionBridging (1.0.1):
     - ObjcExceptionBridging/ObjcExceptionBridging (= 1.0.1)
   - ObjcExceptionBridging/ObjcExceptionBridging (1.0.1)
-  - PINCache (3.0.3):
-    - PINCache/Arc-exception-safe (= 3.0.3)
-    - PINCache/Core (= 3.0.3)
-  - PINCache/Arc-exception-safe (3.0.3):
-    - PINCache/Core
-  - PINCache/Core (3.0.3):
-    - PINOperation (~> 1.2.1)
-  - PINOperation (1.2.1)
-  - PINRemoteImage/Core (3.0.3):
-    - PINOperation
-  - PINRemoteImage/iOS (3.0.3):
-    - PINRemoteImage/Core
-  - PINRemoteImage/PINCache (3.0.3):
-    - PINCache (~> 3.0.3)
-    - PINRemoteImage/Core
   - Result (4.1.0)
   - RxCocoa (4.5.0):
     - RxSwift (>= 4.4.2, ~> 4.4)
@@ -61,25 +46,10 @@ PODS:
   - SwiftLint (0.44.0)
   - SwiftyJSON (5.0.0)
   - TABAnimated (2.6.2)
-  - Texture (3.1.0):
-    - Texture/AssetsLibrary (= 3.1.0)
-    - Texture/Core (= 3.1.0)
-    - Texture/MapKit (= 3.1.0)
-    - Texture/Photos (= 3.1.0)
-    - Texture/PINRemoteImage (= 3.1.0)
-    - Texture/Video (= 3.1.0)
-  - Texture/AssetsLibrary (3.1.0):
-    - Texture/Core
   - Texture/Core (3.1.0)
-  - Texture/MapKit (3.1.0):
-    - Texture/Core
-  - Texture/Photos (3.1.0):
-    - Texture/Core
-  - Texture/PINRemoteImage (3.1.0):
-    - PINRemoteImage/iOS (~> 3.0.0)
-    - PINRemoteImage/PINCache
-    - Texture/Core
-  - Texture/Video (3.1.0):
+  - Texture/IGListKit (3.1.0):
+    - IGListDiffKit (~> 4.0)
+    - IGListKit (~> 4.0)
     - Texture/Core
   - Then (2.7.0)
   - TYPagerController (2.1.2)
@@ -96,7 +66,6 @@ DEPENDENCIES:
   - ESPullToRefresh
   - FBRetainCycleDetector (from `https://github.com/facebook/FBRetainCycleDetector.git`, branch `main`)
   - HandyJSON
-  - IGListKit (~> 4.0.0)
   - JPImageresizerView
   - JXPhotoBrowser
   - KTVHTTPCache (~> 2.0)
@@ -109,7 +78,7 @@ DEPENDENCIES:
   - SwiftLint
   - SwiftyJSON
   - TABAnimated
-  - Texture
+  - Texture/IGListKit
   - Then
   - TYPagerController
   - TZImagePickerController
@@ -134,9 +103,6 @@ SPEC REPOS:
     - libwebp
     - Moya
     - ObjcExceptionBridging
-    - PINCache
-    - PINOperation
-    - PINRemoteImage
     - Result
     - RxCocoa
     - RxDataSources
@@ -186,9 +152,6 @@ SPEC CHECKSUMS:
   MLeaksFinder: 89eb3142bf1bbd0a3d1849543b629399c5da74c5
   Moya: f4a4b80ff2f8a4ffc208dfb31cd91636622fee6e
   ObjcExceptionBridging: c30e00eb3700467e695faeea30e26e18bd445001
-  PINCache: 7a8fc1a691173d21dbddbf86cd515de6efa55086
-  PINOperation: 00c935935f1e8cf0d1e2d6b542e75b88fc3e5e20
-  PINRemoteImage: f1295b29f8c5e640e25335a1b2bd9d805171bd01
   Result: bd966fac789cc6c1563440b348ab2598cc24d5c7
   RxCocoa: cbf70265dc65a981d4ac982e513c10cf23df24a0
   RxDataSources: a843bad90c29817f5923ec8163f4af2de084ceb3
@@ -205,6 +168,6 @@ SPEC CHECKSUMS:
   XCGLogger: 1943831ef907df55108b0b18657953f868de973b
   YYCache: 8105b6638f5e849296c71f331ff83891a4942952
 
-PODFILE CHECKSUM: 2b3b33fb0527ae98feb3c0bba7bcd4da3d8e6011
+PODFILE CHECKSUM: e6b1714fb701dc9e36068577317f14dd49364eab
 
 COCOAPODS: 1.11.2

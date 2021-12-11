@@ -6,64 +6,66 @@
 //
 
 import UIKit
+import IGListKit
 
 //关注那些人的动态列表
 class RPFollowViewController: RPBaseViewController {
-    private var tableView = UITableView()
-    private var dataList: NSMutableArray = []
+    
+    var data = [ListDiffable]()
+    lazy var adapter: ListAdapter = {
+        let a = ListAdapter(updater: ListAdapterUpdater(), viewController: self)
+        a.dataSource = self
+        return a
+    }()
+    lazy var collectionView: UICollectionView = {
+        let flow = UICollectionViewFlowLayout()
+        flow.minimumLineSpacing = 0
+        flow.minimumInteritemSpacing = 0
+        let collectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: flow)
+        collectionView.backgroundColor = .clear
+        collectionView.showsVerticalScrollIndicator = false
+        view.addSubview(collectionView)
+        if #available(iOS 11.0, *) {
+            collectionView.contentInsetAdjustmentBehavior = .never
+        }
+        return collectionView
+    }()
+    
     private lazy var viewModel = RPNiceViewModel()
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        createTableViewUI()
+        adapter.collectionView = collectionView
         loadData()
     }
-    
-    func createTableViewUI() {
-        tableView = UITableView.init(frame:CGRect.zero, style: .plain)
-        tableView.delegate = self
-        tableView.dataSource = self
-        tableView.separatorColor = RPColor.Separator
-        tableView.tableFooterView = UIView()
-        tableView.showsVerticalScrollIndicator = false
-        self.view.addSubview(tableView)
-        
-        tableView.hb_ept.delegate = self
-        
-        tableView.snp.makeConstraints { (make) in
-            make.left.top.right.bottom.equalToSuperview()
-        }
-    }
-    
+
     func loadData () {
         viewModel.getFollowLists(params: NSDictionary.init()) { (datas) in
-            dataList.addObjects(from: datas as! [Any])
-            tableView.reloadData()
+            data = datas
+            adapter.performUpdates(animated: true, completion: nil)
         } failed: { (error) in
-            tableView.reloadData()
+
         }
     }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        collectionView.frame = view.bounds
+    }
 }
 
-extension RPFollowViewController : UITableViewDelegate,UITableViewDataSource {
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let identifier = RPTableViewAdapter.init().reuseIdentifierForCellClass(cellClass: RPFollowViewCell.self, tableView: tableView)
-        let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath) as! RPFollowViewCell
-        cell.model = dataList[indexPath.item] as! RPNiceModel
-        return cell
+extension RPFollowViewController:ListAdapterDataSource {
+    func objects(for listAdapter: ListAdapter) -> [ListDiffable] {
+        return data
     }
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return dataList.count
+    func listAdapter(_ listAdapter: ListAdapter, sectionControllerFor object: Any) -> ListSectionController {
+        return RPFollViewSectionController()
     }
-}
-
-extension RPFollowViewController: HBEmptyDelegate {
-    func customViewForEmpty() -> UIView? {
-        let v = RPEmptyView.init(frame: self.view.bounds)
-        v.type = .normal_no_data
-        return v
+    
+    func emptyView(for listAdapter: ListAdapter) -> UIView? {
+        return nil
     }
 }
 

@@ -103,9 +103,11 @@ pod 'MLeaksFinder', :git => 'https://github.com/Zepo/MLeaksFinder.git', :configu
 pod 'FBRetainCycleDetector', :git => 'https://github.com/facebook/FBRetainCycleDetector.git' ,:branch => 'main', :configurations => ['Debug']
 
 # 还在研究
-pod 'IGListKit', '~> 4.0.0'
-# 牵扯到 Texture DeepDiff
-pod 'Texture'
+#pod 'IGListKit', '~> 4.0.0'
+## 牵扯到 Texture DeepDiff
+#pod 'Texture'
+#pod 'EasyKits'
+pod 'Texture/IGListKit'
 
 # 对于比例自适应
 #pod 'AutoInch'

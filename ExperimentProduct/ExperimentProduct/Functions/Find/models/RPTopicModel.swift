@@ -7,6 +7,7 @@
 
 import UIKit
 import HandyJSON
+import IGListKit
 
 //The hard thing to do and the right thing to do are usually the same thing.
 //正确的事情，往往并不容易做到。

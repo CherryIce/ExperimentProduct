@@ -13,9 +13,6 @@ ${BUILT_PRODUCTS_DIR}/KTVCocoaHTTPServer/KTVCocoaHTTPServer.framework
 ${BUILT_PRODUCTS_DIR}/KTVHTTPCache/KTVHTTPCache.framework
 ${BUILT_PRODUCTS_DIR}/Moya/Moya.framework
 ${BUILT_PRODUCTS_DIR}/ObjcExceptionBridging/ObjcExceptionBridging.framework
-${BUILT_PRODUCTS_DIR}/PINCache/PINCache.framework
-${BUILT_PRODUCTS_DIR}/PINOperation/PINOperation.framework
-${BUILT_PRODUCTS_DIR}/PINRemoteImage/PINRemoteImage.framework
 ${BUILT_PRODUCTS_DIR}/Result/Result.framework
 ${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework
 ${BUILT_PRODUCTS_DIR}/RxDataSources/RxDataSources.framework
