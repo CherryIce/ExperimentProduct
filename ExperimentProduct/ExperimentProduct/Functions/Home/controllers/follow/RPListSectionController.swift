@@ -7,10 +7,12 @@
 
 import UIKit
 import IGListKit
+import JXPhotoBrowser
 
 class RPListSectionController: ListSectionController{
     
     var model: RPFollowModel!
+    var browser:Bool = false
     
     override init() {
         super.init()
@@ -38,6 +40,25 @@ class RPListSectionController: ListSectionController{
     }
     
     override func didSelectItem(at index: Int) {
-        
+        if browser {
+            let browser = JXPhotoBrowser()
+            browser.numberOfItems = {
+                self.model.imageList.count
+            }
+            browser.reloadCellAtIndex = { context in
+                let imageModel = self.model.imageList[context.index]
+                let browserCell = context.cell as? JXPhotoBrowserImageCell
+                browserCell?.index = context.index
+                let collectionCell = self.collectionContext?.cellForItem(at: index, sectionController: self) as? RPPosterCell
+                let placeholder = collectionCell?.posterImgView.image
+                browserCell?.imageView.setImageWithURL(imageModel.url, placeholder: placeholder ?? UIImage.init())
+            }
+            browser.transitionAnimator = JXPhotoBrowserZoomAnimator(previousView: { index -> UIView? in
+                let cell = self.collectionContext?.cellForItem(at: index, sectionController: self) as? RPPosterCell
+                return cell?.posterImgView
+            })
+            browser.pageIndex = index
+            browser.show()
+        }
     }
 }

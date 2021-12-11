@@ -50,7 +50,7 @@ extension RPDynamicAnimatedTransitions : UIViewControllerAnimatedTransitioning {
         
         switch type {
         case .present:
-            let toViewController = transitionContext.viewController(forKey: .to) as!RPDynamicViewController
+            let toViewController = transitionContext.viewController(forKey: .to) as!RPDynamicController
             let containerView = transitionContext.containerView
             let duration:TimeInterval = self.transitionDuration(using: transitionContext)
 
@@ -94,13 +94,14 @@ extension RPDynamicAnimatedTransitions : UIViewControllerAnimatedTransitioning {
             } completion: { (finished) in
                 toViewController.view.alpha = 1
                 presentingImageView.isHidden = true
+                toViewController.transitionView?.superview?.isHidden = true//zz
                 presentingImageView.removeFromSuperview()
                 transitionContext.completeTransition(finished)
             }
 
             break
         case .dismiss:
-            let fromVC = transitionContext.viewController(forKey: .from) as! RPDynamicViewController
+            let fromVC = transitionContext.viewController(forKey: .from) as! RPDynamicController
             let  containerView = transitionContext.containerView
             let snapShotView = fromVC.view.snapshotView(afterScreenUpdates: false)
             snapShotView!.frame = containerView.convert(fromVC.view.frame, from: fromVC.view)
@@ -121,6 +122,7 @@ extension RPDynamicAnimatedTransitions : UIViewControllerAnimatedTransitioning {
                 snapShotView?.removeFromSuperview()
                 fromVC.view.isHidden = false
                 fromVC.transitionView?.isHidden = false
+                fromVC.transitionView?.superview?.isHidden = false//zz
                 transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
             }
             break
@@ -138,7 +140,7 @@ extension UIViewController:UIViewControllerTransitioningDelegate{
 
     public func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         //如果是多效果 根据presented不同 指定不同动画效果
-        if presented is RPDynamicViewController {
+        if presented is RPDynamicController {
             let transition = RPDynamicAnimatedTransitions()
             transition.type = .present
             return transition
@@ -147,7 +149,7 @@ extension UIViewController:UIViewControllerTransitioningDelegate{
     }
 
     public func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        if dismissed is RPDynamicViewController {
+        if dismissed is RPDynamicController {
             let transition = RPDynamicAnimatedTransitions()
             transition.type = .dismiss
             return transition

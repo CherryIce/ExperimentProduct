@@ -37,7 +37,7 @@ extension RPFollViewSectionController:ListBindingSectionControllerDataSource {
     
     //每个部分对应的cell
     func sectionController(_ sectionController: ListBindingSectionController<ListDiffable>, cellForViewModel viewModel: Any, at index: Int) -> UICollectionViewCell & ListBindable {
-        //注意保证此处的identifier和cell协议里面的相同
+        //注意保证此处的identifier和model协议里面的相同
         let identifier: String
         let cellClass: AnyClass
         switch viewModel {
@@ -63,7 +63,7 @@ extension RPFollViewSectionController:ListBindingSectionControllerDataSource {
         let height: CGFloat
         switch viewModel {
         case is RPImageViewModel: height = SCREEN_WIDTH
-        case is RPCommentsModel: height = CGFloat(35*(object?.comments.count)!)
+        case is RPCommentsModel: height = 70
         default: height = 50
         }
         return CGSize(width: width, height: height)

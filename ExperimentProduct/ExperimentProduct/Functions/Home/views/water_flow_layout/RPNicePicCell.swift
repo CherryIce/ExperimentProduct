@@ -17,7 +17,7 @@ class RPNicePicCell: UICollectionViewCell {
     var userNameLabel = UILabel()
     var likesButton =  UIButton()
     
-    var model: RPNiceModel = RPNiceModel.init(){
+    var model: RPFollowModel = RPFollowModel.init(){
         didSet {
             establish()
         }

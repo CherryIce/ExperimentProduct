@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import IGListKit
 
 class RPVideoDynamicCell: UICollectionViewCell {
     weak var delegate:RPDynamicViewEventDelegate?
@@ -48,5 +49,13 @@ extension RPVideoDynamicCell: RPDynamicViewEventDelegate {
         if self.delegate != nil {
             self.delegate?.clickEventCallBack(type, index)
         }
+    }
+}
+
+extension RPVideoDynamicCell : ListBindable {
+    func bindViewModel(_ viewModel: Any) {
+//        guard let viewModel = viewModel as? RPUserModel else { return }
+//        userButton.setImage(UIImage.loadImage("mine_nor"), for: .normal)
+//        userButton.setTitle(viewModel.name, for: .normal)
     }
 }

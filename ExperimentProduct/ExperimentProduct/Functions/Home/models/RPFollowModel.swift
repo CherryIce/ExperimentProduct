@@ -23,6 +23,9 @@ class RPFollowModel: NSObject,HandyJSON{
     var author = RPUserModel()
     var cover =  RPImageViewModel()
     
+    var contentH:CGFloat = 0
+    var cellH:CGFloat = 0
+    
     required override init() {}
 }
 

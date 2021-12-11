@@ -16,13 +16,14 @@ class RPCommentSectionController: ListSectionController {
         inset = .zero
     }
 
+    //限制
     override func numberOfItems() -> Int {
-        return self.model.comments.count
+        return 2
     }
     
     override func sizeForItem(at index: Int) -> CGSize {
         guard let height = collectionContext?.containerSize.height,let width = collectionContext?.containerSize.width else { fatalError() }
-        return CGSize(width: width, height: height/CGFloat(self.model.comments.count))
+        return CGSize(width: width, height: height/2)
     }
     
     override func cellForItem(at index: Int) -> UICollectionViewCell {

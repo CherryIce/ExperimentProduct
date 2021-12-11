@@ -19,6 +19,8 @@ enum RPDynamicViewEventType {
     case like
     case collect
     case browser
+    case look
+    case follow
 }
 
 protocol RPDynamicViewEventDelegate:NSObjectProtocol {
