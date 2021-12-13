@@ -34,42 +34,44 @@ class RPNiceViewModel: NSObject {
         let str = "时维九月，序属三秋。潦水尽而寒潭清，烟光凝而暮山紫。俨骖騑于上路，访风景于崇阿；临帝子之长洲，得天人之旧馆。层峦耸翠，上出重霄；飞阁流丹，下临无地。鹤汀凫渚，穷岛屿之萦回；桂殿兰宫，即冈峦之体势。披绣闼，俯雕甍，山原旷其盈视，川泽纡其骇瞩。闾阎扑地，钟鸣鼎食之家；舸舰弥津，青雀黄龙之舳。云销雨霁，彩彻区明。落霞与孤鹜齐飞，秋水共长天一色。渔舟唱晚，响穷彭蠡之滨；雁阵惊寒，声断衡阳之浦。遥襟甫畅，逸兴遄飞。爽籁发而清风生，纤歌凝而白云遏。睢园绿竹，气凌彭泽之樽；邺水朱华，光照临川之笔。四美具，二难并。穷睇眄于中天，极娱游于暇日。天高地迥，觉宇宙之无穷；兴尽悲来，识盈虚之有数。望长安于日下，目吴会于云间。地势极而南溟深，天柱高而北辰远。关山难越，谁悲失路之人？萍水相逢，尽是他乡之客。怀帝阍而不见，奉宣室以何年？"
         let tt = NSMutableArray.init()
         for i in 0 ..< imgs.count {
-            let width:CGFloat = CGFloat(arc4random()%100 + 300)
-            let height:CGFloat = CGFloat(arc4random()%100 + 250)
-            let item = RPFollowModel.init()
-            item.author = RPUserModel.init()
-            item.author.name = String(format: "oh no %d", i)
-            item.author.image = imgs[i]
-            item.cover = RPImageViewModel.init()
-            item.cover.url = imgs[i]
-            item.cover.width = width
-            item.cover.height = height
-            for j in 0 ..< (arc4random()%4+1) {
-                let x = RPImageViewModel.init()
-                x.url = j == 0 ? imgs[i] : imgs[8-Int(j)]
-                item.imageList.append(x)
+            autoreleasepool {
+                let width:CGFloat = CGFloat(arc4random()%100 + 300)
+                let height:CGFloat = CGFloat(arc4random()%100 + 250)
+                let item = RPFollowModel.init()
+                item.author = RPUserModel.init()
+                item.author.name = String(format: "oh no %d", i)
+                item.author.image = imgs[i]
+                item.cover = RPImageViewModel.init()
+                item.cover.url = imgs[i]
+                item.cover.width = width
+                item.cover.height = height
+                for j in 0 ..< (arc4random()%4+1) {
+                    let x = RPImageViewModel.init()
+                    x.url = j == 0 ? imgs[i] : imgs[8-Int(j)]
+                    item.imageList.append(x)
+                }
+                if i%2==0 {
+                    item.comments = [RPCommentsModel(username: "@ryan", text: "this is beautiful!"),
+                                     RPCommentsModel(username: "@jsq", text: "😱"),
+                                     RPCommentsModel(username: "@caitlin", text: "#blessed")]
+                }
+                let nsrange = NSRange(location: Int(arc4random()%100), length: 40)
+                if let range = Range(nsrange, in: str) {
+                    item.title = String(str[range])
+                }
+                item.desc = String(str.prefix(Int(arc4random())%200))
+                item.likes = Int(arc4random()%1000 + 1)
+                if item.desc.count > 0 {
+                    let label = UILabel.init()
+                    label.frame = CGRect.init(x: 0, y: 0, width: width, height: 20)
+                    label.numberOfLines = 2
+                    label.text = item.desc
+                    label.sizeToFit()
+                    item.contentH = CGFloat(ceilf(Float(label.frame.size.height)))
+                }
+                item.cellH = item.cover.height + 10 + item.contentH + 10 + 20 + 10
+                tt.add(item)
             }
-            if i%2==0 {
-                item.comments = [RPCommentsModel(username: "@ryan", text: "this is beautiful!"),
-                                 RPCommentsModel(username: "@jsq", text: "😱"),
-                                 RPCommentsModel(username: "@caitlin", text: "#blessed")]
-            }
-            let nsrange = NSRange(location: Int(arc4random()%100), length: 40)
-            if let range = Range(nsrange, in: str) {
-                item.title = String(str[range])
-            }
-            item.desc = String(str.prefix(Int(arc4random())%200))
-            item.likes = Int(arc4random()%1000 + 1)
-            if item.desc.count > 0 {
-                let label = UILabel.init()
-                label.frame = CGRect.init(x: 0, y: 0, width: width, height: 20)
-                label.numberOfLines = 2
-                label.text = item.desc
-                label.sizeToFit()
-                item.contentH = CGFloat(ceilf(Float(label.frame.size.height)))
-            }
-            item.cellH = item.cover.height + 10 + item.contentH + 10 + 20 + 10
-            tt.add(item)
         }
         success(tt as! [RPFollowModel])
     }

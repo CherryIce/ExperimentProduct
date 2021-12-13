@@ -15,13 +15,13 @@ public extension String {
         let digestLen = Int(CC_MD5_DIGEST_LENGTH)
         let result = UnsafeMutablePointer<CUnsignedChar>.allocate(capacity: digestLen)
         CC_MD5(str!, strLen, result)
-
+        
         let hash = NSMutableString()
-
+        
         for i in 0..<digestLen {
             hash.appendFormat("%02x", result[i])
         }
-
+        
         result.deallocate()
         return hash as String
     }
@@ -47,5 +47,17 @@ public extension String {
             return ""
         }
         return String(self.toDate(dateFormat).timeIntervalSince1970)
+    }
+    
+    //将原始的url编码为合法的url
+    func urlEncoded() -> String {
+        let encodeUrlString = self.addingPercentEncoding(withAllowedCharacters:
+                                                                .urlQueryAllowed)
+        return encodeUrlString ?? ""
+    }
+    
+    //将编码后的url转换回原始的url
+    func urlDecoded() -> String {
+        return self.removingPercentEncoding ?? ""
     }
 }

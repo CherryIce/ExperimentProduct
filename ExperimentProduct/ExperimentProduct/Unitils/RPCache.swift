@@ -20,7 +20,8 @@ class RPCache: NSObject {
         cache?.memoryCache.countLimit = 10000
         self.cache = cache
         
-        KTVHTTPCache.logSetRecordLogEnable(true)
+        //fix: https://github.com/ChangbaDevs/KTVHTTPCache/issues/81
+        KTVHTTPCache.logSetRecordLogEnable(false)
         try! KTVHTTPCache.proxyStart()
 //        try? KTVHTTPCache.proxyStart()
         KTVHTTPCache.cacheSetMaxCacheLength(500 * 1024 * 1024)//500M

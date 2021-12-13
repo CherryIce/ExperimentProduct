@@ -24,11 +24,11 @@ class RPNicePicCell: UICollectionViewCell {
     }
     
     func establish() {
-        converImgV.setImageWithURL(model.cover.url, placeholder: UIImage.init(color: RPColor.RandomColor)!)
+        converImgV.setImageWithURL(model.cover.url, placeholder: UIImage.init(color: .white)!)
         contentLabel.text = model.title
         userNameLabel.text = model.author.name
         likesButton.setTitle(String(Int(model.likes)), for: .normal)
-        headImgV.setImageWithURL(model.author.image, placeholder: UIImage.init(color: RPColor.RandomColor)!, closure: nil)
+        headImgV.setImageWithURL(model.author.image, placeholder: UIImage.init(color: .white)!, closure: nil)
     }
     
     override init(frame: CGRect) {

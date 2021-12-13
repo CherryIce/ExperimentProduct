@@ -2,13 +2,13 @@
 //  RPDynamicVideosController.swift
 //  ExperimentProduct
 //
-//  Created by YuMao on 2021/12/11.
+//  Created by hubin on 2021/12/11.
 //
 
 import UIKit
 import IGListKit
-import RxCocoa
 
+//视频动态如果使用iglistkit来处理的话 other processes内存释放是个问题
 class RPDynamicVideosController: ListBindingSectionController<RPFollowModel>,ListDisplayDelegate {
     //sectionController 将要出现
     func listAdapter(_ listAdapter: ListAdapter, willDisplay sectionController: ListSectionController) {
@@ -49,7 +49,7 @@ extension RPDynamicVideosController:ListBindingSectionControllerDataSource {
     //每个部分对应的cell
     func sectionController(_ sectionController: ListBindingSectionController<ListDiffable>, cellForViewModel viewModel: Any, at index: Int) -> UICollectionViewCell & ListBindable {
         guard let cell = collectionContext?.dequeueReusableCell(of: RPVideoDynamicCell.self, withReuseIdentifier: "RPVideoDynamicCell", for: self, at: index) as? RPVideoDynamicCell else { fatalError() }
-        let path = URL.init(string: "https://aweme.snssdk.com/aweme/v1/playwm/?video_id=v0200ff00000bdkpfpdd2r6fb5kf6m50&line=0.mp4")!
+        let path = URL.init(string: "https://aweme.snssdk.com/aweme/v1/playwm/?video_id=v0200ff00000bdkpfpdd2r6fb5kf6m50&line=0.mp4".urlEncoded())!
         cell.delegate = self
         cell.path = path
         cell.playVideo()

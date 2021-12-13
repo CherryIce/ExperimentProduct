@@ -7,16 +7,15 @@
 
 import UIKit
 import IGListKit
-import Moya
 
-class RPDynamicController: RPBaseViewController {
+class RPDynamicController: RPBaseViewController{
     // 记录pan手势开始时imageView的位置
     private var beganFrame = CGRect.zero
     // 记录pan手势开始时，手势位置
     private var beganTouch = CGPoint.zero
     private var imageView = UIImageView()
     lazy var scrollView = UIScrollView()
-    
+//    var loading:Bool = false
     var transitionView:UIView?
     var type:RPDynamicViewControllerType = .pictures
     
@@ -52,18 +51,18 @@ class RPDynamicController: RPBaseViewController {
         imageView.isHidden = true
         scrollView.addSubview(imageView)
         adapter.collectionView = collectionView
-        
+//        adapter.scrollViewDelegate = self
         if type == .pictures {
             let pan = UIPanGestureRecognizer(target: self, action: #selector(onPan(_:)))
             pan.delegate = self
             collectionView.addGestureRecognizer(pan)
+            adapter.performUpdates(animated: true, completion: nil)
         }else{
             collectionView.backgroundColor = .black
             collectionView.isPagingEnabled = true
+            collectionView.delegate = self
+            collectionView.dataSource = self
         }
-        
-        adapter.performUpdates(animated: true, completion: nil)
-        
         //不好说实际效果应该怎样 一般情况这里的视频加载可能会出现两种操作
         //第一种是拿上一个页面获取到的数据中的所有视频用来展示 到最后一条之后才加载更多
         //第二种就是只拿一条过来展示 剩下的全是上拉加载获取而来 这样可能就需要提前预加载 每一次上拉都提前获取足够多的数据
@@ -73,8 +72,8 @@ class RPDynamicController: RPBaseViewController {
     
     private func configuration() {
         //上拉加载
-        collectionView.es.addInfiniteScrolling(animator: RPRefreshFooter.init(frame: CGRect.zero)) { [weak self] in
-            DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+        collectionView.es.addInfiniteScrolling(animator: RPZeroDistanceFooter.init(frame: CGRect.zero)) { [weak self] in
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
                 self?.refreshUI()
             }
         }
@@ -88,9 +87,24 @@ class RPDynamicController: RPBaseViewController {
                 collectionView.es.noticeNoMoreData()
                 collectionView.reloadData()
             }else{
-                let x = datas.first
-                data.append(x!)
-                adapter.performUpdates(animated: true,completion: nil)
+                if type == .pictures {
+                    let x = datas.first
+                    data.append(x!)
+                    adapter.performUpdates(animated: true,completion: nil)
+                }else{
+                    let indexPaths = NSMutableArray.init()
+                    for i in 0 ..< datas.count {
+                        data.append(datas[i])
+                        let indexPath = NSIndexPath.init(row: data.count-1, section: 0)
+                        indexPaths.add(indexPath)
+                    }
+                    if indexPaths.count > 0 {
+                        collectionView.insertItems(at: indexPaths as! [IndexPath])
+                        UIView.performWithoutAnimation {
+                            collectionView.reloadItems(at: indexPaths as! [IndexPath])
+                        }
+                    }
+                }
             }
             
         } failed: { (error) in
@@ -100,9 +114,9 @@ class RPDynamicController: RPBaseViewController {
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        collectionView.frame = view.bounds
         scrollView.frame = view.bounds
         imageView.frame = view.bounds
+        collectionView.frame = view.bounds
     }
     
     @objc open func onPan(_ pan: UIPanGestureRecognizer) {
@@ -168,10 +182,10 @@ extension RPDynamicController:ListAdapterDataSource {
     }
     
     func listAdapter(_ listAdapter: ListAdapter, sectionControllerFor object: Any) -> ListSectionController {
-        if type == .pictures {
+//        if type == .pictures {
             return RPDynamicPicturesController()
-        }
-        return RPDynamicVideosController()
+//        }
+//        return RPDynamicVideosController()
     }
     
     func emptyView(for listAdapter: ListAdapter) -> UIView? {
@@ -200,6 +214,77 @@ extension RPDynamicController : UIGestureRecognizerDelegate {
         }
         // 响应允许范围内的下滑手势
         return true
+    }
+}
+
+////看IGListKit的演示Demo 本来是配合 adapter.scrollViewDelegate = self 使用的 但是好像不太OK
+//extension RPDynamicController : UIScrollViewDelegate {
+//    //上拉加载
+//    func scrollViewWillEndDragging(_ scrollView: UIScrollView,
+//                                   withVelocity velocity: CGPoint,
+//                                   targetContentOffset: UnsafeMutablePointer<CGPoint>) {
+//        let distance = scrollView.contentSize.height - (targetContentOffset.pointee.y + scrollView.bounds.height)
+//        if !loading && distance < 200 {
+//            loading = true
+////            DispatchQueue.global(qos: .default).async {
+////                //数据请求
+////                DispatchQueue.main.async {
+////                    self.loading = false
+////
+////                }
+////            }
+//            DispatchQueue.main.asyncAfter(deadline: .now() + 0.25) {
+//                self.loading = false
+//                self.refreshUI()
+//            }
+//        }
+//    }
+//}
+
+extension RPDynamicController : UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return data.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: RPCollectionViewAdapter.init().reuseIdentifierForCellClass(cellClass: RPVideoDynamicCell.self, collectionView: collectionView), for: indexPath) as! RPVideoDynamicCell
+        let path = URL.init(string: "https://aweme.snssdk.com/aweme/v1/playwm/?video_id=v0200ff00000bdkpfpdd2r6fb5kf6m50&line=0.mp4".urlEncoded())!
+        cell.delegate = self
+        cell.path = path
+        cell.playVideo()
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return UIScreen.main.bounds.size
+    }
+}
+
+extension RPDynamicController: RPDynamicViewEventDelegate {
+    func clickEventCallBack(_ type: RPDynamicViewEventType, _ index: Int?) {
+        switch type {
+        case.dismiss:
+            self.dismiss(animated: true, completion: nil)
+            break
+        case .share:
+            let share = RPShareViewController.init(title: nil, dataArray: [[RPShareItem.shareToWeChat(),RPShareItem.shareToWechatCircle()]]) { (indexPath) in
+                log.debug(indexPath)
+            }
+            self.present(share, animated: true, completion: nil)
+            break
+        case .commit:
+            break
+        case .like:
+            break
+        case .collect:
+            break
+        case .browser:
+            break
+        case .look:
+            break
+        case .follow:
+            break
+        }
     }
 }
 

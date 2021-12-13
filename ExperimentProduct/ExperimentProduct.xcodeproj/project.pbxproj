@@ -80,6 +80,7 @@
 		4A547C7226F48D19005F00B5 /* RPColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A547C7126F48D19005F00B5 /* RPColor.swift */; };
 		4A547C8126F49739005F00B5 /* ImageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A547C7F26F49739005F00B5 /* ImageHelper.swift */; };
 		4A547C8226F49739005F00B5 /* ImageVIewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A547C8026F49739005F00B5 /* ImageVIewExtension.swift */; };
+		4A565BD52766E6CA009A2CFF /* RPZeroDistanceFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A565BD42766E6CA009A2CFF /* RPZeroDistanceFooter.swift */; };
 		4A5969E7272B8960003ECB14 /* wechat@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A5969E5272B8960003ECB14 /* wechat@2x.png */; };
 		4A5969E8272B8960003ECB14 /* wechat@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A5969E6272B8960003ECB14 /* wechat@3x.png */; };
 		4A5969EE272B8978003ECB14 /* wechat_circle@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A5969EC272B8978003ECB14 /* wechat_circle@2x.png */; };
@@ -160,7 +161,6 @@
 		4AACFCD127644A65001C635D /* RPDynamicPicHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AACFCD027644A65001C635D /* RPDynamicPicHeaderCell.swift */; };
 		4AACFCD327645004001C635D /* RPExpandCommentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AACFCD227645004001C635D /* RPExpandCommentModel.swift */; };
 		4AACFCD527645425001C635D /* RPDynamicCommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AACFCD427645425001C635D /* RPDynamicCommentCell.swift */; };
-		4AACFCD727645F59001C635D /* RPDynamicVideosController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AACFCD627645F59001C635D /* RPDynamicVideosController.swift */; };
 		4AAF00EA2761E200000A2027 /* RPFollowModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AAF00E92761E200000A2027 /* RPFollowModel.swift */; };
 		4AAF00EC2761F362000A2027 /* RPFollViewSectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AAF00EB2761F362000A2027 /* RPFollViewSectionController.swift */; };
 		4AAF00EE2761F45B000A2027 /* RPCommentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AAF00ED2761F45B000A2027 /* RPCommentModel.swift */; };
@@ -311,6 +311,7 @@
 		4A547C7126F48D19005F00B5 /* RPColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPColor.swift; sourceTree = "<group>"; };
 		4A547C7F26F49739005F00B5 /* ImageHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageHelper.swift; sourceTree = "<group>"; };
 		4A547C8026F49739005F00B5 /* ImageVIewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageVIewExtension.swift; sourceTree = "<group>"; };
+		4A565BD42766E6CA009A2CFF /* RPZeroDistanceFooter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPZeroDistanceFooter.swift; sourceTree = "<group>"; };
 		4A5969E5272B8960003ECB14 /* wechat@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "wechat@2x.png"; sourceTree = "<group>"; };
 		4A5969E6272B8960003ECB14 /* wechat@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "wechat@3x.png"; sourceTree = "<group>"; };
 		4A5969EC272B8978003ECB14 /* wechat_circle@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "wechat_circle@2x.png"; sourceTree = "<group>"; };
@@ -967,6 +968,7 @@
 			children = (
 				4A8F239F271FFDC500A249B6 /* RPRefreshHeader.swift */,
 				4A8F243827200AF500A249B6 /* RPRefreshFooter.swift */,
+				4A565BD42766E6CA009A2CFF /* RPZeroDistanceFooter.swift */,
 			);
 			path = Refresh;
 			sourceTree = "<group>";
@@ -1523,7 +1525,6 @@
 				4A758D5D273A5730001B204D /* RPCollectViewController.swift in Sources */,
 				4A1DEC03271432ED00149FD8 /* RPPasswordViewController.swift in Sources */,
 				4AAF00F92761F75F000A2027 /* RPFollowCollectionViewCell.swift in Sources */,
-				4AACFCD727645F59001C635D /* RPDynamicVideosController.swift in Sources */,
 				558D356C271ABC4C00E03B5F /* RPFindViewModel.swift in Sources */,
 				4A8508C92744B21400F538C2 /* RPBillListsViewController.swift in Sources */,
 				4A59F2AC274E0EF70057605B /* RPHotSearchViewController.swift in Sources */,
@@ -1575,6 +1576,7 @@
 				4AAF00EE2761F45B000A2027 /* RPCommentModel.swift in Sources */,
 				4AF8B4D827574DA80049BDE8 /* RPVerificationCodeViewController.swift in Sources */,
 				4AB5EFE2274B4BC3008CD843 /* RPBankCardModel.swift in Sources */,
+				4A565BD52766E6CA009A2CFF /* RPZeroDistanceFooter.swift in Sources */,
 				4A547C8126F49739005F00B5 /* ImageHelper.swift in Sources */,
 				4A37EE9F2734E1AF00E1F288 /* RPTopicViewModel.swift in Sources */,
 				4A7EDB0726F5CECA00C8FC55 /* RPMineHeaderView.swift in Sources */,

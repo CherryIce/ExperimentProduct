@@ -72,6 +72,11 @@ class RPBaseViewController: UIViewController {
         UIApplication.shared.keyWindow?.showToast(b, point:CGPoint.init(x: SCREEN_WIDTH/2, y: SCREEN_HEIGHT/2))
     }
     
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        RPCache.shared.removeAllCache()
+    }
+    
     deinit {
         /**
          检查内存泄露：

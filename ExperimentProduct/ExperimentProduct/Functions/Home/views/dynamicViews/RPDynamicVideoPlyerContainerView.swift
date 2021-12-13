@@ -14,10 +14,14 @@ class RPDynamicVideoPlyerContainerView: UIView {
     private lazy var player = AVPlayer()
     private lazy var playerLayer = AVPlayerLayer(player: player)
     private lazy var topView = RPDynamicTopView()
+    private lazy var queue:OperationQueue = {
+        let q = OperationQueue.init()
+        q.maxConcurrentOperationCount = 1
+        return q
+    }()
     var path = URL.init(string: "") {
         didSet {
-            let url = KTVHTTPCache.proxyURL(withOriginalURL:path)
-            self.playerLayer.player?.replaceCurrentItem(with: AVPlayerItem.init(url: url!))
+            queueA()
         }
     }
     
@@ -36,6 +40,21 @@ class RPDynamicVideoPlyerContainerView: UIView {
         topView.leftItem.setImage(UIImage.loadImage("back_white"), for: .normal)
         topView.rightItem.setImage(UIImage.loadImage("share_white"), for: .normal)
         self.addSubview(topView)
+    }
+    
+    private func queueA() {
+        if self.queue.operationCount >= 2 {
+            self.queue.cancelAllOperations()
+        }
+        
+        self.queue.addOperation {
+            self.loadVideo()
+        }
+    }
+    
+    private func loadVideo() {
+        let url = KTVHTTPCache.proxyURL(withOriginalURL:path)
+        self.playerLayer.player?.replaceCurrentItem(with: AVPlayerItem.init(url: url!))
     }
     
     func play() {

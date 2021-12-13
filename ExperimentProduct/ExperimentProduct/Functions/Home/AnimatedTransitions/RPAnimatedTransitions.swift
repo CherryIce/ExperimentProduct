@@ -14,7 +14,7 @@ enum RPDynamicAnimatedTransitionsType {
 
 class RPDynamicAnimatedTransitions: UIPercentDrivenInteractiveTransition {
     var type = RPDynamicAnimatedTransitionsType.present
-    var durations:TimeInterval = 0.5
+    var durations:TimeInterval = 0.25
     
     func scaleAspectFitImageViewWithImage(_ image:UIImage) -> CGSize {
         var  imageSize = image.size
