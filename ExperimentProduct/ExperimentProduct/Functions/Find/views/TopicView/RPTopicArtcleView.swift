@@ -66,7 +66,7 @@ class RPTopicArtcleView: UIView {
                 make.centerY.equalToSuperview()
             }
             
-            converImgV.setImageWithURL(converURL!, placeholder: RPImage.init(color: RPColor.RandomColor)!)
+            converImgV.setImageWithURL(converURL!, placeholder: RPImage.init(color: .white)!)
             titleLabel.text = title
             clickShareCallBack = block
         }

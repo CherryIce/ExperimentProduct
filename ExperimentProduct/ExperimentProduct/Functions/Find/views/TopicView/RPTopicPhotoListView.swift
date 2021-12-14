@@ -103,9 +103,9 @@ class RPTopicPhotoListCell: UICollectionViewCell {
     
     func setCellData(_ picture:String,placeholderImage:UIImage?){
         if picture.hasPrefix("http") {
-            posterImgView.setImageWithURL(picture, placeholder:(placeholderImage ?? UIImage.init(color: .black))!)
+            posterImgView.setImageWithURL(picture, placeholder:(placeholderImage ?? UIImage.init(color:RPColor.ShallowColor))!)
         } else {
-            posterImgView.image = UIImage(named: picture) ?? (placeholderImage ?? UIImage.init(color: .black))!
+            posterImgView.image = UIImage(named: picture) ?? (placeholderImage ?? UIImage.init(color:RPColor.ShallowColor))!
         }
     }
     

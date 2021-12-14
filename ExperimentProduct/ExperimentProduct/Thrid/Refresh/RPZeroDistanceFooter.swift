@@ -14,7 +14,7 @@ class RPZeroDistanceFooter: UIView , ESRefreshProtocol, ESRefreshAnimatorProtoco
         return self
     }
     public var insets: UIEdgeInsets = UIEdgeInsets.zero
-    public var trigger: CGFloat = 0.5
+    public var trigger: CGFloat = -70
     public var executeIncremental: CGFloat = 0.5
     public var state: ESRefreshViewState = .pullToRefresh
     

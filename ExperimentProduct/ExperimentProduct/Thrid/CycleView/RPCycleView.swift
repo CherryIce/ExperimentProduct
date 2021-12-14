@@ -259,7 +259,7 @@ fileprivate class RPCycleViewCell: UICollectionViewCell {
     
     func setCellData(_ picture:String,placeholderImage:UIImage?){
         if picture.hasPrefix("http") {
-            imgView.setImageWithURL(picture, placeholder:(placeholderImage ?? UIImage.init(color: .black))!)
+            imgView.setImageWithURL(picture, placeholder:(placeholderImage ?? UIImage.init(color:RPColor.ShallowColor))!)
         } else {
             imgView.image = UIImage(named: picture) ?? placeholderImage
         }

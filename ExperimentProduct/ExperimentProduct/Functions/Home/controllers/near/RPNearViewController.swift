@@ -67,15 +67,15 @@ class RPNearViewController: RPBaseViewController {
         let xx = RPRefreshHeader.init(frame: CGRect.zero)
         xx.ignore = 100//适配collectionview添加headerview这种特殊情况
         collectionView.es.addPullToRefresh(animator: xx) { [weak self] in
-            DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                 self?.pageIndex = 1
                 self?.refreshUI()
             }
         }
         
         //上拉加载
-        collectionView.es.addInfiniteScrolling(animator: RPRefreshFooter.init(frame: CGRect.zero)) { [weak self] in
-            DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+        collectionView.es.addInfiniteScrolling(animator: RPZeroDistanceFooter.init(frame: CGRect.zero)) { [weak self] in
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0) {
                 self?.refreshUI()
             }
         }
@@ -97,9 +97,9 @@ class RPNearViewController: RPBaseViewController {
                     let indexPath = NSIndexPath.init(row: dataArray.count-1, section: 0)
                     indexPaths.add(indexPath)
                 }
-                if pageIndex >= 10 {
-                    collectionView.es.noticeNoMoreData()
-                }
+//                if pageIndex >= 10 {
+//                    collectionView.es.noticeNoMoreData()
+//                }
                 pageIndex += 1
                 if indexPaths.count > 0 {
                     collectionView.insertItems(at: indexPaths as! [IndexPath])
@@ -125,7 +125,7 @@ extension RPNearViewController : UICollectionViewDelegate,UICollectionViewDataSo
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if collectionView == topCollectionView {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: RPCollectionViewAdapter.init().reuseIdentifierForCellClass(cellClass: RPShareViewCell.self, collectionView: collectionView), for: indexPath) as! RPShareViewCell
-            cell.imgV.image = .init(color: RPColor.RandomColor)?.roundCorners(cornerRadius: 4)
+            cell.imgV.image = .init(color: RPColor.ShallowColor)?.roundCorners(cornerRadius: 4)
             cell.title.text = labelArray[indexPath.item]
             cell.title.font = .systemFont(ofSize: 14)
             return cell

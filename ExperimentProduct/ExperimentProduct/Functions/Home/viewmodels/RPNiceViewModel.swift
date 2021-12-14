@@ -35,8 +35,8 @@ class RPNiceViewModel: NSObject {
         let tt = NSMutableArray.init()
         for i in 0 ..< imgs.count {
             autoreleasepool {
-                let width:CGFloat = CGFloat(arc4random()%100 + 300)
-                let height:CGFloat = CGFloat(arc4random()%100 + 250)
+                let width:CGFloat = [1080,864,499,1200,499,499,2000,1440,1680][i]
+                let height:CGFloat = [1440,1920,312,849,312,318,1414,810,1050][i]
                 let item = RPFollowModel.init()
                 item.author = RPUserModel.init()
                 item.author.name = String(format: "oh no %d", i)
@@ -69,7 +69,8 @@ class RPNiceViewModel: NSObject {
                     label.sizeToFit()
                     item.contentH = CGFloat(ceilf(Float(label.frame.size.height)))
                 }
-                item.cellH = item.cover.height + 10 + item.contentH + 10 + 20 + 10
+                let h = (SCREEN_WIDTH - 30)/2 * item.cover.height / item.cover.width
+                item.cellH = h + 10 + item.contentH + 10 + 20 + 10
                 tt.add(item)
             }
         }

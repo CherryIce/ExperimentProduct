@@ -33,7 +33,7 @@ class RPNicePicCell: UICollectionViewCell {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        contentView.backgroundColor = RPColor.ShallowColor
+        contentView.backgroundColor = .white//RPColor.ShallowColor
         
         converImgV = UIImageView.init()
         contentView.addSubview(converImgV)
@@ -61,7 +61,7 @@ class RPNicePicCell: UICollectionViewCell {
                 $0.configuration = configuration
             }else{
                 $0.titleLabel?.textAlignment = .right
-                $0.layoutButton(style: .Right, imageTitleSpace: 5)
+                $0.layoutButton(style: .Right, imageTitleSpace: -5)
             }
         }
         contentView.addSubview(likesButton)
@@ -75,8 +75,9 @@ class RPNicePicCell: UICollectionViewCell {
     override func layoutSubviews() {
         super.layoutSubviews()
         //实际情况 cell的宽是固定的 那么高度应由图片宽高比例得出
-        converImgV.frame = CGRect(x: 0, y: 0, width: frame.size.width, height: model.cover.height)
-        var top = model.cover.height+10
+        let h = frame.size.width * model.cover.height / model.cover.width
+        converImgV.frame = CGRect(x: 0, y: 0, width: frame.size.width, height: h)
+        var top = h+10
         contentLabel.frame = CGRect(x: 10, y: top, width:frame.size.width-20, height:model.contentH)
         if model.contentH > 0 {
             top += model.contentH

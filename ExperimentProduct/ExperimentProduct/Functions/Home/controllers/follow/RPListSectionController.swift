@@ -31,7 +31,7 @@ class RPListSectionController: ListSectionController{
     override func cellForItem(at index: Int) -> UICollectionViewCell {
         guard let cell = collectionContext?.dequeueReusableCell(of: RPPosterCell.self, withReuseIdentifier: "RPPosterCell", for: self, at: index) as? RPPosterCell else { fatalError() }
         let a = self.model.imageList[index]
-        cell.posterImgView.setImageWithURL(a.url, placeholder: UIImage(color: RPColor.RandomColor)!)
+        cell.posterImgView.setImageWithURL(a.url, placeholder: UIImage(color: RPColor.ShallowColor)!)
         return cell
     }
     

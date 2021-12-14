@@ -210,7 +210,7 @@ class RPMineTopicNormalView:UIView {
             converImgV.frame = .zero
         }else{
             converImgV.frame = CGRect(x: 5, y: contentLabel.frame.maxY+5, width: 35, height: 35)
-            converImgV.setImageWithURL(converURL!, placeholder: RPImage.init(color: RPColor.RandomColor)!)
+            converImgV.setImageWithURL(converURL!, placeholder: RPImage.init(color: RPColor.ShallowColor)!)
         }
         
         if title.count == 0 {

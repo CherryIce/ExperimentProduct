@@ -31,7 +31,7 @@ public extension UIImageView {
             if image == nil {
                 return
             }
-            self.image = image
+            self.image = image?.resize(toSize: self.bounds.size)
             if fadeIn {
                 let transition = CATransition()
                 transition.duration = 0.5
@@ -45,12 +45,13 @@ public extension UIImageView {
     
     func setImageWithURL(_ url: String, placeholder: UIImage, fadeIn: Bool = true, closure: ((_ image: UIImage?) -> ())? = nil) {
         if url.isEmpty {
-            self.image = placeholder
+            self.image = placeholder.resize(toSize: self.bounds.size)
             return
         }
         let cahce =  RPCache.shared.cache
         if cahce?.object(forKey: url) != nil {
-            self.image = cahce?.object(forKey: url) as? UIImage
+            let image = cahce?.object(forKey: url) as? UIImage
+            self.image = image?.resize(toSize: self.bounds.size)
         }else{
             self.imageFromURL(url, placeholder: placeholder, fadeIn: fadeIn, shouldCacheImage: false) { (image) in
                 DispatchQueue.main.async {

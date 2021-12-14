@@ -10,7 +10,7 @@ import UIKit
 private let RPNiceDefalutColumnCount = 2
 private let RPNiceDefalutColumnMargin = CGFloat(10)
 private let RPNiceDefalutRowMargin = CGFloat(10)
-private let RPNiceDefalutEdgeInsets = UIEdgeInsets.init(top: 10, left: 10, bottom: 10, right: 10)
+private let RPNiceDefalutEdgeInsets = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
 
 protocol RPNiceCollectionViewLayoutDelegate : NSObjectProtocol {
     func waterFlowLayout(layout : RPNiceCollectionViewLayout,indexPath : NSIndexPath,itemWidth : CGFloat) -> CGFloat
