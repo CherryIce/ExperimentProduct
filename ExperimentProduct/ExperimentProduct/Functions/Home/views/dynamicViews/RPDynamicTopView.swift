@@ -13,16 +13,22 @@ class RPDynamicTopView: UIView {
     lazy var rightItem = UIButton()
     override init(frame: CGRect) {
         super.init(frame: frame)
+        backgroundColor = .black
         creatUI()
     }
 
     func creatUI() {
+        tintColor = .white
         leftItem = UIButton.init(type: .custom)
-        leftItem.setImage(RPImage.NavBackImage, for: .normal)
+        leftItem.tintColor = .white
+        leftItem.tintAdjustmentMode = .automatic
+        leftItem.setImage(RPImage.NavBackImage.withRenderingMode(.alwaysTemplate), for: .normal)
         self.addSubview(leftItem)
 
         rightItem = UIButton.init(type: .custom)
-        rightItem.setImage(UIImage.loadImage("share"), for: .normal)
+        rightItem.tintColor = .white
+        rightItem.tintAdjustmentMode = .automatic
+        rightItem.setImage(UIImage(named: "share")?.withRenderingMode(.alwaysTemplate), for: .normal)
         self.addSubview(rightItem)
         
         leftItem.addTarget(self, action: #selector(leftClick), for: .touchUpInside)

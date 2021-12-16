@@ -22,8 +22,6 @@
 		4A37EE912734CEA600E1F288 /* RPTopViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A37EE8F2734CEA600E1F288 /* RPTopViewCell.swift */; };
 		4A37EE922734CEA600E1F288 /* RPTopViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4A37EE902734CEA600E1F288 /* RPTopViewCell.xib */; };
 		4A37EE9F2734E1AF00E1F288 /* RPTopicViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A37EE9E2734E1AF00E1F288 /* RPTopicViewModel.swift */; };
-		4A3A5C94273263D500F5E2ED /* back_white@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A3A5C92273263D500F5E2ED /* back_white@2x.png */; };
-		4A3A5C95273263D500F5E2ED /* share_white@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A3A5C93273263D500F5E2ED /* share_white@2x.png */; };
 		4A3A5CB72732760200F5E2ED /* RPVideoDynamicCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3A5CB62732760200F5E2ED /* RPVideoDynamicCell.swift */; };
 		4A3A5CBC2732764000F5E2ED /* RPDynamicVideoPlyerContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3A5CBB2732764000F5E2ED /* RPDynamicVideoPlyerContainerView.swift */; };
 		4A3A5CC12732775000F5E2ED /* RPDynamicProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3A5CC02732775000F5E2ED /* RPDynamicProtocol.swift */; };
@@ -62,7 +60,6 @@
 		4A4B72FD272A93A200821756 /* RPShareViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4A4B72FB272A93A200821756 /* RPShareViewController.xib */; };
 		4A530B5C272F875E00DD495E /* RPAnimatedTransitions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A530B5B272F875E00DD495E /* RPAnimatedTransitions.swift */; };
 		4A530B98272FD27E00DD495E /* RPCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A530B97272FD27E00DD495E /* RPCache.swift */; };
-		4A530BA42730E2B400DD495E /* share@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A530BA32730E2B400DD495E /* share@2x.png */; };
 		4A547BD626F44898005F00B5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A547BD526F44898005F00B5 /* AppDelegate.swift */; };
 		4A547BDA26F44898005F00B5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A547BD926F44898005F00B5 /* ViewController.swift */; };
 		4A547BDD26F44898005F00B5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A547BDB26F44898005F00B5 /* Main.storyboard */; };
@@ -82,9 +79,7 @@
 		4A547C8226F49739005F00B5 /* ImageVIewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A547C8026F49739005F00B5 /* ImageVIewExtension.swift */; };
 		4A565BD52766E6CA009A2CFF /* RPZeroDistanceFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A565BD42766E6CA009A2CFF /* RPZeroDistanceFooter.swift */; };
 		4A5969E7272B8960003ECB14 /* wechat@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A5969E5272B8960003ECB14 /* wechat@2x.png */; };
-		4A5969E8272B8960003ECB14 /* wechat@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A5969E6272B8960003ECB14 /* wechat@3x.png */; };
 		4A5969EE272B8978003ECB14 /* wechat_circle@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A5969EC272B8978003ECB14 /* wechat_circle@2x.png */; };
-		4A5969EF272B8978003ECB14 /* wechat_circle@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A5969ED272B8978003ECB14 /* wechat_circle@3x.png */; };
 		4A596A3A272BCA0D003ECB14 /* RPNiceCollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A596A39272BCA0D003ECB14 /* RPNiceCollectionViewLayout.swift */; };
 		4A596A42272BCF1E003ECB14 /* RPSortViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A596A41272BCF1E003ECB14 /* RPSortViewController.swift */; };
 		4A596A48272BD2CA003ECB14 /* RPNiceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A596A47272BD2CA003ECB14 /* RPNiceViewModel.swift */; };
@@ -247,8 +242,6 @@
 		4A37EE8F2734CEA600E1F288 /* RPTopViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPTopViewCell.swift; sourceTree = "<group>"; };
 		4A37EE902734CEA600E1F288 /* RPTopViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RPTopViewCell.xib; sourceTree = "<group>"; };
 		4A37EE9E2734E1AF00E1F288 /* RPTopicViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPTopicViewModel.swift; sourceTree = "<group>"; };
-		4A3A5C92273263D500F5E2ED /* back_white@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "back_white@2x.png"; sourceTree = "<group>"; };
-		4A3A5C93273263D500F5E2ED /* share_white@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "share_white@2x.png"; sourceTree = "<group>"; };
 		4A3A5CB62732760200F5E2ED /* RPVideoDynamicCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPVideoDynamicCell.swift; sourceTree = "<group>"; };
 		4A3A5CBB2732764000F5E2ED /* RPDynamicVideoPlyerContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPDynamicVideoPlyerContainerView.swift; sourceTree = "<group>"; };
 		4A3A5CC02732775000F5E2ED /* RPDynamicProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPDynamicProtocol.swift; sourceTree = "<group>"; };
@@ -287,7 +280,6 @@
 		4A4B72FB272A93A200821756 /* RPShareViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RPShareViewController.xib; sourceTree = "<group>"; };
 		4A530B5B272F875E00DD495E /* RPAnimatedTransitions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPAnimatedTransitions.swift; sourceTree = "<group>"; };
 		4A530B97272FD27E00DD495E /* RPCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPCache.swift; sourceTree = "<group>"; };
-		4A530BA32730E2B400DD495E /* share@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "share@2x.png"; sourceTree = "<group>"; };
 		4A547BD226F44898005F00B5 /* ExperimentProduct.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ExperimentProduct.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A547BD526F44898005F00B5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4A547BD926F44898005F00B5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -313,9 +305,7 @@
 		4A547C8026F49739005F00B5 /* ImageVIewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageVIewExtension.swift; sourceTree = "<group>"; };
 		4A565BD42766E6CA009A2CFF /* RPZeroDistanceFooter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPZeroDistanceFooter.swift; sourceTree = "<group>"; };
 		4A5969E5272B8960003ECB14 /* wechat@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "wechat@2x.png"; sourceTree = "<group>"; };
-		4A5969E6272B8960003ECB14 /* wechat@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "wechat@3x.png"; sourceTree = "<group>"; };
 		4A5969EC272B8978003ECB14 /* wechat_circle@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "wechat_circle@2x.png"; sourceTree = "<group>"; };
-		4A5969ED272B8978003ECB14 /* wechat_circle@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "wechat_circle@3x.png"; sourceTree = "<group>"; };
 		4A596A39272BCA0D003ECB14 /* RPNiceCollectionViewLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPNiceCollectionViewLayout.swift; sourceTree = "<group>"; };
 		4A596A41272BCF1E003ECB14 /* RPSortViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPSortViewController.swift; sourceTree = "<group>"; };
 		4A596A47272BD2CA003ECB14 /* RPNiceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPNiceViewModel.swift; sourceTree = "<group>"; };
@@ -617,13 +607,8 @@
 			isa = PBXGroup;
 			children = (
 				4A461A88273CB60800BA422F /* more@2x.png */,
-				4A3A5C92273263D500F5E2ED /* back_white@2x.png */,
-				4A3A5C93273263D500F5E2ED /* share_white@2x.png */,
-				4A530BA32730E2B400DD495E /* share@2x.png */,
 				4A5969EC272B8978003ECB14 /* wechat_circle@2x.png */,
-				4A5969ED272B8978003ECB14 /* wechat_circle@3x.png */,
 				4A5969E5272B8960003ECB14 /* wechat@2x.png */,
-				4A5969E6272B8960003ECB14 /* wechat@3x.png */,
 			);
 			path = share;
 			sourceTree = "<group>";
@@ -1313,7 +1298,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4A3A5C94273263D500F5E2ED /* back_white@2x.png in Resources */,
 				4A59F2BB274E40D60057605B /* delete@2x.png in Resources */,
 				4A8F21EA271EBBED00A249B6 /* 001.png in Resources */,
 				4A547BE226F44899005F00B5 /* LaunchScreen.storyboard in Resources */,
@@ -1322,14 +1306,11 @@
 				4A547BDF26F44899005F00B5 /* Assets.xcassets in Resources */,
 				4AEC25F12743AA7E002F419E /* qrcode@2x.png in Resources */,
 				4AEC25F32743AA86002F419E /* balance@2x.png in Resources */,
-				4A5969E8272B8960003ECB14 /* wechat@3x.png in Resources */,
 				4A37EE922734CEA600E1F288 /* RPTopViewCell.xib in Resources */,
 				4A59F2CD2751CF410057605B /* logo@2x.png in Resources */,
 				4A7EDAB426F5915600C8FC55 /* RPExploreViewCell.xib in Resources */,
-				4A530BA42730E2B400DD495E /* share@2x.png in Resources */,
 				4A547BDD26F44898005F00B5 /* Main.storyboard in Resources */,
 				4A5969E7272B8960003ECB14 /* wechat@2x.png in Resources */,
-				4A3A5C95273263D500F5E2ED /* share_white@2x.png in Resources */,
 				4A461A98273CB94300BA422F /* RPMyQRCodeViewController.xib in Resources */,
 				4A4B72FD272A93A200821756 /* RPShareViewController.xib in Resources */,
 				554FE83F271BCFF7005E82C7 /* RPFindCardCell.xib in Resources */,
@@ -1341,7 +1322,6 @@
 				4A8F21EB271EBBED00A249B6 /* 002.png in Resources */,
 				4A461A89273CB60800BA422F /* more@2x.png in Resources */,
 				558D3585271AE5CE00E03B5F /* RPFindNewsLinkCell.xib in Resources */,
-				4A5969EF272B8978003ECB14 /* wechat_circle@3x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

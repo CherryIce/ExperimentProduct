@@ -37,8 +37,6 @@ class RPDynamicVideoPlyerContainerView: UIView {
         
         topView = RPDynamicTopView.init()
         topView.delegate = self
-        topView.leftItem.setImage(UIImage.loadImage("back_white"), for: .normal)
-        topView.rightItem.setImage(UIImage.loadImage("share_white"), for: .normal)
         self.addSubview(topView)
     }
     
