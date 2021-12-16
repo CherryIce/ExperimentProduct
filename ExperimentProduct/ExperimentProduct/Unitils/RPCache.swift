@@ -8,6 +8,7 @@
 import UIKit
 import YYCache
 import KTVHTTPCache
+import RxSwift
 
 //use RPCache just fixed a warning log about yycache lock
 class RPCache: NSObject {
@@ -15,6 +16,7 @@ class RPCache: NSObject {
     var cache:YYCache?
     
     override init() {
+        super.init()
         let cache = YYCache.init(name: "/RPCache")
         cache?.diskCache.countLimit = 10000
         cache?.memoryCache.countLimit = 10000
@@ -34,9 +36,11 @@ class RPCache: NSObject {
             log.debug("Unsupport Content-Type Filter reviced URL"+(url?.absoluteString)!+contentType!)
             return false
         }
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(removeAllCache), name: UIApplication.didReceiveMemoryWarningNotification, object: nil)
     }
     
-    func removeAllCache() {
+    @objc func removeAllCache() {
         //unable to close due to unfinalized statements or unfinished backups
         self.cache?.removeAllObjects()
         KTVHTTPCache.cacheDeleteAllCaches()
@@ -57,5 +61,9 @@ class RPCache: NSObject {
             sizeText = String(format: "%lluB", total)
         }
         return sizeText
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self, name: UIApplication.didReceiveMemoryWarningNotification, object: nil)
     }
 }
