@@ -40,8 +40,8 @@ class RPAccountViewController: RPBaseViewController {
         let v = UIView.init()
         v.frame = CGRect.init(x: 0, y: 0, width: SCREEN_WIDTH, height: 100)
         let exitLogin = UIButton.init(type: .custom)
-        exitLogin.frame = CGRect.init(x: 30, y: 30, width: v.frame.width - 60, height: 50)
-        exitLogin.backgroundColor = UIColor.init(hexString: "#FFB366")
+        exitLogin.frame = CGRect.init(x: 30, y: 30, width: v.frame.width - 60, height: 45)
+        exitLogin.backgroundColor = RPColor.MainColor
         exitLogin.setTitle("退出登录", for:.normal)
         exitLogin.addTarget(self, action: #selector(exitLoginClick), for: .touchUpInside)
         exitLogin.titleLabel?.font = .systemFont(ofSize: 16)

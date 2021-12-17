@@ -85,12 +85,13 @@ class RPLoginViewController: RPBaseViewController {
             make.top.greaterThanOrEqualTo(logoView.snp.bottom).offset(15)
         }
         
-        let verifyButton = UIButton.init(type: .custom).then {
+        verifyButton = UIButton.init(type: .custom).then {
             $0.setTitle("获取验证码", for: .normal)
             $0.backgroundColor = UIColor.init(hexString: "#E5E5E5")
             $0.setTitleColor(.white, for: .normal)
             $0.titleLabel?.font = UIFont.systemFont(ofSize: 16)
             $0.layercornerRadius(cornerRadius: 8)
+            $0.isEnabled = false
         }
         self.view.addSubview(verifyButton)
         

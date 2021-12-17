@@ -50,9 +50,11 @@ class TDWVerifyCodeView: UIView {
         super.init(frame: frame)
     }
     
-    convenience init(inputTextNum: Int) {
+    convenience init(inputTextNum: Int,padding: CGFloat = 15,spacing:CGFloat = 10) {
         self.init()
         self.inputTextNum = inputTextNum
+        self.padding = padding
+        self.spacing = spacing
         initSubviews()
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardShow(note:)), name: UIResponder.keyboardWillShowNotification, object: nil)
         

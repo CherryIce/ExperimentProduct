@@ -107,5 +107,9 @@ extension RPMineViewController : RPListViewCellEventDelegate {
     @objc func setupAction() {
         self.navigationController?.pushViewController(RPSetupViewController.init(), animated: true)
     }
+    
+    @objc func asdkAction() {
+        self.navigationController?.pushViewController(RPASDKViewController.init(), animated: true)
+    }
 }
 

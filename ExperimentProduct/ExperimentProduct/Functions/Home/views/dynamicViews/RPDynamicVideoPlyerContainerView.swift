@@ -14,14 +14,10 @@ class RPDynamicVideoPlyerContainerView: UIView {
     private lazy var player = AVPlayer()
     private lazy var playerLayer = AVPlayerLayer(player: player)
     private lazy var topView = RPDynamicTopView()
-    private lazy var queue:OperationQueue = {
-        let q = OperationQueue.init()
-        q.maxConcurrentOperationCount = 1
-        return q
-    }()
+    
     var path = URL.init(string: "") {
         didSet {
-            queueA()
+            loadVideo()
         }
     }
     
@@ -38,16 +34,6 @@ class RPDynamicVideoPlyerContainerView: UIView {
         topView = RPDynamicTopView.init()
         topView.delegate = self
         self.addSubview(topView)
-    }
-    
-    private func queueA() {
-        if self.queue.operationCount >= 2 {
-            self.queue.cancelAllOperations()
-        }
-        
-        self.queue.addOperation {
-            self.loadVideo()
-        }
     }
     
     private func loadVideo() {

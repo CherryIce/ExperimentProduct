@@ -10,7 +10,7 @@ import UIKit
 class RPVerificationCodeViewController: RPBaseViewController {
 
     private lazy var codeView: TDWVerifyCodeView = {
-        let codeView = TDWVerifyCodeView.init(inputTextNum: 6)
+        let codeView = TDWVerifyCodeView.init(inputTextNum: 6,padding: 32)
         self.view.addSubview(codeView)
         return codeView
     }()
@@ -45,12 +45,22 @@ class RPVerificationCodeViewController: RPBaseViewController {
         // 监听验证码输入的过程
         codeView.textValueChange = {[weak self] (str) in
             // 要做的事情
-            log.debug("inputing code \(String(describing: self?.classForCoder)) ...")
+            log.debug("inputing code \(String(describing: self?.classForCoder))"+str)
         }
         
         // 监听验证码输入完成
         codeView.inputFinish = { [weak self] (str) in
-            log.debug("finished input code \(String(describing: self?.classForCoder)) ...")
+            log.debug("inputing code \(String(describing: self?.classForCoder)) ...")
+            let value1 = str.md5
+            let value2 = str + value1
+            let value3 = value2.md5
+            UserDefaults.standard.setValue(value3, forKey: kTokenExpDateTime)
+            UserDefaults.standard.synchronize()
+            var window = UIApplication.shared.keyWindow
+            if #available(iOS 13.0, *) {
+                window = UIApplication.shared.windows.first
+            }
+            window?.rootViewController = RPMainTabBarViewController.init()
         }
     }
     
