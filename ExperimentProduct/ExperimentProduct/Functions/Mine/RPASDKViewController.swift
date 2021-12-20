@@ -8,28 +8,29 @@
 import UIKit
 import AsyncDisplayKit
 
-class RPASDKViewController: ASDKViewController<ASCollectionNode> {
+class RPASDKViewController:RPBaseViewController   {
     private var pageIndex = 1
     private lazy var dataArray = [RPFollowModel]()
     private lazy var viewModel  = RPNiceViewModel()
-    override init() {
-        let flowLayout = UICollectionViewFlowLayout.init()
-        super.init(node:ASCollectionNode(collectionViewLayout: flowLayout))
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
+    private lazy var node:ASCollectionNode = {
+        let flowLayout = MosaicCollectionViewLayout()
+        flowLayout.headerHeight = 0
+        let node = ASCollectionNode(frame: view.bounds,collectionViewLayout: flowLayout)
+        view.addSubview(node.view)
+        flowLayout.delegate = self
+        return node
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        node.allowsSelection = false
+        node.allowsSelection = true
         node.dataSource = self
         node.delegate = self
         node.leadingScreensForBatching = 2.5
-        navigationController?.hidesBarsOnSwipe = true
+        //上滑隐藏导航栏
+//        navigationController?.hidesBarsOnSwipe = true
         configuration()
         refreshUI()
     }
@@ -60,24 +61,30 @@ class RPASDKViewController: ASDKViewController<ASCollectionNode> {
             node.view.es.stopLoadingMore()
             if pageIndex == 1 {
                 node.view.es.resetNoMoreData()
-                dataArray = datas
-                node.reloadData()
-                pageIndex += 1
-            }else{
-                var indexPaths:[IndexPath] = []
-                for i in 0 ..< datas.count {
-                    dataArray.append(datas[i])
-                    let indexPath:IndexPath = IndexPath(row: dataArray.count-1, section: 0)
-                    indexPaths.append(indexPath)
-                }
-                pageIndex += 1
-                if indexPaths.count > 0 {
-                    node.insertItems(at: indexPaths)
-                }
+            }
+            var indexPaths:[IndexPath] = []
+            for i in 0 ..< datas.count {
+                dataArray.append(datas[i])
+                let indexPath:IndexPath = IndexPath(row:dataArray.count-1, section: 0)
+                indexPaths.append(indexPath)
+            }
+            pageIndex += 1
+            if indexPaths.count > 0 {
+                node.insertItems(at: indexPaths)
             }
         } failed: { (error) in
             
         }
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        node.frame = view.bounds
+    }
+    
+    deinit {
+        node.delegate = nil
+        node.dataSource = nil
     }
 }
 
@@ -91,13 +98,20 @@ extension RPASDKViewController: ASCollectionDataSource, ASCollectionDelegate {
     }
     
     func collectionNode(_ collectionNode: ASCollectionNode, didSelectItemAt indexPath: IndexPath) {
-        log.debug("点击事件无效 我不理解  Click event is invalid, I don’t understand")
-//        let cellNode:RPNiceCellNode = RPNiceCellNode(model: self.dataArray[indexPath.item])
+        
+        let cellNode = node.nodeForItem(at: indexPath) as! RPNiceCellNode
         let type = indexPath.item%2 == 0 ? RPDynamicViewControllerType.pictures : RPDynamicViewControllerType.video
         let x = RPDynamicController.init()
         x.type = type
         x.data = [self.dataArray[indexPath.item]]
-//        x.transitionView = RPTools.snapshot(cellNode)
+        x.transitionView = cellNode.view
         self.customPresent(x, animated: true)
+    }
+}
+
+extension RPASDKViewController:MosaicCollectionViewLayoutDelegate {
+    func collectionView(_ collectionView: UICollectionView, layout: MosaicCollectionViewLayout, originalItemSizeAtIndexPath: IndexPath) -> CGSize {
+        let x = self.dataArray[originalItemSizeAtIndexPath.item]
+        return CGSize(width: (SCREEN_WIDTH - 3 * 16)/2, height: x.cellH)
     }
 }

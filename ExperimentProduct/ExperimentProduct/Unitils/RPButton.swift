@@ -6,7 +6,8 @@
 //
 
 import UIKit
-
+var ClickKey: UInt8 = 0
+typealias ClickBlock = () -> Void
 enum RPButtonEdgeInsetsStyle {
     case Top
     case Left
@@ -111,5 +112,22 @@ extension UIButton {
         self.titleEdgeInsets = labelEdgeInsets
         self.imageEdgeInsets = imageEdgeInsets
         
+    }
+    
+    var click: ClickBlock?  {
+        get{
+            return objc_getAssociatedObject(self, &ClickKey) as? ClickBlock
+        }
+        set{
+            objc_setAssociatedObject(self, &ClickKey, newValue, objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+            self.removeTarget(self, action: #selector(buttonClick), for: .touchUpInside)
+            if (click != nil){
+                self.addTarget(self, action: #selector(buttonClick), for: .touchUpInside)
+            }
+        }
+    }
+    
+    @objc func buttonClick() -> Void {
+        self.click!()
     }
 }
