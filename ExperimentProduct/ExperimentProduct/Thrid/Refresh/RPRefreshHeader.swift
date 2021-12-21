@@ -15,7 +15,7 @@ class RPRefreshHeader: UIView ,ESRefreshProtocol, ESRefreshAnimatorProtocol{
     public var duration: TimeInterval = 0.3
     public var trigger: CGFloat = 56.0
     public var executeIncremental: CGFloat = 56.0
-    public var ignore:CGFloat = 0.0
+    public var ignore:CGFloat = 0.0//适配collectionview添加headerview这种特殊情况
     public var state: ESRefreshViewState = .pullToRefresh
     
     private let activityIndicatorView: NVActivityIndicatorView = {

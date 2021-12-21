@@ -61,14 +61,14 @@ class RPNiceViewModel: NSObject {
                 }
                 item.desc = String(str.prefix(Int(arc4random())%200))
                 item.likes = Int(arc4random()%1000 + 1)
-                if item.desc.count > 0 {
-                    let label = UILabel.init()
-                    label.frame = CGRect.init(x: 0, y: 0, width: width, height: 20)
-                    label.numberOfLines = 2
-                    label.text = item.desc
-                    label.sizeToFit()
-                    item.contentH = CGFloat(ceilf(Float(label.frame.size.height)))
-                }
+//                if item.title.count > 0 {
+//                    let label = UILabel.init()
+//                    label.frame = CGRect.init(x: 0, y: 0, width: width, height: 20)
+//                    label.numberOfLines = 2
+//                    label.text = item.title
+//                    label.sizeToFit()
+//                    item.contentH = CGFloat(ceilf(Float(label.frame.size.height)))
+//                }
                 let h = (SCREEN_WIDTH - 30)/2 * item.cover.height / item.cover.width
                 item.cellH = h + 10 + item.contentH + 10 + 20 + 10
                 tt.add(item)

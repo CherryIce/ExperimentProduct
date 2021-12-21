@@ -12,9 +12,9 @@ class RPMineViewModel: NSObject {
                    success:(_ datas: NSArray)->(),
                    failed:(_ error: NSError)->()) {
         var tt = [RPTableViewSectionItem]()
-        let xx = [["支付中心"],["收藏", "活动中心"], ["设置"],["ASDK"]]
-        let xxs = [["payAction"],["collectAction", "activityAction"], ["setupAction"],["asdkAction"]]
-        let imgs = [["balance"],["collect","xx"],["yy"],["zz"]]
+        let xx = [["支付中心"],["收藏", "活动中心"], ["设置"]]
+        let xxs = [["payAction"],["collectAction", "activityAction"], ["setupAction"]]
+        let imgs = [["balance"],["collect","xx"],["yy"]]
         for i in 0..<xx.count {
             let item = RPTableViewSectionItem.init()
             if i != 0 {

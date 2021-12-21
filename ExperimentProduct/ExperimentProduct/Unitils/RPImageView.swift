@@ -8,7 +8,7 @@
 import UIKit
 import AsyncDisplayKit
 
-class RPImageView: UIImageView {
+class RPImageView: ASNetworkImageNode {
     
 }
 

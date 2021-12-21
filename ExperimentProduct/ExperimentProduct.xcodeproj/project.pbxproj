@@ -80,7 +80,6 @@
 		4A565BD52766E6CA009A2CFF /* RPZeroDistanceFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A565BD42766E6CA009A2CFF /* RPZeroDistanceFooter.swift */; };
 		4A5969E7272B8960003ECB14 /* wechat@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A5969E5272B8960003ECB14 /* wechat@2x.png */; };
 		4A5969EE272B8978003ECB14 /* wechat_circle@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A5969EC272B8978003ECB14 /* wechat_circle@2x.png */; };
-		4A596A3A272BCA0D003ECB14 /* RPNiceCollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A596A39272BCA0D003ECB14 /* RPNiceCollectionViewLayout.swift */; };
 		4A596A42272BCF1E003ECB14 /* RPSortViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A596A41272BCF1E003ECB14 /* RPSortViewController.swift */; };
 		4A596A48272BD2CA003ECB14 /* RPNiceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A596A47272BD2CA003ECB14 /* RPNiceViewModel.swift */; };
 		4A59F2AA274DEA100057605B /* RPTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A59F2A9274DEA100057605B /* RPTabBar.swift */; };
@@ -97,7 +96,6 @@
 		4A5B4A022763337F00FB46F9 /* RPListSectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5B4A012763337F00FB46F9 /* RPListSectionController.swift */; };
 		4A5B4A0427634DB300FB46F9 /* RPCommentSectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5B4A0327634DB300FB46F9 /* RPCommentSectionController.swift */; };
 		4A6082DF276C6A1E008B7683 /* RPNiceCellNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6082DE276C6A1E008B7683 /* RPNiceCellNode.swift */; };
-		4A6082E1276C7073008B7683 /* RPASDKViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6082E0276C7073008B7683 /* RPASDKViewController.swift */; };
 		4A6082E3276C7A4C008B7683 /* RPImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6082E2276C7A4C008B7683 /* RPImageView.swift */; };
 		4A6082E5276C9BFE008B7683 /* RPLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6082E4276C9BFE008B7683 /* RPLayer.swift */; };
 		4A758D4E273A2BC5001B204D /* RPMineViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A758D4D273A2BC5001B204D /* RPMineViewModel.swift */; };
@@ -121,7 +119,6 @@
 		4A8508CB2744B25100F538C2 /* RPBillDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A8508CA2744B25100F538C2 /* RPBillDetailViewController.swift */; };
 		4A8508CE2744F91800F538C2 /* RPDatePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A8508CD2744F91800F538C2 /* RPDatePickerViewController.swift */; };
 		4A8508D22745EB1100F538C2 /* RPDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A8508D12745EB1100F538C2 /* RPDate.swift */; };
-		4A8508D627475B1C00F538C2 /* RPNicePicCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A8508D527475B1C00F538C2 /* RPNicePicCell.swift */; };
 		4A8F21C4271E9DBC00A249B6 /* RPGuideViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A8F21C3271E9DBC00A249B6 /* RPGuideViewController.swift */; };
 		4A8F21D7271EA9A200A249B6 /* RPGuideCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A8F21D6271EA9A200A249B6 /* RPGuideCell.swift */; };
 		4A8F21E9271EBBED00A249B6 /* 003.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A8F21E6271EBBED00A249B6 /* 003.png */; };
@@ -311,7 +308,6 @@
 		4A565BD42766E6CA009A2CFF /* RPZeroDistanceFooter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPZeroDistanceFooter.swift; sourceTree = "<group>"; };
 		4A5969E5272B8960003ECB14 /* wechat@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "wechat@2x.png"; sourceTree = "<group>"; };
 		4A5969EC272B8978003ECB14 /* wechat_circle@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "wechat_circle@2x.png"; sourceTree = "<group>"; };
-		4A596A39272BCA0D003ECB14 /* RPNiceCollectionViewLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPNiceCollectionViewLayout.swift; sourceTree = "<group>"; };
 		4A596A41272BCF1E003ECB14 /* RPSortViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPSortViewController.swift; sourceTree = "<group>"; };
 		4A596A47272BD2CA003ECB14 /* RPNiceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPNiceViewModel.swift; sourceTree = "<group>"; };
 		4A59F2A9274DEA100057605B /* RPTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPTabBar.swift; sourceTree = "<group>"; };
@@ -328,7 +324,6 @@
 		4A5B4A012763337F00FB46F9 /* RPListSectionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPListSectionController.swift; sourceTree = "<group>"; };
 		4A5B4A0327634DB300FB46F9 /* RPCommentSectionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPCommentSectionController.swift; sourceTree = "<group>"; };
 		4A6082DE276C6A1E008B7683 /* RPNiceCellNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPNiceCellNode.swift; sourceTree = "<group>"; };
-		4A6082E0276C7073008B7683 /* RPASDKViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPASDKViewController.swift; sourceTree = "<group>"; };
 		4A6082E2276C7A4C008B7683 /* RPImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPImageView.swift; sourceTree = "<group>"; };
 		4A6082E4276C9BFE008B7683 /* RPLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPLayer.swift; sourceTree = "<group>"; };
 		4A758D4D273A2BC5001B204D /* RPMineViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPMineViewModel.swift; sourceTree = "<group>"; };
@@ -352,7 +347,6 @@
 		4A8508CA2744B25100F538C2 /* RPBillDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPBillDetailViewController.swift; sourceTree = "<group>"; };
 		4A8508CD2744F91800F538C2 /* RPDatePickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPDatePickerViewController.swift; sourceTree = "<group>"; };
 		4A8508D12745EB1100F538C2 /* RPDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPDate.swift; sourceTree = "<group>"; };
-		4A8508D527475B1C00F538C2 /* RPNicePicCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPNicePicCell.swift; sourceTree = "<group>"; };
 		4A8F21C3271E9DBC00A249B6 /* RPGuideViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPGuideViewController.swift; sourceTree = "<group>"; };
 		4A8F21D6271EA9A200A249B6 /* RPGuideCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPGuideCell.swift; sourceTree = "<group>"; };
 		4A8F21E6271EBBED00A249B6 /* 003.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 003.png; sourceTree = "<group>"; };
@@ -768,8 +762,6 @@
 		4A596A38272BC9BC003ECB14 /* water_flow_layout */ = {
 			isa = PBXGroup;
 			children = (
-				4A596A39272BCA0D003ECB14 /* RPNiceCollectionViewLayout.swift */,
-				4A8508D527475B1C00F538C2 /* RPNicePicCell.swift */,
 				4A6082DE276C6A1E008B7683 /* RPNiceCellNode.swift */,
 				4AD9FA8027707EE1000C72B7 /* MosaicCollectionViewLayout.swift */,
 			);
@@ -883,7 +875,6 @@
 				4A758D61273A5742001B204D /* RPSetupViewController.swift */,
 				4A461B11273E12FE00BA422F /* RPAccountViewController.swift */,
 				4A461B0A273E044500BA422F /* RPAboutViewController.swift */,
-				4A6082E0276C7073008B7683 /* RPASDKViewController.swift */,
 			);
 			path = Mine;
 			sourceTree = "<group>";
@@ -1412,7 +1403,6 @@
 				4AB5EFDE274B3228008CD843 /* RPBankCardListController.swift in Sources */,
 				4A0220D827216DC10045CA4B /* HBEmpty.swift in Sources */,
 				4A976BDF272698DA008DF042 /* RPWkwebViewController.swift in Sources */,
-				4A6082E1276C7073008B7683 /* RPASDKViewController.swift in Sources */,
 				4AACFCCF2764475D001C635D /* RPDynamicPicturesController.swift in Sources */,
 				4A59F2C5274F97290057605B /* RPMediaTitleView.swift in Sources */,
 				4A1DEC6F27156CA400149FD8 /* RPTextFiled.swift in Sources */,
@@ -1484,7 +1474,6 @@
 				4A596A42272BCF1E003ECB14 /* RPSortViewController.swift in Sources */,
 				4A4B72F5272A7C9800821756 /* RPAlertViewController.swift in Sources */,
 				4A461A6D273BA3D800BA422F /* RProvincesModel.swift in Sources */,
-				4A596A3A272BCA0D003ECB14 /* RPNiceCollectionViewLayout.swift in Sources */,
 				4A547C8226F49739005F00B5 /* ImageVIewExtension.swift in Sources */,
 				4A7EDB6526F5E2B300C8FC55 /* RPUserInfoViewModel.swift in Sources */,
 				4A7EDB7426F5E6FC00C8FC55 /* RPNetWorkManager.swift in Sources */,
@@ -1552,7 +1541,6 @@
 				4A59F2AA274DEA100057605B /* RPTabBar.swift in Sources */,
 				4A547C4A26F48528005F00B5 /* RPHomeViewController.swift in Sources */,
 				4AAF00F42761F5FA000A2027 /* RPImageViewModel.swift in Sources */,
-				4A8508D627475B1C00F538C2 /* RPNicePicCell.swift in Sources */,
 				4A7EDAFC26F5C0DC00C8FC55 /* RPTools.swift in Sources */,
 				4A976CDC27293975008DF042 /* RPNewsViewController.swift in Sources */,
 				4A8F23D4271FFEA600A249B6 /* NVActivityIndicatorAnimationBallDoubleBounce.swift in Sources */,
