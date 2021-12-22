@@ -20,6 +20,7 @@ class RPRecommendListViewController: RPBaseViewController {
         flowLayout.delegate = self
         return node
     }()
+    var itemSizeWidth = (SCREEN_WIDTH - 30)/2
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -127,19 +128,33 @@ extension RPRecommendListViewController: ASCollectionDataSource, ASCollectionDel
     func collectionNode(_ collectionNode: ASCollectionNode, willBeginBatchFetchWith context: ASBatchContext) {
         refreshUI(context)
     }
+    
+    //fix iOS 13 shows bugs below , Maybe it's caused by irregular layout. Let's deal with it like this for now. **RPNiceCellNode**
+    func collectionNode(_ collectionNode: ASCollectionNode, constrainedSizeForItemAt indexPath: IndexPath) -> ASSizeRange {
+        let item = self.dataArray[indexPath.item]
+        item.contentH = caucalContentHeight(item.title)
+        return ASSizeRange.init(min: CGSize(width: itemSizeWidth, height: 100), max: CGSize(width: itemSizeWidth, height: item.cellH+item.contentH))
+    }
 }
 
 extension RPRecommendListViewController:MosaicCollectionViewLayoutDelegate {
     func collectionView(_ collectionView: UICollectionView, layout: MosaicCollectionViewLayout, originalItemSizeAtIndexPath: IndexPath) -> CGSize {
         let item = self.dataArray[originalItemSizeAtIndexPath.item]
-        if item.title.count > 0 {
-            let label = UILabel.init()
-            label.frame = CGRect.init(x: 0, y: 0, width: (SCREEN_WIDTH - 30)/2, height: 20)
-            label.numberOfLines = 2
-            label.text = item.title
-            label.sizeToFit()
-            item.contentH = CGFloat(ceilf(Float(label.frame.size.height)))
+        item.contentH = caucalContentHeight(item.title)
+        return CGSize(width: itemSizeWidth, height: item.cellH+item.contentH)
+    }
+}
+
+extension RPRecommendListViewController {
+    func caucalContentHeight(_ content:String) -> CGFloat {
+        if content.isEmpty {
+            return 0.0
         }
-        return CGSize(width: (SCREEN_WIDTH - 30)/2, height: item.cellH+item.contentH)
+        let label = UILabel()
+        label.frame = CGRect(x: 0, y: 0, width: itemSizeWidth - 20, height: 20)
+        label.numberOfLines = 2
+        label.text = content
+        label.sizeToFit()
+        return CGFloat(ceilf(Float(label.frame.size.height)))
     }
 }

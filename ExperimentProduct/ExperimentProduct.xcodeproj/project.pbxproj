@@ -97,7 +97,6 @@
 		4A5B4A0427634DB300FB46F9 /* RPCommentSectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5B4A0327634DB300FB46F9 /* RPCommentSectionController.swift */; };
 		4A6082DF276C6A1E008B7683 /* RPNiceCellNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6082DE276C6A1E008B7683 /* RPNiceCellNode.swift */; };
 		4A6082E3276C7A4C008B7683 /* RPImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6082E2276C7A4C008B7683 /* RPImageView.swift */; };
-		4A6082E5276C9BFE008B7683 /* RPLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6082E4276C9BFE008B7683 /* RPLayer.swift */; };
 		4A758D4E273A2BC5001B204D /* RPMineViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A758D4D273A2BC5001B204D /* RPMineViewModel.swift */; };
 		4A758D53273A5268001B204D /* RPYaModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A758D52273A5268001B204D /* RPYaModel.swift */; };
 		4A758D58273A570B001B204D /* RPWalletViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A758D57273A570B001B204D /* RPWalletViewController.swift */; };
@@ -1448,7 +1447,6 @@
 				4A4662F12738B1E900FC8FFC /* RPTopicPhotoListView.swift in Sources */,
 				4A461B20273E1F4C00BA422F /* RPFromTableVerificationCell.swift in Sources */,
 				4A461AD3273CE98600BA422F /* NextGrowingTextView.swift in Sources */,
-				4A6082E5276C9BFE008B7683 /* RPLayer.swift in Sources */,
 				4AF8B4EF2757506F0049BDE8 /* TDWVerifyCodeNumView.swift in Sources */,
 				4A8F23DD271FFEA600A249B6 /* NVActivityIndicatorAnimationBallClipRotatePulse.swift in Sources */,
 				4A547C5C26F485A5005F00B5 /* RPMineViewController.swift in Sources */,

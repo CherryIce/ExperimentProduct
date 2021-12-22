@@ -13,7 +13,8 @@ class RPNiceCellNode: ASCellNode {
     var rate = 1.0
     
     let photoImageNode: ASNetworkImageNode = {
-        let imageNode = ASNetworkImageNode()
+        //warning: ⚠️⚠️ 使用自己管理图片内存就使用 ASNetworkImageNode.imageNode() 
+        let imageNode = ASNetworkImageNode.imageNode()//ASNetworkImageNode()//
         imageNode.contentMode = .scaleAspectFill
         var cornerRadius: CGFloat = 4
         // Use the screen scale for corner radius to respect content scale
@@ -82,7 +83,7 @@ class RPNiceCellNode: ASCellNode {
         likeNode.setImage(UIImage.loadImage("likes"), for: .normal)
         likeNode.titleNode.attributedText = NSAttributedString(string: String(model.likes), attributes:attrs)
         
-        rate = model.cover.width/model.cover.height
+        rate = model.cover.height/model.cover.width
     }
     
     override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec {
@@ -97,30 +98,33 @@ class RPNiceCellNode: ASCellNode {
         verticalStack.style.flexGrow = 1.0
         
         //封面
-        photoImageNode.style.preferredSize = CGSize(width: constrainedSize.max.width, height: constrainedSize.max.width/rate)
-        
-        //头像
-        userInfoNode.imageNode.style.preferredSize = CGSize(width: 20, height: 20)
-        userInfoNode.style.spacingBefore = 10
-        userInfoNode.style.preferredSize = CGSize(width: constrainedSize.max.width - 100, height: 20)
+        photoImageNode.style.flexShrink = 1.0
+        let photoLayout = ASRatioLayoutSpec.init(ratio:rate, child: photoImageNode)
         
         //点赞
         likeNode.imageNode.style.preferredSize = CGSize(width: 20, height: 20)
         likeNode.style.preferredSize = CGSize(width: 80, height: 20)
         likeNode.style.spacingAfter = 10
         
+        //头像
+        userInfoNode.imageNode.style.preferredSize = CGSize(width: 20, height: 20)
+        userInfoNode.style.spacingBefore = 10
+        userInfoNode.style.preferredSize = CGSize(width: constrainedSize.max.width - 100, height: 20)
+        
         //横向
         let bottomLayout = ASStackLayoutSpec.horizontal()
-        bottomLayout.justifyContent = .spaceBetween
-        bottomLayout.alignItems = .start
+        bottomLayout.style.flexShrink = 1.0
+//        bottomLayout.style.flexGrow = 1.0
+        bottomLayout.justifyContent = .start
+        bottomLayout.alignItems = .center
         bottomLayout.children = [userInfoNode, likeNode]
         bottomLayout.style.spacingAfter = 10.0
         
         if contentNode.attributedText != nil {
             let contentLayout = ASInsetLayoutSpec(insets: UIEdgeInsets(top: 10, left:10, bottom: 10, right: 10), child: contentNode)
-            verticalStack.children = [photoImageNode, contentLayout,bottomLayout]
+            verticalStack.children = [photoLayout, contentLayout,bottomLayout]
         } else {
-            verticalStack.children = [photoImageNode,bottomLayout]
+            verticalStack.children = [photoLayout,bottomLayout]
         }
         
         return verticalStack

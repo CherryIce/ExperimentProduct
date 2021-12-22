@@ -36,17 +36,19 @@ extension RPCache: ASImageCacheProtocol, ASImageDownloaderProtocol {
             if URL.absoluteString.contains("webp") {
                 if let data = data, let image = UIImage.imageWithWebPData(imageData: data) {
                     DispatchQueue.main.async {
+                        self.cache?.setObject(image, forKey: URL.absoluteString)
                         completion(image,error,nil,nil)
                     }
                 }
             }else{
                 if let data = data, let image = UIImage(data: data) {
                     DispatchQueue.main.async {
+                        self.cache?.setObject(image, forKey: URL.absoluteString)
                         completion(image,error,nil,nil)
                     }
                 }
             }
-            URLSession.shared.finishTasksAndInvalidate()
+//            URLSession.shared.finishTasksAndInvalidate()
         }).resume()
         return task
     }
@@ -61,18 +63,23 @@ extension RPCache: ASImageCacheProtocol, ASImageDownloaderProtocol {
     public func cachedImage(with URL: URL,
                             callbackQueue: DispatchQueue,
                             completion: @escaping AsyncDisplayKit.ASImageCacherCompletion) {
-        guard let image = self.cache?.object(forKey: URL.absoluteString) else {
+        let key = URL.absoluteString
+        guard let image = self.cache?.object(forKey: key) else {
+            log.debug(key)
             completion(nil, ASImageCacheType.synchronous)
             return
         }
-        completion(image as? ASImageContainerProtocol,ASImageCacheType.synchronous)
+        DispatchQueue.main.async {
+            completion(image as? ASImageContainerProtocol,ASImageCacheType.synchronous)
+        }
     }
     
 //    func synchronouslyFetchedCachedImage(with URL: URL) -> ASImageContainerProtocol? {
 //
 //    }
     
-    func clearFetchedImageFromCache(with URL: URL) {
-        self.cache?.removeObject(forKey: URL.absoluteString)
-    }
+    //这个鬼方法会自动清除缓存 刚缓存一会 刷一下就清除了 😂😂
+//    func clearFetchedImageFromCache(with URL: URL) {
+//        self.cache?.removeObject(forKey: URL.absoluteString)
+//    }
 }
