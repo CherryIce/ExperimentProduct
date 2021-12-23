@@ -51,7 +51,7 @@ extension RPDynamicPicturesController:ListBindingSectionControllerDataSource {
         guard let object = object as? RPFollowModel else { fatalError() }
         var results = [ListDiffable]()
         for comment in object.comments {
-            let vm = RPExpandCommentModel.init(username: comment.username, text: comment.text)
+            let vm = RPExpandCommentModel.init(username: comment.replyPerson.userName, text: comment.content)
             results.append(vm)
         }
         return object.imageList+results
@@ -63,7 +63,7 @@ extension RPDynamicPicturesController:ListBindingSectionControllerDataSource {
         let identifier: String
         let cellClass: AnyClass
         switch viewModel {
-        case is RPImageViewModel: identifier = "image";cellClass = RPFollowCollectionViewCell.self
+        case is RPImageModel: identifier = "image";cellClass = RPFollowCollectionViewCell.self
         case is RPExpandCommentModel: identifier = "ExpandComment";cellClass = RPDynamicCommentCell.self
         default: identifier = "action";cellClass = RPFollowActionCell.self
         }
@@ -80,7 +80,7 @@ extension RPDynamicPicturesController:ListBindingSectionControllerDataSource {
         guard let width = collectionContext?.containerSize.width else { fatalError() }
         let height: CGFloat
         switch viewModel {
-        case is RPImageViewModel: height = SCREEN_WIDTH
+        case is RPImageModel: height = SCREEN_WIDTH
         case is RPExpandCommentModel: height = 35
         default: height = 50
         }

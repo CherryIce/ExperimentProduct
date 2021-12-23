@@ -10,8 +10,8 @@ import IGListKit
 import HandyJSON
 
 class RPFollowModel: NSObject,HandyJSON{
-    var imageList = [RPImageViewModel]()
-    var comments  = [RPCommentsModel]()
+    var imageList:[RPImageModel] = []
+    var comments:[RPCommentModel]  = []
     var type = "" //类型 图片 视频
     var title = "" //主题
     var desc = "" //描述
@@ -21,7 +21,7 @@ class RPFollowModel: NSObject,HandyJSON{
     var likes:Int = 0
     var isLiked:Bool = false
     var author = RPUserModel()
-    var cover =  RPImageViewModel()
+    var cover =  RPImageModel()
     
     var contentH:CGFloat = 0
     var cellH:CGFloat = 0

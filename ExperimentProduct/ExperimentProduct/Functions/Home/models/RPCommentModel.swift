@@ -7,18 +7,21 @@
 
 import UIKit
 import IGListKit
+import HandyJSON
 
-final class RPCommentsModel: NSObject {
-    let username: String
-    let text: String
-
-    init(username: String, text: String) {
-        self.username = username
-        self.text = text
-    }
+class RPCommentModel: HandyJSON {
+    //评论人
+    var replyPerson = RPPersonModel()
+    //被评论人
+    var byReplyPerson = RPPersonModel()
+    //评论内容
+    var content = ""
+    //时间
+    var dateTime = ""
+    required init() {}
 }
 
-extension RPCommentsModel: ListDiffable {
+extension RPCommentModel: ListDiffable {
     
     func diffIdentifier() -> NSObjectProtocol {
         return "comment"/*(username + text)*/ as NSObjectProtocol

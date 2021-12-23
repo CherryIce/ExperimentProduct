@@ -29,15 +29,15 @@ enum RPTopicType {
 class RPTopicModel: HandyJSON {
     var author = RPPersonModel()
     var text = ""
-    var images: [RPImageModel]! = []
+    var images: [RPImageModel] = []
     var video = RPVideoModel()
     var artic = RPArticleModel()
     var location = ""
-    var likes = [RPPersonModel]()
-    var comments = [RPCommentModel]()
+    var likes:[RPPersonModel] = []
+    var comments:[RPCommentModel] = []
     var publishTime = ""
     var from = ""
-    var permission = Int() // 0所有人 1屏蔽了一些人 2私密
+    var permission:Int = 0 // 0所有人 1屏蔽了一些人 2私密
     var type = RPTopicType.text //当前类型
     
     //自定义 附加信息
@@ -51,14 +51,6 @@ class RPTopicModel: HandyJSON {
     var cellH:CGFloat = 0 // 当前cell的总高度
     var photoCellSize:CGSize = .zero //布局大小 仅限于图片视频类型使用
     
-    required init() {}
-}
-
-class RPImageModel: HandyJSON {
-    //图片链接
-    var url = ""
-    var width: CGFloat = 0
-    var height: CGFloat = 0
     required init() {}
 }
 
@@ -89,17 +81,5 @@ class RPPersonModel: HandyJSON {
     var userId = ""
     //用户头像
     var headIconUrl = ""
-    required init() {}
-}
-
-class RPCommentModel: HandyJSON {
-    //评论人
-    var replyPerson = RPPersonModel()
-    //被评论人
-    var byReplyPerson = RPPersonModel()
-    //评论内容
-    var content = ""
-    //时间
-    var dateTime = ""
     required init() {}
 }

@@ -41,8 +41,8 @@ extension RPFollViewSectionController:ListBindingSectionControllerDataSource {
         let identifier: String
         let cellClass: AnyClass
         switch viewModel {
-        case is RPImageViewModel: identifier = "image";cellClass = RPFollowCollectionViewCell.self
-        case is RPCommentsModel: identifier = "comment";cellClass = RPCommentViewCell.self
+        case is RPImageModel: identifier = "image";cellClass = RPFollowCollectionViewCell.self
+        case is RPCommentModel: identifier = "comment";cellClass = RPCommentViewCell.self
         case is RPUserModel: identifier = "user";cellClass = RPFollowUserCell.self
         default: identifier = "action";cellClass = RPFollowActionCell.self
         }
@@ -62,8 +62,8 @@ extension RPFollViewSectionController:ListBindingSectionControllerDataSource {
         guard let width = collectionContext?.containerSize.width else { fatalError() }
         let height: CGFloat
         switch viewModel {
-        case is RPImageViewModel: height = SCREEN_WIDTH
-        case is RPCommentsModel: height = 70
+        case is RPImageModel: height = SCREEN_WIDTH
+        case is RPCommentModel: height = 70
         default: height = 50
         }
         return CGSize(width: width, height: height)

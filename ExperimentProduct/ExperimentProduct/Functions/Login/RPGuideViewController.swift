@@ -25,20 +25,20 @@ class RPGuideViewController: RPBaseViewController {
     func creatUI() {
         images = ["001","002","003"]
         
-        let layout = UICollectionViewFlowLayout.init()
-        layout.itemSize = CGSize.init(width: SCREEN_WIDTH, height: SCREEN_HEIGHT)
+        let layout = UICollectionViewFlowLayout()
+        layout.itemSize = CGSize(width: SCREEN_WIDTH, height: SCREEN_HEIGHT)
         layout.minimumLineSpacing = 0
         layout.minimumInteritemSpacing = 0
         layout.scrollDirection = .horizontal
-        collectionView = UICollectionView.init(frame: CGRect.zero, collectionViewLayout: layout)
+        collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.bounces = false
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.isPagingEnabled = true
         collectionView.showsVerticalScrollIndicator = false
         collectionView.showsHorizontalScrollIndicator = false
-        collectionView.backgroundColor = view.backgroundColor;
-        self.view.addSubview(collectionView)
+        collectionView.backgroundColor = view.backgroundColor
+        view.addSubview(collectionView)
         
         if #available(iOS 11, *) {
             collectionView.contentInsetAdjustmentBehavior = .never
@@ -50,14 +50,14 @@ class RPGuideViewController: RPBaseViewController {
             make.left.top.right.bottom.equalToSuperview()
         }
         
-        pageControl = UIPageControl.init().then {
+        pageControl = UIPageControl().then {
             $0.isUserInteractionEnabled = false
             $0.hidesForSinglePage = true
             $0.numberOfPages = images.count
             $0.currentPageIndicatorTintColor = RPColor.MainColor
             $0.pageIndicatorTintColor = RPColor.ShallowColor
         }
-        self.view .addSubview(pageControl)
+        view.addSubview(pageControl)
         
         let size = pageControl.size(forNumberOfPages: images.count)
         pageControl.snp.makeConstraints { (make) in
@@ -73,7 +73,7 @@ class RPGuideViewController: RPBaseViewController {
             $0.titleLabel?.font = UIFont.boldSystemFont(ofSize: 15)
         }
         skipButton.addTarget(self, action:#selector(hide) , for: .touchUpInside)
-        self.view.addSubview(skipButton)
+        view.addSubview(skipButton)
         
         skipButton.layercornerRadius(cornerRadius: 3)
         skipButton.layercornerBorder(borderWidth: 1, borderColor: RPColor.MainColor)

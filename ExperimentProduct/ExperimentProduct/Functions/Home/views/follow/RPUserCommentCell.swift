@@ -30,8 +30,8 @@ class RPUserCommentCell: UICollectionViewCell {
 
 extension RPUserCommentCell : ListBindable {
     func bindViewModel(_ viewModel: Any) {
-        guard let viewModel = viewModel as? RPCommentsModel else { return }
-        contentLabel.text = viewModel.username + ":" + viewModel.text
+        guard let viewModel = viewModel as? RPCommentModel else { return }
+        contentLabel.text = viewModel.replyPerson.userName + ":" + viewModel.content
     }
 }
 

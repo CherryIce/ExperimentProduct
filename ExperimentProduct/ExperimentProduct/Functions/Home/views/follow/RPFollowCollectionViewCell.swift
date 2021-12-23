@@ -40,7 +40,7 @@ class RPFollowCollectionViewCell: UICollectionViewCell {
 
 extension RPFollowCollectionViewCell : ListBindable {
     func bindViewModel(_ viewModel: Any) {
-//        guard let viewModel = viewModel as? RPImageViewModel else { return }
+//        guard let viewModel = viewModel as? RPImageModel else { return }
 //        imageView.setImageWithURL(viewModel.url, placeholder: UIImage(color: RPColor.redWine)!)
     }
 }

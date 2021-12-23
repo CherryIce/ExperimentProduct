@@ -41,19 +41,24 @@ class RPNiceViewModel: NSObject {
                 item.author = RPUserModel.init()
                 item.author.name = String(format: "oh no %d", i)
                 item.author.image = imgs[i]
-                item.cover = RPImageViewModel.init()
+                item.cover = RPImageModel.init()
                 item.cover.url = imgs[i]
                 item.cover.width = width
                 item.cover.height = height
                 for j in 0 ..< (arc4random()%4+1) {
-                    let x = RPImageViewModel.init()
+                    let x = RPImageModel.init()
                     x.url = j == 0 ? imgs[i] : imgs[8-Int(j)]
                     item.imageList.append(x)
                 }
                 if i%2==0 {
-                    item.comments = [RPCommentsModel(username: "@ryan", text: "this is beautiful!"),
-                                     RPCommentsModel(username: "@jsq", text: "😱"),
-                                     RPCommentsModel(username: "@caitlin", text: "#blessed")]
+                    let us = ["@ryan","@jsq","@caitlin"]
+                    let cs = ["this is beautiful!","😱","#blessed"]
+                    for i in 0..<us.count {
+                        let xx = RPCommentModel()
+                        xx.replyPerson.userName = us[i]
+                        xx.content = cs[i]
+                        item.comments.append(xx)
+                    }
                 }
                 let nsrange = NSRange(location: Int(arc4random()%100), length: 40)
                 if let range = Range(nsrange, in: str) {
@@ -61,14 +66,6 @@ class RPNiceViewModel: NSObject {
                 }
                 item.desc = String(str.prefix(Int(arc4random())%200))
                 item.likes = Int(arc4random()%1000 + 1)
-//                if item.title.count > 0 {
-//                    let label = UILabel.init()
-//                    label.frame = CGRect.init(x: 0, y: 0, width: width, height: 20)
-//                    label.numberOfLines = 2
-//                    label.text = item.title
-//                    label.sizeToFit()
-//                    item.contentH = CGFloat(ceilf(Float(label.frame.size.height)))
-//                }
                 let h = (SCREEN_WIDTH - 30)/2 * item.cover.height / item.cover.width
                 item.cellH = h + 10 + item.contentH + 10 + 20 + 10
                 tt.add(item)
