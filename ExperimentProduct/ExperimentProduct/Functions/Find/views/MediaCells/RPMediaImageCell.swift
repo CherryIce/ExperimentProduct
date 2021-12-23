@@ -10,7 +10,7 @@ import UIKit
 class RPMediaImageCell: UICollectionViewCell, UIGestureRecognizerDelegate,UIScrollViewDelegate {
     
     open weak var photoBrowser: RPMeidDetailViewController?
-    
+    public var singleClickCallBack: (() -> Void)?
     open var index: Int = 0
     
     open var scrollDirection: UICollectionView.ScrollDirection = .horizontal {
@@ -169,7 +169,8 @@ class RPMediaImageCell: UICollectionViewCell, UIGestureRecognizerDelegate,UIScro
     
     /// 单击
     @objc open func onSingleTap(_ tap: UITapGestureRecognizer) {
-        
+        //回调出去隐藏导航栏-视图扩充
+        self.singleClickCallBack?()
     }
     
     /// 双击

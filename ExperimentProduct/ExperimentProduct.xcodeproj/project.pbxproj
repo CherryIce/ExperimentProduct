@@ -174,7 +174,6 @@
 		4AB5EFE8274C9D13008CD843 /* RPRecommendController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB5EFE7274C9D13008CD843 /* RPRecommendController.swift */; };
 		4AB5EFEA274C9DA1008CD843 /* RPNearViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB5EFE9274C9DA1008CD843 /* RPNearViewController.swift */; };
 		4AB5EFEC274CA077008CD843 /* RPRecommendListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB5EFEB274CA077008CD843 /* RPRecommendListViewController.swift */; };
-		4AC3F37827740C620087C776 /* Diffable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC3F37727740C620087C776 /* Diffable.swift */; };
 		4AD802AD26F57565000F3B3A /* RPImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AD802AC26F57565000F3B3A /* RPImage.swift */; };
 		4AD9FA8127707EE1000C72B7 /* MosaicCollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AD9FA8027707EE1000C72B7 /* MosaicCollectionViewLayout.swift */; };
 		4ADBEBF927337B5C00F73B6D /* RPCycleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ADBEBF827337B5C00F73B6D /* RPCycleView.swift */; };
@@ -1406,7 +1405,6 @@
 				4A0220D827216DC10045CA4B /* HBEmpty.swift in Sources */,
 				4A976BDF272698DA008DF042 /* RPWkwebViewController.swift in Sources */,
 				4AACFCCF2764475D001C635D /* RPDynamicPicturesController.swift in Sources */,
-				4AC3F37827740C620087C776 /* Diffable.swift in Sources */,
 				4A59F2C5274F97290057605B /* RPMediaTitleView.swift in Sources */,
 				4A1DEC6F27156CA400149FD8 /* RPTextFiled.swift in Sources */,
 				4A3A9FD4271962D600C032C8 /* RPYaCell.swift in Sources */,

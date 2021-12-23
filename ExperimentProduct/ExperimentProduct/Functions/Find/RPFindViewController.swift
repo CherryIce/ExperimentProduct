@@ -66,7 +66,7 @@ class RPFindViewController: RPBaseViewController {
     }
     
     func createTableViewUI() {
-        tableView = UITableView.init(frame:CGRect.zero, style: .grouped)
+        tableView = UITableView(frame:.zero, style: .grouped)
         tableView.delegate = self
         tableView.dataSource = self
         tableView.separatorColor = RPColor.Separator
@@ -84,7 +84,7 @@ class RPFindViewController: RPBaseViewController {
     }
     
     func loadData () {
-        viewModel.getFindLists(params: NSDictionary.init()) { (datas) in
+        viewModel.getFindLists(params: NSDictionary()) { (datas) in
             headerView.dataSourceArray = []
             dataList.addObjects(from: datas as! [Any])
             tableView.reloadData()
@@ -131,11 +131,11 @@ extension RPFindViewController:UITableViewDelegate,UITableViewDataSource {
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         let v = UIView.init(frame: CGRect.init(x: 0, y: 0, width: SCREEN_WIDTH, height: 40))
         v.backgroundColor = .white
-        let btn = UIButton.init(type: .custom).then {
+        let btn = UIButton(type: .custom).then {
             $0.frame = v.bounds
             $0.titleLabel?.font = .systemFont(ofSize: 14)
             $0.setTitle("查看更多", for: .normal)
-            $0.setTitleColor(.init(hexString: "#2697FF"), for: .normal)
+            $0.setTitleColor(UIColor(hexString: "#2697FF"), for: .normal)
             $0.addTarget(self, action: #selector(searchMore), for: .touchUpInside)
         }
         v.addSubview(btn)
@@ -153,102 +153,19 @@ extension RPFindViewController:UITableViewDelegate,UITableViewDataSource {
 
 extension RPFindViewController: RPFindHeaderViewDelegate {
     func clickBannerNeedFix(_ index: Int) {
-        let ctl = RPWkwebViewController.init()
+        let ctl = RPWkwebViewController()
         ctl.urlString = "https://www.baidu.com"
         self.navigationController?.pushViewController(ctl, animated: true)
     }
     
     func clickLabelNeedFix(_ index:Int,data:AnyObject?) {
-        self.navigationController?.pushViewController(RPTopicViewController.init(), animated: true)
+        self.navigationController?.pushViewController(RPTopicViewController(), animated: true)
     }
 }
 
 extension RPFindViewController: RPListViewCellEventDelegate {
     func didSelectListView(_ listView: UIScrollView, indexPath: IndexPath, sectionData: AnyObject?, cellData: AnyObject?) {
-        self.navigationController?.pushViewController(RPYaViewController.init(), animated: true)
+        self.navigationController?.pushViewController(RPYaViewController(), animated: true)
     }
 }
 
-//extension RPFindViewController : HBEmptyDelegate {
-//    func makePlaceHolderView() -> UIView! {
-//        let v = UIView.init(frame: CGRect.init(x: 0, y: 0, width: SCREEN_WIDTH, height: 100))
-//        v.backgroundColor = UIColor.red
-//        return v
-//    }
-//}
-
-/** .plain模式
-extension RPFindViewController: UIScrollViewDelegate {
-    //header不悬停
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        //组头高度
-        let sectionHeaderHeight:CGFloat = 30
-        //获取是否有默认调整的内边距
-        let defaultEdgeTop:CGFloat = navigationController?.navigationBar != nil
-            && self.automaticallyAdjustsScrollViewInsets ? 64 : 0
-
-        if scrollView.contentOffset.y >= -defaultEdgeTop &&
-            scrollView.contentOffset.y <= sectionHeaderHeight - defaultEdgeTop  {
-            scrollView.contentInset = UIEdgeInsets.init(top: -scrollView.contentOffset.y, left: 0, bottom: 0, right: 0)
-        }
-        else if (scrollView.contentOffset.y>=sectionHeaderHeight - defaultEdgeTop) {
-            scrollView.contentInset = UIEdgeInsets.init(top: -sectionHeaderHeight + defaultEdgeTop, left: 0, bottom: 0, right: 0)
-        }
-    }
-    
-    //footer不悬停
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        //组尾高度
-        let sectionFooterHeight:CGFloat = 30
-
-        //获取是否有默认调整的内边距
-        let defaultEdgeTop:CGFloat = self.navigationController?.navigationBar != nil
-            && self.automaticallyAdjustsScrollViewInsets ? RPTools.NAV_HEIGHT : 0
-
-        let b = scrollView.contentOffset.y + scrollView.frame.height
-        let h = scrollView.contentSize.height - sectionFooterHeight
-
-        if b <= h {
-            scrollView.contentInset = UIEdgeInsets.init(top: defaultEdgeTop, left: 0, bottom: 0, right: 0)
-        }else if b > h && b < scrollView.contentSize.height {
-             scrollView.contentInset = UIEdgeInsets.init(top: defaultEdgeTop, left: 0, bottom: b - h - 30, right: 0)
-        }
-    }
-
-    //header、footer均不悬停
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        //组头高度
-        let sectionHeaderHeight:CGFloat = 30
-        //组尾高度
-        let sectionFooterHeight:CGFloat = 30
-
-        //获取是否有默认调整的内边距
-        let defaultEdgeTop:CGFloat = self.navigationController?.navigationBar != nil
-            && self.automaticallyAdjustsScrollViewInsets ? RPTools.NAV_HEIGHT : 0
-
-        //上边距相关
-        var edgeTop = defaultEdgeTop
-        if scrollView.contentOffset.y >= -defaultEdgeTop &&
-            scrollView.contentOffset.y <= sectionHeaderHeight - defaultEdgeTop  {
-            edgeTop = -scrollView.contentOffset.y
-        }
-        else if (scrollView.contentOffset.y>=sectionHeaderHeight - defaultEdgeTop) {
-            edgeTop = -sectionHeaderHeight + defaultEdgeTop
-        }
-
-        //下边距相关
-        var edgeBottom:CGFloat = 0
-        let b = scrollView.contentOffset.y + scrollView.frame.height
-        let h = scrollView.contentSize.height - sectionFooterHeight
-
-        if b <= h {
-            edgeBottom = -30
-        }else if b > h && b < scrollView.contentSize.height {
-            edgeBottom = b - h - 30
-        }
-
-        //设置内边距
-        scrollView.contentInset = UIEdgeInsets.init(top: edgeTop, left: 0, bottom: edgeBottom, right: 0)
-    }
-}
- **/

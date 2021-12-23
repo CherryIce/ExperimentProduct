@@ -104,9 +104,10 @@ extension RPMineTopicController:UITableViewDelegate,UITableViewDataSource {
                 }
             }
             media.currentIndex = index
-            media.modalPresentationStyle = .overFullScreen
-            //可以模拟个push动画
-            self.present(media, animated: true, completion: nil)
+            customPresent(media, animated: true)
+//            media.modalPresentationStyle = .overFullScreen
+//            //可以模拟个push动画
+//            self.present(media, animated: true, completion: nil)
             break
         }
     }

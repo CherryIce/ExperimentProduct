@@ -23,24 +23,33 @@ class RPMeidDetailViewController: RPBaseViewController {
     
     func simpleUI() {
         titleView = RPMediaTitleView(frame: CGRect(x: 0, y: 0, width: SCREEN_WIDTH, height: RPTools.NAV_HEIGHT))
-        self.view.addSubview(titleView)
-        titleView.leftBtn.setImage(UIImage.loadImage("back_white"), for: .normal)
-        titleView.leftBtn.addTarget(self, action: #selector(back), for: .touchUpInside)
-        titleView.rightBtn.setImage(UIImage.loadImage("share_white"), for: .normal)
-        titleView.rightBtn.addTarget(self, action: #selector(share), for: .touchUpInside)
+        view.addSubview(titleView)
+        titleView.leftBtn.setImage(UIImage.loadImage("back")?.withRenderingMode(.alwaysTemplate), for: .normal)
+        titleView.rightBtn.setImage(UIImage.loadImage("share")?.withRenderingMode(.alwaysTemplate), for: .normal)
         
-        let flowLayout = UICollectionViewFlowLayout.init()
+        titleView.leftBtn.click = {[weak self] in
+            self?.disMiss(true)
+        }
+        
+        titleView.rightBtn.click = {log.debug("分享")}
+        
+        let flowLayout = UICollectionViewFlowLayout()
         flowLayout.scrollDirection = .horizontal
         flowLayout.minimumLineSpacing = 0
         flowLayout.minimumInteritemSpacing = 0
         flowLayout.sectionInset = .zero
-        collectionView = UICollectionView.init(frame: CGRect(x: 0, y: RPTools.NAV_HEIGHT, width: SCREEN_WIDTH, height: SCREEN_HEIGHT-RPTools.NAV_HEIGHT), collectionViewLayout: flowLayout)
+        collectionView = UICollectionView(frame: CGRect(x: 0,
+                                                        y: RPTools.NAV_HEIGHT,
+                                                        width: SCREEN_WIDTH,
+                                                        height: SCREEN_HEIGHT-RPTools.NAV_HEIGHT),
+                                          collectionViewLayout: flowLayout)
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.isPagingEnabled = true
         collectionView.backgroundColor = .black
+        collectionView.bounces = false
         collectionView.showsHorizontalScrollIndicator = false
-        self.view.addSubview(collectionView)
+        view.addSubview(collectionView)
     }
     
     override func viewDidLayoutSubviews() {
@@ -59,25 +68,33 @@ class RPMeidDetailViewController: RPBaseViewController {
         }
     }
     
-    @objc func back() {
-        disMiss(true)
-    }
-    
-    @objc func share() {
-        log.debug("分享")
-    }
-    
     func disMiss(_ animation:Bool = false)  {
         dismiss(animated: animation, completion: nil)
     }
     
-//    override var preferredStatusBarStyle: UIStatusBarStyle {
-//        return .lightContent
-//    }
-//    
-//    override var prefersStatusBarHidden: Bool {
-//        return true
-//    }
+    func smallAnimation() {
+//        titleView.isHidden = !titleView.isHidden
+        if titleView.frame.origin.y == 0 {
+            var oldT = titleView.frame
+            oldT.origin.y = -RPTools.NAV_HEIGHT
+            UIView.animate(withDuration: 0.25) {
+                self.titleView.frame = oldT
+                self.titleView.alpha = 0
+                self.collectionView.frame = UIScreen.main.bounds
+            }
+        }else{
+            var oldT = titleView.frame
+            oldT.origin.y = 0
+            UIView.animate(withDuration: 0.25) {
+                self.titleView.frame = oldT
+                self.titleView.alpha = 1
+                self.collectionView.frame = CGRect(x: 0,
+                                                   y: RPTools.NAV_HEIGHT,
+                                                   width: SCREEN_WIDTH,
+                                                   height: SCREEN_HEIGHT-RPTools.NAV_HEIGHT)
+            }
+        }
+    }
 }
 
 extension RPMeidDetailViewController:UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout{
@@ -104,6 +121,9 @@ extension RPMeidDetailViewController:UICollectionViewDelegate,UICollectionViewDa
         cell.photoBrowser = self
         cell.imageView.contentMode = .scaleAspectFit
         cell.imageView.setImageWithURL(url, placeholder: .init(color: RPColor.ShallowColor)!)
+        cell.singleClickCallBack = { [weak self] in
+            self?.smallAnimation()
+        }
         return cell
     }
     

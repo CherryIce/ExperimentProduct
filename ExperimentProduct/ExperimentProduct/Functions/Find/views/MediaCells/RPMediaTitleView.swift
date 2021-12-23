@@ -17,9 +17,11 @@ class RPMediaTitleView: UIView {
         super.init(frame: frame)
         
         leftBtn = UIButton.init(type: .custom)
+        leftBtn.tintColor = .white
         addSubview(leftBtn)
         
         rightBtn = UIButton.init(type: .custom)
+        rightBtn.tintColor = .white
         addSubview(rightBtn)
         
         titleLabel = UILabel.init()

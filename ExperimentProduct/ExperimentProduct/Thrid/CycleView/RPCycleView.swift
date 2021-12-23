@@ -31,7 +31,7 @@ class RPCycleView: UIView {
     private lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout.init()
         layout.scrollDirection = .horizontal
-        layout.sectionInset = UIEdgeInsets.zero
+        layout.sectionInset = .zero
         layout.minimumLineSpacing = 0
         layout.minimumInteritemSpacing = 0
         let collectionView = UICollectionView(frame: bounds, collectionViewLayout: layout)
@@ -154,7 +154,7 @@ extension RPCycleView: UICollectionViewDelegate, UICollectionViewDataSource,UICo
             return collectionCell!
         }
         
-        let identifier =  RPCollectionViewAdapter.init().reuseIdentifierForCellClass(cellClass:RPCycleViewCell.self, collectionView: collectionView)
+        let identifier =  RPCollectionViewAdapter().reuseIdentifierForCellClass(cellClass:RPCycleViewCell.self, collectionView: collectionView)
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath) as! RPCycleViewCell
         cell.setCellData(pictures[indexPath.item % pictures.count], placeholderImage: placeholderImage)
         return cell

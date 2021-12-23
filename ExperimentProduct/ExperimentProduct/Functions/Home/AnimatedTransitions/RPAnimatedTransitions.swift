@@ -10,6 +10,8 @@ import UIKit
 enum RPDynamicAnimatedTransitionsType {
     case present
     case dismiss
+    case push
+    case pop
 }
 
 class RPDynamicAnimatedTransitions: UIPercentDrivenInteractiveTransition {
@@ -53,13 +55,13 @@ extension RPDynamicAnimatedTransitions : UIViewControllerAnimatedTransitioning {
             let toViewController = transitionContext.viewController(forKey: .to) as!RPDynamicController
             let containerView = transitionContext.containerView
             let duration:TimeInterval = self.transitionDuration(using: transitionContext)
-
+            
             let view = toViewController.transitionView
             if view == nil {
                 transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
                 return
             }
-
+            
             //cell在view上的位置
             let cell_frame = containerView.convert((toViewController.transitionView?.superview!.superview!.frame)!, from: (toViewController.transitionView?.superview!.superview!.superview!)!)
             let size = toViewController.transitionView?.frame.size ?? CGSize.zero
@@ -74,12 +76,12 @@ extension RPDynamicAnimatedTransitions : UIViewControllerAnimatedTransitioning {
             presentingImageView.contentMode = view!.contentMode
             presentingImageView.clipsToBounds = view!.clipsToBounds
             presentingImageView.layer.cornerRadius = view!.layer.cornerRadius
-
+            
             view?.isHidden = true
             //添加目标控制器view
             toViewController.view.alpha = 0
             containerView.addSubview((toViewController.view)!)
-
+            
             //添加imageView
             containerView.addSubview(presentingImageView)
             
@@ -98,7 +100,7 @@ extension RPDynamicAnimatedTransitions : UIViewControllerAnimatedTransitioning {
                 presentingImageView.removeFromSuperview()
                 transitionContext.completeTransition(finished)
             }
-
+            
             break
         case .dismiss:
             let fromVC = transitionContext.viewController(forKey: .from) as! RPDynamicController
@@ -126,6 +128,48 @@ extension RPDynamicAnimatedTransitions : UIViewControllerAnimatedTransitioning {
                 transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
             }
             break
+        case .push:
+            let toVC = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.to)
+            
+            let containerView = transitionContext.containerView
+            
+            let toView = toVC?.view//transitionContext.view(forKey: UITransitionContextViewKey.to)
+            
+            containerView.addSubview(toView!)
+            var frame = toView?.frame ?? .zero
+            frame.origin.x = SCREEN_WIDTH
+            toView?.frame = frame
+            
+            let durationN = self.transitionDuration(using: transitionContext)
+        
+            //usingSpringWithDamping弹力系数
+            UIView.animate(withDuration: durationN, delay: 0.0, usingSpringWithDamping: 1.0, initialSpringVelocity: 0.0, options: UIView.AnimationOptions.curveLinear, animations: {() -> Void in
+                frame.origin.x = 0
+                toView?.frame = frame
+            }, completion: ({(Bool) -> Void in
+                transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
+            }))
+            break
+        case .pop:
+            let fromVC = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.from)
+            
+            let containerView = transitionContext.containerView
+            let fromView = fromVC?.view
+            
+            containerView.addSubview(fromView!)
+            var frame = fromView?.frame ?? .zero
+            frame.origin.x = 0
+            fromView?.frame = frame
+            
+            let durationN = self.transitionDuration(using: transitionContext)
+        
+            UIView.animate(withDuration: durationN, delay: 0.0, usingSpringWithDamping: 1.0, initialSpringVelocity: 0.0, options: UIView.AnimationOptions.curveLinear, animations: {() -> Void in
+                frame.origin.x = SCREEN_WIDTH
+                fromView?.frame = frame
+            }, completion: ({(Bool) -> Void in
+                transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
+            }))
+            break
         }
     }
 }
@@ -137,21 +181,31 @@ extension UIViewController:UIViewControllerTransitioningDelegate{
         viewControllerToPresent.transitioningDelegate = self
         present(viewControllerToPresent, animated: true, completion: nil)
     }
-
+    
     public func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         //如果是多效果 根据presented不同 指定不同动画效果
         if presented is RPDynamicController {
             let transition = RPDynamicAnimatedTransitions()
             transition.type = .present
             return transition
+        }else if (presented is RPMeidDetailViewController) {
+            let transition = RPDynamicAnimatedTransitions()
+            transition.type = .push
+            transition.durations = 0.5
+            return transition
         }
         return nil
     }
-
+    
     public func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         if dismissed is RPDynamicController {
             let transition = RPDynamicAnimatedTransitions()
             transition.type = .dismiss
+            return transition
+        }else if (dismissed is RPMeidDetailViewController) {
+            let transition = RPDynamicAnimatedTransitions()
+            transition.type = .pop
+            transition.durations = 0.5
             return transition
         }
         return nil
