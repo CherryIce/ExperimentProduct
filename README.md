@@ -13,3 +13,19 @@
 
 3.网络图片做好缓存操作 加载大图可以采用CATiledLayer尝试切片化加载
 
+//尚未优化：-- 做个记录 --
+
+level1:RPImageView后台下载处理
+
+level2:RPTopicViewController - 换成 IGListKit &  AsyncDisplayKit 展示
+
+level3:RPMineTopicController & RPMeidDetailViewController
+
+level4:RPTopicDetailViewController - unfinish
+
+level5:RPFindViewController
+
+level6:RPDynamicController & RPFollowViewController
+
+level7:others
+

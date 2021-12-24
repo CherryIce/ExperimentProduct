@@ -21,12 +21,14 @@ extension ASNetworkImageNode {
 
 //em... 配置好像出了点问题
 extension RPCache: ASImageCacheProtocol, ASImageDownloaderProtocol {
-    
+    //下载这里需要多做些特殊处理,不然大量图片初次加载还是容易卡顿
+    //This method is likely to be called on the main thread, so any custom implementations should make sure to background any expensive download operations.
     func downloadImage(with URL: URL,
                        shouldRetry: Bool,
                        callbackQueue: DispatchQueue,
                        downloadProgress: ASImageDownloaderProgress?,
                        completion: @escaping ASImageDownloaderCompletion) -> Any? {
+        //可以参考ASBasicImageDownloader的后台下载处理。。。😭😭😭 先留着
         let task: Void = URLSession.shared.dataTask(with: URL, completionHandler: { (data, response, error) -> Void in
             if (error != nil) {
                 DispatchQueue.main.async {
@@ -34,21 +36,25 @@ extension RPCache: ASImageCacheProtocol, ASImageDownloaderProtocol {
                 }
             }
             if URL.absoluteString.contains("webp") {
-                if let data = data, let image = UIImage.imageWithWebPData(imageData: data) {
-                    DispatchQueue.main.async {
-                        self.cache?.setObject(image, forKey: URL.absoluteString)
-                        completion(image,error,nil,nil)
+                DispatchQueue.global().async {
+                    if let data = data, let image = UIImage.imageWithWebPData(imageData: data) {
+                        DispatchQueue.main.async {
+                            self.cache?.setObject(image, forKey: URL.absoluteString)
+                            completion(image,error,nil,nil)
+                        }
                     }
                 }
             }else{
-                if let data = data, let image = UIImage(data: data) {
-                    DispatchQueue.main.async {
-                        self.cache?.setObject(image, forKey: URL.absoluteString)
-                        completion(image,error,nil,nil)
+                DispatchQueue.global().async {
+                    if let data = data, let image = UIImage(data: data) {
+                        DispatchQueue.main.async {
+                            self.cache?.setObject(image, forKey: URL.absoluteString)
+                            completion(image,error,nil,nil)
+                        }
                     }
                 }
             }
-//            URLSession.shared.finishTasksAndInvalidate()
+            URLSession.shared.finishTasksAndInvalidate()
         }).resume()
         return task
     }

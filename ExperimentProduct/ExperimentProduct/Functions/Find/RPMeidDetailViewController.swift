@@ -109,7 +109,7 @@ extension RPMeidDetailViewController:UICollectionViewDelegate,UICollectionViewDa
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let model = dataArray[indexPath.section]
-        let identifier = RPCollectionViewAdapter.init().reuseIdentifierForCellClass(cellClass: RPMediaImageCell.self, collectionView: collectionView)
+        let identifier = RPCollectionViewAdapter().reuseIdentifierForCellClass(cellClass: RPMediaImageCell.self, collectionView: collectionView)
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath) as! RPMediaImageCell
         var url = ""
         if model.images.count > 0 {

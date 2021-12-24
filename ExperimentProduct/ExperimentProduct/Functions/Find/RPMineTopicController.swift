@@ -72,7 +72,7 @@ extension RPMineTopicController:UITableViewDelegate,UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let model = self.dataArray[indexPath.row] as! RPTopicModel
-        let cell = tableView.dequeueReusableCell(withIdentifier: RPTableViewAdapter.init().reuseIdentifierForCellClass(cellClass: RPMineTopicViewCell.self, tableView: tableView), for: indexPath) as! RPMineTopicViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: RPTableViewAdapter().reuseIdentifierForCellClass(cellClass: RPMineTopicViewCell.self, tableView: tableView), for: indexPath) as! RPMineTopicViewCell
         cell.setCellData(model: model, indexPath: indexPath)
         return cell
     }

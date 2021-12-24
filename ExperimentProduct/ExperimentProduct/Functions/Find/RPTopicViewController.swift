@@ -113,7 +113,7 @@ extension RPTopicViewController:UITableViewDelegate,UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let model = self.dataArray[indexPath.row] as! RPTopicModel
-        let cell = tableView.dequeueReusableCell(withIdentifier: RPTableViewAdapter.init().reuseIdentifierForCellClass(cellClass: RPTopViewCell.self, tableView: tableView), for: indexPath) as! RPTopViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: RPTableViewAdapter().reuseIdentifierForCellClass(cellClass: RPTopViewCell.self, tableView: tableView), for: indexPath) as! RPTopViewCell
         cell.setCellData(model: model, delegate: self, indexPath: indexPath)
         return cell
     }
