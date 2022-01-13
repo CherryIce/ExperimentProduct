@@ -7,6 +7,8 @@
 
 import UIKit
 
+//复杂的效果可以自己写flowLayout 也可以直接用：https://github.com/WenchaoD/FSPagerView
+
 protocol RPCycleViewDelegate: NSObjectProtocol {
     
     // 图片点击

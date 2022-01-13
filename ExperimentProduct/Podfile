@@ -118,5 +118,9 @@ pod 'Then'
 # 控件的layout
 #pod 'SteviaLayout'
 
+# 类似微博、抖音、网易云等个人详情页滑动嵌套效果 https://github.com/QuintGao/GKPageScrollView
+#pod 'GKPageScrollView/Swift'
+#pod 'GKPageSmoothView/Swift'
+
 end
 

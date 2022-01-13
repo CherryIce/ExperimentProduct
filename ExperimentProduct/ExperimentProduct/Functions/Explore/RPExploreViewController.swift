@@ -43,6 +43,8 @@ class RPExploreViewController: RPBaseViewController {
         //去掉多余的分割线
         tableView.tableFooterView = UIView()
         tableView.separatorColor = RPColor.Separator
+        //索引字体颜色
+        tableView.sectionIndexColor = UIColor(hexString: "#999999")
         //注册cell
         tableView.register(UINib(nibName: "RPExploreViewCell", bundle: nil), forCellReuseIdentifier: cellID)
         self.view.addSubview(tableView)
