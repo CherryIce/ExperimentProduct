@@ -63,6 +63,8 @@ class RPHomeViewController: RPBaseViewController {
     }
     
     func addPagerController() {
+//        self.pagerController.layout.prefetchItemCount = 1
+//        self.pagerController.layout.addVisibleItemOnlyWhenScrollAnimatedEnd = true
         self.pagerController.dataSource = self
         self.pagerController.delegate = self
         self.addChild(self.pagerController)
