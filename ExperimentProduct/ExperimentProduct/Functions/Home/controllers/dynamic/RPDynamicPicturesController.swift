@@ -111,7 +111,7 @@ extension RPDynamicPicturesController {
             self.viewController?.dismiss(animated: true, completion: nil)
             break
         case .share:
-            let share = RPShareViewController.init(title: nil, dataArray: [[RPShareItem.shareToWeChat(),RPShareItem.shareToWechatCircle()]]) { (indexPath) in
+            let share = RPShareViewController.init(title: nil, dataArray: [[RPShareItem.shareToWeChat(),RPShareItem.shareToWechatCircle(),RPShareItem.shareToWeChat(),RPShareItem.shareToWechatCircle(),RPShareItem.shareToWeChat(),RPShareItem.shareToWechatCircle()]]) { (indexPath) in
                 log.debug(indexPath)
             }
             self.viewController?.present(share, animated: true, completion: nil)

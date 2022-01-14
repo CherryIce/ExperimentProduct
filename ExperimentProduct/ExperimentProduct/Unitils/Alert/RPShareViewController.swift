@@ -157,6 +157,11 @@ class RPShareSheetCell: UICollectionViewCell,UICollectionViewDataSource,UICollec
         }
     }
     
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        let shareCell = cell as! RPShareViewCell
+        shareCell.showAnimations(indexPath)
+    }
+    
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -164,7 +169,7 @@ class RPShareSheetCell: UICollectionViewCell,UICollectionViewDataSource,UICollec
 }
 
 class RPShareViewCell: UICollectionViewCell {
-    
+    var showAnimation:Bool = false
     var imgV = UIImageView()
     var title = UILabel()
     var item: RPShareItem{
@@ -196,6 +201,21 @@ class RPShareViewCell: UICollectionViewCell {
         imgV.center.x = self.frame.size.width * 0.5
         
         title.frame = CGRect.init(x: 0, y: imgV.frame.maxY + 5, width: self.frame.size.width, height: 20)
+    }
+    
+    func showAnimations(_ indexPath:IndexPath) {
+        if showAnimation {
+            return
+        }
+        self.transform = CGAffineTransform(scaleX: 0.0, y: -2)
+        UIView.animate(withDuration: 0.5,
+                       delay: 0.1*Double(indexPath.item),
+                       usingSpringWithDamping: 0.5, initialSpringVelocity: 0, options: UIView.AnimationOptions.curveEaseIn) {
+            self.transform = CGAffineTransform.identity
+            self.showAnimation = true
+        } completion: { [weak self] finished in
+            self?.showAnimation = true
+        }
     }
     
     required init?(coder: NSCoder) {
